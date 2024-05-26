@@ -1,0 +1,11 @@
+/.vs
+/.vscode
+/apks
+/Library
+/Logs
+/obj
+/Temp
+/UserSettings
+.vsconfig
+*.sln
+*.csproj
