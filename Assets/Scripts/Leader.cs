@@ -1,9 +1,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 //TODO no matches to swap
@@ -21,7 +22,7 @@ public class Leader : MonoBehaviour
     [SerializeField]
     private GameObject _selector;
 
-    public Data Data { private set; get; }
+    public Data MyData { private set; get; }
 
     [NonSerialized]
     public GameObject SelectedGameObject;
@@ -52,14 +53,16 @@ public class Leader : MonoBehaviour
 
     private int _bonusFactor = 1;
 
-    private Player TargetPlayer => _currentPlayer == Data.player1 ? Data.player2 : Data.player1;
+    private Player TargetPlayer => _currentPlayer == MyData.player1 ? MyData.player2 : MyData.player1;
 
     private void Awake()
     {
         _origin = transform.position;
         _matchedItems = new List<GameObject>();
 
-        Data = GetComponent<Data>();
+        MyData = GetComponent<Data>();
+        MyData.Items.Destroy = go => DestroyItem(go);
+        
         ExplosionAnimations = new List<GameObject>();
 
         var itemSpriteRenderer = itemPrefabs[0].GetComponent<SpriteRenderer>();
@@ -71,87 +74,130 @@ public class Leader : MonoBehaviour
 
     private void Start()
     {
-        InitializeItems();
+        InitializeItems(MyData.inputFilename);
     }
 
+    // TODO auto-rerange Data.Items if it has no swappble items
     private void Update()
     {
-        if (Data.GameState == GameState.ChoosingPlayer)
+        if (MyData.GameState == GameState.ChoosingPlayer)
         {
             ChoosePlayer();
         }
-        if (Data.GameState == GameState.Swapping)
+        else if (MyData.GameState == GameState.Swapping)
         {
             Swap2Items();
         }
-        else if (Data.GameState == GameState.FindingMatches)
+        else if (MyData.GameState == GameState.FindingMatches)
         {
             FindMatches();
         }
-        else if (Data.GameState == GameState.RemovingMatches)
+        else if (MyData.GameState == GameState.RemovingMatches)
         {
             RemoveMatches();
         }
-        else if (Data.GameState == GameState.UndoSwapping)
+        else if (MyData.GameState == GameState.UndoSwapping)
         {
             UndoSwapping();
         }
-        else if (Data.GameState == GameState.SetupItemsFall)
+        else if (MyData.GameState == GameState.SetupItemsFall)
         {
             SetupItemsFall();
         }
-        else if (Data.GameState == GameState.SpawningNewItems)
+        else if (MyData.GameState == GameState.SpawningNewItems)
         {
             SpawnItemsInColumns();
         }
-        else if (Data.GameState == GameState.ItemsFalling)
+        else if (MyData.GameState == GameState.ItemsFalling)
         {
             DoItemsFall();
         }
-        else if (Data.GameState == GameState.ScanningMatchesInAlteredColumns)
+        else if (MyData.GameState == GameState.ScanningMatchesInAlteredColumns)
         {
             ScanMatchesInAlteredColumns();
             _bonusFactor++;
         }
-        else if (Data.GameState == GameState.ExplosionAnimationWaiting)
+        else if (MyData.GameState == GameState.ExplosionAnimationWaiting)
         {
             var explosionAlive = ExplosionAnimations.Select(it => it != null);
             if (explosionAlive.Count() <= 0)
             {
-                Data.GameState = GameState.SetupItemsFall;
+                MyData.GameState = GameState.SetupItemsFall;
             }
         }
-        else if (Data.GameState == GameState.CheckingGameOver)
+        else if (MyData.GameState == GameState.CheckingGameOver)
         {
             CheckGameOver();
+        }
+        else if (MyData.GameState == GameState.WaitingForAnimation)
+        {
+            if (MyData.player1.Idle && MyData.player2.Idle)
+            {
+                MyData.GameState = GameState.CheckingGameOver;
+            }
+        }
+
+        _currentPlayer?.ConsumeStamina(Time.deltaTime);
+    }
+
+    private void InitializeItems(string filename)
+    {
+        MyData.Items.Clear();
+
+        if (filename.Length == 0)
+        {
+            InitializeItems();
+            return;
+        }
+
+        var csvFile = Resources.Load<TextAsset>(filename);
+        if (csvFile is null)
+        {
+            Debug.Log($"{filename} doesn't exist!!!");
+            return;
+        }
+
+        var lines = csvFile.text.Split("\r\n");
+        for (int r = 0; r < MyData.NumberOfRow; r++)
+        {
+            var cells = lines[MyData.NumberOfRow - 1 - r].Split(",");
+            for (int c = 0; c < MyData.NumberOfColumn; c++)
+            {
+                var go = itemPrefabs.Where(it => it.tag == cells[c])
+                                    .First();
+
+                var newGameObjectPosition = _origin + new Vector2(c * _itemSize.x, r * _itemSize.y);
+                var newGameObject = Instantiate(go, newGameObjectPosition, Quaternion.identity, transform);
+                var newGameObjectItem = newGameObject.GetComponent<Item>();
+                if (newGameObjectItem != null)
+                {
+                    newGameObjectItem.row = r;
+                    newGameObjectItem.col = c;
+                }
+                MyData.Items[c, r] = newGameObject;
+            }
         }
     }
 
     private void InitializeItems()
     {
-        for (int r = 0; r < Data.NumberOfRow; r++)
+        for (int r = 0; r < MyData.NumberOfRow; r++)
         {
-            for (int c = 0; c < Data.NumberOfColumn; c++)
+            for (int c = 0; c < MyData.NumberOfColumn; c++)
             {
                 GameObject newItem = null;
-                int count = 0;
-                int maxCount = 5;
-                while (true)
+                int maxCount = 10;
+
+                for (int i = 0; i < maxCount; i++)
                 {
                     newItem = GetRandomItem();
 
-                    var matchesOfTheItemInCol = Data.ItemsSupporter.GetMatchesInCol(newItem);
-                    var matchesOfTheItemInRow = Data.ItemsSupporter.GetMatchesInRow(newItem);
-                    if (matchesOfTheItemInCol.Count + 1 < Data.MinNumberOfMatches && matchesOfTheItemInRow.Count + 1 < Data.MinNumberOfMatches)
+                    var matchesOfTheItemInCol = MyData.ItemsSupporter.GetMatchesInCol(newItem);
+                    var matchesOfTheItemInRow = MyData.ItemsSupporter.GetMatchesInRow(newItem);
+                    if (matchesOfTheItemInCol.Count + 1 < MyData.MinNumberOfMatches && matchesOfTheItemInRow.Count + 1 < MyData.MinNumberOfMatches)
                     {
                         break;
                     }
-                    if (count > maxCount)
-                    {
-                        break;
-                    }
-
-                    count++;
                 }
 
                 if (newItem == null)
@@ -169,18 +215,50 @@ public class Leader : MonoBehaviour
                     newGameObjectItem.col = c;
                 }
 
-                Data.Items[c, r] = newGameObject;
+                MyData.Items[c, r] = newGameObject;
             }
         }
 
         var alterCols = new List<int>();
-        for (int iCol = 0; iCol < Data.NumberOfColumn; iCol++)
+        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
         {
             alterCols.Add(iCol);
         }
         _alterCols = alterCols;
 
-        Data.GameState = GameState.ScanningMatchesInAlteredColumns;
+        MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
+    }
+
+    public void ExportItems()
+    {
+        const string filename = "Assets/Resources/Text/output.csv";
+        
+        using (StreamWriter outputFile = File.CreateText(filename))
+        {
+            for (int r = MyData.Items.RowLength - 1; r >= 0; r--)
+            {
+                var line = "";
+                for (int c = 0; c < MyData.Items.RowLength; c++)
+                {
+                    line += MyData.Items[c, r].tag + ",";
+                }
+                line = line.Remove(line.Length - 1);
+
+                outputFile.WriteLine(line);
+            }
+        }
+    }
+
+    public void OnTestcaseEditTextSubmit(string value)
+    {
+        if(value.Length <= 0)
+        {
+            InitializeItems("");
+            return;
+        }
+
+        var testcaseNumber = string.Format("{0:000}", int.Parse(value));
+        InitializeItems("Text/" + testcaseNumber);
     }
 
     private GameObject GetRandomItem() => itemPrefabs[Random.Range(0, itemPrefabs.Length)];
@@ -189,135 +267,97 @@ public class Leader : MonoBehaviour
     {
         if (_currentPlayer == null)
         {
-            if (Data.player1.level >= Data.player2.level)
+            if (MyData.player1.level >= MyData.player2.level)
             {
-                _currentPlayer = Data.player1;
+                _currentPlayer = MyData.player1;
             }
             else
             {
-                _currentPlayer = Data.player2;
+                _currentPlayer = MyData.player2;
             }
 
-            _currentPlayer.nTurns = 1;
+            _currentPlayer.NTurns = 1;
         }
         else
         {
-            if (_currentPlayer.nTurns <= 0)
+            if (_currentPlayer.NTurns <= 0)
             {
-                if (_currentPlayer == Data.player1)
+                if (_currentPlayer == MyData.player1)
                 {
-                    _currentPlayer = Data.player2;
+                    _currentPlayer = MyData.player2;
                 }
                 else
                 {
-                    _currentPlayer = Data.player1;
+                    _currentPlayer = MyData.player1;
                 }
-                _currentPlayer.nTurns++;
+                _currentPlayer.NTurns++;
             }
         }
         _bonusFactor = 1;
-        _currentPlayer.nTurns--;
+        _currentPlayer.NTurns--;
         _selector.transform.position = _currentPlayer.transform.position;
 
-        if (_currentPlayer == Data.player1)
+        if (_currentPlayer == MyData.player1)
         {
-            Data.GameState = GameState.Player1Turn;
+            MyData.GameState = GameState.Player1Turn;
         }
         else
         {
-            Data.GameState = GameState.Player2Turn;
+            MyData.GameState = GameState.Player2Turn;
         }
     }
 
     private void Swap2Items()
     {
-        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreDraggedPosition, Data.SwapAnimationDuration);
-        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreSelectedPosition, Data.SwapAnimationDuration);
+        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreDraggedPosition, MyData.SwapAnimationDuration);
+        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreSelectedPosition, MyData.SwapAnimationDuration);
 
         var delta = SelectedGameObject.transform.position - PreDraggedPosition;
-        if (delta.magnitude < Data.MyEpsilon)
+        if (delta.magnitude < MyData.MyEpsilon)
         {
-            Data.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
+            MyData.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
 
-            Data.GameState = GameState.FindingMatches;
+            MyData.GameState = GameState.FindingMatches;
             Debug.Log("swapping has done");
         }
     }
 
     private void UndoSwapping()
     {
-        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreSelectedPosition, Data.SwapAnimationDuration);
-        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreDraggedPosition, Data.SwapAnimationDuration);
+        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreSelectedPosition, MyData.SwapAnimationDuration);
+        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreDraggedPosition, MyData.SwapAnimationDuration);
 
         var delta = SelectedGameObject.transform.position - PreSelectedPosition;
-        if (delta.magnitude < Data.MyEpsilon)
+        if (delta.magnitude < MyData.MyEpsilon)
         {
-            Data.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
+            MyData.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
 
-            Data.GameState = GameState.ChoosingPlayer;
+            MyData.GameState = GameState.ChoosingPlayer;
             Debug.Log("undo-swapping has done");
         }
     }
 
     private void FindMatches()
     {
-        var matchesOfSelectedItemInCol = Data.ItemsSupporter.GetMatchesInCol(SelectedGameObject);
-        var matchesOfSelectedItemInRow = Data.ItemsSupporter.GetMatchesInRow(SelectedGameObject);
-        var matchesOfDraggedItemInCol = Data.ItemsSupporter.GetMatchesInCol(DraggedGameObject);
-        var matchesOfDraggedItemInRow = Data.ItemsSupporter.GetMatchesInRow(DraggedGameObject);
+        _matchedItems.Clear();
 
-        // if the swaping doesn't make matching, undo-swap
-        if (!(matchesOfSelectedItemInCol.Count + 1 >= Data.MinNumberOfMatches ||
-        matchesOfSelectedItemInRow.Count + 1 >= Data.MinNumberOfMatches ||
-        matchesOfDraggedItemInCol.Count + 1 >= Data.MinNumberOfMatches ||
-        matchesOfDraggedItemInRow.Count + 1 >= Data.MinNumberOfMatches))
+        var existMatchesInDragged = FindMatchedItems(DraggedGameObject);
+        var existMatchesInSelected = FindMatchedItems(SelectedGameObject);
+
+        if (!existMatchesInDragged && !existMatchesInSelected)
         {
-            Data.GameState = GameState.UndoSwapping;
+            MyData.GameState = GameState.UndoSwapping;
             return;
         }
 
-        // else add to matchingCandidates list
-        _matchedItems.Clear();
-
-        Action<GameObject, List<GameObject>, int> action = (go, gos, nMatches) =>
-        {
-            if (nMatches > Data.MinNumberOfMatches)
-            {
-                _currentPlayer.nTurns++;
-            }
-
-            _matchedItems.Add(go);
-            gos.ForEach(it => _matchedItems.Add(it));
-        };
-
-        if (matchesOfSelectedItemInCol.Count + 1 >= Data.MinNumberOfMatches)
-        {
-            action(SelectedGameObject, matchesOfSelectedItemInCol, matchesOfSelectedItemInCol.Count + 1);
-        }
-
-        if (matchesOfSelectedItemInRow.Count + 1 >= Data.MinNumberOfMatches)
-        {
-            action(SelectedGameObject, matchesOfSelectedItemInRow, matchesOfSelectedItemInRow.Count + 1);
-        }
-
-        if (matchesOfDraggedItemInCol.Count + 1 >= Data.MinNumberOfMatches)
-        {
-            action(DraggedGameObject, matchesOfDraggedItemInCol, matchesOfDraggedItemInCol.Count + 1);
-        }
-
-        if (matchesOfDraggedItemInRow.Count + 1 >= Data.MinNumberOfMatches)
-        {
-            action(DraggedGameObject, matchesOfDraggedItemInRow, matchesOfDraggedItemInRow.Count + 1);
-        }
-
-        Data.GameState = GameState.RemovingMatches;
+        MyData.GameState = GameState.RemovingMatches;
     }
 
     private void RemoveMatches()
     {
         if (_matchedItems == null || _matchedItems.Count() <= 0)
         {
-            Data.GameState = GameState.CheckingGameOver;
+            MyData.GameState = GameState.WaitingForAnimation;
             return;
         }
 
@@ -342,10 +382,19 @@ public class Leader : MonoBehaviour
                 {
                     _currentPlayer?.Attack(TargetPlayer, _bonusFactor);
                 }
-                if (matchedItem.tag == "HP")
+                else if (matchedItem.tag == "HP")
                 {
-                    _currentPlayer?.Restore(_bonusFactor);
+                    _currentPlayer?.RestoreHP(_bonusFactor);
                 }
+                else if (matchedItem.tag == "MP")
+                {
+                    _currentPlayer?.RestoreMana(_bonusFactor);
+                }
+                else if (matchedItem.tag == "Stamina")
+                {
+                    _currentPlayer?.RestoreStamina(_bonusFactor);
+                }
+
 
                 DestroyItem(matchedItem);
 
@@ -354,7 +403,7 @@ public class Leader : MonoBehaviour
 
         _alterCols = alterCols.Distinct().OrderBy(it => it);
 
-        Data.GameState = GameState.ExplosionAnimationWaiting;
+        MyData.GameState = GameState.ExplosionAnimationWaiting;
     }
 
     private void SetupItemsFall()
@@ -363,11 +412,11 @@ public class Leader : MonoBehaviour
 
         foreach (var alterCol in _alterCols)
         {
-            for (int iRow = 0; iRow < Data.NumberOfRow; iRow++)
+            for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
             {
-                if (Data.Items[alterCol, iRow] == null)
+                if (MyData.Items[alterCol, iRow] == null)
                 {
-                    var itemsInColumn = Data.Items.AsList
+                    var itemsInColumn = MyData.Items.AsList
                         .Where(it =>
                         {
                             if (it == null)
@@ -394,21 +443,21 @@ public class Leader : MonoBehaviour
                             _itemsFallings.Add((itemsInColumn[i], des));
                         }
 
-                        Data.Items[item.col, item.row] = itemsInColumn[i];
+                        MyData.Items[item.col, item.row] = itemsInColumn[i];
                     }
 
                 }
             }
         }
 
-        Data.GameState = GameState.SpawningNewItems;
+        MyData.GameState = GameState.SpawningNewItems;
     }
 
     private void SpawnItemsInColumns()
     {
-        for (int iCol = 0; iCol < Data.NumberOfColumn; iCol++)
+        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
         {
-            var items = Data.Items.AsList
+            var items = MyData.Items.AsList
                 .Where(it =>
                 {
                     if (it == null)
@@ -419,11 +468,11 @@ public class Leader : MonoBehaviour
                 })
                 .Distinct();
 
-            for (int iRow = items.Count(); iRow < Data.NumberOfRow; iRow++)
+            for (int iRow = items.Count(); iRow < MyData.NumberOfRow; iRow++)
             {
                 var newItem = GetRandomItem();
 
-                var newGameObjectPosition = new Vector2(_origin.x + iCol * _itemSize.x, _origin.y + (Data.NumberOfRow + iRow - items.Count()) * _itemSize.y);
+                var newGameObjectPosition = new Vector2(_origin.x + iCol * _itemSize.x, _origin.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y);
                 var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
                 var newGameObjectItem = newGameObject.GetComponent<Item>();
                 if (newGameObjectItem != null)
@@ -432,27 +481,27 @@ public class Leader : MonoBehaviour
                     newGameObjectItem.col = iCol;
                 }
 
-                Data.Items[iCol, iRow] = newGameObject;
+                MyData.Items[iCol, iRow] = newGameObject;
 
                 var des = new Vector3(newGameObjectPosition.x, _origin.y + iRow * _itemSize.y);
                 _itemsFallings.Add((newGameObject, des));
             }
         }
 
-        Data.GameState = GameState.ItemsFalling;
+        MyData.GameState = GameState.ItemsFalling;
     }
 
     private void DoItemsFall()
     {
         if (_itemsFallings.Count <= 0)
         {
-            Data.GameState = GameState.ScanningMatchesInAlteredColumns;
+            MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
             return;
         }
 
         foreach ((var go, var des) in _itemsFallings)
         {
-            go.transform.position = Vector2.MoveTowards(go.transform.position, des, Data.FallAnimationDuration);
+            go.transform.position = Vector2.MoveTowards(go.transform.position, des, MyData.FallAnimationDuration);
 
         }
 
@@ -460,12 +509,12 @@ public class Leader : MonoBehaviour
         foreach ((var go, var des) in _itemsFallings)
         {
             var delta = go.transform.position - des;
-            if (delta.sqrMagnitude > Data.MyEpsilon)
+            if (delta.sqrMagnitude > MyData.MyEpsilon)
             {
-                Data.GameState = GameState.ItemsFalling;
+                MyData.GameState = GameState.ItemsFalling;
                 break;
             }
-            Data.GameState = GameState.ScanningMatchesInAlteredColumns;
+            MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
         }
     }
 
@@ -481,53 +530,87 @@ public class Leader : MonoBehaviour
 
         foreach (var iCol in _alterCols)
         {
-            for (int iRow = 0; iRow < Data.NumberOfRow; iRow++)
+            for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
             {
-                if (Data.Items[iCol, iRow] != null)
+                if (MyData.Items[iCol, iRow] != null)
                 {
-                    var matchesOfCandidateInCol = Data.ItemsSupporter.GetMatchesInCol(Data.Items[iCol, iRow]);
-                    if (matchesOfCandidateInCol.Count + 1 >= Data.MinNumberOfMatches)
-                    {
-                        action(Data.Items[iCol, iRow], matchesOfCandidateInCol);
-                    }
-
-                    var matchesOfCandidateInRow = Data.ItemsSupporter.GetMatchesInRow(Data.Items[iCol, iRow]);
-                    if (matchesOfCandidateInRow.Count + 1 >= Data.MinNumberOfMatches)
-                    {
-                        action(Data.Items[iCol, iRow], matchesOfCandidateInRow);
-                    }
+                    FindMatchedItems(MyData.Items[iCol, iRow]);
                 }
             }
         }
 
-        Data.GameState = GameState.RemovingMatches;
+        MyData.GameState = GameState.RemovingMatches;
     }
 
     private void CheckGameOver()
     {
-        if (Data.player1.HP <= 0)
+        if (MyData.player1.HP <= 0 || MyData.player1.Stamina <= 0)
         {
             Debug.Log("You lose");
-            Data.GameState = GameState.GameOver;
+            MyData.GameState = GameState.GameOver;
         }
-        else if (Data.player2.HP <= 0)
+        else if (MyData.player2.HP <= 0 || MyData.player2.Stamina <= 0)
         {
             Debug.Log("You win");
-            Data.GameState = GameState.GameOver;
+            MyData.GameState = GameState.GameOver;
         }
         else
         {
-            Data.GameState = GameState.ChoosingPlayer;
+            MyData.GameState = GameState.ChoosingPlayer;
         }
 
+    }
+
+    private bool FindMatchedItems(GameObject go)
+    {
+        if (_matchedItems.Contains(go)) // in case matches in altered cols
+        {
+            return false;
+        }
+
+        var matchesInCol = MyData.ItemsSupporter.GetMatchesInCol(go);
+        var matchesInRow = MyData.ItemsSupporter.GetMatchesInRow(go);
+
+        if (matchesInCol.Count + 1 < MyData.MinNumberOfMatches &&
+            matchesInRow.Count + 1 < MyData.MinNumberOfMatches)
+        {
+            return false;
+        }
+
+        Action<GameObject, List<GameObject>> action = (go, gos) =>
+        {
+            _matchedItems.Add(go);
+            gos.ForEach(it => _matchedItems.Add(it));
+        };
+
+        if (matchesInCol.Count + 1 >= MyData.MinNumberOfMatches)
+        {
+            action(go, matchesInCol);
+        }
+
+        if (matchesInRow.Count + 1 >= MyData.MinNumberOfMatches)
+        {
+            action(go, matchesInRow);
+        }
+
+        var nMatchesSelected = matchesInCol.Count + matchesInRow.Count;
+        if (nMatchesSelected + 1 > MyData.MinNumberOfMatches)
+        {
+            if (_currentPlayer != null)
+            {
+                _currentPlayer.NTurns++;
+            }
+        }
+
+        return true;
     }
 
     public void DestroyItem(GameObject go)
     {
         var item = go.GetComponent<Item>();
-        if (Data.Items[item.col, item.row] != null)
+        if (MyData.Items[item.col, item.row] != null)
         {
-            Data.Items[item.col, item.row] = null;
+            MyData.Items[item.col, item.row] = null;
             Destroy(go);
         }
     }

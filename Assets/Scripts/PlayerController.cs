@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_leader.Data.GameState == GameState.Player1Turn)
+        if (_leader.MyData.GameState == GameState.Player1Turn)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
                     _leader.DraggedGameObject = hit.collider.gameObject;
                     _leader.PreSelectedPosition = _leader.SelectedGameObject.transform.position;
                     _leader.PreDraggedPosition = _leader.DraggedGameObject.transform.position;
-                    _leader.Data.GameState = GameState.Swapping;
+                    _leader.MyData.GameState = GameState.Swapping;
                 }
             }
         }

@@ -1,12 +1,16 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
 public class Record : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI _nTurns;
+
     [SerializeField]
     private TextMeshProUGUI _attackScore;
 
@@ -25,6 +29,17 @@ public class Record : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _staminaScore;
 
+    private void Awake()
+    {
+        Assert.IsNotNull(_nTurns, "Please assign '_nTurns'");
+        Assert.IsNotNull(_attackScore, "Please assign '_attackScore'");
+        Assert.IsNotNull(_expScore, "Please assign '_expScore'");
+        Assert.IsNotNull(_goldScore, "Please assign '_goldScore'");
+        Assert.IsNotNull(_hpScore, "Please assign '_hpScore'");
+        Assert.IsNotNull(_mpScore, "Please assign '_mpScore'");
+        Assert.IsNotNull(_staminaScore, "Please assign '_staminaScore'");
+    }
+
     private int? GetValue(TextMeshProUGUI text)
     {
         try
@@ -38,6 +53,7 @@ public class Record : MonoBehaviour
 
         return null;
     }
+    public int NTurns { set => _nTurns.text = $"{value}"; get => GetValue(_nTurns) ?? -1; }
 
     public int AttackScore { set => _attackScore.text = $"{value}"; get => GetValue(_attackScore) ?? -1; }
 

@@ -121,7 +121,7 @@ public class ItemsSupporter
         return matches;
     }
 
-    // selected(col, row), dragged(col, row), nMatches
+    // return: selected(col, row), dragged(col, row), nMatches
     public IEnumerable<(ItemLocation, ItemLocation, int)> AllSwappableItems
     {
         get

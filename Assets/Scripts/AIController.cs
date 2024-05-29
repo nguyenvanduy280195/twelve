@@ -14,16 +14,16 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        if (_leader.Data.GameState == GameState.Player2Turn)
+        if (_leader.MyData.GameState == GameState.Player2Turn)
         {
             (var iSelected, var iDragged) = Level1;
 
-            _leader.SelectedGameObject = _leader.Data.Items[iSelected.iCol, iSelected.iRow];
-            _leader.DraggedGameObject = _leader.Data.Items[iDragged.iCol, iDragged.iRow];
+            _leader.SelectedGameObject = _leader.MyData.Items[iSelected.iCol, iSelected.iRow];
+            _leader.DraggedGameObject = _leader.MyData.Items[iDragged.iCol, iDragged.iRow];
             _leader.PreSelectedPosition = _leader.SelectedGameObject.transform.position;
             _leader.PreDraggedPosition = _leader.DraggedGameObject.transform.position;
 
-            _leader.Data.GameState = GameState.Swapping;
+            _leader.MyData.GameState = GameState.Swapping;
         }
     }
 
@@ -31,7 +31,7 @@ public class AIController : MonoBehaviour
     {
         get
         {
-            var locationsOfSwappableItem = _leader.Data.ItemsSupporter.AllSwappableItems.Distinct();
+            var locationsOfSwappableItem = _leader.MyData.ItemsSupporter.AllSwappableItems.Distinct();
             var randomIndex = Random.Range(0, locationsOfSwappableItem.Count());
             (var iSelected, var iDragged, _) = locationsOfSwappableItem.ElementAt(randomIndex);
             return (iSelected, iDragged);
@@ -44,7 +44,7 @@ public class AIController : MonoBehaviour
     {
         get
         {
-            var locationsOfSwappableItem = _leader.Data.ItemsSupporter.AllSwappableItems.Distinct();
+            var locationsOfSwappableItem = _leader.MyData.ItemsSupporter.AllSwappableItems.Distinct();
             (var iSelected, var iDragged, _) = locationsOfSwappableItem.Distinct()
                                                                        .Aggregate((it1, it2) => it1.Item3 > it2.Item3 ? it1 : it2);
             return (iSelected, iDragged);

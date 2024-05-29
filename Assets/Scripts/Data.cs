@@ -8,6 +8,7 @@ public class Data : MonoBehaviour
     public int NumberOfColumn = 8;
     public int MinNumberOfMatches = 3;
     public float MyEpsilon = 0.000001f;
+    public string inputFilename = "";
 
     [Header("Animation Durations")]
     public float SwapAnimationDuration = 0.2f;

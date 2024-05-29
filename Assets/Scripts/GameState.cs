@@ -14,6 +14,8 @@ public enum GameState
     ScanningMatchesInAlteredColumns,
     ExplosionAnimationWaiting,
     CheckingGameOver,
-    CheckingNonSwappable,
-    GameOver
+    CheckingNoSwappable, // TODO unused
+    GameOver,
+    WaitingForAnimation
+
 }

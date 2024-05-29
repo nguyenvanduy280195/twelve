@@ -51,7 +51,26 @@ public class ItemArray
 
     public List<GameObject> AsList => _gameObjectList.Cast<GameObject>().ToList();
 
-    public int RowLength => _nRows; 
+    public Action<GameObject> Destroy;
+
+    public int RowLength => _nRows;
     public int ColLength => _nCols;
     public int MinNumberOfMatches => _minNumberOfMatches;
+
+    public void Clear()
+    {
+        if (Destroy is null)
+        {
+            Debug.LogWarning($"Please assign Destroy property");
+            return;
+        }
+
+        foreach (var go in _gameObjectList)
+        {
+            if (go != null)
+            {
+                Destroy(go);
+            }
+        }
+    }
 }

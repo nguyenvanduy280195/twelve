@@ -1,0 +1,8 @@
+Exp,Stamina,MP,Exp,Stamina,HP,HP,MP
+HP,Gold,Attack,HP,MP,Stamina,Exp,Stamina
+Attack,Attack,Stamina,Stamina,HP,Gold,Exp,Gold
+Attack,Stamina,Attack,Gold,Stamina,Gold,Gold,Stamina
+HP,Attack,Gold,Attack,HP,Attack,Exp,HP
+MP,HP,Stamina,Attack,Exp,MP,Exp,Gold
+HP,Exp,HP,Gold,HP,Stamina,Stamina,MP
+Stamina,HP,Stamina,HP,Exp,Attack,Attack,Exp
