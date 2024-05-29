@@ -16,6 +16,6 @@ public enum GameState
     CheckingGameOver,
     CheckingNoSwappable, // TODO unused
     GameOver,
-    WaitingForAnimation
+    WaitingForAnimationDone
 
 }

@@ -129,7 +129,7 @@ public class Leader : MonoBehaviour
         {
             CheckGameOver();
         }
-        else if (MyData.GameState == GameState.WaitingForAnimation)
+        else if (MyData.GameState == GameState.WaitingForAnimationDone)
         {
             if (MyData.player1.Idle && MyData.player2.Idle)
             {
@@ -357,7 +357,7 @@ public class Leader : MonoBehaviour
     {
         if (_matchedItems == null || _matchedItems.Count() <= 0)
         {
-            MyData.GameState = GameState.WaitingForAnimation;
+            MyData.GameState = GameState.WaitingForAnimationDone;
             return;
         }
 
