@@ -7,8 +7,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
-//TODO no matches to swap
-
 [RequireComponent(typeof(Data))]
 public class Leader : MonoBehaviour
 {
@@ -54,6 +52,8 @@ public class Leader : MonoBehaviour
     private int _bonusFactor = 1;
 
     private Player TargetPlayer => _currentPlayer == MyData.player1 ? MyData.player2 : MyData.player1;
+
+    private GameObject RandomItem => itemPrefabs[Random.Range(0, itemPrefabs.Length)];
 
     private void Awake()
     {
@@ -190,7 +190,7 @@ public class Leader : MonoBehaviour
 
                 for (int i = 0; i < maxCount; i++)
                 {
-                    newItem = GetRandomItem();
+                    newItem = RandomItem;
 
                     var matchesOfTheItemInCol = MyData.ItemsSupporter.GetMatchesInCol(newItem);
                     var matchesOfTheItemInRow = MyData.ItemsSupporter.GetMatchesInRow(newItem);
@@ -260,8 +260,6 @@ public class Leader : MonoBehaviour
         var testcaseNumber = string.Format("{0:000}", int.Parse(value));
         InitializeItems("Text/" + testcaseNumber);
     }
-
-    private GameObject GetRandomItem() => itemPrefabs[Random.Range(0, itemPrefabs.Length)];
 
     private void ChoosePlayer()
     {
@@ -361,7 +359,6 @@ public class Leader : MonoBehaviour
             return;
         }
 
-
         var alterCols = new List<int>();
         foreach (var matchedItem in _matchedItems)
         {
@@ -394,7 +391,6 @@ public class Leader : MonoBehaviour
                 {
                     _currentPlayer?.RestoreStamina(_bonusFactor);
                 }
-
 
                 DestroyItem(matchedItem);
 
@@ -470,7 +466,7 @@ public class Leader : MonoBehaviour
 
             for (int iRow = items.Count(); iRow < MyData.NumberOfRow; iRow++)
             {
-                var newItem = GetRandomItem();
+                var newItem = RandomItem;
 
                 var newGameObjectPosition = new Vector2(_origin.x + iCol * _itemSize.x, _origin.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y);
                 var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
@@ -499,21 +495,22 @@ public class Leader : MonoBehaviour
             return;
         }
 
+        bool itemsFell = true;
+
         foreach ((var go, var des) in _itemsFallings)
         {
             go.transform.position = Vector2.MoveTowards(go.transform.position, des, MyData.FallAnimationDuration);
 
-        }
-
-        //TODO find a new way is better than that
-        foreach ((var go, var des) in _itemsFallings)
-        {
             var delta = go.transform.position - des;
             if (delta.sqrMagnitude > MyData.MyEpsilon)
             {
-                MyData.GameState = GameState.ItemsFalling;
-                break;
+                itemsFell = false;
             }
+        }
+
+
+        if(itemsFell)
+        {
             MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
         }
     }
@@ -561,6 +558,7 @@ public class Leader : MonoBehaviour
 
     }
 
+    //TODO bug: nMatches is MinMatches, bonus turn still increases
     private bool FindMatchedItems(GameObject go)
     {
         if (_matchedItems.Contains(go)) // in case matches in altered cols
@@ -594,7 +592,7 @@ public class Leader : MonoBehaviour
         }
 
         var nMatchesSelected = matchesInCol.Count + matchesInRow.Count;
-        if (nMatchesSelected + 1 > MyData.MinNumberOfMatches)
+        if (nMatchesSelected + 1 > MyData.MinNumberOfMatches) // nMatches >= 4
         {
             if (_currentPlayer != null)
             {

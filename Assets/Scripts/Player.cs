@@ -95,7 +95,6 @@ public class Player : MonoBehaviour
         Assert.IsNotNull(_staminaBar, "Please assign '_staminaBar'");
         Assert.IsNotNull(_records, "Please assign '_records'");
         Assert.IsNotNull(_attackPosition, "Please assign '_attackPosition'");
-
     }
 
     private void Start()
@@ -106,10 +105,14 @@ public class Player : MonoBehaviour
         _staminaBar.MaxValue = maxStamina;
         _playerPosition = transform.position;
         _animator = GetComponent<Animator>();
+
         _actions = new Dictionary<PlayerState, List<Action>>();
+        _actions[PlayerState.Idle] = new List<Action>();
+        _actions[PlayerState.Attack] = new List<Action>();
+        _actions[PlayerState.TakeHit] = new List<Action>();
+        _actions[PlayerState.Run] = new List<Action>();
 
         State = PlayerState.Idle;
-
     }
 
     private void Update()
@@ -172,18 +175,6 @@ public class Player : MonoBehaviour
         {
             _records.GoldScore += score;
         }
-        else if (tagScore == "HP")
-        {
-            _records.HPScore += score;
-        }
-        else if (tagScore == "MP")
-        {
-            _records.MPScore += score;
-        }
-        else if (tagScore == "Stamina")
-        {
-            _records.StaminaScore += score;
-        }
     }
 
     public void Attack(Player target, float bonusFactor)
@@ -195,16 +186,19 @@ public class Player : MonoBehaviour
             InAttackingWave = true;
         }
 
-        if (!_actions.ContainsKey(PlayerState.Attack))
-        {
-            _actions[PlayerState.Attack] = new List<Action>();
-        }
-
         _actions[PlayerState.Attack].Add(() =>
         {
-            State = PlayerState.Attack;
-            target.TakeHit(attack * bonusFactor);
+            if (_state == PlayerState.Attack)
+            {
+                State = PlayerState.Attack;
+            }
+            _animator.SetBool("again", true);
         });
+
+        _actions[PlayerState.Attack].Add(() => target.TakeHit(attack * bonusFactor));
+
+        _actions[PlayerState.Attack].Add(() => _animator.SetBool("again", false));
+
     }
 
     public void TakeHit(float damage)
@@ -212,11 +206,6 @@ public class Player : MonoBehaviour
         if (_state == PlayerState.Idle)
         {
             State = PlayerState.TakeHit;
-        }
-
-        if (!_actions.ContainsKey(PlayerState.TakeHit))
-        {
-            _actions[PlayerState.TakeHit] = new List<Action>();
         }
 
         _actions[PlayerState.TakeHit].Add(() =>
