@@ -36,13 +36,16 @@ public class Player : MonoBehaviour
     private float _regenStamina;
 
     [SerializeField]
-    private Record _records;
-
-    [SerializeField]
     private Transform _attackPosition;
 
     [SerializeField]
     private float _moveDuration = 1f;
+
+    [NonSerialized]
+    public int nGold = 0;
+
+    [NonSerialized]
+    public int nExp = 0;
 
     private Vector3 _playerPosition = Vector3.zero;
 
@@ -52,6 +55,12 @@ public class Player : MonoBehaviour
     public bool Idle => _state == PlayerState.Idle;
 
     public float HP => _healthBar.Value;
+
+    public float Mana
+    {
+        get => _manaBar.Value;
+        set => _manaBar.Value = value;
+    }
 
     public float Stamina => _staminaBar.Value;
 
@@ -64,17 +73,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int NTurns
-    {
-        get => _nTurns;
-        set
-        {
-            _nTurns = value;
-            _records.NTurns = value;
-        }
-    }
-
-    private int _nTurns;
+    public int nTurns;
 
     [NonSerialized]
     private const string ANIMATOR_NAME = "AnimationState";
@@ -93,7 +92,6 @@ public class Player : MonoBehaviour
         Assert.IsNotNull(_healthBar, "Please assign '_healthBar'");
         Assert.IsNotNull(_manaBar, "Please assign '_manaBar'");
         Assert.IsNotNull(_staminaBar, "Please assign '_staminaBar'");
-        Assert.IsNotNull(_records, "Please assign '_records'");
         Assert.IsNotNull(_attackPosition, "Please assign '_attackPosition'");
     }
 
@@ -111,6 +109,7 @@ public class Player : MonoBehaviour
         _actions[PlayerState.Attack] = new List<Action>();
         _actions[PlayerState.TakeHit] = new List<Action>();
         _actions[PlayerState.Run] = new List<Action>();
+        _actions[PlayerState.Ulti] = new List<Action>();
 
         State = PlayerState.Idle;
     }
@@ -125,7 +124,7 @@ public class Player : MonoBehaviour
                 var delta = transform.position - _attackPosition.position;
                 if (delta.sqrMagnitude < 0.001f)
                 {
-                    State = PlayerState.Attack;
+                    OnAnimationEnd(PlayerState.Run);
                 }
             }
             else
@@ -134,9 +133,7 @@ public class Player : MonoBehaviour
                 var delta = transform.position - _playerPosition;
                 if (delta.sqrMagnitude < 0.001f)
                 {
-
-                    FlipX();
-                    State = PlayerState.Idle;
+                    OnAnimationEnd(PlayerState.Run);
                 }
             }
         }
@@ -149,6 +146,12 @@ public class Player : MonoBehaviour
                     FlipX();
                     State = PlayerState.Run;
                     InAttackingWave = false;
+
+                    _actions[PlayerState.Run].Add(() =>
+                    {
+                        FlipX();
+                        State = PlayerState.Idle;
+                    });
                 });
             }
         }
@@ -161,20 +164,43 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetScore(string tagScore, int score)
+    private void FixedUpdate()
     {
-        if (tagScore == "Attack")
+        if (HP <= 0)
         {
-            _records.AttackScore += score;
+            State = PlayerState.Death;
         }
-        else if (tagScore == "Exp")
+    }
+
+    public void DoSkill(Player target, float bonusFactor)
+    {
+        // only once
+        if (_state == PlayerState.Idle)
         {
-            _records.ExpScore += score;
+            State = PlayerState.Run;
+            InAttackingWave = true;
+
+            _actions[PlayerState.Run].Add(() => State = PlayerState.Ulti);
         }
-        else if (tagScore == "Gold")
+
+        for (int i = 0; i < 10; i++)
         {
-            _records.GoldScore += score;
+            _actions[PlayerState.Ulti].Add(() => target.TakeHit(attack * bonusFactor));
         }
+
+        _actions[PlayerState.Ulti].Add(() =>
+        {
+            FlipX();
+            Mana = 0;
+            State = PlayerState.Run;
+            InAttackingWave = false;
+        });
+
+        _actions[PlayerState.Run].Add(() =>
+        {
+            FlipX();
+            State = PlayerState.Idle;
+        });
     }
 
     public void Attack(Player target, float bonusFactor)
@@ -184,6 +210,8 @@ public class Player : MonoBehaviour
         {
             State = PlayerState.Run;
             InAttackingWave = true;
+
+            _actions[PlayerState.Run].Add(() => State = PlayerState.Attack);
         }
 
         _actions[PlayerState.Attack].Add(() =>
@@ -262,6 +290,8 @@ public class Player : MonoBehaviour
         Run = 6,
         Attack = 0,
         TakeHit = 7,
+        Death = 9,
+        Ulti = 8,
     }
 
 }

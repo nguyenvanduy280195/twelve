@@ -49,7 +49,7 @@ public class Leader : MonoBehaviour
 
     private Player _currentPlayer;
 
-    private int _bonusFactor = 1;
+    private float _bonusFactor = 1f;
 
     private Player TargetPlayer => _currentPlayer == MyData.player1 ? MyData.player2 : MyData.player1;
 
@@ -62,7 +62,7 @@ public class Leader : MonoBehaviour
 
         MyData = GetComponent<Data>();
         MyData.Items.Destroy = go => DestroyItem(go);
-        
+
         ExplosionAnimations = new List<GameObject>();
 
         var itemSpriteRenderer = itemPrefabs[0].GetComponent<SpriteRenderer>();
@@ -77,7 +77,6 @@ public class Leader : MonoBehaviour
         InitializeItems(MyData.inputFilename);
     }
 
-    // TODO auto-rerange Data.Items if it has no swappble items
     private void Update()
     {
         if (MyData.GameState == GameState.ChoosingPlayer)
@@ -140,6 +139,17 @@ public class Leader : MonoBehaviour
         _currentPlayer?.ConsumeStamina(Time.deltaTime);
     }
 
+    private void FixedUpdate()
+    {
+        if (_currentPlayer != null)
+        {
+            if (_currentPlayer.Mana >= _currentPlayer.maxMana && _currentPlayer.Idle)
+            {
+                _currentPlayer.DoSkill(TargetPlayer, _bonusFactor);
+            }
+        }
+    }
+
     private void InitializeItems(string filename)
     {
         MyData.Items.Clear();
@@ -194,7 +204,7 @@ public class Leader : MonoBehaviour
 
                     var matchesOfTheItemInCol = MyData.ItemsSupporter.GetMatchesInCol(newItem);
                     var matchesOfTheItemInRow = MyData.ItemsSupporter.GetMatchesInRow(newItem);
-                    if (matchesOfTheItemInCol.Count + 1 < MyData.MinNumberOfMatches && matchesOfTheItemInRow.Count + 1 < MyData.MinNumberOfMatches)
+                    if (matchesOfTheItemInCol.Count + 1 < MyData.MinMatches && matchesOfTheItemInRow.Count + 1 < MyData.MinMatches)
                     {
                         break;
                     }
@@ -232,7 +242,7 @@ public class Leader : MonoBehaviour
     public void ExportItems()
     {
         const string filename = "Assets/Resources/Text/output.csv";
-        
+
         using (StreamWriter outputFile = File.CreateText(filename))
         {
             for (int r = MyData.Items.RowLength - 1; r >= 0; r--)
@@ -251,7 +261,7 @@ public class Leader : MonoBehaviour
 
     public void OnTestcaseEditTextSubmit(string value)
     {
-        if(value.Length <= 0)
+        if (value.Length <= 0)
         {
             InitializeItems("");
             return;
@@ -274,11 +284,11 @@ public class Leader : MonoBehaviour
                 _currentPlayer = MyData.player2;
             }
 
-            _currentPlayer.NTurns = 1;
+            _currentPlayer.nTurns = 1;
         }
         else
         {
-            if (_currentPlayer.NTurns <= 0)
+            if (_currentPlayer.nTurns <= 0)
             {
                 if (_currentPlayer == MyData.player1)
                 {
@@ -288,11 +298,11 @@ public class Leader : MonoBehaviour
                 {
                     _currentPlayer = MyData.player1;
                 }
-                _currentPlayer.NTurns++;
+                _currentPlayer.nTurns++;
             }
         }
         _bonusFactor = 1;
-        _currentPlayer.NTurns--;
+        _currentPlayer.nTurns--;
         _selector.transform.position = _currentPlayer.transform.position;
 
         if (_currentPlayer == MyData.player1)
@@ -339,8 +349,10 @@ public class Leader : MonoBehaviour
     {
         _matchedItems.Clear();
 
-        var existMatchesInDragged = FindMatchedItems(DraggedGameObject);
-        var existMatchesInSelected = FindMatchedItems(SelectedGameObject);
+        Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;
+
+        var existMatchesInDragged = FindMatchedItems(DraggedGameObject, predicate);
+        var existMatchesInSelected = FindMatchedItems(SelectedGameObject, predicate);
 
         if (!existMatchesInDragged && !existMatchesInSelected)
         {
@@ -373,25 +385,33 @@ public class Leader : MonoBehaviour
                     ExplosionAnimations.Add(explosion);
                 }
 
-                _currentPlayer?.SetScore(matchedItem.tag, _bonusFactor);
-
-                if (matchedItem.tag == "Attack")
+                if (_currentPlayer != null)
                 {
-                    _currentPlayer?.Attack(TargetPlayer, _bonusFactor);
+                    if (matchedItem.tag == "Attack")
+                    {
+                        _currentPlayer.Attack(TargetPlayer, _bonusFactor);
+                    }
+                    else if (matchedItem.tag == "HP")
+                    {
+                        _currentPlayer.RestoreHP(_bonusFactor);
+                    }
+                    else if (matchedItem.tag == "MP")
+                    {
+                        _currentPlayer.RestoreMana(_bonusFactor);
+                    }
+                    else if (matchedItem.tag == "Stamina")
+                    {
+                        _currentPlayer.RestoreStamina(_bonusFactor);
+                    }
+                    else if (matchedItem.tag == "Gold")
+                    {
+                        _currentPlayer.nGold += (int)_bonusFactor;
+                    }
+                    else if (matchedItem.tag == "Exp")
+                    {
+                        _currentPlayer.nExp += (int)_bonusFactor;
+                    }
                 }
-                else if (matchedItem.tag == "HP")
-                {
-                    _currentPlayer?.RestoreHP(_bonusFactor);
-                }
-                else if (matchedItem.tag == "MP")
-                {
-                    _currentPlayer?.RestoreMana(_bonusFactor);
-                }
-                else if (matchedItem.tag == "Stamina")
-                {
-                    _currentPlayer?.RestoreStamina(_bonusFactor);
-                }
-
                 DestroyItem(matchedItem);
 
             }
@@ -509,7 +529,7 @@ public class Leader : MonoBehaviour
         }
 
 
-        if(itemsFell)
+        if (itemsFell)
         {
             MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
         }
@@ -525,13 +545,15 @@ public class Leader : MonoBehaviour
             gos.ForEach(it => _matchedItems.Add(it));
         };
 
+        Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;
+
         foreach (var iCol in _alterCols)
         {
             for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
             {
                 if (MyData.Items[iCol, iRow] != null)
                 {
-                    FindMatchedItems(MyData.Items[iCol, iRow]);
+                    FindMatchedItems(MyData.Items[iCol, iRow], predicate);
                 }
             }
         }
@@ -559,7 +581,7 @@ public class Leader : MonoBehaviour
     }
 
     //TODO bug: nMatches is MinMatches, bonus turn still increases
-    private bool FindMatchedItems(GameObject go)
+    private bool FindMatchedItems(GameObject go, Func<int, bool> predicateBonusTurn)
     {
         if (_matchedItems.Contains(go)) // in case matches in altered cols
         {
@@ -569,8 +591,8 @@ public class Leader : MonoBehaviour
         var matchesInCol = MyData.ItemsSupporter.GetMatchesInCol(go);
         var matchesInRow = MyData.ItemsSupporter.GetMatchesInRow(go);
 
-        if (matchesInCol.Count + 1 < MyData.MinNumberOfMatches &&
-            matchesInRow.Count + 1 < MyData.MinNumberOfMatches)
+        if (matchesInCol.Count + 1 < MyData.MinMatches &&
+            matchesInRow.Count + 1 < MyData.MinMatches)
         {
             return false;
         }
@@ -581,22 +603,26 @@ public class Leader : MonoBehaviour
             gos.ForEach(it => _matchedItems.Add(it));
         };
 
-        if (matchesInCol.Count + 1 >= MyData.MinNumberOfMatches)
+        if (matchesInCol.Count + 1 >= MyData.MinMatches)
         {
             action(go, matchesInCol);
         }
 
-        if (matchesInRow.Count + 1 >= MyData.MinNumberOfMatches)
+        if (matchesInRow.Count + 1 >= MyData.MinMatches)
         {
             action(go, matchesInRow);
         }
 
-        var nMatchesSelected = matchesInCol.Count + matchesInRow.Count;
-        if (nMatchesSelected + 1 > MyData.MinNumberOfMatches) // nMatches >= 4
+
+        if (predicateBonusTurn != null)
         {
-            if (_currentPlayer != null)
+            var nMatchesSelected = matchesInCol.Count + matchesInRow.Count;
+            if (predicateBonusTurn(nMatchesSelected))
             {
-                _currentPlayer.NTurns++;
+                if (_currentPlayer != null)
+                {
+                    _currentPlayer.nTurns++;
+                }
             }
         }
 

@@ -6,7 +6,7 @@ public class Data : MonoBehaviour
     [Header("General")]
     public int NumberOfRow = 8;
     public int NumberOfColumn = 8;
-    public int MinNumberOfMatches = 3;
+    public int MinMatches = 3;
     public float MyEpsilon = 0.000001f;
     public string inputFilename = "";
 
@@ -39,7 +39,7 @@ public class Data : MonoBehaviour
     
     public Data()
     {
-        Items = new ItemArray(NumberOfRow, NumberOfColumn, MinNumberOfMatches);
+        Items = new ItemArray(NumberOfRow, NumberOfColumn, MinMatches);
         ItemsSupporter = new ItemsSupporter(Items);
     }
 
