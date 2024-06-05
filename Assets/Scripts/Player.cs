@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -41,6 +42,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _moveDuration = 1f;
 
+    [SerializeField]
+    private TextMeshProUGUI _nTurnsText;
+
     [NonSerialized]
     public int nGold = 0;
 
@@ -53,6 +57,8 @@ public class Player : MonoBehaviour
     // =================================================================================
 
     public bool Idle => _state == PlayerState.Idle;
+
+    public bool Dealth => _state == PlayerState.Death;
 
     public float HP => _healthBar.Value;
 
@@ -73,7 +79,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int nTurns;
+    public int nTurns
+    {
+        get => _nTurns;
+        set
+        {
+            _nTurns = value;
+            _nTurnsText.text = $"{value}";
+        }
+    }
+
+    private int _nTurns;
 
     [NonSerialized]
     private const string ANIMATOR_NAME = "AnimationState";
@@ -93,6 +109,7 @@ public class Player : MonoBehaviour
         Assert.IsNotNull(_manaBar, "Please assign '_manaBar'");
         Assert.IsNotNull(_staminaBar, "Please assign '_staminaBar'");
         Assert.IsNotNull(_attackPosition, "Please assign '_attackPosition'");
+        Assert.IsNotNull(_nTurnsText, "Please assign '_nTurnsText'");
     }
 
     private void Start()
@@ -290,7 +307,7 @@ public class Player : MonoBehaviour
         Run = 6,
         Attack = 0,
         TakeHit = 7,
-        Death = 9,
+        Death = 2,
         Ulti = 8,
     }
 

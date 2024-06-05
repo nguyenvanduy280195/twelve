@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
@@ -134,6 +135,18 @@ public class Leader : MonoBehaviour
             {
                 MyData.GameState = GameState.CheckingGameOver;
             }
+            if (MyData.player1.Dealth || MyData.player2.Dealth)
+            {
+                MyData.GameState = GameState.CheckingGameOver;
+            }
+        }
+        else if (MyData.GameState == GameState.CheckingNoSwappable)
+        {
+            CheckNoSwappable();
+        }
+        else if (MyData.GameState == GameState.Rearrangement)
+        {
+            RearrangeItems();
         }
 
         _currentPlayer?.ConsumeStamina(Time.deltaTime);
@@ -575,12 +588,79 @@ public class Leader : MonoBehaviour
         }
         else
         {
-            MyData.GameState = GameState.ChoosingPlayer;
+            MyData.GameState = GameState.CheckingNoSwappable;
         }
 
     }
 
-    //TODO bug: nMatches is MinMatches, bonus turn still increases
+    private void CheckNoSwappable()
+    {
+        var nItems = MyData.ItemsSupporter.AllSwappableItems.Count();
+        if (nItems <= 0)
+        {
+            MyData.GameState = GameState.Rearrangement;
+        }
+        else
+        {
+            MyData.GameState = GameState.ChoosingPlayer;
+        }
+    }
+
+    private void RearrangeItems()
+    {
+        var items = new Dictionary<string, int>();
+
+
+
+        foreach (var item in MyData.Items.AsList)
+        {
+            if(!items.ContainsKey(item.tag))
+            {
+                items[item.tag] = 0;
+            }
+
+            items[item.tag]++;
+        }
+
+        MyData.Items.Clear();
+        _itemsFallings.Clear();
+
+        for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
+        {
+            for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
+            {
+                if(items.Keys.Count >= 0)
+                {
+                    var iItemPrefabs = Random.Range(0, itemPrefabs.Length);
+                    var key = itemPrefabs[iItemPrefabs].tag;
+                    while (items[key] <= 0)
+                    {
+                        iItemPrefabs = Random.Range(0, itemPrefabs.Length);
+                        key = itemPrefabs[iItemPrefabs].tag;
+                    }
+
+                    items[key]--;
+
+                    var newGameObjectPosition = new Vector2(_origin.x + iCol * _itemSize.x, _origin.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y);
+                    var newGameObject = Instantiate(itemPrefabs[iItemPrefabs], newGameObjectPosition, Quaternion.identity, transform);
+                    var newGameObjectItem = newGameObject.GetComponent<Item>();
+                    if (newGameObjectItem != null)
+                    {
+                        newGameObjectItem.row = iRow;
+                        newGameObjectItem.col = iCol;
+                    }
+
+                    MyData.Items[iCol, iRow] = newGameObject;
+
+                    var des = new Vector3(newGameObjectPosition.x, _origin.y + iRow * _itemSize.y);
+                    _itemsFallings.Add((newGameObject, des));
+                }
+            }
+        }
+
+        MyData.GameState = GameState.ItemsFalling;
+    }
+
     private bool FindMatchedItems(GameObject go, Func<int, bool> predicateBonusTurn)
     {
         if (_matchedItems.Contains(go)) // in case matches in altered cols
@@ -616,8 +696,15 @@ public class Leader : MonoBehaviour
 
         if (predicateBonusTurn != null)
         {
-            var nMatchesSelected = matchesInCol.Count + matchesInRow.Count;
-            if (predicateBonusTurn(nMatchesSelected))
+            if (predicateBonusTurn(matchesInRow.Count))
+            {
+                if (_currentPlayer != null)
+                {
+                    _currentPlayer.nTurns++;
+                }
+            }
+
+            if (predicateBonusTurn(matchesInCol.Count))
             {
                 if (_currentPlayer != null)
                 {

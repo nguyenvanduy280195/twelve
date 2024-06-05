@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UIElements;
 
 public class ItemsSupporter
 {
@@ -15,6 +16,8 @@ public class ItemsSupporter
             this.iCol = iCol;
             this.iRow = iRow;
         }
+
+        public bool Equals(ItemLocation other) => iCol == other.iCol && iRow == other.iRow;
     }
 
     private ItemArray _items;
