@@ -1753,7 +1753,7 @@ MonoBehaviour:
   NumberOfColumn: 8
   MinMatches: 3
   MyEpsilon: 0.000001
-  inputFilename: Text/009
+  inputFilename: 
   SwapAnimationDuration: 0.05
   FallAnimationDuration: 0.05
   player1: {fileID: 319532305}

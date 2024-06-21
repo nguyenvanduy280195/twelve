@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Data))]
@@ -524,6 +522,7 @@ public class Leader : MonoBehaviour
     {
         if (_itemsFallings.Count <= 0)
         {
+            _itemsFallings.Clear();
             MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
             return;
         }
@@ -541,7 +540,6 @@ public class Leader : MonoBehaviour
             }
         }
 
-
         if (itemsFell)
         {
             MyData.GameState = GameState.ScanningMatchesInAlteredColumns;
@@ -551,12 +549,6 @@ public class Leader : MonoBehaviour
     private void ScanMatchesInAlteredColumns()
     {
         _matchedItems.Clear();
-
-        Action<GameObject, List<GameObject>> action = (go, gos) =>
-        {
-            _matchedItems.Add(go);
-            gos.ForEach(it => _matchedItems.Add(it));
-        };
 
         Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;
 
@@ -610,8 +602,6 @@ public class Leader : MonoBehaviour
     {
         var items = new Dictionary<string, int>();
 
-
-
         foreach (var item in MyData.Items.AsList)
         {
             if(!items.ContainsKey(item.tag))
@@ -657,6 +647,13 @@ public class Leader : MonoBehaviour
                 }
             }
         }
+
+        var alterCols = new List<int>();
+        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
+        {
+            alterCols.Add(iCol);
+        }
+        _alterCols = alterCols;
 
         MyData.GameState = GameState.ItemsFalling;
     }
