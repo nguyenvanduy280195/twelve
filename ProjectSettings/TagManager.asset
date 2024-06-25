@@ -10,6 +10,7 @@ TagManager:
   - Gold
   - MP
   - Exp
+  - Moutain
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 9304933
+    locked: 0
+  - name: Ground
+    uniqueID: 1079466993
+    locked: 0
+  - name: Route
+    uniqueID: 886936311
+    locked: 0
+  - name: Moutain
+    uniqueID: 1921494997
+    locked: 0
+  - name: OnMoutain
+    uniqueID: 3405096951
+    locked: 0
+  - name: Decor
+    uniqueID: 2706668911
+    locked: 0
+  - name: UI
+    uniqueID: 3791537037
     locked: 0

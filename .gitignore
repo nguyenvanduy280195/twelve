@@ -1,5 +1,6 @@
 /.vs
 /.vscode
+/.firebase
 /Builds
 /Library
 /Logs
@@ -7,5 +8,7 @@
 /Temp
 /UserSettings
 .vsconfig
+.firebaserc
+firebase.json
 *.sln
 *.csproj
