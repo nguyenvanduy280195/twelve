@@ -16,8 +16,9 @@ public class MovingPlayerByJoystick : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
+    private State _state = State.Player_idle_facedown;
 
-
+    private const string Moving_State = "State";
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class MovingPlayerByJoystick : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _animator.SetInteger(Moving_State, (int)_state);
     }
 
     // Update is called once per frame
@@ -38,18 +41,66 @@ public class MovingPlayerByJoystick : MonoBehaviour
         float x = _joystick.Horizontal * _moveSpeed;
         float y = _joystick.Vertical * _moveSpeed;
         _rigidbody.velocity = new Vector2(x, y);
+    }
 
-        _spriteRenderer.flipX = x < 0;
+    private void LateUpdate()
+    {
+        var direction = _joystick.Direction;
+        var absx = Mathf.Abs(direction.x);
+        var absy = Mathf.Abs(direction.y);
 
-        if(Mathf.Abs(x) < Mathf.Epsilon && Mathf.Abs(y) < Mathf.Epsilon)
+        if (absx > absy)
         {
-            _animator.SetBool("Moving", false);
+            if (direction.x >= 0)
+            {
+                _state = State.Player_walk_faceright;
+            }
+            else
+            {
+                _state = State.Player_walk_faceleft;
+            }
+        }
+        else if (absx < absy)
+        {
+            if (direction.y >= 0)
+            {
+                _state = State.Player_walk_faceup;
+            }
+            else
+            {
+                _state = State.Player_walk_facedown;
+            }
         }
         else
         {
-            _animator.SetBool("Moving", true);
+            if (direction == Vector2.zero)
+            {
+                switch(_state)
+                {
+                    case State.Player_walk_facedown:
+                    case State.Player_walk_faceleft:
+                    case State.Player_walk_faceright:
+                    case State.Player_walk_faceup:
+                        _state--;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
+        Debug.Log(_state);
+        _animator.SetInteger(Moving_State, (int)_state);
     }
 
-
+    private enum State
+    {
+        Player_idle_facedown = 10,
+        Player_walk_facedown = 11,
+        Player_idle_faceleft = 20,
+        Player_walk_faceleft = 21,
+        Player_idle_faceright = 30,
+        Player_walk_faceright = 31,
+        Player_idle_faceup = 40,
+        Player_walk_faceup = 41,
+    }
 }
