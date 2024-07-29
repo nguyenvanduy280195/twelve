@@ -7,6 +7,6 @@ public class PoppingAnimationOnStateEnter : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<BattleUnitBase>()?.OnAnimationEnd(BattleUnitBase.UnitState.Attack);
+        //animator.GetComponent<BattleUnitBase>()?.OnAnimationEnd(BattleUnitBase.UnitState.Attack);
     }
 }

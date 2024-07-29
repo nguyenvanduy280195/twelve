@@ -1,9 +1,19 @@
+using System;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[Serializable]
+public class PlayerStat : UnitStat
+{
+    public int Gold;
+    public int Exp;
+}
+
 public class BattlePlayerUnit : BattleUnitBase
 {
+    [SerializeField] private PlayerStat _stat;
+
     private bool IsDraggingSuccess(GameObject go) => IsDraggingSuccess(go.GetComponent<Item>());
 
     private bool IsDraggingSuccess(Item item)
@@ -17,7 +27,7 @@ public class BattlePlayerUnit : BattleUnitBase
     public override bool Control()
     {
         var gameManager = BattleGameManager.Instance;
-        
+ 
         if (Input.GetMouseButtonDown(0))
         {
             var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,4 +54,6 @@ public class BattlePlayerUnit : BattleUnitBase
 
         return false;
     }
+
+    protected override UnitStat GetStat() => _stat;
 }

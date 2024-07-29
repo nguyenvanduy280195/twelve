@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,6 +29,12 @@ public class BattleGameManager : Singleton<BattleGameManager>
     [SerializeField]
     private Transform _origin;
 
+    [SerializeField]
+    private Canvas _winResult;
+
+    [SerializeField]
+    private Canvas _loseResult;
+
     //============= Readonly =============
 
     public Data MyData { private set; get; }
@@ -37,8 +45,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     //============= Setters =============
 
-    public GameObject SelectedGameObject;
-    public GameObject DraggedGameObject;
+    [NonSerialized] public GameObject SelectedGameObject;
+    [NonSerialized] public GameObject DraggedGameObject;
     public Vector3 PreSelectedPosition { private get; set; }
     public Vector3 PreDraggedPosition { private get; set; }
 
@@ -68,43 +76,15 @@ public class BattleGameManager : Singleton<BattleGameManager>
         }
     }
 
-    private GameObject RandomItem => _itemPrefabs[Random.Range(0, _itemPrefabs.Length)];
+    private GameObject GetRandomItem() => GetRandomItem(_itemPrefabs);
+
+    private GameObject GetRandomItem(List<GameObject> gos) => GetRandomItem(gos.ToArray());
+
+    private GameObject GetRandomItem(GameObject[] gos) => gos[Random.Range(0, gos.Length)];
 
     private GameState _state;
 
     //============= Public Methods =============
-
-    public void ExportItems()
-    {
-        const string filename = "Assets/Resources/Text/output.csv";
-
-        using (StreamWriter outputFile = File.CreateText(filename))
-        {
-            for (int r = MyData.Items.RowLength - 1; r >= 0; r--)
-            {
-                var line = "";
-                for (int c = 0; c < MyData.Items.RowLength; c++)
-                {
-                    line += MyData.Items[c, r].tag + ",";
-                }
-                line = line.Remove(line.Length - 1);
-
-                outputFile.WriteLine(line);
-            }
-        }
-    }
-
-    public void OnTestcaseEditTextSubmit(string value)
-    {
-        if (value.Length <= 0)
-        {
-            _InitializeItems("");
-            return;
-        }
-
-        var testcaseNumber = string.Format("{0:000}", int.Parse(value));
-        _InitializeItems("Text/" + testcaseNumber);
-    }
 
     public void DestroyItem(GameObject go)
     {
@@ -116,15 +96,108 @@ public class BattleGameManager : Singleton<BattleGameManager>
         }
     }
 
+    public void InitializeItems(string filename)
+    {
+        MyData.Items.Clear();
+
+        if (filename.Length == 0)
+        {
+            InitializeItems();
+            return;
+        }
+
+        var csvFile = Resources.Load<TextAsset>(filename);
+        if (csvFile is null)
+        {
+            Debug.Log($"{filename} doesn't exist!!!");
+            InitializeItems();
+            return;
+        }
+
+        var lines = csvFile.text.Split("\r\n");
+        for (int r = 0; r < MyData.NumberOfRow; r++)
+        {
+            var cells = lines[MyData.NumberOfRow - 1 - r].Split(",");
+            for (int c = 0; c < MyData.NumberOfColumn; c++)
+            {
+                var go = _itemPrefabs.Where(it => it.tag == cells[c])
+                                    .First();
+
+                var newGameObjectPosition = new Vector2(_origin.position.x + c * _itemSize.x, _origin.position.y + r * _itemSize.y);
+                var newGameObject = Instantiate(go, newGameObjectPosition, Quaternion.identity, transform);
+                var newGameObjectItem = newGameObject.GetComponent<Item>();
+                if (newGameObjectItem != null)
+                {
+                    newGameObjectItem.row = r;
+                    newGameObjectItem.col = c;
+                }
+                MyData.Items[c, r] = newGameObject;
+            }
+        }
+    }
+
+    public void InitializeItems()
+    {
+        var watch = System.Diagnostics.Stopwatch.StartNew();
+
+        List<GameObject> list = new(_itemPrefabs);
+        GameObject newItem;
+
+        for (int r = 0; r < MyData.NumberOfRow; r++)
+        {
+            for (int c = 0; c < MyData.NumberOfColumn; c++)
+            {
+                list.Clear();
+                list.AddRange(_itemPrefabs);
+                while (true)
+                {
+                    newItem = GetRandomItem(list);
+
+                    var matchesOfTheItemInCol = MyData.ItemsSupporter.GetMatchesInCol(c, r, newItem.tag);
+                    var matchesOfTheItemInRow = MyData.ItemsSupporter.GetMatchesInRow(c, r, newItem.tag);
+                    if (matchesOfTheItemInCol.Count + 1 < MyData.MinMatches && matchesOfTheItemInRow.Count + 1 < MyData.MinMatches)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        list.Remove(newItem);
+                    }
+                }
+
+                var newGameObjectPosition = new Vector2(_origin.position.x + c * _itemSize.x, _origin.position.y + r * _itemSize.y);
+                var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
+                var newGameObjectItem = newGameObject.GetComponent<Item>();
+                if (newGameObjectItem != null)
+                {
+                    newGameObjectItem.row = r;
+                    newGameObjectItem.col = c;
+                }
+
+                MyData.Items[c, r] = newGameObject;
+            }
+        }
+
+        var alterCols = new List<int>();
+        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
+        {
+            alterCols.Add(iCol);
+        }
+        _alterCols = alterCols;
+
+        _state = GameState.ScanningMatchesInAlteredColumns;
+
+        watch.Stop();
+        Debug.Log($"_InitializeItems's time loading: {watch.ElapsedMilliseconds} ms");
+    }
+
     //============= Private Methods =============
 
     private void Start() => _state = GameState.Starting;
 
     private void Update()
     {
-        OnBeforeStateChanged?.Invoke(_state);
-
-        Debug.Log($"GameState = {_state}");
+        Debug.Log($"GameState: {_state}");
 
         switch (_state)
         {
@@ -176,52 +249,20 @@ public class BattleGameManager : Singleton<BattleGameManager>
             case GameState.Rearrangement:
                 _HandleRearrangement();
                 break;
-            case GameState.GameOver:
-                break;
             case GameState.UnitAnimation:
                 _HandleUnitAnimation();
+                break;
+            case GameState.Win:
+                _HandleWin();
+                break;
+            case GameState.Lose:
+                _HandleLose();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(_state), _state, null);
         }
 
-        OnAfterStateChanged?.Invoke(_state);
-
         _currentPlayer?.ConsumeStamina(Time.deltaTime);
-    }
-
-    private void FixedUpdate()
-    {
-        if (_currentPlayer != null)
-        {
-            if (_currentPlayer.Mana >= _currentPlayer.maxMana && _currentPlayer.Idle)
-            {
-                _currentPlayer.DoSkill(_TargetPlayer, _bonusFactor);
-            }
-        }
-    }
-
-    private void _HandleUnitAnimation()
-    {
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
-        if (player.Idle && enemy.Idle)
-        {
-            _state = GameState.CheckingGameOver;
-        }
-        if (player.Dealth || enemy.Dealth)
-        {
-            _state = GameState.CheckingGameOver;
-        }
-    }
-
-    private void _HandleExplosionAnimation()
-    {
-        var explosionAlive = ExplosionAnimations.Select(it => it != null);
-        if (explosionAlive.Count() <= 0)
-        {
-            _state = GameState.SetupItemsFall;
-        }
     }
 
     private bool _FindMatchedItems(GameObject go, Func<int, bool> predicateBonusTurn)
@@ -278,86 +319,28 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         return true;
     }
-
-    private void _InitializeItems(string filename)
+    
+    private void _HandleUnitAnimation()
     {
-        MyData.Items.Clear();
-
-        if (filename.Length == 0)
+        var player = BattleUnitManager.Instance.Player;
+        var enemy = BattleUnitManager.Instance.Enemy;
+        if (player.Idle && enemy.Idle)
         {
-            _InitializeItems();
-            return;
+            _state = GameState.CheckingGameOver;
         }
-
-        var csvFile = Resources.Load<TextAsset>(filename);
-        if (csvFile is null)
+        if (player.Dealth || enemy.Dealth)
         {
-            Debug.Log($"{filename} doesn't exist!!!");
-            return;
-        }
-
-        var lines = csvFile.text.Split("\r\n");
-        for (int r = 0; r < MyData.NumberOfRow; r++)
-        {
-            var cells = lines[MyData.NumberOfRow - 1 - r].Split(",");
-            for (int c = 0; c < MyData.NumberOfColumn; c++)
-            {
-                var go = _itemPrefabs.Where(it => it.tag == cells[c])
-                                    .First();
-
-                var newGameObjectPosition = new Vector2(_origin.position.x + c * _itemSize.x, _origin.position.y + r * _itemSize.y);
-                var newGameObject = Instantiate(go, newGameObjectPosition, Quaternion.identity, transform);
-                var newGameObjectItem = newGameObject.GetComponent<Item>();
-                if (newGameObjectItem != null)
-                {
-                    newGameObjectItem.row = r;
-                    newGameObjectItem.col = c;
-                }
-                MyData.Items[c, r] = newGameObject;
-            }
+            _state = GameState.CheckingGameOver;
         }
     }
 
-    private void _InitializeItems()
+    private void _HandleExplosionAnimation()
     {
-        for (int r = 0; r < MyData.NumberOfRow; r++)
+        var explosionAlive = ExplosionAnimations.Select(it => it != null);
+        if (explosionAlive.Count() <= 0)
         {
-            for (int c = 0; c < MyData.NumberOfColumn; c++)
-            {
-                GameObject newItem;
-                while (true)
-                {
-                    newItem = RandomItem;
-
-                    var matchesOfTheItemInCol = MyData.ItemsSupporter.GetMatchesInCol(newItem);
-                    var matchesOfTheItemInRow = MyData.ItemsSupporter.GetMatchesInRow(newItem);
-                    if (matchesOfTheItemInCol.Count + 1 < MyData.MinMatches && matchesOfTheItemInRow.Count + 1 < MyData.MinMatches)
-                    {
-                        break;
-                    }
-                }
-
-                var newGameObjectPosition = new Vector2(_origin.position.x + c * _itemSize.x, _origin.position.y + r * _itemSize.y);
-                var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
-                var newGameObjectItem = newGameObject.GetComponent<Item>();
-                if (newGameObjectItem != null)
-                {
-                    newGameObjectItem.row = r;
-                    newGameObjectItem.col = c;
-                }
-
-                MyData.Items[c, r] = newGameObject;
-            }
+            _state = GameState.SetupItemsFall;
         }
-
-        var alterCols = new List<int>();
-        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
-        {
-            alterCols.Add(iCol);
-        }
-        _alterCols = alterCols;
-
-        _state = GameState.ScanningMatchesInAlteredColumns;
     }
 
     private void _HandleStarting()
@@ -375,12 +358,12 @@ public class BattleGameManager : Singleton<BattleGameManager>
             _itemSize = itemSpriteRenderer.size * _itemPrefabs[0].transform.localScale;
         }
 
-        _InitializeItems(MyData.inputFilename);
+        InitializeItems(MyData.inputFilename);
 
         var player = BattleUnitManager.Instance.Player;
         var enemy = BattleUnitManager.Instance.Enemy;
 
-        if (player.level >= enemy.level)
+        if (player.Stat.Level >= enemy.Stat.Level)
         {
             _currentPlayer = player;
             _state = GameState.PlayerTurn;
@@ -390,8 +373,6 @@ public class BattleGameManager : Singleton<BattleGameManager>
             _currentPlayer = enemy;
             _state = GameState.EnemyTurn;
         }
-
-        _currentPlayer.nTurns = 1;
     }
 
     private void _HandleChoosingPlayer()
@@ -602,7 +583,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
             for (int iRow = items.Count(); iRow < MyData.NumberOfRow; iRow++)
             {
-                var newItem = RandomItem;
+                var newItem = GetRandomItem();
 
                 var newGameObjectPosition = new Vector2(_origin.position.x + iCol * _itemSize.x, _origin.position.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y);
                 var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
@@ -683,12 +664,12 @@ public class BattleGameManager : Singleton<BattleGameManager>
         if (player.HP <= 0 || player.Stamina <= 0)
         {
             Debug.Log("You lose");
-            _state = GameState.GameOver;
+            _state = GameState.Lose;
         }
         else if (enemy.HP <= 0 || enemy.Stamina <= 0)
         {
             Debug.Log("You win");
-            _state = GameState.GameOver;
+            _state = GameState.Win;
         }
         else
         {
@@ -781,15 +762,37 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleEnemyTurn()
     {
-        var result = BattleUnitManager.Instance.Player?.Control();
+        var result = BattleUnitManager.Instance.Enemy?.Control();
         if (result.HasValue && result.Value)
         {
             _state = GameState.Swapping;
         }
     }
+
+    private void _HandleWin()
+    {
+        var player = BattleUnitManager.Instance.Player;
+        var playerStat = player.Stat as PlayerStat;
+        playerStat.Gold += player.nGold;
+        playerStat.Exp += player.nExp;
+
+        _HandleResult(_winResult);
+    }
+
+    private void _HandleLose() => _HandleResult(_loseResult);
+
+    private void _HandleResult(Canvas resultCanvas)
+    {
+        var player = BattleUnitManager.Instance.Player;
+        var playerStat = player.Stat as PlayerStat;
+
+        var info = resultCanvas?.GetComponent<ResultInfo>();
+        info.Gold = $"{playerStat.Gold}";
+        info.Exp = $"{playerStat.Exp}";
+
+        resultCanvas?.gameObject.SetActive(true);
+    }
 }
-
-
 
 [SerializeField]
 public enum GameState
@@ -811,5 +814,6 @@ public enum GameState
     CheckingGameOver,
     CheckingNoSwappable,
     Rearrangement,
-    GameOver,
+    Win,
+    Lose,
 }

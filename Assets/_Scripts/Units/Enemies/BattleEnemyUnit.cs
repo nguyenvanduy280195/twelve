@@ -1,15 +1,24 @@
+using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions;
+using Random = UnityEngine.Random;
+
+[Serializable]
+public class EnemyStat : UnitStat
+{
+    public int BonusExp;
+}
 
 public class BattleEnemyUnit : BattleUnitBase
 {
+    [SerializeField] private EnemyStat _stat;
+
     private readonly ItemsSupporter.ItemLocation UNDEFINED = new(-1, -1);
 
     public override bool Control()
     {
         var gameManager = BattleGameManager.Instance;
-        
+
         (var iSelected, var iDragged) = Level1;
         if (!iSelected.Equals(UNDEFINED) && !iDragged.Equals(UNDEFINED))
         {
@@ -23,6 +32,8 @@ public class BattleEnemyUnit : BattleUnitBase
 
         return false;
     }
+
+    protected override UnitStat GetStat() => _stat;
 
     private (ItemsSupporter.ItemLocation, ItemsSupporter.ItemLocation) Level1
     {

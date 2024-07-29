@@ -8,92 +8,33 @@ using UnityEngine.Assertions;
 public abstract class BattleUnitBase : MonoBehaviour
 {
     //============= Properties =============
+    [SerializeField] private Bar _healthBar;
+    [SerializeField] private Bar _manaBar;
+    [SerializeField] private Bar _staminaBar;
+    [SerializeField] private Transform _attackPosition;
+    [SerializeField] private float _moveDuration = 1f;
+    [SerializeField] private TextMeshProUGUI _nTurnsText;
 
-    public int level;
-    public float attack;
-    public float maxHP;
-    public float maxMana;
-    public float maxStamina;
-
-    [SerializeField]
-    private Bar _healthBar;
-
-    [SerializeField]
-    [Tooltip("hp += bonusFactor * _regenHP")]
-    private float _regenHP;
-
-    [SerializeField]
-    private Bar _manaBar;
-
-    [SerializeField]
-    [Tooltip("mana += bonusFactor * _regenMana")]
-    private float _regenMana;
-
-    [SerializeField]
-    private Bar _staminaBar;
-
-    [SerializeField]
-    [Tooltip("stamina += bonusFactor * _regenStamina")]
-    private float _regenStamina;
-
-    [SerializeField]
-    private Transform _attackPosition;
-
-    [SerializeField]
-    private float _moveDuration = 1f;
-
-    [SerializeField]
-    private TextMeshProUGUI _nTurnsText;
-
-    [NonSerialized]
-    public int nGold = 0;
-
-    [NonSerialized]
-    public int nExp = 0;
-
-    [NonSerialized]
-    public bool Pausing = true;
-
-
-    //============= Constantss =============
-
-    [NonSerialized]
-    private const string ANIMATOR_NAME = "AnimationState";
+    [NonSerialized] public int nGold = 0;
+    [NonSerialized] public int nExp = 0;
+    [NonSerialized] public bool Pausing = true;
 
     // ============= Fields =============
-
-    [NonSerialized]
-    private Animator _animator;
-
     private Vector3 _playerPosition = Vector3.zero;
-
     private UnitState _state = UnitState.Idle;
-
-    private bool InAttackingWave = false;
-
-    private IDictionary<UnitState, List<Action>> _actions;
-
-    private UnitState _State
-    {
-        set
-        {
-            _state = value;
-            _animator.SetInteger(ANIMATOR_NAME, (int)_state);
-        }
-    }
-
     private int _nTurns;
+    private IDictionary<UnitState, Queue<Action>> _actions;
+    private UnitAnimationHandler _animationHandler;
 
     //============= Getters & Setters =============
+
     public bool Idle => _state == UnitState.Idle;
 
-    public bool Dealth => _state == UnitState.Death;
+    public bool Dealth => _state == UnitState.Dead;
 
-    public float HP => _healthBar.Value;
+    public float HP => Mathf.Floor(_healthBar.Value);
 
-    public float Mana { get => _manaBar.Value; set => _manaBar.Value = value; }
-
-    public float Stamina => _staminaBar.Value;
+    public float Stamina => Mathf.Floor(_staminaBar.Value);
 
     public int nTurns
     {
@@ -105,82 +46,52 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
+    public UnitStat Stat => GetStat();
+
     //============= Methods for Inheriting =============
 
     public abstract bool Control();
 
+    protected abstract UnitStat GetStat();
+
 
     //============= public Methods =============
 
-    public void DoSkill(BattleUnitBase target, float bonusFactor)
-    {
-        // only once
-        if (_state == UnitState.Idle)
-        {
-            _State = UnitState.Run;
-            InAttackingWave = true;
-
-            _actions[UnitState.Run].Add(() => _State = UnitState.Ulti);
-        }
-
-        for (int i = 0; i < 10; i++)
-        {
-            _actions[UnitState.Ulti].Add(() => target.TakeHit(attack * bonusFactor));
-        }
-
-        _actions[UnitState.Ulti].Add(() =>
-        {
-            FlipX();
-            Mana = 0;
-            _State = UnitState.Run;
-            InAttackingWave = false;
-        });
-
-        _actions[UnitState.Run].Add(() =>
-        {
-            FlipX();
-            _State = UnitState.Idle;
-        });
-    }
+    public void DoSkill(BattleUnitBase target, float bonusFactor) { }
 
     public void Attack(BattleUnitBase target, float bonusFactor)
     {
-        // only once
-        if (_state == UnitState.Idle)
+        if (_actions[UnitState.Attack].Count <= 0)
         {
-            _State = UnitState.Run;
-            InAttackingWave = true;
+            _actions[UnitState.MoveToTargetPosition].Enqueue(() =>
+            {
+                _state = UnitState.Attack;
+            });
+            _actions[UnitState.MoveToStartPosition].Enqueue(() =>
+            {
+                _state = UnitState.Idle;
+                _animationHandler.RunIdleAnimation(transform.position, _playerPosition);
+            });
 
-            _actions[UnitState.Run].Add(() => _State = UnitState.Attack);
+            // active
+            _state = UnitState.MoveToTargetPosition;
+            _animationHandler.RunWalkAnimation(transform.position, target.transform.position);
         }
 
-        _actions[UnitState.Attack].Add(() =>
+        _actions[UnitState.Attack].Enqueue(() =>
         {
-            if (_state == UnitState.Attack)
-            {
-                _State = UnitState.Attack;
-            }
-            _animator.SetBool("again", true);
+            //_animationHandler.RunIdleRightAnimation();
+            _animationHandler.RunAttackAnimation(transform.position, _playerPosition);
+
+            target.TakeHit(Stat.Attack * bonusFactor);
         });
-
-        _actions[UnitState.Attack].Add(() => target.TakeHit(attack * bonusFactor));
-
-        _actions[UnitState.Attack].Add(() => _animator.SetBool("again", false));
-
     }
 
     public void TakeHit(float damage)
     {
-        if (_state == UnitState.Idle)
-        {
-            _State = UnitState.TakeHit;
-        }
-
-        _actions[UnitState.TakeHit].Add(() =>
-        {
-            _healthBar.Value -= damage;
-            _State = UnitState.TakeHit;
-        });
+        _healthBar.Value -= damage;
+        _state = UnitState.Hurt;
+        _animationHandler.RunHurtAnimation();
     }
 
     public void ConsumeStamina(float value)
@@ -190,108 +101,71 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public void RestoreHP(float bonusFactor)
     {
-        _healthBar.Value += _regenHP * bonusFactor;
+        _healthBar.Value += Stat.RegenHP * bonusFactor;
     }
 
     public void RestoreMana(float bonusFactor)
     {
-        _manaBar.Value += _regenMana * bonusFactor;
+        _manaBar.Value += Stat.RegenMana * bonusFactor;
     }
 
     public void RestoreStamina(float bonusFactor)
     {
-        _staminaBar.Value += _regenStamina * bonusFactor;
+        _staminaBar.Value += Stat.RegenStamina * bonusFactor;
     }
 
-    public void FlipX()
-    {
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.flipX = !spriteRenderer.flipX;
-    }
-
-    public void OnAnimationEnd(UnitState state)
-    {
-        if (_actions != null)
-        {
-            if (_actions[state].Count > 0)
-            {
-                var first = _actions[state][0];
-
-                first();
-
-                _actions[state].Remove(first);
-            }
-        }
-    }
-
-    //============= private Methods =============
+    #region ============= Unity Methods =============
 
     private void Start()
     {
-        _healthBar.MaxValue = maxHP;
-        _manaBar.MaxValue = maxMana;
+        _healthBar.MaxValue = Stat.HP;
+        _healthBar.Value = Stat.HP;
+        _manaBar.MaxValue = Stat.Mana;
         _manaBar.Value = 0f;
-        _staminaBar.MaxValue = maxStamina;
+        _staminaBar.MaxValue = Stat.Stamina;
+        _staminaBar.Value = Stat.Stamina;
+
         _playerPosition = transform.position;
-        _animator = GetComponent<Animator>();
 
-        _actions = new Dictionary<UnitState, List<Action>>();
-        _actions[UnitState.Idle] = new List<Action>();
-        _actions[UnitState.Attack] = new List<Action>();
-        _actions[UnitState.TakeHit] = new List<Action>();
-        _actions[UnitState.Run] = new List<Action>();
-        _actions[UnitState.Ulti] = new List<Action>();
+        _animationHandler = GetComponent<UnitAnimationHandler>();
 
-        _State = UnitState.Idle;
+        _actions = new Dictionary<UnitState, Queue<Action>>();
+        _actions[UnitState.MoveToTargetPosition] = new();
+        _actions[UnitState.Attack] = new();
+        _actions[UnitState.MoveToStartPosition] = new();
+        _actions[UnitState.Wait] = new();
+        _actions[UnitState.Hurt] = new();
+        _actions[UnitState.Dead] = new();
     }
 
     private void Update()
     {
-        if (_state == UnitState.Run)
-        {
-            if (InAttackingWave)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, _attackPosition.position, _moveDuration);
-                var delta = transform.position - _attackPosition.position;
-                if (delta.sqrMagnitude < 0.001f)
-                {
-                    OnAnimationEnd(UnitState.Run);
-                }
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, _playerPosition, _moveDuration);
-                var delta = transform.position - _playerPosition;
-                if (delta.sqrMagnitude < 0.001f)
-                {
-                    OnAnimationEnd(UnitState.Run);
-                }
-            }
-        }
-        else if (_state == UnitState.Attack)
-        {
-            if (_actions[UnitState.Attack].Count <= 0)
-            {
-                _actions[UnitState.Attack].Add(() =>
-                {
-                    FlipX();
-                    _State = UnitState.Run;
-                    InAttackingWave = false;
+        Debug.Log($"UnitState = {_state}");
 
-                    _actions[UnitState.Run].Add(() =>
-                    {
-                        FlipX();
-                        _State = UnitState.Idle;
-                    });
-                });
-            }
-        }
-        else if (_state == UnitState.TakeHit)
+        switch (_state)
         {
-            if (_actions[UnitState.TakeHit].Count <= 0)
-            {
-                _State = UnitState.Idle;
-            }
+            case UnitState.Idle:
+                break;
+            case UnitState.MoveToTargetPosition:
+                _HandleMoveToTargetPositionState();
+                break;
+            case UnitState.MoveToStartPosition:
+                _HandleMoveToStartPositionState();
+                break;
+            case UnitState.Attack:
+                _HandleAttackState();
+                break;
+            case UnitState.Wait:
+                _HandleWaitState();
+                break;
+            case UnitState.Hurt:
+                _HandleHurtState();
+                break;
+            case UnitState.Dead:
+                _HandleDeadState();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(_state), _state, null);
         }
     }
 
@@ -299,18 +173,100 @@ public abstract class BattleUnitBase : MonoBehaviour
     {
         if (HP <= 0)
         {
-            _State = UnitState.Death;
+            _state = UnitState.Dead;
         }
     }
 
-    public enum UnitState
+    #endregion
+
+    #region ============= Support Methods =============
+
+    private void _HandleMoveToTargetPositionState()
     {
-        Idle = 4,
-        Run = 6,
-        Attack = 0,
-        TakeHit = 7,
-        Death = 2,
-        Ulti = 8,
+        transform.position = Vector2.MoveTowards(transform.position, _attackPosition.position, _moveDuration);
+        var delta = transform.position - _attackPosition.position;
+        if (delta.sqrMagnitude < 0.001f)
+        {
+            _actions?[UnitState.MoveToTargetPosition]?.Dequeue()?.Invoke();
+        }
     }
+
+    private void _HandleMoveToStartPositionState()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, _playerPosition, _moveDuration);
+        var delta = transform.position - _playerPosition;
+        if (delta.sqrMagnitude < 0.001f)
+        {
+            _actions?[UnitState.MoveToStartPosition]?.Dequeue()?.Invoke();
+        }
+    }
+
+    private void _HandleAttackState()
+    {
+        if (!_animationHandler.CurrentStateLocked)
+        {
+            if (_actions[UnitState.Attack].Count <= 0)
+            {
+                _state = UnitState.MoveToStartPosition;
+                _animationHandler.RunWalkAnimation(transform.position, _playerPosition);
+            }
+            else
+            {
+                Debug.Log($"[Attack] - _actions[UnitState.Attack].Count = {_actions[UnitState.Attack].Count}");
+                _actions?[UnitState.Attack]?.Dequeue()?.Invoke();
+            }
+        }
+    }
+
+    private void _HandleWaitState() => _actions?[UnitState.Wait]?.Dequeue()?.Invoke();
+
+    private void _HandleHurtState()
+    {
+        if (!_animationHandler.CurrentStateLocked)
+        {
+            if (_actions[UnitState.Hurt].Count <= 0)
+            {
+                _state = UnitState.Idle;
+                _animationHandler.RunIdleAnimation(transform.position, _attackPosition.position);
+            }
+            else
+            {
+                Debug.Log($"[Hurt] - _actions[UnitState.Hurt].Count = {_actions[UnitState.Hurt].Count}");
+                _actions?[UnitState.Hurt]?.Dequeue()?.Invoke();
+            }
+        }
+    }
+
+    private void _HandleDeadState() => _actions?[UnitState.Dead]?.Dequeue()?.Invoke();
+
+
+
+    #endregion
 }
 
+[Serializable]
+public enum UnitState
+{
+    MoveToTargetPosition,
+    MoveToStartPosition,
+    Attack,
+    Idle,
+    Wait,
+    Hurt,
+    Dead,
+}
+
+[Serializable]
+public class UnitStat
+{
+    public string Name;
+    public string Class;
+    public int Level;
+    public float Attack;
+    public float HP;
+    public float RegenHP;
+    public float Mana;
+    public float RegenMana;
+    public float Stamina;
+    public float RegenStamina;
+}
