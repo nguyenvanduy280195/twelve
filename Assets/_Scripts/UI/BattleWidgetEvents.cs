@@ -6,7 +6,7 @@ using UnityEngine;
 public class BattleWidgetEvents : MonoBehaviour
 {
     [SerializeField]
-    private UIPlayerStat _uiPlayerStat;
+    private PlayerStatPopup _uiPlayerStat;
 
     public void OnStatButtonClicked()
     {

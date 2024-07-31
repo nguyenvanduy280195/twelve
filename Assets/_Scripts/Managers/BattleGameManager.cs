@@ -663,19 +663,16 @@ public class BattleGameManager : Singleton<BattleGameManager>
         var enemy = BattleUnitManager.Instance.Enemy;
         if (player.HP <= 0 || player.Stamina <= 0)
         {
-            Debug.Log("You lose");
             _state = GameState.Lose;
         }
         else if (enemy.HP <= 0 || enemy.Stamina <= 0)
         {
-            Debug.Log("You win");
             _state = GameState.Win;
         }
         else
         {
             _state = GameState.CheckingNoSwappable;
         }
-
     }
 
     private void _HandleCheckingCantSwap()
@@ -772,11 +769,15 @@ public class BattleGameManager : Singleton<BattleGameManager>
     private void _HandleWin()
     {
         var player = BattleUnitManager.Instance.Player;
-        var playerStat = player.Stat as PlayerStat;
-        playerStat.Gold += player.nGold;
-        playerStat.Exp += player.nExp;
+        var enemy = BattleUnitManager.Instance.Enemy;
+        var enemyStat = enemy.Stat as EnemyStat;
 
-        _HandleResult(_winResult);
+        var popup = _winResult.GetComponent<WinResultPopup>();
+        popup.ExpInBattle = player.nExp;
+        popup.ExpFromEnemy = enemyStat.BonusExp;
+        popup.GoldInBattle = player.nGold;
+        popup.GoldFromEnemy = 20;
+        _winResult.gameObject.SetActive(true);
     }
 
     private void _HandleLose() => _HandleResult(_loseResult);

@@ -12,10 +12,4 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
     private BattleUnitBase _enemy;
     public BattleUnitBase Enemy => _enemy;
 
-    public void SpawnItems()
-    {
-
-    }
-
-
 }

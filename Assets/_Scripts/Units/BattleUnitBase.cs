@@ -90,8 +90,16 @@ public abstract class BattleUnitBase : MonoBehaviour
     public void TakeHit(float damage)
     {
         _healthBar.Value -= damage;
-        _state = UnitState.Hurt;
-        _animationHandler.RunHurtAnimation();
+        if (_healthBar.Value > 0)
+        {
+            _state = UnitState.Hurt;
+            _animationHandler.RunHurtAnimation();
+        }
+        else
+        {
+            _state = UnitState.Dead;
+            _animationHandler.RunDeadAnimation();
+        }
     }
 
     public void ConsumeStamina(float value)
@@ -237,7 +245,7 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    private void _HandleDeadState() => _actions?[UnitState.Dead]?.Dequeue()?.Invoke();
+    private void _HandleDeadState() { }
 
 
 
