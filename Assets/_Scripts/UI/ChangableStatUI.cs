@@ -8,7 +8,7 @@ public class ChangableStatUI : StatUI
 {
 
     //============= Events =============
-    public static event Action<int> OnValueChanged;
+    public static event Action<int> OnNumberOfPointsChanged;
 
     public static event Func<int> OnNumberOfPointsGot;
 
@@ -21,6 +21,8 @@ public class ChangableStatUI : StatUI
 
     public bool UpButtonEnabled { set => _upButton.SetActive(value); }
     public bool DownButtonEnabled { set => _downButton.SetActive(value); }
+    public Action<int> OnValueChanged { set; private get; }
+
 
     public void OnIncrease()
     {
@@ -28,6 +30,7 @@ public class ChangableStatUI : StatUI
 
         if (OnNumberOfPointsGot?.Invoke() > 0)
         {
+            OnNumberOfPointsChanged?.Invoke(1);
             OnValueChanged?.Invoke(1);
             Content = $"{value + 1}";
         }
@@ -40,6 +43,7 @@ public class ChangableStatUI : StatUI
         {
             Content = $"{value - 1}";
             OnValueChanged?.Invoke(-1);
+            OnNumberOfPointsChanged?.Invoke(-1);
         }
     }
 

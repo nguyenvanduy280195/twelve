@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 8867754093160265708}
   - component: {fileID: 1959110641927032506}
   - component: {fileID: 4677635205520800137}
-  - component: {fileID: 3999769709599492943}
   - component: {fileID: 80776150718565348}
+  - component: {fileID: 3999769709599492943}
   - component: {fileID: 5644165704659590948}
+  - component: {fileID: 4366936525885294075}
   m_Layer: 0
   m_Name: Soldier
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8394038651822192452}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -503430259
-  m_SortingLayer: 8
-  m_SortingOrder: 1
+  m_SortingLayer: 9
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1276496246, guid: ddc69509391da2c4f831e41c3761098f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,20 +138,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3999769709599492943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394038651822192452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea11d0f224b13a48b49b999ed729ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
-  _moveSpeed: 1
 --- !u!114 &80776150718565348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,15 +158,29 @@ MonoBehaviour:
   _walkDownAnimationName: Soldier_walk_down
   _walkLeftAnimationName: Soldier_walk_left
   _walkRightAnimationName: Soldier_walk_right
-  _animationDefaultName: Soldier_idle_down
+  _animationDefaultName: Soldier_idle_right
   _attackRightAnimationName: Soldier_thrust_right
   _attackRightAnimationDuration: 0.5
   _attackLeftAnimationName: Soldier_thrust_left
   _attackLeftAnimationDuration: 0.5
   _hurtAnimationName: Soldier_hurt
-  _hurtAnimationDuration: 0.5
+  _hurtAnimationDuration: 0.438
   _deadAnimationName: Soldier_dead
   _deadAnimationDuration: 0.5
+--- !u!114 &3999769709599492943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394038651822192452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea11d0f224b13a48b49b999ed729ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _joystick: {fileID: 0}
+  _moveSpeed: 2
 --- !u!61 &5644165704659590948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,3 +226,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3260296, y: 0.4271605}
   m_EdgeRadius: 0
+--- !u!114 &4366936525885294075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394038651822192452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39aaf64d32aa21747b54934bffc30ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

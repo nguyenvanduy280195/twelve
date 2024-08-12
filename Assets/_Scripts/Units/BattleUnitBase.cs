@@ -8,33 +8,25 @@ using UnityEngine.Assertions;
 public abstract class BattleUnitBase : MonoBehaviour
 {
     //============= Properties =============
-    [SerializeField] private Bar _healthBar;
-    [SerializeField] private Bar _manaBar;
-    [SerializeField] private Bar _staminaBar;
-    [SerializeField] private Transform _attackPosition;
     [SerializeField] private float _moveDuration = 1f;
     [SerializeField] private TextMeshProUGUI _nTurnsText;
 
-    [NonSerialized] public int nGold = 0;
-    [NonSerialized] public int nExp = 0;
-    [NonSerialized] public bool Pausing = true;
-
     // ============= Fields =============
-    private Vector3 _playerPosition = Vector3.zero;
     private UnitState _state = UnitState.Idle;
     private int _nTurns;
     private IDictionary<UnitState, Queue<Action>> _actions;
     private UnitAnimationHandler _animationHandler;
+    private Vector3 _unitPosition;
 
-    //============= Getters & Setters =============
+
+    #region ============= Getters & Setters =============
+    public int nGold { get; private set; } = 0;
+
+    public int nExp { get; private set; } = 0;
 
     public bool Idle => _state == UnitState.Idle;
 
     public bool Dealth => _state == UnitState.Dead;
-
-    public float HP => Mathf.Floor(_healthBar.Value);
-
-    public float Stamina => Mathf.Floor(_staminaBar.Value);
 
     public int nTurns
     {
@@ -42,20 +34,74 @@ public abstract class BattleUnitBase : MonoBehaviour
         set
         {
             _nTurns = value;
-            _nTurnsText.text = $"{value}";
+
+            if (_nTurnsText != null)
+            {
+                _nTurnsText.text = $"{value}";
+            }
         }
     }
 
-    public UnitStat Stat => GetStat();
+    public float HP
+    {
+        set
+        {
+            Stat.HP = value;
+            UIUnit.HP.Value = value;
+        }
+        get => Stat.HP;
+    }
 
-    //============= Methods for Inheriting =============
+
+    public float Mana
+    {
+        set
+        {
+            Stat.Mana = value;
+            UIUnit.Mana.Value = value;
+        }
+        get => Stat.Mana;
+    }
+
+    public float Stamina
+    {
+        set
+        {
+            Stat.Stamina = value;
+            UIUnit.Stamina.Value = value;
+        }
+        get => Stat.Stamina;
+    }
+
+    #endregion
+
+    #region ============= Methods for Inheriting =============
 
     public abstract bool Control();
 
-    protected abstract UnitStat GetStat();
+    public abstract UnitStat Stat { get; set; }
 
+    protected abstract UIUnit UIUnit { get; }
 
-    //============= public Methods =============
+    protected abstract Vector3 UnitAttackPosition { get; }
+
+    #endregion
+
+    #region ============= For Devired Class =============
+
+    protected void _InitializeUIUnit()
+    {
+        UIUnit.HP.MaxValue = Stat.MaxHP;
+        UIUnit.HP.Value = Stat.MaxHP;
+        UIUnit.Mana.MaxValue = Stat.MaxMana;
+        UIUnit.Mana.Value = Stat.Mana;
+        UIUnit.Stamina.MaxValue = Stat.MaxStamina;
+        UIUnit.Stamina.Value = Stat.Stamina;
+    }
+
+    #endregion
+
+    #region ============= public Methods =============
 
     public void DoSkill(BattleUnitBase target, float bonusFactor) { }
 
@@ -70,7 +116,7 @@ public abstract class BattleUnitBase : MonoBehaviour
             _actions[UnitState.MoveToStartPosition].Enqueue(() =>
             {
                 _state = UnitState.Idle;
-                _animationHandler.RunIdleAnimation(transform.position, _playerPosition);
+                _animationHandler.RunIdleAnimation(transform.position, UnitAttackPosition);
             });
 
             // active
@@ -80,8 +126,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
         _actions[UnitState.Attack].Enqueue(() =>
         {
-            //_animationHandler.RunIdleRightAnimation();
-            _animationHandler.RunAttackAnimation(transform.position, _playerPosition);
+            _animationHandler.RunAttackAnimation(transform.position, _unitPosition);
 
             target.TakeHit(Stat.Attack * bonusFactor);
         });
@@ -89,8 +134,8 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public void TakeHit(float damage)
     {
-        _healthBar.Value -= damage;
-        if (_healthBar.Value > 0)
+        HP -= damage;
+        if (HP > 0)
         {
             _state = UnitState.Hurt;
             _animationHandler.RunHurtAnimation();
@@ -102,38 +147,37 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
+    public void IncreaseGold(int value) => nGold += value;
+
+    public void IncreaseExp(int value) => nExp += value;
+
     public void ConsumeStamina(float value)
     {
-        _staminaBar.Value -= value;
+        if (UIUnit.Stamina.Value > 0)
+        {
+            UIUnit.Stamina.Value -= value;
+        }
+        else
+        {
+            _state = UnitState.Dead;
+        }
     }
 
-    public void RestoreHP(float bonusFactor)
-    {
-        _healthBar.Value += Stat.RegenHP * bonusFactor;
-    }
+    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.RegenHP * bonusFactor, Stat.MaxHP);
 
-    public void RestoreMana(float bonusFactor)
-    {
-        _manaBar.Value += Stat.RegenMana * bonusFactor;
-    }
+    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.RegenMana * bonusFactor, Stat.MaxMana);
 
-    public void RestoreStamina(float bonusFactor)
-    {
-        _staminaBar.Value += Stat.RegenStamina * bonusFactor;
-    }
+    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina * bonusFactor, Stat.MaxStamina);
+
+    #endregion
 
     #region ============= Unity Methods =============
 
     private void Start()
     {
-        _healthBar.MaxValue = Stat.HP;
-        _healthBar.Value = Stat.HP;
-        _manaBar.MaxValue = Stat.Mana;
-        _manaBar.Value = 0f;
-        _staminaBar.MaxValue = Stat.Stamina;
-        _staminaBar.Value = Stat.Stamina;
+        _InitializeUIUnit();
 
-        _playerPosition = transform.position;
+        _unitPosition = transform.position;
 
         _animationHandler = GetComponent<UnitAnimationHandler>();
 
@@ -177,22 +221,14 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (HP <= 0)
-        {
-            _state = UnitState.Dead;
-        }
-    }
-
     #endregion
 
     #region ============= Support Methods =============
 
     private void _HandleMoveToTargetPositionState()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _attackPosition.position, _moveDuration);
-        var delta = transform.position - _attackPosition.position;
+        transform.position = Vector2.MoveTowards(transform.position, UnitAttackPosition, _moveDuration * Time.deltaTime);
+        var delta = transform.position - UnitAttackPosition;
         if (delta.sqrMagnitude < 0.001f)
         {
             _actions?[UnitState.MoveToTargetPosition]?.Dequeue()?.Invoke();
@@ -201,8 +237,8 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     private void _HandleMoveToStartPositionState()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _playerPosition, _moveDuration);
-        var delta = transform.position - _playerPosition;
+        transform.position = Vector2.MoveTowards(transform.position, _unitPosition, _moveDuration * Time.deltaTime);
+        var delta = transform.position - _unitPosition;
         if (delta.sqrMagnitude < 0.001f)
         {
             _actions?[UnitState.MoveToStartPosition]?.Dequeue()?.Invoke();
@@ -216,7 +252,7 @@ public abstract class BattleUnitBase : MonoBehaviour
             if (_actions[UnitState.Attack].Count <= 0)
             {
                 _state = UnitState.MoveToStartPosition;
-                _animationHandler.RunWalkAnimation(transform.position, _playerPosition);
+                _animationHandler.RunWalkAnimation(transform.position, _unitPosition);
             }
             else
             {
@@ -226,7 +262,7 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    private void _HandleWaitState() => _actions?[UnitState.Wait]?.Dequeue()?.Invoke();
+    private void _HandleWaitState() { }
 
     private void _HandleHurtState()
     {
@@ -235,7 +271,7 @@ public abstract class BattleUnitBase : MonoBehaviour
             if (_actions[UnitState.Hurt].Count <= 0)
             {
                 _state = UnitState.Idle;
-                _animationHandler.RunIdleAnimation(transform.position, _attackPosition.position);
+                _animationHandler.RunIdleAnimation(transform.position, UnitAttackPosition);
             }
             else
             {
@@ -246,8 +282,6 @@ public abstract class BattleUnitBase : MonoBehaviour
     }
 
     private void _HandleDeadState() { }
-
-
 
     #endregion
 }
@@ -262,19 +296,4 @@ public enum UnitState
     Wait,
     Hurt,
     Dead,
-}
-
-[Serializable]
-public class UnitStat
-{
-    public string Name;
-    public string Class;
-    public int Level;
-    public float Attack;
-    public float HP;
-    public float RegenHP;
-    public float Mana;
-    public float RegenMana;
-    public float Stamina;
-    public float RegenStamina;
 }

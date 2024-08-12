@@ -3,12 +3,6 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[Serializable]
-public class EnemyStat : UnitStat
-{
-    public int BonusExp;
-}
-
 public class BattleEnemyUnit : BattleUnitBase
 {
     [SerializeField] private EnemyStat _stat;
@@ -32,8 +26,6 @@ public class BattleEnemyUnit : BattleUnitBase
 
         return false;
     }
-
-    protected override UnitStat GetStat() => _stat;
 
     private (ItemsSupporter.ItemLocation, ItemsSupporter.ItemLocation) Level1
     {
@@ -62,6 +54,19 @@ public class BattleEnemyUnit : BattleUnitBase
             (var iSelected, var iDragged, _) = locationsOfSwappableItem.Distinct()
                                                                        .Aggregate((it1, it2) => it1.Item3 > it2.Item3 ? it1 : it2);
             return (iSelected, iDragged);
+        }
+    }
+
+    protected override Vector3 UnitAttackPosition => BattleUnitManager.Instance.EnemyAttackPosition;
+
+    protected override UIUnit UIUnit => BattleUIManager.Instance.Enemy;
+
+    public override UnitStat Stat
+    {
+        get => _stat; set
+        {
+            _stat = (EnemyStat)value;
+            _InitializeUIUnit();
         }
     }
 }

@@ -3,13 +3,6 @@ using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[Serializable]
-public class PlayerStat : UnitStat
-{
-    public int Gold;
-    public int Exp;
-}
-
 public class BattlePlayerUnit : BattleUnitBase
 {
     [SerializeField] private PlayerStat _stat;
@@ -27,7 +20,7 @@ public class BattlePlayerUnit : BattleUnitBase
     public override bool Control()
     {
         var gameManager = BattleGameManager.Instance;
- 
+
         if (Input.GetMouseButtonDown(0))
         {
             var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,5 +48,20 @@ public class BattlePlayerUnit : BattleUnitBase
         return false;
     }
 
-    protected override UnitStat GetStat() => _stat;
+
+
+    protected override UIUnit UIUnit => BattleUIManager.Instance.Player;
+
+    protected override Vector3 UnitAttackPosition => BattleUnitManager.Instance.PlayerAttackPosition;
+
+    public override UnitStat Stat
+    {
+        get => _stat; set
+        {
+            _stat = (PlayerStat)value;
+            _InitializeUIUnit();
+        }
+    }
+
+    public PlayerStat PlayerStat => Stat as PlayerStat;
 }

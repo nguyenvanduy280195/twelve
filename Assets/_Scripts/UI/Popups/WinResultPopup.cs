@@ -24,7 +24,7 @@ public class WinResultPopup : MonoBehaviour
 
     private void Start()
     {
-        if (BattleUnitManager.Instance.Player.Stat is PlayerStat playerStat)
+        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
         {
             _expCurrent.text = playerStat.Exp.ToString();
             _expTotal.text = playerStat.Exp.ToString();
@@ -41,11 +41,12 @@ public class WinResultPopup : MonoBehaviour
 
     public void OnNextButtonClicked()
     {
+        MatchingBattleManager.Instance.EndBattle();
     }
 
     private void _UpdateExpTotal()
     {
-        if (BattleUnitManager.Instance.Player.Stat is PlayerStat playerStat)
+        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
         {
             var total = playerStat.Exp + _xpEnemy + _xpBattle;
             _expTotal.GetComponent<IncreasingNumberEffect>().Thresh = total;
@@ -54,7 +55,7 @@ public class WinResultPopup : MonoBehaviour
 
     private void _UpdateGoldTotal()
     {
-        if (BattleUnitManager.Instance.Player.Stat is PlayerStat playerStat)
+        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
         {
             var total = playerStat.Gold + _gEnemy + _gBattle;
             var effect = _goldTotal.GetComponent<IncreasingNumberEffect>();

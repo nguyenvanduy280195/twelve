@@ -106,6 +106,10 @@ public class UnitAnimationHandler : MonoBehaviour
 
     public void RunIdleAnimation(Vector2 left, Vector2 right) => RunAnimation(_GetIdleAnimation(left.x, right.x));
 
+    public void RunIdleLeftAnimation() => RunAnimation(_idleLeftAnimationName);
+
+    public void RunIdleRightAnimation() => RunAnimation(_idleRightAnimationName);
+
     private string _GetIdleAnimation(float l, float r) => l > r ? _idleLeftAnimationName : _idleRightAnimationName;
 
     public void RunWalkAnimation(Vector2 left, Vector2 right) => RunAnimation(_GetWalkAnimation(left.x, right.x));

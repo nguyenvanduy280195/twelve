@@ -37,7 +37,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     //============= Readonly =============
 
-    public Data MyData { private set; get; }
+    public BattleData MyData { private set; get; }
 
     public bool IsPlayerTurn => _state == GameState.PlayerTurn;
 
@@ -72,7 +72,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         get
         {
             var unitManager = BattleUnitManager.Instance;
-            return _currentPlayer == unitManager.Player ? unitManager.Enemy : unitManager.Player;
+            return _currentPlayer == unitManager.PlayerAsBattleUnitBase ? unitManager.EnemyAsBattleUnitBase : unitManager.PlayerAsBattleUnitBase;
         }
     }
 
@@ -319,11 +319,11 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         return true;
     }
-    
+
     private void _HandleUnitAnimation()
     {
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
+        var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
         if (player.Idle && enemy.Idle)
         {
             _state = GameState.CheckingGameOver;
@@ -347,7 +347,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         _matchedItems = new List<GameObject>();
 
-        MyData = GetComponent<Data>();
+        MyData = GetComponent<BattleData>();
         MyData.Items.DestroyItemCallback = go => DestroyItem(go);
 
         ExplosionAnimations = new List<GameObject>();
@@ -360,8 +360,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         InitializeItems(MyData.inputFilename);
 
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
+        var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
 
         if (player.Stat.Level >= enemy.Stat.Level)
         {
@@ -377,8 +377,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleChoosingPlayer()
     {
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
+        var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
 
         if (_currentPlayer.nTurns <= 0)
         {
@@ -502,11 +502,11 @@ public class BattleGameManager : Singleton<BattleGameManager>
                     }
                     else if (matchedItem.tag == "Gold")
                     {
-                        _currentPlayer.nGold += (int)_bonusFactor;
+                        _currentPlayer.IncreaseGold((int)_bonusFactor);
                     }
                     else if (matchedItem.tag == "Exp")
                     {
-                        _currentPlayer.nExp += (int)_bonusFactor;
+                        _currentPlayer.IncreaseExp((int)_bonusFactor);
                     }
                 }
                 DestroyItem(matchedItem);
@@ -659,13 +659,13 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleCheckingGameOver()
     {
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
-        if (player.HP <= 0 || player.Stamina <= 0)
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
+        var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
+        if (player.Dealth)
         {
             _state = GameState.Lose;
         }
-        else if (enemy.HP <= 0 || enemy.Stamina <= 0)
+        else if (enemy.Dealth)
         {
             _state = GameState.Win;
         }
@@ -750,7 +750,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandlePlayerTurn()
     {
-        var result = BattleUnitManager.Instance.Player?.Control();
+        var result = BattleUnitManager.Instance.PlayerAsBattleUnitBase?.Control();
         if (result.HasValue && result.Value)
         {
             _state = GameState.Swapping;
@@ -759,7 +759,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleEnemyTurn()
     {
-        var result = BattleUnitManager.Instance.Enemy?.Control();
+        var result = BattleUnitManager.Instance.EnemyAsBattleUnitBase?.Control();
         if (result.HasValue && result.Value)
         {
             _state = GameState.Swapping;
@@ -768,8 +768,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleWin()
     {
-        var player = BattleUnitManager.Instance.Player;
-        var enemy = BattleUnitManager.Instance.Enemy;
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
+        var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
         var enemyStat = enemy.Stat as EnemyStat;
 
         var popup = _winResult.GetComponent<WinResultPopup>();
@@ -784,7 +784,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleResult(Canvas resultCanvas)
     {
-        var player = BattleUnitManager.Instance.Player;
+        var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         var playerStat = player.Stat as PlayerStat;
 
         var info = resultCanvas?.GetComponent<ResultInfo>();

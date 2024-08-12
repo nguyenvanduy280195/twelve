@@ -33,4 +33,9 @@ public class JoystickPlayerController : MonoBehaviour
             _unitAnimationHandler.RunWalkAnimation(x, y);
         }
     }
+
+    private void OnDisable()
+    {
+        _rigidbody.velocity = Vector3.zero;
+    }
 }

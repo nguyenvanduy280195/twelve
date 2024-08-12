@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Data : MonoBehaviour
+public class BattleData : MonoBehaviour
 {
     [Header("General")]
     public int NumberOfRow = 8;
@@ -18,7 +18,7 @@ public class Data : MonoBehaviour
 
     public ItemsSupporter ItemsSupporter;
     
-    public Data()
+    public BattleData()
     {
         Items = new ItemArray(NumberOfRow, NumberOfColumn, MinMatches);
         ItemsSupporter = new ItemsSupporter(Items);
