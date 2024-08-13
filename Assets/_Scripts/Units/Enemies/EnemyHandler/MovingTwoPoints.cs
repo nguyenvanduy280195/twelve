@@ -25,6 +25,11 @@ public class MovingTwoPoints : EnemyMovingHandler
 
     private void Update()
     {
+        if(GameManager.Instance.Pausing)
+        {
+            return;
+        }
+
         _ChooseDestination();
         _ChooseWalkAnimation();
         _Move();

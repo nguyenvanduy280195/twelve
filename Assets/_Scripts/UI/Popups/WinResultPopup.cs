@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinResultPopup : MonoBehaviour
 {
@@ -20,11 +21,18 @@ public class WinResultPopup : MonoBehaviour
 
     #endregion
 
+    private int _xpEnemy;
+    private int _xpBattle;
+    private int _gEnemy;
+    private int _gBattle;
+
+
     #region =============== Inherited via Unity ===============
 
     private void Start()
     {
-        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        if (playerStat is not null)
         {
             _expCurrent.text = playerStat.Exp.ToString();
             _expTotal.text = playerStat.Exp.ToString();
@@ -33,43 +41,37 @@ public class WinResultPopup : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnDestroy()
     {
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        if (playerStat is not null)
+        {
+            playerStat.Exp += _xpEnemy + _xpBattle;
+            playerStat.Gold += _gEnemy + _gBattle;
+            SaveSystem.SavePlayerStat(playerStat);
+        }
     }
 
     #endregion
 
+    #region =============== Callbacks ===============
+
     public void OnNextButtonClicked()
     {
-        MatchingBattleManager.Instance.EndBattle();
-    }
-
-    private void _UpdateExpTotal()
-    {
-        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
+        if (MatchingBattleManager.Instance)
         {
-            var total = playerStat.Exp + _xpEnemy + _xpBattle;
-            _expTotal.GetComponent<IncreasingNumberEffect>().Thresh = total;
+            MatchingBattleManager.Instance.EndBattle();
+        }
+        else
+        {
+            SceneManager.LoadScene("InBattle");
         }
     }
 
-    private void _UpdateGoldTotal()
-    {
-        if (BattleUnitManager.Instance.PlayerAsBattleUnitBase.Stat is PlayerStat playerStat)
-        {
-            var total = playerStat.Gold + _gEnemy + _gBattle;
-            var effect = _goldTotal.GetComponent<IncreasingNumberEffect>();
-            effect.Thresh = total;
+    #endregion
 
-        }
-    }
+    #region =============== Properties ===============
 
-    private int _xpEnemy;
-    private int _xpBattle;
-    private int _gEnemy;
-    private int _gBattle;
-
-    #region Properties
     public int ExpFromEnemy
     {
         set
@@ -79,6 +81,7 @@ public class WinResultPopup : MonoBehaviour
             _UpdateExpTotal();
         }
     }
+
     public int ExpInBattle
     {
         set
@@ -88,6 +91,7 @@ public class WinResultPopup : MonoBehaviour
             _UpdateExpTotal();
         }
     }
+
     public int GoldFromEnemy
     {
         set
@@ -97,6 +101,7 @@ public class WinResultPopup : MonoBehaviour
             _UpdateGoldTotal();
         }
     }
+
     public int GoldInBattle
     {
         set
@@ -106,5 +111,31 @@ public class WinResultPopup : MonoBehaviour
             _UpdateGoldTotal();
         }
     }
+
     #endregion
+
+    #region =============== Supporting methods ===============
+
+    private void _UpdateExpTotal()
+    {
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        if (playerStat is not null)
+        {
+            var total = playerStat.Exp + _xpEnemy + _xpBattle;
+            _expTotal.GetComponent<IncreasingNumberEffect>().Thresh = total;
+        }
+    }
+
+    private void _UpdateGoldTotal()
+    {
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        if (playerStat is not null)
+        {
+            var total = playerStat.Gold + _gEnemy + _gBattle;
+            _goldTotal.GetComponent<IncreasingNumberEffect>().Thresh = total;
+        }
+    }
+
+    #endregion
+
 }

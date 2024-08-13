@@ -1,39 +1,28 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BattleGameManager : Singleton<BattleGameManager>
 {
-    //============= Events =============
-
-    public static event Action<GameState> OnBeforeStateChanged;
-    public static event Action<GameState> OnAfterStateChanged;
-
     //============= Initialize by Inspector =============
 
-    [SerializeField]
-    private GameObject[] _itemPrefabs;
+    [SerializeField] private GameObject[] _itemPrefabs;
 
-    [SerializeField]
-    private GameObject[] _explosionPrefabs;
+    [SerializeField] private GameObject[] _explosionPrefabs;
 
-    [SerializeField]
-    private GameObject _selector;
+    [SerializeField] private GameObject _selector;
 
-    [SerializeField]
-    private Transform _origin;
+    [SerializeField] private Transform _origin;
 
-    [SerializeField]
-    private Canvas _winResult;
+    [SerializeField] private Canvas _winResult;
 
-    [SerializeField]
-    private Canvas _loseResult;
+    [SerializeField] private Canvas _loseResult;
+
+    [SerializeField] private float _delayHighlightMatches = 5f;
+
+    [SerializeField] private Color _highlightColor = Color.white;
 
     //============= Readonly =============
 
@@ -83,6 +72,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
     private GameObject GetRandomItem(GameObject[] gos) => gos[Random.Range(0, gos.Length)];
 
     private GameState _state;
+
+    private float _waitedTill;
 
     //============= Public Methods =============
 
@@ -197,6 +188,11 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void Update()
     {
+        if (GameManager.Instance?.Pausing ?? false)
+        {
+            return;
+        }
+
         Debug.Log($"GameState: {_state}");
 
         switch (_state)
@@ -221,6 +217,12 @@ public class BattleGameManager : Singleton<BattleGameManager>
                 break;
             case GameState.FindingMatches:
                 _HandleFindingMatches();
+                break;
+            case GameState.HighlightMatches:
+                _HandleHighlightMatches();
+                break;
+            case GameState.WaitingForHighlighting:
+                _HandleWaitingForHighlighting();
                 break;
             case GameState.RemovingMatches:
                 _HandleRemovingMatches();
@@ -257,6 +259,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
                 break;
             case GameState.Lose:
                 _HandleLose();
+                break;
+            case GameState.GameOver:
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(_state), _state, null);
@@ -455,9 +459,34 @@ public class BattleGameManager : Singleton<BattleGameManager>
         }
         else
         {
-            _state = GameState.RemovingMatches;
+            _state = GameState.HighlightMatches;
         }
 
+    }
+
+    private void _HandleHighlightMatches()
+    {
+        if (_matchedItems == null || _matchedItems.Count() <= 0)
+        {
+            _state = GameState.UnitAnimation;
+            return;
+        }
+
+        _waitedTill = Time.time + _delayHighlightMatches;
+        foreach (var matchedItem in _matchedItems)
+        {
+            matchedItem.GetComponent<SpriteRenderer>().color = _highlightColor;
+        }
+
+        _state = GameState.WaitingForHighlighting;
+    }
+
+    private void _HandleWaitingForHighlighting()
+    {
+        if(Time.time > _waitedTill)
+        {
+            _state = GameState.RemovingMatches;
+        }
     }
 
     private void _HandleRemovingMatches()
@@ -654,7 +683,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         _bonusFactor++;
 
-        _state = GameState.RemovingMatches;
+        _state = GameState.HighlightMatches;
     }
 
     private void _HandleCheckingGameOver()
@@ -778,21 +807,22 @@ public class BattleGameManager : Singleton<BattleGameManager>
         popup.GoldInBattle = player.nGold;
         popup.GoldFromEnemy = 20;
         _winResult.gameObject.SetActive(true);
+
+        _state = GameState.GameOver;
     }
 
-    private void _HandleLose() => _HandleResult(_loseResult);
-
-    private void _HandleResult(Canvas resultCanvas)
+    private void _HandleLose()
     {
         var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         var playerStat = player.Stat as PlayerStat;
 
-        var info = resultCanvas?.GetComponent<ResultInfo>();
-        info.Gold = $"{playerStat.Gold}";
-        info.Exp = $"{playerStat.Exp}";
+        var info = _loseResult?.GetComponent<LoseResultPopup>();
+        info.Gold = playerStat.Gold;
+        info.Exp = playerStat.Exp;
 
-        resultCanvas?.gameObject.SetActive(true);
+        _loseResult?.gameObject.SetActive(true);
     }
+
 }
 
 [SerializeField]
@@ -805,6 +835,8 @@ public enum GameState
     Swapping,
     UndoSwapping,
     FindingMatches,
+    HighlightMatches,
+    WaitingForHighlighting,
     RemovingMatches,
     SetupItemsFall,
     SpawningNewItems,
@@ -817,4 +849,5 @@ public enum GameState
     Rearrangement,
     Win,
     Lose,
+    GameOver
 }

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitManager>
 {
@@ -18,7 +15,7 @@ public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitMan
     private ScriptablePlayerStat _scriptablePlayerStat;
 
     private PlayerStat _playerStat;
-    public PlayerStat PlayerStat => _playerStat;
+    public PlayerStat PlayerStat => _playerStat ??= SaveSystem.LoadPlayerStat() ?? _scriptablePlayerStat.PlayerStat.Clone();
 
     //private List<EnemyStat> _enemiesStat;
     //public List<EnemyStat> EnemiesStat => _enemiesStat;
@@ -26,8 +23,6 @@ public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitMan
     private void Start()
     {
         Debug.Log($"ChoosingLevelUnitManager.Start");
-        
-        _playerStat ??= SaveSystem.LoadPlayerStat() ?? _scriptablePlayerStat.PlayerStat;
 
         _player.transform.position = MatchingBattleManager.Instance.PlayerPositionBeforeBattle;
 

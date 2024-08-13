@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4898d6cd6b1eab74aba428edcc90a49f, type: 3}
-  m_Name: Soldier
+  m_Name: Player Stat Default
   m_EditorClassIdentifier: 
   PlayerStat:
-    Name: Player
-    Class: Soldier
+    Name: Player Default
+    Class: Class Default
     Level: 1
     Attack: 1
     MaxHP: 100
-    HP: 65
+    HP: 100
     RegenHP: 1
     MaxMana: 100
     Mana: 0

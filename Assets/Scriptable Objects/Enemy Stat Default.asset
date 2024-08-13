@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4898d6cd6b1eab74aba428edcc90a49f, type: 3}
-  m_Name: Soldier
+  m_Script: {fileID: 11500000, guid: e12ba5730e5694446843ee2207bfbf96, type: 3}
+  m_Name: Enemy Stat Default
   m_EditorClassIdentifier: 
-  PlayerStat:
-    Name: Player
+  EnemyStat:
+    Name: Enemy
     Class: Soldier
     Level: 1
     Attack: 1
     MaxHP: 100
-    HP: 65
+    HP: 100
     RegenHP: 1
     MaxMana: 100
     Mana: 0
@@ -26,6 +26,4 @@ MonoBehaviour:
     MaxStamina: 100
     Stamina: 100
     RegenStamina: 1
-    Gold: 0
-    Exp: 0
-    nPoints: 0
+    BonusExp: 0

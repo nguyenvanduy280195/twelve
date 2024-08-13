@@ -10,5 +10,6 @@ public class ButtonsEvent : MonoBehaviour
     public void OnMenuInGameButtonClicked()
     {
         _menuInGame.SetActive(true);
+        GameManager.Instance.Pausing = true;
     }
 }

@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class PlayerStatPopup : MonoBehaviour
 {
-    //============= Events =============
-    public static event Action<int> OnNotifyChanged;
-
     #region Fields
 
     [SerializeField] private StatUI _name;
@@ -30,6 +27,8 @@ public class PlayerStatPopup : MonoBehaviour
     [SerializeField] private StatUI _regenStamina;
     [SerializeField] private StatUI _nPoints;
     [SerializeField] private StatUI _exp;
+
+    [SerializeField] private bool _allButtonsEnabled = true;
 
     [SerializeField] private Button _applyButton;
     [SerializeField] private Button _levelupButton;
@@ -68,11 +67,14 @@ public class PlayerStatPopup : MonoBehaviour
 
     private void Start()
     {
-        _playerStat = ChoosingLevelUnitManager.Instance.PlayerStat;
+        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat ?? BattleUnitManager.Instance.PlayerAsBattlePlayerUnit.PlayerStat;
 
         _InitializeContents();
-        //_InitializeOnContentChanged();
-        _InitializeAllButtons();
+
+        if (_allButtonsEnabled)
+        {
+            _InitializeAllButtons();
+        }
     }
 
     private void _InitializeContents()
@@ -99,17 +101,6 @@ public class PlayerStatPopup : MonoBehaviour
 
         _nPoints.Content = _playerStat.nPoints.ToString();
         _exp.Content = _playerStat.Exp.ToString();
-    }
-
-    private void _InitializeOnContentChanged()
-    {
-        _GetChangableStatUI(_attack).OnValueChanged = value => _playerStat.Attack += value;
-        _GetChangableStatUI(_maxHP).OnValueChanged = value => _playerStat.MaxHP += value;
-        _GetChangableStatUI(_regenHP).OnValueChanged = value => _playerStat.RegenHP += value;
-        _GetChangableStatUI(_maxMana).OnValueChanged = value => _playerStat.MaxMana += value;
-        _GetChangableStatUI(_regenMana).OnValueChanged = value => _playerStat.RegenMana += value;
-        _GetChangableStatUI(_maxStamina).OnValueChanged = value => _playerStat.MaxStamina += value;
-        _GetChangableStatUI(_regenStamina).OnValueChanged = value => _playerStat.RegenStamina += value;
     }
 
     private void _InitializeAllButtons()
@@ -151,7 +142,7 @@ public class PlayerStatPopup : MonoBehaviour
             _GetChangableStatUI(_regenStamina).DownButtonEnabled = value;
         }
     }
-    
+
     public int nPoints { set => _nPoints.Content = value.ToString(); get => int.Parse(_nPoints.Content); }
 
     public int Exp
@@ -186,7 +177,7 @@ public class PlayerStatPopup : MonoBehaviour
         Exp -= THRESH_EXP_TO_LEVEL_UP;
 
         Level++;
-        
+
         nPoints += NEW_POINTS_WHEN_LEVEL_UP;
         _playerStat.nPoints = int.Parse(_nPoints.Content);
 
@@ -220,6 +211,7 @@ public class PlayerStatPopup : MonoBehaviour
     public void OnCloseClicked()
     {
         gameObject.SetActive(false);
+        GameManager.Instance.Pausing = false;
     }
 
     #endregion

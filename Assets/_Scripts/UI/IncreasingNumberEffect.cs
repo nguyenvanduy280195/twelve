@@ -24,7 +24,7 @@ public class IncreasingNumberEffect : MonoBehaviour
     private void Update()
     {
         var delta = Thresh - _number;
-        if (delta != 0)
+        if (delta > 0)
         {
             _number += delta / Mathf.Abs(delta);
             _numberAsText.text = _number.ToString();

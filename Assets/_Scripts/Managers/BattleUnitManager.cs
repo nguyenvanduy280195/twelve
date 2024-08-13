@@ -19,11 +19,21 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
     public BattleEnemyUnit EnemyAsBattleEnemyUnit => Enemy.GetComponent<BattleEnemyUnit>();
     public BattleUnitBase EnemyAsBattleUnitBase => EnemyAsBattleEnemyUnit;
 
+    [SerializeField] private ScriptablePlayerStat _playerStatDefault;
+    [SerializeField] private ScriptableEnemyStat _enemyStatDefault;
+
     private void Start()
     {
         var manager = MatchingBattleManager.Instance;
-
-        PlayerAsBattleUnitBase.Stat = manager.PlayerStat;
-        EnemyAsBattleUnitBase.Stat = manager.EnemyStat;
+        if (manager is not null)
+        {
+            PlayerAsBattleUnitBase.Stat = manager.PlayerStat;
+            EnemyAsBattleUnitBase.Stat = manager.EnemyStat;
+        }
+        else
+        {
+            PlayerAsBattleUnitBase.Stat = _playerStatDefault?.PlayerStat.Clone();
+            EnemyAsBattleUnitBase.Stat = _enemyStatDefault?.EnemyStat.Clone();
+        }
     }
 }

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
 {
     private static readonly string _inBattleSceneName = "InBattle";
-    private static readonly string _outBattleSceneName = "ChoosingLevel";
+    private static readonly string _outBattleSceneName = "Maze";
 
     [SerializeField]
     private ScriptableEnemyStat DefaultEnemyStat;
@@ -38,7 +36,7 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         var enemyData = enemy.GetComponent<EnemyData>();
         if (enemyData?.ScriptableEnemyStat.EnemyStat is EnemyStat enemyStat)
         {
-            return enemyStat;
+            return enemyStat.Clone();
         }
         return null;
     }

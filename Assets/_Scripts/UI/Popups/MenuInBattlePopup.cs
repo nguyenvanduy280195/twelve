@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuInGamePopup : MonoBehaviour
+public class MenuInBattlePopup : MonoBehaviour
 {
     [SerializeField]
     private GameObject _statsCanvas;
@@ -25,8 +25,8 @@ public class MenuInGamePopup : MonoBehaviour
 
     }
 
-    public void OnMainMenuButtonClicked()
+    public void OnOutBattleButtonClicked()
     {
-
+        MatchingBattleManager.Instance?.EndBattle();
     }
 }

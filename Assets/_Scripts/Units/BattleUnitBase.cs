@@ -10,6 +10,7 @@ public abstract class BattleUnitBase : MonoBehaviour
     //============= Properties =============
     [SerializeField] private float _moveDuration = 1f;
     [SerializeField] private TextMeshProUGUI _nTurnsText;
+    [SerializeField] private float _weightFactor = 0.5f;
 
     // ============= Fields =============
     private UnitState _state = UnitState.Idle;
@@ -92,7 +93,7 @@ public abstract class BattleUnitBase : MonoBehaviour
     protected void _InitializeUIUnit()
     {
         UIUnit.HP.MaxValue = Stat.MaxHP;
-        UIUnit.HP.Value = Stat.MaxHP;
+        UIUnit.HP.Value = Stat.HP;
         UIUnit.Mana.MaxValue = Stat.MaxMana;
         UIUnit.Mana.Value = Stat.Mana;
         UIUnit.Stamina.MaxValue = Stat.MaxStamina;
@@ -147,9 +148,9 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void IncreaseGold(int value) => nGold += value;
+    public void IncreaseGold(float bonusFactor) => nGold += (int)bonusFactor;
 
-    public void IncreaseExp(int value) => nExp += value;
+    public void IncreaseExp(float bonusFactor) => nExp += (int)bonusFactor;
 
     public void ConsumeStamina(float value)
     {
@@ -163,11 +164,11 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.RegenHP * bonusFactor, Stat.MaxHP);
+    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.RegenHP * bonusFactor * _weightFactor, Stat.MaxHP);
 
-    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.RegenMana * bonusFactor, Stat.MaxMana);
+    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.RegenMana * bonusFactor * _weightFactor, Stat.MaxMana);
 
-    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina * bonusFactor, Stat.MaxStamina);
+    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina * bonusFactor * _weightFactor, Stat.MaxStamina);
 
     #endregion
 

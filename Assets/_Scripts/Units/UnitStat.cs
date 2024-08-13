@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 
 [Serializable]
@@ -25,10 +26,15 @@ public class PlayerStat : UnitStat
     public int Gold;
     public int Exp;
     public int nPoints;
+
+    public PlayerStat Clone() => (PlayerStat)MemberwiseClone();
+
+    public string GetDebuggerDisplay() => $"{Name} {Class} {Level} {Attack} {MaxHP} {HP} {RegenHP} {MaxMana} {Mana} {MaxStamina} {Stamina} {RegenStamina} {Gold} {Exp} {nPoints}";
 }
 
 [Serializable]
 public class EnemyStat : UnitStat
 {
     public int BonusExp;
+    public EnemyStat Clone() => (EnemyStat)MemberwiseClone();
 }
