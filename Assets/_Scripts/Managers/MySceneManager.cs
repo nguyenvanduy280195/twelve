@@ -14,7 +14,7 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     {
         _sceneTransitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("InBattle");
+        SceneManager.LoadSceneAsync("InBattle");
     }
 
     public void LoadMazeScene() => StartCoroutine(_StartLoadingMazeScene());

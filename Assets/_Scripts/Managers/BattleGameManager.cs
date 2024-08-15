@@ -193,7 +193,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
             return;
         }
 
-        Debug.Log($"GameState: {_state}");
+        //Debug.Log($"GameState: {_state}");
 
         switch (_state)
         {
@@ -483,7 +483,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleWaitingForHighlighting()
     {
-        if(Time.time > _waitedTill)
+        if (Time.time > _waitedTill)
         {
             _state = GameState.RemovingMatches;
         }
@@ -670,7 +670,23 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;
 
-        foreach (var iCol in _alterCols)
+        // only alter cols
+        //foreach (var iCol in _alterCols)
+        //{
+        //    int count = 0;
+        //    for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
+        //    {
+        //        if (MyData.Items[iCol, iRow] != null)
+        //        {
+        //            _FindMatchedItems(MyData.Items[iCol, iRow], predicate);
+        //            count++;
+        //        }
+        //    }
+        //    Debug.Log($"_alterCols[{iCol}].RowLength = [{count}]");
+        //}
+
+        // all cols
+        for (int iCol = 0; iCol < MyData.NumberOfColumn; iCol++)
         {
             for (int iRow = 0; iRow < MyData.NumberOfRow; iRow++)
             {
@@ -805,7 +821,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         popup.ExpInBattle = player.nExp;
         popup.ExpFromEnemy = enemyStat.BonusExp;
         popup.GoldInBattle = player.nGold;
-        popup.GoldFromEnemy = 20;
+        popup.GoldFromEnemy = enemyStat.BonusGold;
         _winResult.gameObject.SetActive(true);
 
         _state = GameState.GameOver;

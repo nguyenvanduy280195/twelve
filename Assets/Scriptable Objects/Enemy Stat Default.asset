@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy Stat Default
   m_EditorClassIdentifier: 
   EnemyStat:
-    Name: Enemy
-    Class: Soldier
+    Name: Enemy Default
+    Class: Class Default
     Level: 1
     Attack: 1
     MaxHP: 100

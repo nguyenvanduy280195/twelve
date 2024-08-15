@@ -36,5 +36,6 @@ public class PlayerStat : UnitStat
 public class EnemyStat : UnitStat
 {
     public int BonusExp;
+    public int BonusGold;
     public EnemyStat Clone() => (EnemyStat)MemberwiseClone();
 }
