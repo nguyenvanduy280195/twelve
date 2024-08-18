@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinResultPopup : MonoBehaviour
+public class WinResultPopup : PopupTemplate
 {
     #region =============== For Inspector ===============
 
@@ -56,21 +56,7 @@ public class WinResultPopup : MonoBehaviour
 
     #region =============== Callbacks ===============
 
-    public void OnNextButtonClicked()
-    {
-        var gameMode = GameManager.Instance?.GetGameMode();
-        switch (gameMode)
-        {
-            case GameMode.Battle:
-                MySceneManager.Instance?.LoadMainMenuScene();
-                break;
-            case GameMode.Casual:
-                MySceneManager.Instance?.LoadMazeScene();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
-        }
-    }
+    public void OnNextButtonClicked() => _ReturnPreviousScene();
 
     #endregion
 

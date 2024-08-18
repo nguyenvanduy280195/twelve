@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LoseResultPopup : MonoBehaviour
+public class LoseResultPopup : PopupTemplate
 {
     [SerializeField] private TextMeshProUGUI _goldText;
     [SerializeField] private TextMeshProUGUI _expText;
@@ -44,19 +44,5 @@ public class LoseResultPopup : MonoBehaviour
         }
     }
 
-    public void OnNextButtonClicked()
-    {
-        var gameMode = GameManager.Instance?.GetGameMode();
-        switch (gameMode)
-        {
-            case GameMode.Battle:
-                MySceneManager.Instance?.LoadMainMenuScene();
-                break;
-            case GameMode.Casual:
-                MySceneManager.Instance?.LoadMazeScene();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
-        }
-    }
+    public void OnNextButtonClicked() => _ReturnPreviousScene();
 }

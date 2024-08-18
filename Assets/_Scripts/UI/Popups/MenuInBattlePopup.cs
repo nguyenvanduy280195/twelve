@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MenuInBattlePopup : MonoBehaviour
+public class MenuInBattlePopup : PopupTemplate
 {
     [SerializeField]
     private GameObject _statsCanvas;
@@ -9,7 +9,6 @@ public class MenuInBattlePopup : MonoBehaviour
     public void OnBackButtonClicked()
     {
         _HidePopup();
-        _UnPauseGame();
     }
 
     public void OnStatsButtonClicked()
@@ -26,27 +25,8 @@ public class MenuInBattlePopup : MonoBehaviour
     public void OnOutBattleButtonClicked()
     {
         _HidePopup();
-        _UnPauseGame();
-
-        var gameMode = GameManager.Instance?.GetGameMode();
-        switch (gameMode)
-        {
-            case GameMode.Battle:
-                MySceneManager.Instance?.LoadMainMenuScene();
-                break;
-            case GameMode.Casual:
-                MySceneManager.Instance?.LoadMazeScene();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
-        }
+        _ReturnPreviousScene();
     }
-
-    private void OnEnable() => GameManager.Instance?.SetPausing(true);
-
-    private void _UnPauseGame() => GameManager.Instance?.SetPausing(false);
-
-    private void _HidePopup() => gameObject.SetActive(false);
 
     private void _ShowStatsPopup() => _statsCanvas?.SetActive(true);
 }

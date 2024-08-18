@@ -1,15 +1,11 @@
 using UnityEngine;
 
-public class MenuInGamePopup : MonoBehaviour
+public class MenuInGamePopup : PopupTemplate
 {
     [SerializeField]
     private GameObject _statsCanvas;
 
-    public void OnBackButtonClicked()
-    {
-        _HidePopup();
-        _UnPauseGame();
-    }
+    public void OnBackButtonClicked() => _HidePopup();
 
     public void OnStatsButtonClicked()
     {
@@ -17,21 +13,13 @@ public class MenuInGamePopup : MonoBehaviour
         _ShowStatsPopup();
     }
 
-    public void OnInventoryButtonClicked()
-    {
-        _HidePopup();
-    }
+    public void OnInventoryButtonClicked() { }
 
     public void OnMainMenuButtonClicked()
     {
         _HidePopup();
-        _UnPauseGame();
         MySceneManager.Instance?.LoadMainMenuScene();
     }
-
-    private void _UnPauseGame() => GameManager.Instance.SetPausing(false);
-
-    private void _HidePopup() => gameObject.SetActive(false);
 
     private void _ShowStatsPopup() => _statsCanvas?.SetActive(true);
 }
