@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingTwoPoints : EnemyMovingHandler
+public class Moving2Points : EnemyMovingHandler
 {
     [SerializeField]
     private float Speed = 1f;
@@ -25,7 +25,7 @@ public class MovingTwoPoints : EnemyMovingHandler
 
     private void Update()
     {
-        if(GameManager.Instance.Pausing)
+        if(GameManager.Instance?.IsPausing() ?? false)
         {
             return;
         }

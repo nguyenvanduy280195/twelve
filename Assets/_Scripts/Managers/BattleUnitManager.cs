@@ -24,16 +24,30 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
 
     private void Start()
     {
+        var gameMode = GameManager.Instance?.GetGameMode();
+        switch (gameMode)
+        {
+            case GameMode.Battle:
+                _SetupBattleMode();
+                break;
+            case GameMode.Casual:
+                _SetupCasualMode();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void _SetupBattleMode()
+    {
+        PlayerAsBattleUnitBase.Stat = _playerStatDefault?.PlayerStat.Clone();
+        EnemyAsBattleUnitBase.Stat = _enemyStatDefault?.EnemyStat.Clone();
+    }
+
+    private void _SetupCasualMode()
+    {
         var manager = MatchingBattleManager.Instance;
-        if (manager is not null)
-        {
-            PlayerAsBattleUnitBase.Stat = manager.PlayerStat;
-            EnemyAsBattleUnitBase.Stat = manager.EnemyStat;
-        }
-        else
-        {
-            PlayerAsBattleUnitBase.Stat = _playerStatDefault?.PlayerStat.Clone();
-            EnemyAsBattleUnitBase.Stat = _enemyStatDefault?.EnemyStat.Clone();
-        }
+        PlayerAsBattleUnitBase.Stat = manager?.PlayerStat ?? _playerStatDefault?.PlayerStat.Clone();
+        EnemyAsBattleUnitBase.Stat = manager?.EnemyStat ?? _enemyStatDefault?.EnemyStat.Clone();
     }
 }

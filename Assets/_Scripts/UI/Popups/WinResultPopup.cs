@@ -58,13 +58,17 @@ public class WinResultPopup : MonoBehaviour
 
     public void OnNextButtonClicked()
     {
-        if (MatchingBattleManager.Instance)
+        var gameMode = GameManager.Instance?.GetGameMode();
+        switch (gameMode)
         {
-            MatchingBattleManager.Instance.EndBattle();
-        }
-        else
-        {
-            SceneManager.LoadScene("InBattle");
+            case GameMode.Battle:
+                MySceneManager.Instance?.LoadMainMenuScene();
+                break;
+            case GameMode.Casual:
+                MySceneManager.Instance?.LoadMazeScene();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
         }
     }
 

@@ -21,6 +21,8 @@ public class ChangableStatUI : StatUI
     public bool UpButtonEnabled { set => _upButton.SetActive(value); }
     public bool DownButtonEnabled { set => _downButton.SetActive(value); }
 
+    public float Weight = 1;
+
 
     public void OnIncrease()
     {
@@ -29,7 +31,7 @@ public class ChangableStatUI : StatUI
         if (OnNumberOfPointsGot?.Invoke() > 0)
         {
             OnNumberOfPointsChanged?.Invoke(1);
-            Content = $"{value + 1}";
+            Content = $"{value + Weight}";
         }
     }
 
@@ -38,7 +40,7 @@ public class ChangableStatUI : StatUI
         var value = int.Parse(Content);
         if (value > _threshDown)
         {
-            Content = $"{value - 1}";
+            Content = $"{value - Weight}";
             OnNumberOfPointsChanged?.Invoke(-1);
         }
     }

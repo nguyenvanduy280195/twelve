@@ -1,12 +1,16 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MySceneManager : SingletonPersistent<MySceneManager>
+public class MySceneManager : Singleton<MySceneManager>
 {
-    [SerializeField] Animator _sceneTransitionAnimator;
+    private Animator _sceneTransitionAnimator;
+
+    private void Start()
+    {
+        _sceneTransitionAnimator = GetComponent<Animator>();
+    }
 
     public void LoadInBattleScene() => StartCoroutine(_StartLoadingInBattleScene());
 
@@ -14,7 +18,7 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     {
         _sceneTransitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadSceneAsync("InBattle");
+        SceneManager.LoadScene("InBattle");
     }
 
     public void LoadMazeScene() => StartCoroutine(_StartLoadingMazeScene());
@@ -24,5 +28,14 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
         _sceneTransitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Maze");
+    }
+
+    public void LoadMainMenuScene() => StartCoroutine(_StartLoadingMainMenuScene());
+
+    private IEnumerator _StartLoadingMainMenuScene()
+    {
+        _sceneTransitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("MainMenu");
     }
 }

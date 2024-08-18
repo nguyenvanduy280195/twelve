@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class BattleGameManager : Singleton<BattleGameManager>
@@ -129,7 +131,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     public void InitializeItems()
     {
-        var watch = System.Diagnostics.Stopwatch.StartNew();
+        var watch = Stopwatch.StartNew();
 
         List<GameObject> list = new(_itemPrefabs);
         GameObject newItem;
@@ -184,11 +186,16 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     //============= Private Methods =============
 
-    private void Start() => _state = GameState.Starting;
+    private void Start()
+    {
+        _state = GameState.Starting;
+
+        Debug.Log($"GameMode: {GameManager.Instance?.GetGameMode()}");
+    }
 
     private void Update()
     {
-        if (GameManager.Instance?.Pausing ?? false)
+        if (GameManager.Instance?.IsPausing() ?? false)
         {
             return;
         }
@@ -414,8 +421,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleSwaping2Items()
     {
-        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationDuration);
-        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationDuration);
+        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
+        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
 
         var delta = SelectedGameObject.transform.position - PreDraggedPosition;
         if (delta.magnitude < Mathf.Epsilon)
@@ -428,8 +435,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleUndoSwapping()
     {
-        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationDuration);
-        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationDuration);
+        SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
+        DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
 
         var delta = SelectedGameObject.transform.position - PreSelectedPosition;
         if (delta.magnitude < Mathf.Epsilon)
@@ -614,7 +621,9 @@ public class BattleGameManager : Singleton<BattleGameManager>
             {
                 var newItem = GetRandomItem();
 
-                var newGameObjectPosition = new Vector2(_origin.position.x + iCol * _itemSize.x, _origin.position.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y);
+                var newGameObjectX = _origin.position.x + iCol * _itemSize.x;
+                var newGameObjectY = _origin.position.y + (MyData.NumberOfRow + iRow - items.Count()) * _itemSize.y;
+                var newGameObjectPosition = new Vector2(newGameObjectX, newGameObjectY);
                 var newGameObject = Instantiate(newItem, newGameObjectPosition, Quaternion.identity, transform);
                 var newGameObjectItem = newGameObject.GetComponent<Item>();
                 if (newGameObjectItem != null)
@@ -646,7 +655,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         foreach ((var go, var des) in _itemsFallings)
         {
-            go.transform.position = Vector2.MoveTowards(go.transform.position, des, MyData.FallingAnimationDuration);
+            go.transform.position = Vector2.MoveTowards(go.transform.position, des, MyData.FallingAnimationSpeed);
 
             var delta = go.transform.position - des;
             if (delta.sqrMagnitude > Mathf.Epsilon)
@@ -666,6 +675,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private void _HandleScanningMatchesInAlteredColumns()
     {
+
         _matchedItems.Clear();
 
         Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;

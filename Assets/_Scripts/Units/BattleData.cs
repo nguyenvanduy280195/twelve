@@ -9,9 +9,9 @@ public class BattleData : MonoBehaviour
     public int MinMatches = 3;
     public string inputFilename = "";
 
-    [Header("Animation Durations")]
-    public float SwappingAnimationDuration = 0.2f;
-    public float FallingAnimationDuration = 0.2f;
+    [Header("Animation Speed")]
+    public float SwappingAnimationSpeed = 0.2f;
+    public float FallingAnimationSpeed = 0.2f;
 
     [NonSerialized]
     public ItemArray Items;

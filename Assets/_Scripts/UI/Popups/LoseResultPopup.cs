@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -45,6 +46,17 @@ public class LoseResultPopup : MonoBehaviour
 
     public void OnNextButtonClicked()
     {
-        MatchingBattleManager.Instance.EndBattle();
+        var gameMode = GameManager.Instance?.GetGameMode();
+        switch (gameMode)
+        {
+            case GameMode.Battle:
+                MySceneManager.Instance?.LoadMainMenuScene();
+                break;
+            case GameMode.Casual:
+                MySceneManager.Instance?.LoadMazeScene();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
+        }
     }
 }

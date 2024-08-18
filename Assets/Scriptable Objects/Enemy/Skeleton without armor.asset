@@ -27,3 +27,4 @@ MonoBehaviour:
     Stamina: 50
     RegenStamina: 1
     BonusExp: 20
+    BonusGold: 0

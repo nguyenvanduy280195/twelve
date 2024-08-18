@@ -155,9 +155,9 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public void ConsumeStamina(float value)
     {
-        if (UIUnit.Stamina.Value > 0)
+        if (Stamina > 0)
         {
-            UIUnit.Stamina.Value -= value;
+            Stamina -= value;
         }
         else
         {
@@ -169,7 +169,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.RegenMana * bonusFactor, Stat.MaxMana);
 
-    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina * bonusFactor, Stat.MaxStamina);
+    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina* bonusFactor, Stat.MaxStamina);
 
     #endregion
 
@@ -177,6 +177,8 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     private void Start()
     {
+        Stamina = Stat.MaxStamina;
+
         _InitializeUIUnit();
 
         _unitPosition = transform.position;

@@ -7,9 +7,5 @@ public class ButtonsEvent : MonoBehaviour
     [SerializeField]
     private GameObject _menuInGame;
 
-    public void OnMenuInGameButtonClicked()
-    {
-        _menuInGame.SetActive(true);
-        GameManager.Instance.Pausing = true;
-    }
+    public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 }

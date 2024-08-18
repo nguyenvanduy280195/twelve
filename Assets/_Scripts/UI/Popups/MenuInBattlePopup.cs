@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class MenuInBattlePopup : MonoBehaviour
@@ -7,17 +6,16 @@ public class MenuInBattlePopup : MonoBehaviour
     [SerializeField]
     private GameObject _statsCanvas;
 
-
     public void OnBackButtonClicked()
     {
-        gameObject.SetActive(false);
-        GameManager.Instance.Pausing = false;
+        _HidePopup();
+        _UnPauseGame();
     }
 
     public void OnStatsButtonClicked()
     {
-        gameObject.SetActive(false);
-        _statsCanvas.SetActive(true);
+        _HidePopup();
+        _ShowStatsPopup();
     }
 
     public void OnInventoryButtonClicked()
@@ -27,6 +25,28 @@ public class MenuInBattlePopup : MonoBehaviour
 
     public void OnOutBattleButtonClicked()
     {
-        MatchingBattleManager.Instance?.EndBattle();
+        _HidePopup();
+        _UnPauseGame();
+
+        var gameMode = GameManager.Instance?.GetGameMode();
+        switch (gameMode)
+        {
+            case GameMode.Battle:
+                MySceneManager.Instance?.LoadMainMenuScene();
+                break;
+            case GameMode.Casual:
+                MySceneManager.Instance?.LoadMazeScene();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(gameMode), gameMode, null);
+        }
     }
+
+    private void OnEnable() => GameManager.Instance?.SetPausing(true);
+
+    private void _UnPauseGame() => GameManager.Instance?.SetPausing(false);
+
+    private void _HidePopup() => gameObject.SetActive(false);
+
+    private void _ShowStatsPopup() => _statsCanvas?.SetActive(true);
 }

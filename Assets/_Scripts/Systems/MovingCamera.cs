@@ -7,9 +7,8 @@ public class MovingCamera : MonoBehaviour
     [SerializeField]
     private float _smoothSpeed;
 
-    public Transform Target;
+    public Transform Target { private get; set; }
 
-    // Update is called once per frame
     void Update()
     {
         if (Target != null)

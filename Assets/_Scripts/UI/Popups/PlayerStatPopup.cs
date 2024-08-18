@@ -33,17 +33,12 @@ public class PlayerStatPopup : MonoBehaviour
     [SerializeField] private Button _applyButton;
     [SerializeField] private Button _levelupButton;
 
+    [SerializeField] private int LevelUpExpThresh = 100;
+    [SerializeField] private int LevelupPoints = 5;
+
     private PlayerStat _playerStat;
 
     #endregion
-
-    #region Constants
-
-    private static readonly int THRESH_EXP_TO_LEVEL_UP = 100;
-    private static readonly int NEW_POINTS_WHEN_LEVEL_UP = 10;
-
-    #endregion
-
 
     private void _OnUIStatChanged(int delta)
     {
@@ -108,6 +103,10 @@ public class PlayerStatPopup : MonoBehaviour
         AllUpButtonsEnabled = nPoints > 0;
         AllDownButtonsEnabled = nPoints > 0;
 
+        _GetChangableStatUI(_maxHP).Weight = 10;
+        _GetChangableStatUI(_maxMana).Weight = 10;
+        _GetChangableStatUI(_maxStamina).Weight = 10;
+
         ApplyButtonEnabled = false;
 
         _RecheckLevelUpButtonEnabled();
@@ -168,17 +167,17 @@ public class PlayerStatPopup : MonoBehaviour
 
     public bool ApplyButtonEnabled { set => _applyButton.interactable = value; }
 
-    public void _RecheckLevelUpButtonEnabled() => _levelupButton.interactable = _playerStat.Exp > THRESH_EXP_TO_LEVEL_UP;
+    public void _RecheckLevelUpButtonEnabled() => _levelupButton.interactable = _playerStat.Exp > LevelUpExpThresh;
 
     #region Button callbacks
 
     public void OnLevelupButtonClicked()
     {
-        Exp -= THRESH_EXP_TO_LEVEL_UP;
+        Exp -= LevelUpExpThresh;
 
         Level++;
 
-        nPoints += NEW_POINTS_WHEN_LEVEL_UP;
+        nPoints += LevelupPoints;
         _playerStat.nPoints = int.Parse(_nPoints.Content);
 
         AllUpButtonsEnabled = true;
@@ -211,7 +210,7 @@ public class PlayerStatPopup : MonoBehaviour
     public void OnCloseClicked()
     {
         gameObject.SetActive(false);
-        GameManager.Instance.Pausing = false;
+        GameManager.Instance.SetPausing(false);
     }
 
     #endregion

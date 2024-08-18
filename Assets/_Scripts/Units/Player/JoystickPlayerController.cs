@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JoystickPlayerController : MonoBehaviour
@@ -24,6 +25,12 @@ public class JoystickPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance?.IsPausing() ?? false)
+        {
+            _rigidbody.velocity = Vector3.zero;
+            return;
+        }
+
         if (_joystick != null)
         {
             float x = _joystick.Horizontal * _moveSpeed;

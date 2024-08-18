@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -8,13 +10,14 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake() => Instance = this as T;
 
-    protected virtual void OnApplicationQuit() 
+    protected virtual void OnApplicationQuit()
     {
         Instance = null;
         Destroy(gameObject);
     }
 }
 
+//TODO this is working not well
 public abstract class SingletonPersistent<T> : Singleton<T> where T : MonoBehaviour
 {
     protected override void Awake()

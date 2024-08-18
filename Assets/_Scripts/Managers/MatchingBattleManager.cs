@@ -1,35 +1,37 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
 {
-    private static readonly string _inBattleSceneName = "InBattle";
-    private static readonly string _outBattleSceneName = "Maze";
-
     [SerializeField]
     private ScriptableEnemyStat DefaultEnemyStat;
 
     public PlayerStat PlayerStat => ChoosingLevelUnitManager.Instance.PlayerStat;
-
     public EnemyStat EnemyStat { get; private set; }
 
     public Vector3 PlayerPositionBeforeBattle { get; private set; }
     public Vector3 EnemyPositionBeforeBattle { get; private set; }
 
+    private int _enemyID;
+
     public void BeginBattle(GameObject enemy)
     {
         PlayerPositionBeforeBattle = ChoosingLevelUnitManager.Instance.Player.transform.position;
-
         EnemyPositionBeforeBattle = enemy.transform.position;
+        
         EnemyStat = _GetEnemyStatFromEnemy(enemy) ?? DefaultEnemyStat.EnemyStat;
+        
+        _enemyID = enemy.GetComponent<EnemyData>().ID;
 
-        SceneManager.LoadScene(_inBattleSceneName);
+        MySceneManager.Instance?.LoadInBattleScene();
     }
 
     public void EndBattle()
     {
-        SceneManager.LoadScene(_outBattleSceneName);
+        MySceneManager.Instance?.LoadMazeScene();
+        _HideDeadEnemy();
     }
+
+    private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance.AddDeadEnemy(_enemyID);
 
     private EnemyStat _GetEnemyStatFromEnemy(GameObject enemy)
     {
@@ -40,4 +42,5 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         }
         return null;
     }
+
 }

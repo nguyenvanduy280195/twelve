@@ -16,7 +16,7 @@ MonoBehaviour:
     Name: Player
     Class: Soldier
     Level: 1
-    Attack: 1
+    Attack: 50
     MaxHP: 100
     HP: 65
     RegenHP: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     RegenMana: 1
     MaxStamina: 100
     Stamina: 100
-    RegenStamina: 1
+    RegenStamina: 2
     Gold: 0
     Exp: 0
     nPoints: 0

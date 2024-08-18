@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void OnCasualButtonClicked() => MySceneManager.Instance.LoadMazeScene();
+    public void OnCasualButtonClicked()
+    {
+        GameManager.Instance?.SetGameMode(GameMode.Casual);
+        MySceneManager.Instance?.LoadMazeScene();
+    }
 
-    public void OnBattleButtonClicked() => MySceneManager.Instance.LoadInBattleScene();
-
+    public void OnBattleButtonClicked()
+    {
+        GameManager.Instance?.SetGameMode(GameMode.Battle);
+        MySceneManager.Instance?.LoadInBattleScene();
+    }
 }
