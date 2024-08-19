@@ -3,31 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScaleTo : MonoBehaviour
+public abstract class UIAction : MonoBehaviour
 {
-    [SerializeField]
-    private float Speed;
+    [SerializeField] protected float Speed;
 
-    public Vector3 To { set; private get; }
+    public Vector3 To { set; protected get; }
 
     public Action<GameObject> OnDone { set; private get; }
 
     public bool ActiveOnDoneOnce { set; private get; }
 
-    private RectTransform _rectTransform;
+    protected RectTransform _rectTransform;
 
-    private void Start()
+    private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        To = _rectTransform.localScale;
     }
 
     private void Update()
     {
-        var delta = _rectTransform.localScale - To;
-        if (delta.magnitude > Mathf.Epsilon)
+        if (Predicate)
         {
-            _rectTransform.localScale = Vector2.MoveTowards(transform.localScale, To, Speed * Time.deltaTime);
+            _ActionIfPredicateTrue();
         }
         else if (ActiveOnDoneOnce)
         {
@@ -35,4 +32,8 @@ public class ScaleTo : MonoBehaviour
             OnDone?.Invoke(gameObject);
         }
     }
+
+    protected abstract bool Predicate { get; }
+
+    protected abstract void _ActionIfPredicateTrue();
 }

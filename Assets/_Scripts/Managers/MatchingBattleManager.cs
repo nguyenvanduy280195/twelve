@@ -21,7 +21,9 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         EnemyStat = _GetEnemyStatFromEnemy(enemy) ?? DefaultEnemyStat.EnemyStat;
         
         _enemyID = enemy.GetComponent<EnemyData>().ID;
-
+        
+        GameManager.Instance?.SetPausing(true);
+        
         MySceneManager.Instance?.LoadInBattleScene();
     }
 

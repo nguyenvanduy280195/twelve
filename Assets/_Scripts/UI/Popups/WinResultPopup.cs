@@ -27,7 +27,7 @@ public class WinResultPopup : PopupTemplate
     private int _gBattle;
 
 
-    #region =============== Inherited via Unity ===============
+    #region =============== Override methods ===============
 
     private void Start()
     {
@@ -51,6 +51,10 @@ public class WinResultPopup : PopupTemplate
             SaveSystem.SavePlayerStat(playerStat);
         }
     }
+
+    protected override void _ExitBattleInCasualMode() => MatchingBattleManager.Instance?.EndBattle();
+
+
 
     #endregion
 

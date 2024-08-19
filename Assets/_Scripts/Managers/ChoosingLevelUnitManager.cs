@@ -15,6 +15,7 @@ public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitMan
 
     public List<GameObject> Enemies { get; private set; }
 
+    [SerializeField]
     private List<int> _listDeadEnemyID;
 
     private void Start()

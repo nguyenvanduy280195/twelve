@@ -19,6 +19,7 @@ public class MySceneManager : Singleton<MySceneManager>
         _sceneTransitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("InBattle");
+        GameManager.Instance?.SetPausing(false);
     }
 
     public void LoadMazeScene() => StartCoroutine(_StartLoadingMazeScene());

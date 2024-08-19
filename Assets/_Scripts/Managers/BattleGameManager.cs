@@ -247,7 +247,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
                 _HandleScanningMatchesInAlteredColumns();
                 break;
             case GameState.ExplosionAnimation:
-                _HandleExplosionAnimation();
+                _HandleWaitingForExplosionAnimation();
                 break;
             case GameState.CheckingGameOver:
                 _HandleCheckingGameOver();
@@ -258,8 +258,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
             case GameState.Rearrangement:
                 _HandleRearrangement();
                 break;
-            case GameState.UnitAnimation:
-                _HandleUnitAnimation();
+            case GameState.WaitingForUnitAnimation:
+                _HandleWaitingForUnitAnimation();
                 break;
             case GameState.Win:
                 _HandleWin();
@@ -308,7 +308,6 @@ public class BattleGameManager : Singleton<BattleGameManager>
             action(go, matchesInRow);
         }
 
-
         if (predicateBonusTurn != null)
         {
             if (predicateBonusTurn(matchesInRow.Count))
@@ -331,21 +330,18 @@ public class BattleGameManager : Singleton<BattleGameManager>
         return true;
     }
 
-    private void _HandleUnitAnimation()
+    private void _HandleWaitingForUnitAnimation()
     {
         var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-        if (player.Idle && enemy.Idle)
-        {
-            _state = GameState.CheckingGameOver;
-        }
-        if (player.Dealth || enemy.Dealth)
+
+        if ((player.Idle || player.Dealth) && (enemy.Idle || enemy.Dealth))
         {
             _state = GameState.CheckingGameOver;
         }
     }
 
-    private void _HandleExplosionAnimation()
+    private void _HandleWaitingForExplosionAnimation()
     {
         var explosionAlive = ExplosionAnimations.Select(it => it != null);
         if (explosionAlive.Count() <= 0)
@@ -475,7 +471,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         if (_matchedItems == null || _matchedItems.Count() <= 0)
         {
-            _state = GameState.UnitAnimation;
+            _state = GameState.WaitingForUnitAnimation;
             return;
         }
 
@@ -500,7 +496,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         if (_matchedItems == null || _matchedItems.Count() <= 0)
         {
-            _state = GameState.UnitAnimation;
+            _state = GameState.WaitingForUnitAnimation;
             return;
         }
 
@@ -869,11 +865,12 @@ public enum GameState
     ItemsFalling,
     ScanningMatchesInAlteredColumns,
     ExplosionAnimation,
-    UnitAnimation,
+    WaitingForUnitAnimation,
     CheckingGameOver,
     CheckingNoSwappable,
     Rearrangement,
     Win,
     Lose,
     GameOver
+
 }
