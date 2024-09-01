@@ -63,7 +63,8 @@ public class BattleEnemyUnit : BattleUnitBase
 
     public override UnitStat Stat
     {
-        get => _stat; set
+        get => _stat;
+        set
         {
             _stat = (EnemyStat)value;
             _InitializeUIUnit();

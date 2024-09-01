@@ -60,47 +60,51 @@ public class WinResultPopup : PopupTemplate
 
     #region =============== Callbacks ===============
 
-    public void OnNextButtonClicked() => _ReturnPreviousScene();
+    public void OnNextButtonClicked()
+    {
+        _HidePopup();
+        _ReturnPreviousScene();
+    }
 
     #endregion
 
     #region =============== Properties ===============
 
-    public int ExpFromEnemy
+    public float ExpFromEnemy
     {
         set
         {
-            _xpEnemy = value;
+            _xpEnemy = (int)value;
             _expFromEnemy.text = value.ToString();
             _UpdateExpTotal();
         }
     }
 
-    public int ExpInBattle
+    public float ExpInBattle
     {
         set
         {
-            _xpBattle = value;
+            _xpBattle = (int)value;
             _expInBattle.text = value.ToString();
             _UpdateExpTotal();
         }
     }
 
-    public int GoldFromEnemy
+    public float GoldFromEnemy
     {
         set
         {
-            _gEnemy = value;
+            _gEnemy = (int)value;
             _goldBonus.text = value.ToString();
             _UpdateGoldTotal();
         }
     }
 
-    public int GoldInBattle
+    public float GoldInBattle
     {
         set
         {
-            _gBattle = value;
+            _gBattle = (int)value;
             _goldInBattle.text = value.ToString();
             _UpdateGoldTotal();
         }

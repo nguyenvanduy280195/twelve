@@ -1,7 +1,4 @@
-using System;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class BattlePlayerUnit : BattleUnitBase
 {
@@ -48,7 +45,9 @@ public class BattlePlayerUnit : BattleUnitBase
         return false;
     }
 
+    public override void IncreaseGold(float bonusFactor) => nGold += (1 + 0.01f * _stat.Luck) * bonusFactor;
 
+    public override void IncreaseExp(float bonusFactor) => nExp += (1 + 0.01f * _stat.Luck) * bonusFactor;
 
     protected override UIUnit UIUnit => BattleUIManager.Instance.Player;
 
@@ -56,10 +55,45 @@ public class BattlePlayerUnit : BattleUnitBase
 
     public override UnitStat Stat
     {
-        get => _stat; set
+        get => _stat;
+        set
         {
             _stat = (PlayerStat)value;
             _InitializeUIUnit();
+        }
+    }
+    protected override void _InitializeUIUnit()
+    {
+        base._InitializeUIUnit();
+
+        UIUnit.HP.Value = PlayerStat.HP;
+        UIUnit.Mana.Value = PlayerStat.Mana;
+        UIUnit.Stamina.Value = PlayerStat.Stamina;
+    }
+    protected override float HP
+    {
+        set
+        {
+            base.HP = value;
+            PlayerStat.HP = value;
+        }
+    }
+
+    protected override float Mana
+    {
+        set
+        {
+            base.Mana = value;
+            PlayerStat.Mana = value;
+        }
+    }
+
+    protected override float Stamina
+    {
+        set
+        {
+            base.Stamina = value;
+            PlayerStat.Stamina = value;
         }
     }
 

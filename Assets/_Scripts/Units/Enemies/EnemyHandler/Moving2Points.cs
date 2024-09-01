@@ -18,14 +18,14 @@ public class Moving2Points : EnemyMovingHandler
 
     private void Start()
     {
-        _destination = _firstPoint.position;
+        _InitStartPosition();
 
         _handler = GetComponent<UnitAnimationHandler>();
     }
 
     private void Update()
     {
-        if(GameManager.Instance?.IsPausing() ?? false)
+        if (GameManager.Instance?.IsPausing() ?? false)
         {
             return;
         }
@@ -58,4 +58,30 @@ public class Moving2Points : EnemyMovingHandler
     }
 
     private void _Move() => transform.position = Vector2.MoveTowards(transform.position, _destination, Speed * Time.deltaTime);
+
+    // the start position will be the farest both positions
+    private void _InitStartPosition()
+    {
+        _destination = _firstPoint.position;
+
+        var matchingBattleManager = MatchingBattleManager.Instance;
+        if (matchingBattleManager is not null)
+        {
+            var playerPosition = matchingBattleManager.PlayerPositionBeforeBattle;
+            var firstDistance = (playerPosition - _firstPoint.position).magnitude;
+            var secondDistance = (playerPosition - _secondPoint.position).magnitude;
+            if (firstDistance > secondDistance)
+            {
+                transform.position = _firstPoint.position;
+                _destination = _secondPoint.position;
+            }
+            else
+            {
+                transform.position = _secondPoint.position;
+                _destination = _firstPoint.position;
+            }
+        }
+
+        
+    }
 }

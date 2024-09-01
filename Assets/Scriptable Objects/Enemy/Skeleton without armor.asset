@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: Skeleton without armor
   m_EditorClassIdentifier: 
   EnemyStat:
-    Name: Enemy
-    Class: Skeleton without armor
+    Name: Enemy Default
+    Class: Class Default
     Level: 1
     Attack: 1
-    MaxHP: 50
+    HPMax: 100
     HP: 50
-    RegenHP: 1
-    MaxMana: 50
+    HPRegen: 1
+    ManaMax: 50
     Mana: 0
-    RegenMana: 1
-    MaxStamina: 50
+    ManaRegen: 1
+    StaminaMax: 50
     Stamina: 50
-    RegenStamina: 1
-    BonusExp: 20
+    StaminaConsumeWeight: 1
+    StaminaRegen: 1
+    BonusExp: 0
     BonusGold: 0

@@ -8,27 +8,38 @@ public class UnitAnimationHandler : MonoBehaviour
 {
     //============== For inspector ==============
 
+    [Header("Idle")]
     [SerializeField] private string _idleUpAnimationName;
     [SerializeField] private string _idleDownAnimationName;
     [SerializeField] private string _idleLeftAnimationName;
     [SerializeField] private string _idleRightAnimationName;
+    [Header("Walk")]
     [SerializeField] private string _walkUpAnimationName;
     [SerializeField] private string _walkDownAnimationName;
     [SerializeField] private string _walkLeftAnimationName;
     [SerializeField] private string _walkRightAnimationName;
     [SerializeField] private string _animationDefaultName;
 
+    [Header("Attack")]
     [SerializeField] private string _attackRightAnimationName;
     [SerializeField] private float _attackRightAnimationDuration;
 
     [SerializeField] private string _attackLeftAnimationName;
     [SerializeField] private float _attackLeftAnimationDuration;
 
+    [Header("Hurt")]
     [SerializeField] private string _hurtAnimationName;
     [SerializeField] private float _hurtAnimationDuration;
 
+    [Header("Dead")]
     [SerializeField] private string _deadAnimationName;
     [SerializeField] private float _deadAnimationDuration;
+
+    [Header("Cast")]
+    [SerializeField] private string _castLeftAnimationName;
+    [SerializeField] private float _castLeftAnimationDuration;
+    [SerializeField] private string _castRightAnimationName;
+    [SerializeField] private float _castRightAnimationDuration;
 
     private string _stateName;
     private Animator _animator;
@@ -45,12 +56,12 @@ public class UnitAnimationHandler : MonoBehaviour
 
 
     public void RunWalkAnimation(float x, float y) => RunAnimation(_GetState(x, y));
-    
+
     private string _GetState(float x, float y) => _GetState(x, y, _stateName);
 
     private string _GetState(float x, float y, string currentStateName)
     {
-        if(Time.time < _lockedTill)
+        if (Time.time < _lockedTill)
         {
             return currentStateName;
         }
@@ -123,6 +134,9 @@ public class UnitAnimationHandler : MonoBehaviour
     public void RunHurtAnimation() => RunAnimation(_hurtAnimationName, _hurtAnimationDuration);
 
     public void RunDeadAnimation() => RunAnimation(_deadAnimationName, _deadAnimationDuration);
+
+    public void RunCastLeftAnimation() => RunAnimation(_castLeftAnimationName, _castLeftAnimationDuration);
+    public void RunCastRightAnimation() => RunAnimation(_castRightAnimationName, _castRightAnimationDuration);
 
     public void RunAnimation(string name) => _animator.CrossFade(name, 0);
 

@@ -24,7 +24,7 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
 
     private void Start()
     {
-        var gameMode = GameManager.Instance?.GetGameMode();
+        var gameMode = GameManager.Instance?.GetGameMode() ?? _GetGameMode();
         switch (gameMode)
         {
             case GameMode.Battle:
@@ -37,6 +37,8 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
                 break;
         }
     }
+
+    private GameMode _GetGameMode() => ChoosingLevelUnitManager.Instance != null ? GameMode.Casual : GameMode.Battle;
 
     private void _SetupBattleMode()
     {

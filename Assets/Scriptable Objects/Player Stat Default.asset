@@ -13,19 +13,27 @@ MonoBehaviour:
   m_Name: Player Stat Default
   m_EditorClassIdentifier: 
   PlayerStat:
-    Name: Player Default
     Class: Class Default
     Level: 1
     Attack: 1
-    MaxHP: 100
+    HPMax: 100
+    HPRegen: 1
+    ManaMax: 100
+    ManaRegen: 1
+    StaminaMax: 100
+    StaminaConsumeWeight: 0.5
+    StaminaRegen: 1
+    Strength: 10
+    Vitality: 10
+    Endurance: 10
+    Intelligent: 10
+    Luck: 10
+    nPoints: 0
+    Name: Player Default
     HP: 100
-    RegenHP: 1
-    MaxMana: 100
     Mana: 0
-    RegenMana: 1
-    MaxStamina: 100
     Stamina: 100
-    RegenStamina: 2
+    PositionX: 0
+    PositionY: 0
     Gold: 0
     Exp: 0
-    nPoints: 0

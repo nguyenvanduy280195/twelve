@@ -534,11 +534,11 @@ public class BattleGameManager : Singleton<BattleGameManager>
                     }
                     else if (matchedItem.tag == "Gold")
                     {
-                        _currentPlayer.IncreaseGold((int)_bonusFactor);
+                        _currentPlayer.IncreaseGold(_bonusFactor);
                     }
                     else if (matchedItem.tag == "Exp")
                     {
-                        _currentPlayer.IncreaseExp((int)_bonusFactor);
+                        _currentPlayer.IncreaseExp(_bonusFactor);
                     }
                 }
                 DestroyItem(matchedItem);

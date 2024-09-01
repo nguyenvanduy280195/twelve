@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -503430259
   m_SortingLayer: 9
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1276496246, guid: ddc69509391da2c4f831e41c3761098f, type: 3}
+  m_Sprite: {fileID: -703279158, guid: ddc69509391da2c4f831e41c3761098f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,6 +165,10 @@ MonoBehaviour:
   _hurtAnimationDuration: 0.438
   _deadAnimationName: Soldier_dead
   _deadAnimationDuration: 0.5
+  _castLeftAnimationName: Soldier_cast_left
+  _castLeftAnimationDuration: 0.583
+  _castRightAnimationName: Soldier_cast_right
+  _castRightAnimationDuration: 0.583
 --- !u!114 &8394429098968283358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,19 +183,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveDuration: 1
   _nTurnsText: {fileID: 0}
+  _skills: []
   _stat:
-    Name: Duy
     Class: Soldier
     Level: 12
     Attack: 2
-    MaxHP: 0
+    HPMax: 0
+    HPRegen: 0
+    ManaMax: 0
+    ManaRegen: 0
+    StaminaMax: 0
+    StaminaConsumeWeight: 0
+    StaminaRegen: 0
+    Strength: 0
+    Vitality: 0
+    Endurance: 0
+    Intelligent: 0
+    Luck: 0
+    nPoints: 0
+    Name: Duy
     HP: 100
-    RegenHP: 1
-    MaxMana: 0
     Mana: 50
-    RegenMana: 1
-    MaxStamina: 0
     Stamina: 100
-    RegenStamina: 1
+    PositionX: 0
+    PositionY: 0
     Gold: 12
     Exp: 34

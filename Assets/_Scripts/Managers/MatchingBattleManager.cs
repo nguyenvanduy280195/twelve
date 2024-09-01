@@ -16,7 +16,14 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
     public void BeginBattle(GameObject enemy)
     {
         PlayerPositionBeforeBattle = ChoosingLevelUnitManager.Instance.Player.transform.position;
+        
+        PlayerStat.PositionX = PlayerPositionBeforeBattle.x;
+        PlayerStat.PositionY = PlayerPositionBeforeBattle.y;
+        SaveSystem.SavePlayerStat(PlayerStat);
+
+        
         EnemyPositionBeforeBattle = enemy.transform.position;
+
         
         EnemyStat = _GetEnemyStatFromEnemy(enemy) ?? DefaultEnemyStat.EnemyStat;
         

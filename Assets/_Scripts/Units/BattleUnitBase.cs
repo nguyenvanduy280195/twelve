@@ -1,27 +1,28 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public abstract class BattleUnitBase : MonoBehaviour
 {
-    //============= Properties =============
+    #region============= Properties =============
     [SerializeField] private float _moveDuration = 1f;
     [SerializeField] private TextMeshProUGUI _nTurnsText;
+    [SerializeField] private SkillBase[] _skills;
+    #endregion
 
-    // ============= Fields =============
+    #region ============= Fields =============
     private UnitState _state = UnitState.Idle;
     private int _nTurns;
     private IDictionary<UnitState, Queue<Action>> _actions;
     private UnitAnimationHandler _animationHandler;
     private Vector3 _unitPosition;
-
+    #endregion
 
     #region ============= Getters & Setters =============
-    public int nGold { get; private set; } = 0;
+    public float nGold { get; protected set; } = 0;
 
-    public int nExp { get; private set; } = 0;
+    public float nExp { get; protected set; } = 0;
 
     public bool Idle => _state == UnitState.Idle;
 
@@ -32,6 +33,21 @@ public abstract class BattleUnitBase : MonoBehaviour
         get => _nTurns;
         set
         {
+            if (_nTurns > value && nEffectTurns >= 0)
+            {
+                nEffectTurns--;
+                if (nEffectTurns <= 0)
+                {
+                    foreach (var skill in _skills)
+                    {
+                        if (skill is WeaponAura aura)
+                        {
+                            aura.gameObject.SetActive(false);
+                        }
+                    }
+                }
+            }
+
             _nTurns = value;
             Debug.Log($"nTurns = {value}");
 
@@ -42,40 +58,34 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public float HP
-    {
-        get => Stat.HP;
-        set
-        {
-            Stat.HP = value;
-            UIUnit.HP.Value = value;
-        }
-    }
+    public int nEffectTurns { set; private get; }
+    public float DamageBuff { set; private get; } = 1;
 
-
-    public float Mana
-    {
-        get => Stat.Mana;
-        set
-        {
-            Stat.Mana = value;
-            UIUnit.Mana.Value = value;
-        }
-    }
-
-    public float Stamina
-    {
-        get => Stat.Stamina;
-        set
-        {
-            Stat.Stamina = value;
-            UIUnit.Stamina.Value = value;
-        }
-    }
+    protected virtual float HP { get => UIUnit.HP.Value; set => UIUnit.HP.Value = value; }
+    protected virtual float Mana { get => UIUnit.Mana.Value; set => UIUnit.Mana.Value = value; }
+    protected virtual float Stamina { get => UIUnit.Stamina.Value; set => UIUnit.Stamina.Value = value; }
 
     #endregion
 
     #region ============= Methods for Inheriting =============
+
+    public void ExecuteSkill(int iSkill, BattleUnitBase target)
+    {
+        try
+        {
+            Debug.Log("BattleUnitBase.ExecuteSkill(...)");
+            var manaRemain = Mana - _skills[iSkill].ManaConsumed;
+            if (manaRemain >= 0)
+            {
+                _skills[iSkill].Execute(target);
+                Mana = manaRemain;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}" );
+        }
+    }
 
     public abstract bool Control();
 
@@ -89,21 +99,25 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     #region ============= For Devired Class =============
 
-    protected void _InitializeUIUnit()
+    protected virtual void _InitializeUIUnit()
     {
-        UIUnit.HP.MaxValue = Stat.MaxHP;
-        UIUnit.HP.Value = Stat.HP;
-        UIUnit.Mana.MaxValue = Stat.MaxMana;
-        UIUnit.Mana.Value = Stat.Mana;
-        UIUnit.Stamina.MaxValue = Stat.MaxStamina;
-        UIUnit.Stamina.Value = Stat.Stamina;
+        UIUnit.HP.MaxValue = Stat.HPMax;
+        UIUnit.Mana.MaxValue = Stat.ManaMax;
+        UIUnit.Stamina.MaxValue = Stat.StaminaMax;
+
+        UIUnit.HP.Value = Stat.HPMax;
+        UIUnit.Mana.Value = 0;
+        UIUnit.Stamina.Value = Stat.StaminaMax;
     }
 
     #endregion
 
     #region ============= public Methods =============
 
-    public void DoSkill(BattleUnitBase target, float bonusFactor) { }
+    public void DoSkill(BattleUnitBase target, float bonusFactor)
+    {
+
+    }
 
     public void Attack(BattleUnitBase target, float bonusFactor)
     {
@@ -127,9 +141,12 @@ public abstract class BattleUnitBase : MonoBehaviour
         _actions[UnitState.Attack].Enqueue(() =>
         {
             _animationHandler.RunAttackAnimation(transform.position, _unitPosition);
-            target.TakeHit(Stat.Attack * bonusFactor);
 
-            Debug.Log($"[Attack] Damage = {Stat.Attack * bonusFactor}");
+            var damage = Stat.Attack * bonusFactor;
+            damage *= (nEffectTurns > 0) ? DamageBuff : 1;
+            target.TakeHit(damage);
+
+            Debug.Log($"[Attack] Damage = {damage}");
         });
     }
 
@@ -148,15 +165,15 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void IncreaseGold(float bonusFactor) => nGold += (int)bonusFactor;
+    public virtual void IncreaseGold(float bonusFactor) => nGold += bonusFactor;
 
-    public void IncreaseExp(float bonusFactor) => nExp += (int)bonusFactor;
+    public virtual void IncreaseExp(float bonusFactor) => nExp += bonusFactor;
 
     public void ConsumeStamina(float value)
     {
         if (Stamina > 0)
         {
-            Stamina -= value;
+            Stamina -= value * Stat.StaminaConsumeWeight * Stat.Level;
         }
         else
         {
@@ -164,11 +181,11 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.RegenHP * bonusFactor, Stat.MaxHP);
+    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.HPRegen * bonusFactor, Stat.HPMax);
 
-    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.RegenMana * bonusFactor, Stat.MaxMana);
+    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.ManaRegen * bonusFactor, Stat.ManaMax);
 
-    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.RegenStamina* bonusFactor, Stat.MaxStamina);
+    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.StaminaRegen * bonusFactor, Stat.StaminaMax);
 
     #endregion
 
@@ -176,9 +193,9 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     private void Start()
     {
-        Stamina = Stat.MaxStamina;
-
         _InitializeUIUnit();
+
+        Stamina = Stat.StaminaMax;
 
         _unitPosition = transform.position;
 

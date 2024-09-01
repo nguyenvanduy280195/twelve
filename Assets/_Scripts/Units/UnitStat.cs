@@ -1,35 +1,45 @@
 using System;
-using System.Diagnostics;
-using UnityEngine;
 
-[Serializable]
 public class UnitStat
 {
-    public string Name;
     public string Class;
-    public int Level;
+    public int Level; // this can be lost
+
     public float Attack;
-    public float MaxHP;
-    public float HP;
-    public float RegenHP;
-    public float MaxMana;
-    public float Mana;
-    public float RegenMana;
-    public float MaxStamina;
-    public float Stamina;
-    public float RegenStamina;
+
+    public float HPMax;
+    public float HPRegen;
+    
+    public float ManaMax;
+    public float ManaRegen;
+    
+    public float StaminaMax;
+    public float StaminaConsumeWeight;
+    public float StaminaRegen;
 }
 
 [Serializable]
 public class PlayerStat : UnitStat
 {
-    public int Gold;
-    public int Exp;
+    public int Strength;
+    public int Vitality;
+    public int Endurance;
+    public int Intelligent;
+    public int Luck;
     public int nPoints;
 
-    public PlayerStat Clone() => (PlayerStat)MemberwiseClone();
+    public string Name;
+    public float HP;
+    public float Mana;
+    public float Stamina;
 
-    public string GetDebuggerDisplay() => $"{Name} {Class} {Level} {Attack} {MaxHP} {HP} {RegenHP} {MaxMana} {Mana} {MaxStamina} {Stamina} {RegenStamina} {Gold} {Exp} {nPoints}";
+    public float PositionX;
+    public float PositionY;
+
+    public int Gold;
+    public int Exp;
+
+    public PlayerStat Clone() => (PlayerStat)MemberwiseClone();
 }
 
 [Serializable]

@@ -80,20 +80,20 @@ public class PlayerStatPopup : MonoBehaviour
         _level.Content = _playerStat.Level.ToString();
         _gold.Content = _playerStat.Gold.ToString();
 
-        _hp.MaxValue = _playerStat.MaxHP;
+        _hp.MaxValue = _playerStat.HPMax;
         _hp.Value = _playerStat.HP;
-        _mana.MaxValue = _playerStat.MaxMana;
+        _mana.MaxValue = _playerStat.ManaMax;
         _mana.Value = _playerStat.Mana;
-        _stamina.MaxValue = _playerStat.MaxStamina;
+        _stamina.MaxValue = _playerStat.StaminaMax;
         _stamina.Value = _playerStat.Stamina;
 
         _attack.Content = _playerStat.Attack.ToString();
-        _maxHP.Content = _playerStat.MaxHP.ToString();
-        _regenHP.Content = _playerStat.RegenHP.ToString();
-        _maxMana.Content = _playerStat.MaxMana.ToString();
-        _regenMana.Content = _playerStat.RegenMana.ToString();
-        _maxStamina.Content = _playerStat.MaxStamina.ToString();
-        _regenStamina.Content = _playerStat.RegenStamina.ToString();
+        _maxHP.Content = _playerStat.HPMax.ToString();
+        _regenHP.Content = _playerStat.HPRegen.ToString();
+        _maxMana.Content = _playerStat.ManaMax.ToString();
+        _regenMana.Content = _playerStat.ManaRegen.ToString();
+        _maxStamina.Content = _playerStat.StaminaMax.ToString();
+        _regenStamina.Content = _playerStat.StaminaRegen.ToString();
 
         _nPoints.Content = _playerStat.nPoints.ToString();
         _exp.Content = _playerStat.Exp.ToString();
@@ -192,12 +192,12 @@ public class PlayerStatPopup : MonoBehaviour
     public void OnApplyClicked()
     {
         _playerStat.Attack = float.Parse(_attack.Content);
-        _playerStat.MaxHP = float.Parse(_maxHP.Content);
-        _playerStat.RegenHP = float.Parse(_regenHP.Content);
-        _playerStat.MaxMana = float.Parse(_maxMana.Content);
-        _playerStat.RegenMana = float.Parse(_regenMana.Content);
-        _playerStat.MaxStamina = float.Parse(_maxStamina.Content);
-        _playerStat.RegenStamina = float.Parse(_regenStamina.Content);
+        _playerStat.HPMax = float.Parse(_maxHP.Content);
+        _playerStat.HPRegen = float.Parse(_regenHP.Content);
+        _playerStat.ManaMax = float.Parse(_maxMana.Content);
+        _playerStat.ManaRegen = float.Parse(_regenMana.Content);
+        _playerStat.StaminaMax = float.Parse(_maxStamina.Content);
+        _playerStat.StaminaRegen = float.Parse(_regenStamina.Content);
 
         _playerStat.nPoints = int.Parse(_nPoints.Content);
 

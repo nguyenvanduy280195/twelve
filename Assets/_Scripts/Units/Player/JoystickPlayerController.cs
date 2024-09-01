@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JoystickPlayerController : MonoBehaviour
@@ -18,6 +15,8 @@ public class JoystickPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = MatchingBattleManager.Instance.PlayerPositionBeforeBattle;
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _unitAnimationHandler = GetComponent<UnitAnimationHandler>();
     }
