@@ -8,6 +8,16 @@ public class WeaponAura : SkillBase
     [SerializeField] private int _nEffectTurns;
     [SerializeField] private float _weightBuff;
 
+    protected override IEnumerator _RunUnitAnimation()
+    {
+        _unitAnimationHandler.RunCastRightAnimation();
+        yield return new WaitUntil(() => !_unitAnimationHandler.CurrentStateLocked);
+        _unitAnimationHandler.RunIdleRightAnimation();
+
+        _unitAnimationRunning = false;
+    }
+
+
     protected override IEnumerator _RunSkillAnimation(BattleUnitBase target)
     {
         _battleUnitBase.nEffectTurns = _nEffectTurns;

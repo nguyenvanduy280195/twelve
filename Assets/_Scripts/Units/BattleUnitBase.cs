@@ -69,21 +69,24 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     #region ============= Methods for Inheriting =============
 
-    public void ExecuteSkill(int iSkill, BattleUnitBase target)
+    public void ExecuteSkill(int iSkill, BattleUnitBase target, Action OnDone)
     {
         try
         {
-            Debug.Log("BattleUnitBase.ExecuteSkill(...)");
             var manaRemain = Mana - _skills[iSkill].ManaConsumed;
             if (manaRemain >= 0)
             {
-                _skills[iSkill].Execute(target);
+                _skills[iSkill].Execute(target, OnDone);
                 Mana = manaRemain;
+            }
+            else
+            {
+                Debug.Log($"Not enough mana, you need some mana");
             }
         }
         catch (Exception e)
         {
-            Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}" );
+            Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}");
         }
     }
 

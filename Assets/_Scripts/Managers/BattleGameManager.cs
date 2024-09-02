@@ -79,6 +79,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     //============= Public Methods =============
 
+    public void SkipTurn() => _state = GameState.ChoosingUnit;
+
     public void DestroyItem(GameObject go)
     {
         var item = go.GetComponent<Item>();
@@ -207,7 +209,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
             case GameState.Starting:
                 _HandleStarting();
                 break;
-            case GameState.ChoosingPlayer:
+            case GameState.ChoosingUnit:
                 _HandleChoosingPlayer();
                 break;
             case GameState.PlayerTurn:
@@ -439,7 +441,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         {
             MyData.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
 
-            _state = GameState.ChoosingPlayer;
+            _state = GameState.ChoosingUnit;
         }
         else
         {
@@ -735,7 +737,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         }
         else
         {
-            _state = GameState.ChoosingPlayer;
+            _state = GameState.ChoosingUnit;
         }
     }
 
@@ -851,7 +853,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 public enum GameState
 {
     Starting = 0,
-    ChoosingPlayer,
+    ChoosingUnit,
     PlayerTurn,
     EnemyTurn,
     Swapping,

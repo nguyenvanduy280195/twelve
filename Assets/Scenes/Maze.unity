@@ -93303,7 +93303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1594660024
 Transform:
   m_ObjectHideFlags: 0
@@ -94385,6 +94385,7 @@ GameObject:
   - component: {fileID: 1642940299}
   - component: {fileID: 1642940298}
   - component: {fileID: 1642940301}
+  - component: {fileID: 1642940302}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -94478,7 +94479,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dbb00877fd95c4eb2526f762467d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smoothSpeed: 0.1
+  _smoothSpeed: 0.5
+--- !u!114 &1642940302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642940297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c51f603e9fa9e849a8844fa4bc117b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1921216626}
+  _timeBreak: 0
+  _spaceX: 3
+  _spaceY: 5
+  _cameraPositions:
+  - {fileID: 104479564}
+  - {fileID: 16666860}
+  - {fileID: 2102971833}
+  - {fileID: 405050869}
+  - {fileID: 297415510}
+  - {fileID: 664043870}
+  - {fileID: 1248653127}
+  - {fileID: 921035720}
+  - {fileID: 279536817}
+  - {fileID: 1015852268}
+  - {fileID: 762117450}
+  - {fileID: 1495861903}
+  - {fileID: 159524943}
+  - {fileID: 2068211974}
+  - {fileID: 890774848}
+  - {fileID: 12191801}
+  - {fileID: 1999679692}
+  - {fileID: 2022101716}
+  - {fileID: 641891003}
+  - {fileID: 1319578447}
+  - {fileID: 1385935965}
+  - {fileID: 720277144}
+  - {fileID: 2070052342}
+  - {fileID: 1687098869}
+  - {fileID: 949490341}
+  - {fileID: 1930713392}
+  - {fileID: 180528647}
+  - {fileID: 1679235993}
+  - {fileID: 1771326076}
+  - {fileID: 1872941473}
+  - {fileID: 862698007}
+  - {fileID: 1541069460}
+  - {fileID: 633634458}
+  - {fileID: 1594908836}
+  - {fileID: 910938701}
+  - {fileID: 1692618867}
+  - {fileID: 1471521636}
+  - {fileID: 1426556577}
+  - {fileID: 886883543}
+  - {fileID: 557995244}
+  - {fileID: 1573650301}
+  - {fileID: 311326340}
+  - {fileID: 192143131}
+  - {fileID: 203300204}
+  - {fileID: 1413704000}
+  - {fileID: 297862316}
+  - {fileID: 6349132}
+  - {fileID: 1050460968}
+  - {fileID: 2038925317}
 --- !u!114 &1650599689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4115425241763426892, guid: 2bb662c9fce49ae47b2dbc97d53c0084, type: 3}
@@ -97549,6 +97616,10 @@ PrefabInstance:
     - target: {fileID: 8394038651822192452, guid: 6c0b7699cc22dc145a2e705010835d5c, type: 3}
       propertyPath: m_Name
       value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867754093160265708, guid: 6c0b7699cc22dc145a2e705010835d5c, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,13 +11,21 @@ public class FireballSkill : SkillBase
 
     private readonly float _myEpsilon = 0.0001f;
 
+    protected override IEnumerator _RunUnitAnimation()
+    {
+        _unitAnimationHandler.RunCastRightAnimation();
+        yield return new WaitUntil(() => !_unitAnimationHandler.CurrentStateLocked);
+        _unitAnimationHandler.RunIdleRightAnimation();
+
+        _unitAnimationRunning = false;
+    }
+
     protected override IEnumerator _RunSkillAnimation(BattleUnitBase target)
     {
         _ResetPosition();
 
         yield return StartCoroutine(_MoveToTargetByFrame(target));
-
-        _HideSelf();
+        
         _LetTargetTakeDamage(target);
         _skillAnimationRunning = false;
     }

@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InBattle : MonoBehaviour
 {
@@ -9,19 +9,29 @@ public class InBattle : MonoBehaviour
 
     public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 
-    public void OnSkill1Clicked() => _LetPlayerExecuteSkill(0);
+    public void OnSkill1Clicked(Button button) => _LetPlayerExecuteSkill(0, button);
 
-    public void OnSkill2Clicked() => _LetPlayerExecuteSkill(1);
+    public void OnSkill2Clicked(Button button) => _LetPlayerExecuteSkill(1, button);
 
-    public void OnSkill3Clicked() => _LetPlayerExecuteSkill(2);
+    public void OnSkill3Clicked(Button button) => _LetPlayerExecuteSkill(2, button);
 
-    private void _LetPlayerExecuteSkill(int iSkill)
+    private void _LetPlayerExecuteSkill(int iSkill, Button button)
     {
         if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
         {
+            button.interactable = false;
             var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
             var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-            player.ExecuteSkill(iSkill, enemy);
+            Action onSkillExecuted = () =>
+            {
+                BattleGameManager.Instance?.SkipTurn();
+                button.interactable = true;
+            };
+            player.ExecuteSkill(iSkill, enemy, onSkillExecuted);
+        }
+        else
+        {
+            Debug.Log("This is not player's turn");
         }
     }
 
@@ -30,19 +40,17 @@ public class InBattle : MonoBehaviour
         const string filename = "Assets/Resources/Text/output.csv";
         var myData = BattleGameManager.Instance.MyData;
 
-        using (StreamWriter outputFile = File.CreateText(filename))
+        using var outputFile = File.CreateText(filename);
+        for (int r = myData.Items.RowLength - 1; r >= 0; r--)
         {
-            for (int r = myData.Items.RowLength - 1; r >= 0; r--)
+            var line = "";
+            for (int c = 0; c < myData.Items.RowLength; c++)
             {
-                var line = "";
-                for (int c = 0; c < myData.Items.RowLength; c++)
-                {
-                    line += myData.Items[c, r].tag + ",";
-                }
-                line = line.Remove(line.Length - 1);
-
-                outputFile.WriteLine(line);
+                line += myData.Items[c, r].tag + ",";
             }
+            line = line.Remove(line.Length - 1);
+
+            outputFile.WriteLine(line);
         }
     }
 

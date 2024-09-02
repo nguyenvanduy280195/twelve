@@ -1,5 +1,6 @@
 using System;
 
+[Serializable]
 public class UnitStat
 {
     public string Class;
