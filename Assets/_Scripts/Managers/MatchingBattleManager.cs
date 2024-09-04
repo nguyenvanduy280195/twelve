@@ -20,7 +20,6 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         PlayerStat.PositionX = PlayerPositionBeforeBattle.x;
         PlayerStat.PositionY = PlayerPositionBeforeBattle.y;
         SaveSystem.SavePlayerStat(PlayerStat);
-
         
         EnemyPositionBeforeBattle = enemy.transform.position;
 

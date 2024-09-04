@@ -75,7 +75,7 @@ public class WinResultPopup : PopupTemplate
         set
         {
             _xpEnemy = (int)value;
-            _expFromEnemy.text = value.ToString();
+            _expFromEnemy.text = _xpEnemy.ToString();
             _UpdateExpTotal();
         }
     }
@@ -85,7 +85,7 @@ public class WinResultPopup : PopupTemplate
         set
         {
             _xpBattle = (int)value;
-            _expInBattle.text = value.ToString();
+            _expInBattle.text = _xpBattle.ToString();
             _UpdateExpTotal();
         }
     }
@@ -95,7 +95,7 @@ public class WinResultPopup : PopupTemplate
         set
         {
             _gEnemy = (int)value;
-            _goldBonus.text = value.ToString();
+            _goldBonus.text = _gEnemy.ToString();
             _UpdateGoldTotal();
         }
     }
@@ -105,7 +105,7 @@ public class WinResultPopup : PopupTemplate
         set
         {
             _gBattle = (int)value;
-            _goldInBattle.text = value.ToString();
+            _goldInBattle.text = _gBattle.ToString();
             _UpdateGoldTotal();
         }
     }

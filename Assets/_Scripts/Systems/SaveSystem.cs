@@ -2,44 +2,33 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+// TODO We don't need checkpoint. The game will be saved after each battle ends
 public static class SaveSystem
 {
+    private static readonly string PLAYER_SAVE_FILENAME = "player.data";
+    private static readonly string PLAYER_SAVE_FILEPATH = Application.persistentDataPath + PLAYER_SAVE_FILENAME;
     public static void SavePlayerStat(PlayerStat stat)
     {
-        var path = Application.persistentDataPath + "player.data";
-        using (FileStream stream = new FileStream(path, FileMode.Create))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, stat);
-        }
+        using var stream = new FileStream(PLAYER_SAVE_FILEPATH, FileMode.OpenOrCreate);
+        var formatter = new BinaryFormatter();
+        formatter.Serialize(stream, stat);
     }
 
     public static PlayerStat LoadPlayerStat()
     {
-        var path = Application.persistentDataPath + "player.data";
-        if (!File.Exists(path))
+        if (!File.Exists(PLAYER_SAVE_FILEPATH))
         {
             Debug.LogWarning("Save file not found");
             return null;
         }
 
-        using (FileStream stream = new FileStream(path, FileMode.Open))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            var playerStat = formatter.Deserialize(stream) as PlayerStat;
-            var playerAfterGeneratingPartLack = _GeneratePlayerStatPartWithoutSaving(playerStat);
-            return playerStat;
-        }
-    }
-
-    private static PlayerStat _GeneratePlayerStatPartWithoutSaving(PlayerStat playerStat)
-    {
-        playerStat.Attack = playerStat.Strength;
-        playerStat.HPMax = 10f * playerStat.Vitality;
-        playerStat.HPRegen = 0.1f * playerStat.Vitality;
-        playerStat.ManaMax = 10f * playerStat.Intelligent;
-        playerStat.ManaRegen = 0.1f * playerStat.Intelligent;
-        playerStat.StaminaMax = 10f * playerStat.Endurance;
+        using var stream = new FileStream(PLAYER_SAVE_FILEPATH, FileMode.Open);
+        var formatter = new BinaryFormatter();
+        var playerStat = formatter.Deserialize(stream) as PlayerStat;
         return playerStat;
     }
+
+    public static bool PlayerDataExists => File.Exists(PLAYER_SAVE_FILEPATH);
+
+
 }

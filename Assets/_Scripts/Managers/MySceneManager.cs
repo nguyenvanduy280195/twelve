@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,14 @@ public class MySceneManager : Singleton<MySceneManager>
     private void Start()
     {
         _sceneTransitionAnimator = GetComponent<Animator>();
+    }
+
+    public void LoadCreatingCharacterScene() => StartCoroutine(_StartLoadingCreatingCharacterScene());
+    private IEnumerator _StartLoadingCreatingCharacterScene()
+    {
+        _sceneTransitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("CreatingCharacter");
     }
 
     public void LoadInBattleScene() => StartCoroutine(_StartLoadingInBattleScene());

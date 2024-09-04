@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuSceneUI : MonoBehaviour
 {
-
     [SerializeField] private MoveTo _casualMenuMoveTo;
     [SerializeField] private ScaleTo _casualMenuScaleTo;
 
@@ -20,6 +16,8 @@ public class MainMenu : MonoBehaviour
 
     public void OnCasualButtonClicked()
     {
+        GameManager.Instance?.SetGameMode(GameMode.Casual);
+
         if (_casualMenuMoveTo != null)
         {
             _casualMenuMoveTo.To = Vector2.zero;
@@ -28,14 +26,20 @@ public class MainMenu : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        GameManager.Instance?.SetGameMode(GameMode.Casual);
-        MySceneManager.Instance?.LoadMazeScene();
+        if (SaveSystem.PlayerDataExists)
+        {
+            MySceneManager.Instance?.LoadMazeScene();
+        }
+        else
+        {
+            Debug.Log("What? You don't have save game");
+        }
+
     }
 
     public void OnNewGameButtonClicked()
     {
-        GameManager.Instance?.SetGameMode(GameMode.Casual);
-        MySceneManager.Instance?.LoadMazeScene();
+        MySceneManager.Instance?.LoadCreatingCharacterScene();
     }
 
     public void OnCloseButtonClicked()

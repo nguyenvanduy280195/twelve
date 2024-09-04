@@ -6,30 +6,38 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // TODO Make it inherit via PopupTemplate
-public class PlayerStatPopup : MonoBehaviour
+public class PlayerStatPopup : PopupTemplate
 {
     #region Fields
 
-    [SerializeField] private StatUI _name;
-    [SerializeField] private StatUI _class;
-    [SerializeField] private StatUI _level;
-    [SerializeField] private StatUI _gold;
+    [SerializeField] private UIStatString _name;
+    [SerializeField] private UIStatString _class;
+    [SerializeField] private UIStatInt _level;
+    [SerializeField] private UIStatInt _gold;
 
     [SerializeField] private Bar _hp;
     [SerializeField] private Bar _mana;
     [SerializeField] private Bar _stamina;
 
-    [SerializeField] private StatUI _attack;
-    [SerializeField] private StatUI _maxHP;
-    [SerializeField] private StatUI _regenHP;
-    [SerializeField] private StatUI _maxMana;
-    [SerializeField] private StatUI _regenMana;
-    [SerializeField] private StatUI _maxStamina;
-    [SerializeField] private StatUI _regenStamina;
-    [SerializeField] private StatUI _nPoints;
-    [SerializeField] private StatUI _exp;
+    [SerializeField] private UIStatFloat _attack;
+    [SerializeField] private UIStatFloat _hpMax;
+    [SerializeField] private UIStatFloat _hpRegen;
+    [SerializeField] private UIStatFloat _manaMax;
+    [SerializeField] private UIStatFloat _manaRegen;
+    [SerializeField] private UIStatFloat _staminaMax;
+    [SerializeField] private UIStatFloat _staminaRegen;
+    [SerializeField] private UIStatFloat _staminaConsume;
 
-    [SerializeField] private bool _allButtonsEnabled = true;
+
+    [SerializeField] private UIChangaleStatInt _strength;
+    [SerializeField] private UIChangaleStatInt _vitality;
+    [SerializeField] private UIChangaleStatInt _endurance;
+    [SerializeField] private UIChangaleStatInt _intelligent;
+    [SerializeField] private UIChangaleStatInt _luck;
+
+    [SerializeField] private UIStatInt _nPoints;
+    [SerializeField] private UIStatInt _exp;
+
 
     [SerializeField] private Button _applyButton;
     [SerializeField] private Button _levelupButton;
@@ -37,33 +45,39 @@ public class PlayerStatPopup : MonoBehaviour
     [SerializeField] private int LevelUpExpThresh = 100;
     [SerializeField] private int LevelupPoints = 5;
 
+    [Header("For observing")]
+    [SerializeField] private bool _allButtonsEnabled = true;
+
     private PlayerStat _playerStat;
 
     #endregion
 
     private void _OnUIStatChanged(int delta)
     {
-        nPoints -= delta;
-        ApplyButtonEnabled = true;
+        _nPoints.Content -= delta;
+        if (_applyButton != null)
+        {
+            _applyButton.interactable = true;
+        }
     }
 
-    private int _OnNumberOfPointsGot() => nPoints;
+    private int _OnNumberOfPointsGot() => _nPoints.Content;
 
     private void Awake()
     {
-        ChangableStatUI.OnNumberOfPointsGot += _OnNumberOfPointsGot;
-        ChangableStatUI.OnNumberOfPointsChanged += _OnUIStatChanged;
+        UIChangaleStatInt.OnNumberOfPointsGot += _OnNumberOfPointsGot;
+        UIChangaleStatInt.OnNumberOfPointsChanged += _OnUIStatChanged;
     }
 
     private void OnDestroy()
     {
-        ChangableStatUI.OnNumberOfPointsGot -= _OnNumberOfPointsGot;
-        ChangableStatUI.OnNumberOfPointsChanged -= _OnUIStatChanged;
+        UIChangaleStatInt.OnNumberOfPointsGot -= _OnNumberOfPointsGot;
+        UIChangaleStatInt.OnNumberOfPointsChanged -= _OnUIStatChanged;
     }
 
     private void Start()
     {
-        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat ?? BattleUnitManager.Instance.PlayerAsBattlePlayerUnit.PlayerStat;
+        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat ?? BattleUnitManager.Instance?.PlayerAsBattlePlayerUnit.PlayerStat;
 
         _InitializeContents();
 
@@ -76,9 +90,20 @@ public class PlayerStatPopup : MonoBehaviour
     private void _InitializeContents()
     {
         _name.Content = _playerStat.Name;
+        _name.OnContentChanged = newValue => _playerStat.Name = newValue;
+
         _class.Content = _playerStat.Class;
-        _level.Content = _playerStat.Level.ToString();
-        _gold.Content = _playerStat.Gold.ToString();
+        _class.OnContentChanged = newValue => _playerStat.Class = newValue;
+
+        _level.Content = _playerStat.Level;
+        _level.OnContentChanged = newValue =>
+        {
+            _playerStat.Level = newValue;
+            _staminaConsume.Content = 0.1f * newValue;
+        };
+
+        _gold.Content = _playerStat.Gold;
+        _gold.OnContentChanged = newValue => _playerStat.Gold = newValue;
 
         _hp.MaxValue = _playerStat.HPMax;
         _hp.Value = _playerStat.HP;
@@ -87,132 +112,152 @@ public class PlayerStatPopup : MonoBehaviour
         _stamina.MaxValue = _playerStat.StaminaMax;
         _stamina.Value = _playerStat.Stamina;
 
-        _attack.Content = _playerStat.Attack.ToString();
-        _maxHP.Content = _playerStat.HPMax.ToString();
-        _regenHP.Content = _playerStat.HPRegen.ToString();
-        _maxMana.Content = _playerStat.ManaMax.ToString();
-        _regenMana.Content = _playerStat.ManaRegen.ToString();
-        _maxStamina.Content = _playerStat.StaminaMax.ToString();
-        _regenStamina.Content = _playerStat.StaminaRegen.ToString();
+        _attack.Content = _playerStat.Attack;
+        _attack.OnContentChanged = newValue => _playerStat.Attack = newValue;
 
-        _nPoints.Content = _playerStat.nPoints.ToString();
-        _exp.Content = _playerStat.Exp.ToString();
+        _hpMax.Content = _playerStat.HPMax;
+        _hpMax.OnContentChanged = newValue => _playerStat.HPMax = newValue;
+
+        _hpRegen.Content = _playerStat.HPRegen;
+        _hpRegen.OnContentChanged = newValue => _playerStat.HPRegen = newValue;
+
+        _manaMax.Content = _playerStat.ManaMax;
+        _manaMax.OnContentChanged = newValue => _playerStat.ManaMax = newValue;
+
+        _manaRegen.Content = _playerStat.ManaRegen;
+        _hpRegen.OnContentChanged = newValue => _playerStat.ManaRegen = newValue;
+
+        _staminaMax.Content = _playerStat.StaminaMax;
+        _staminaMax.OnContentChanged = newValue => _playerStat.StaminaMax = newValue;
+
+        _staminaRegen.Content = _playerStat.StaminaRegen;
+        _staminaRegen.OnContentChanged = newValue => _playerStat.StaminaRegen = newValue;
+
+        _staminaConsume.Content = _playerStat.StaminaConsumeWeight;
+        _staminaConsume.OnContentChanged = newValue => _playerStat.StaminaConsumeWeight = newValue;
+
+        _strength.Content = _playerStat.Strength;
+        _strength.OnContentChanged = value =>
+        {
+            _playerStat.Strength = value;
+            _attack.Content = 0.5f * value;
+        };
+
+        _vitality.Content = _playerStat.Vitality;
+        _vitality.OnContentChanged = value =>
+        {
+            _playerStat.Vitality = value;
+            _hpMax.Content = 10f * value;
+            _hpRegen.Content = 0.1f * value;
+        };
+
+        _endurance.Content = _playerStat.Endurance;
+        _endurance.OnContentChanged = value =>
+        {
+            _playerStat.Endurance = value;
+            _staminaMax.Content = 10f * value;
+            _staminaRegen.Content = 0.1f * value;
+        };
+
+        _intelligent.Content = _playerStat.Intelligent;
+        _intelligent.OnContentChanged = value =>
+        {
+            _playerStat.Intelligent = value;
+            _manaMax.Content = 10f * value;
+            _manaRegen.Content = 0.1f * value;
+        };
+
+        _luck.Content = _playerStat.Luck;
+        _luck.OnContentChanged = value => _playerStat.Luck = value;
+
+        _nPoints.Content = _playerStat.nPoints;
+        _nPoints.OnContentChanged = value => _playerStat.nPoints = value;
+
+        _exp.Content = _playerStat.Exp;
+        _exp.OnContentChanged = value => _playerStat.Exp = value;
     }
 
     private void _InitializeAllButtons()
     {
-        AllUpButtonsEnabled = nPoints > 0;
-        AllDownButtonsEnabled = nPoints > 0;
+        _AllUpButtonsEnabled = _nPoints.Content > 0;
+        _AllDownButtonsEnabled = _nPoints.Content > 0;
 
-        _GetChangableStatUI(_maxHP).Weight = 10;
-        _GetChangableStatUI(_maxMana).Weight = 10;
-        _GetChangableStatUI(_maxStamina).Weight = 10;
-
-        ApplyButtonEnabled = false;
-
-        _RecheckLevelUpButtonEnabled();
-    }
-
-    private ChangableStatUI _GetChangableStatUI(StatUI stat) => stat as ChangableStatUI;
-
-    public bool AllUpButtonsEnabled
-    {
-        set
+        if (_applyButton)
         {
-            _GetChangableStatUI(_attack).UpButtonEnabled = value;
-            _GetChangableStatUI(_maxHP).UpButtonEnabled = value;
-            _GetChangableStatUI(_regenHP).UpButtonEnabled = value;
-            _GetChangableStatUI(_maxMana).UpButtonEnabled = value;
-            _GetChangableStatUI(_regenMana).UpButtonEnabled = value;
-            _GetChangableStatUI(_maxStamina).UpButtonEnabled = value;
-            _GetChangableStatUI(_regenStamina).UpButtonEnabled = value;
+            _applyButton.interactable = false;
+        }
+
+        if (_levelupButton != null)
+        {
+            _RecheckLevelUpButtonEnabled();
         }
     }
 
-    public bool AllDownButtonsEnabled
+    private void _RecheckLevelUpButtonEnabled() => _levelupButton.interactable = _playerStat.Exp > LevelUpExpThresh;
+
+    private bool _AllUpButtonsEnabled
     {
         set
         {
-            _GetChangableStatUI(_attack).DownButtonEnabled = value;
-            _GetChangableStatUI(_maxHP).DownButtonEnabled = value;
-            _GetChangableStatUI(_regenHP).DownButtonEnabled = value;
-            _GetChangableStatUI(_maxMana).DownButtonEnabled = value;
-            _GetChangableStatUI(_regenMana).DownButtonEnabled = value;
-            _GetChangableStatUI(_maxStamina).DownButtonEnabled = value;
-            _GetChangableStatUI(_regenStamina).DownButtonEnabled = value;
+            _strength.UpButtonEnabled = value;
+            _vitality.UpButtonEnabled = value;
+            _endurance.UpButtonEnabled = value;
+            _intelligent.UpButtonEnabled = value;
+            _luck.UpButtonEnabled = value;
         }
     }
 
-    public int nPoints { set => _nPoints.Content = value.ToString(); get => int.Parse(_nPoints.Content); }
-
-    public int Exp
+    private bool _AllDownButtonsEnabled
     {
         set
         {
-            _playerStat.Exp = value;
-            _exp.Content = value.ToString();
+            _strength.DownButtonEnabled = value;
+            _vitality.DownButtonEnabled = value;
+            _endurance.DownButtonEnabled = value;
+            _intelligent.DownButtonEnabled = value;
+            _luck.DownButtonEnabled = value;
         }
-
-        get => _playerStat.Exp;
     }
-
-    public int Level
-    {
-        set
-        {
-            _playerStat.Level = value;
-            _level.Content = value.ToString();
-        }
-        get => _playerStat.Level;
-    }
-
-    public bool ApplyButtonEnabled { set => _applyButton.interactable = value; }
-
-    public void _RecheckLevelUpButtonEnabled() => _levelupButton.interactable = _playerStat.Exp > LevelUpExpThresh;
-
     #region Button callbacks
 
     public void OnLevelupButtonClicked()
     {
-        Exp -= LevelUpExpThresh;
+        _exp.Content -= LevelUpExpThresh;
 
-        Level++;
+        _level.Content++;
 
-        nPoints += LevelupPoints;
-        _playerStat.nPoints = int.Parse(_nPoints.Content);
+        _nPoints.Content += LevelupPoints;
+        _playerStat.nPoints = _nPoints.Content;
 
-        AllUpButtonsEnabled = true;
-        AllDownButtonsEnabled = true;
+        _AllUpButtonsEnabled = true;
+        _AllDownButtonsEnabled = true;
 
-        _RecheckLevelUpButtonEnabled();
+        if (_levelupButton != null)
+        {
+            _RecheckLevelUpButtonEnabled();
+        }
 
         SaveSystem.SavePlayerStat(_playerStat);
     }
 
     public void OnApplyClicked()
     {
-        _playerStat.Attack = float.Parse(_attack.Content);
-        _playerStat.HPMax = float.Parse(_maxHP.Content);
-        _playerStat.HPRegen = float.Parse(_regenHP.Content);
-        _playerStat.ManaMax = float.Parse(_maxMana.Content);
-        _playerStat.ManaRegen = float.Parse(_regenMana.Content);
-        _playerStat.StaminaMax = float.Parse(_maxStamina.Content);
-        _playerStat.StaminaRegen = float.Parse(_regenStamina.Content);
-
-        _playerStat.nPoints = int.Parse(_nPoints.Content);
-
-        ApplyButtonEnabled = false;
-        AllUpButtonsEnabled = false;
-        AllDownButtonsEnabled = false;
+        if (_applyButton != null)
+        {
+            _applyButton.interactable = false;
+        }
+        _AllUpButtonsEnabled = false;
+        _AllDownButtonsEnabled = false;
 
         SaveSystem.SavePlayerStat(_playerStat);
     }
 
     public void OnCloseClicked()
     {
-        gameObject.SetActive(false);
-        GameManager.Instance.SetPausing(false);
+        _HidePopup();
     }
+
+
 
     #endregion
 }

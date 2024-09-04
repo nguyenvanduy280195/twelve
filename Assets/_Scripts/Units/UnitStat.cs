@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class UnitStat
@@ -22,11 +23,16 @@ public class UnitStat
 [Serializable]
 public class PlayerStat : UnitStat
 {
+    [Tooltip("Increase Attack\nAttack = 0.1f * Strength")]
     public int Strength;
+    [Tooltip("Increase HP\nHPMax = 10 * Vitality\nHPRegen = 0.1f * Vitality")]
     public int Vitality;
+    [Tooltip("Increase Stamina\nStaminaMax = 10 * Endurance\nStaminaRegen = 0.1f * Endurance")]
     public int Endurance;
+    [Tooltip("Increase Mana\nManaMax = 10 * Intelligent\nManaRegen = 0.1f * Intelligent")]
     public int Intelligent;
-    public int Luck;
+    [Tooltip("Receive golds and exp")]
+    public int Luck; [Tooltip("Receive golds and exp")]
     public int nPoints;
 
     public string Name;

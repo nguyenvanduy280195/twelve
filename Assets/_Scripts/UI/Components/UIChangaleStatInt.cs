@@ -1,48 +1,45 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ChangableStatUI : StatUI
+public class UIChangaleStatInt : UIStatInt
 {
-
-    //============= Events =============
     public static event Action<int> OnNumberOfPointsChanged;
     public static event Func<int> OnNumberOfPointsGot;
-
-
-    //============= Fields =============
     [SerializeField] private GameObject _downButton;
     [SerializeField] private GameObject _upButton;
-
-    //============= Properties =============
-
+    protected int _threshDown = -1;
     public bool UpButtonEnabled { set => _upButton.SetActive(value); }
     public bool DownButtonEnabled { set => _downButton.SetActive(value); }
+    public int Weight = 1;
+    public override int Content
+    {
+        set
+        {
+            base.Content = value;
 
-    public float Weight = 1;
-
+            if (_threshDown <= -1)
+            {
+                _threshDown = value;
+            }
+        }
+    }
 
     public void OnIncrease()
     {
-        var value = int.Parse(Content);
 
         if (OnNumberOfPointsGot?.Invoke() > 0)
         {
             OnNumberOfPointsChanged?.Invoke(1);
-            Content = $"{value + Weight}";
+            Content += Weight;
         }
     }
 
     public void OnDecrease()
     {
-        var value = int.Parse(Content);
-        if (value > _threshDown)
+        if (Content > _threshDown)
         {
-            Content = $"{value - Weight}";
+            Content -= Weight;
             OnNumberOfPointsChanged?.Invoke(-1);
         }
     }
-
 }

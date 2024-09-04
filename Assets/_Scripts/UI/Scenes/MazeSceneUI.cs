@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonsEvent : MonoBehaviour
+public class MazeSceneUI : MonoBehaviour
 {
     [SerializeField]
     private GameObject _menuInGame;

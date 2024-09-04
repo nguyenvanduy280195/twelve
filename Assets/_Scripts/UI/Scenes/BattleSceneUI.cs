@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InBattle : MonoBehaviour
+public class BattleSceneUI : MonoBehaviour
 {
     [SerializeField] private GameObject _menuInGame;
 

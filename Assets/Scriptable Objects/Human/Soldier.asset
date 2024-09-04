@@ -13,22 +13,27 @@ MonoBehaviour:
   m_Name: Soldier
   m_EditorClassIdentifier: 
   PlayerStat:
-    Name: Duy
     Class: Soldier
     Level: 1
     Attack: 1
     HPMax: 100
-    HP: 100
     HPRegen: 1
     ManaMax: 100
-    Mana: 0
     ManaRegen: 1
     StaminaMax: 100
-    Stamina: 100
     StaminaConsumeWeight: 0.1
     StaminaRegen: 1
+    Strength: 5
+    Vitality: 11
+    Endurance: 12
+    Intelligent: 13
+    Luck: 1
+    nPoints: 0
+    Name: Duy
+    HP: 100
+    Mana: 0
+    Stamina: 100
     PositionX: 0
     PositionY: 0
     Gold: 0
     Exp: 0
-    nPoints: 0
