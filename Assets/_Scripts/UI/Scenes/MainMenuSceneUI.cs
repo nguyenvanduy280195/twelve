@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MainMenuSceneUI : MonoBehaviour
 {
+    [SerializeField] private ConfirmPopup _confirmPopup;
     [SerializeField] private MoveTo _casualMenuMoveTo;
     [SerializeField] private ScaleTo _casualMenuScaleTo;
 
@@ -12,6 +13,15 @@ public class MainMenuSceneUI : MonoBehaviour
     {
         _casualMenuPositionFirst = _casualMenuMoveTo.transform.position;
         _casualMenuLocalScaleFirst = Vector3.one;
+
+        _confirmPopup.YesButtonClick = () => MySceneManager.Instance?.LoadCreatingCharacterScene();
+        _confirmPopup.NoButtonClick = () =>
+        {
+            var scaleTo = _confirmPopup.GetComponent<ScaleTo>();
+            scaleTo.To = new Vector2(0.0001f, 0.0001f);
+            scaleTo.ActiveOnDoneOnce = true;
+            scaleTo.OnDone = go => _confirmPopup.HidePopup();
+        };
     }
 
     public void OnCasualButtonClicked()
@@ -39,7 +49,12 @@ public class MainMenuSceneUI : MonoBehaviour
 
     public void OnNewGameButtonClicked()
     {
-        MySceneManager.Instance?.LoadCreatingCharacterScene();
+
+
+        _confirmPopup.ShowPopup();
+        var scaleTo = _confirmPopup.GetComponent<ScaleTo>();
+        scaleTo.To = new Vector2(1f, 1f);
+        scaleTo.ActiveOnDoneOnce = true;
     }
 
     public void OnCloseButtonClicked()

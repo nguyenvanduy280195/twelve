@@ -5,11 +5,11 @@ public class MenuInGamePopup : PopupTemplate
     [SerializeField]
     private GameObject _statsCanvas;
 
-    public void OnBackButtonClicked() => _HidePopup();
+    public void OnBackButtonClicked() => HidePopup();
 
     public void OnStatsButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
         _ShowStatsPopup();
     }
 
@@ -17,7 +17,7 @@ public class MenuInGamePopup : PopupTemplate
 
     public void OnMainMenuButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
         MySceneManager.Instance?.LoadMainMenuScene();
     }
 

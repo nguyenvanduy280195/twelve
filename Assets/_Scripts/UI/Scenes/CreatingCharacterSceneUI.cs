@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CreatingCharacterSceneUI : MonoBehaviour
 {
 
     [SerializeField] private ScriptablePlayerStat _soldier;
+    [SerializeField] private TMP_InputField _name;
 
     public void OnEnjoyButtonClicked()
     {
+        if (_name.text.Count() <= 0)
+        {
+            Debug.Log("Please fill your name.");
+            return;
+        }
+
         _CreateCharacter();
         MySceneManager.Instance?.LoadMazeScene();
     }
@@ -21,10 +28,11 @@ public class CreatingCharacterSceneUI : MonoBehaviour
     private void _CreateCharacter()
     {
         var playerStat = _GeneratePlayerStat(_soldier.PlayerStat.Clone());
+        playerStat.Name = _name.text;
         SaveSystem.SavePlayerStat(playerStat);
     }
 
-    private static PlayerStat _GeneratePlayerStat(PlayerStat playerStat)
+    private PlayerStat _GeneratePlayerStat(PlayerStat playerStat)
     {
         playerStat.Attack = 0.5f * playerStat.Strength;
         playerStat.HPMax = 10f * playerStat.Vitality;
@@ -35,7 +43,7 @@ public class CreatingCharacterSceneUI : MonoBehaviour
         playerStat.ManaRegen = 0.1f * playerStat.Intelligent;
         playerStat.StaminaMax = 10f * playerStat.Endurance;
         playerStat.StaminaRegen = 0.1f * playerStat.Endurance;
-        playerStat.StaminaConsumeWeight = 0.1f * playerStat.Level;
+        playerStat.StaminaConsumeWeight = 0.5f * playerStat.Level;
         playerStat.Stamina = 10f * playerStat.Endurance;
         return playerStat;
     }

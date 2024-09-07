@@ -8,35 +8,40 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
     public PlayerStat PlayerStat => ChoosingLevelUnitManager.Instance.PlayerStat;
     public EnemyStat EnemyStat { get; private set; }
 
-    public Vector3 PlayerPositionBeforeBattle { get; private set; }
+
     public Vector3 EnemyPositionBeforeBattle { get; private set; }
 
     private int _enemyID;
 
     public void BeginBattle(GameObject enemy)
     {
-        PlayerPositionBeforeBattle = ChoosingLevelUnitManager.Instance.Player.transform.position;
-        
-        PlayerStat.PositionX = PlayerPositionBeforeBattle.x;
-        PlayerStat.PositionY = PlayerPositionBeforeBattle.y;
-        SaveSystem.SavePlayerStat(PlayerStat);
-        
+        _SavePlayerPosition();
+
         EnemyPositionBeforeBattle = enemy.transform.position;
 
-        
+
         EnemyStat = _GetEnemyStatFromEnemy(enemy) ?? DefaultEnemyStat.EnemyStat;
-        
+
         _enemyID = enemy.GetComponent<EnemyData>().ID;
-        
+
         GameManager.Instance?.SetPausing(true);
-        
+
         MySceneManager.Instance?.LoadInBattleScene();
     }
 
     public void EndBattle()
     {
         MySceneManager.Instance?.LoadMazeScene();
+
         _HideDeadEnemy();
+    }
+
+    #region Support methods
+
+    private void _SavePlayerPosition()
+    {
+        PlayerStat.Position = new MyPosition(ChoosingLevelUnitManager.Instance.Player.transform.position);
+        SaveSystem.SavePlayerStat(PlayerStat);
     }
 
     private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance.AddDeadEnemy(_enemyID);
@@ -50,5 +55,7 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         }
         return null;
     }
+
+    #endregion
 
 }

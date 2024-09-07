@@ -15,8 +15,6 @@ public class JoystickPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = MatchingBattleManager.Instance.PlayerPositionBeforeBattle;
-
         _rigidbody = GetComponent<Rigidbody2D>();
         _unitAnimationHandler = GetComponent<UnitAnimationHandler>();
     }

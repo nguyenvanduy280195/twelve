@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class UIAction : MonoBehaviour
@@ -22,7 +20,7 @@ public abstract class UIAction : MonoBehaviour
 
     private void Update()
     {
-        if (Predicate)
+        if (_Predicate)
         {
             _ActionIfPredicateTrue();
         }
@@ -33,7 +31,7 @@ public abstract class UIAction : MonoBehaviour
         }
     }
 
-    protected abstract bool Predicate { get; }
+    protected abstract bool _Predicate { get; }
 
     protected abstract void _ActionIfPredicateTrue();
 }

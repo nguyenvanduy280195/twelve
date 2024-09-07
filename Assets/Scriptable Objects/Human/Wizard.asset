@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4898d6cd6b1eab74aba428edcc90a49f, type: 3}
-  m_Name: Soldier
+  m_Name: Wizard
   m_EditorClassIdentifier: 
   _statMini:
-    Name: Duy
-    Class: Soldier
+    Name: Wizard0
+    Class: Wizard
     Level: 1
-    Strength: 10
-    Vitality: 9
-    Endurance: 8
-    Intelligent: 7
-    Luck: 1
+    Strength: 7
+    Vitality: 8
+    Endurance: 9
+    Intelligent: 10
+    Luck: 2

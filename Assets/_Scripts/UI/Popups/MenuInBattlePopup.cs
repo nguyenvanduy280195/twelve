@@ -8,12 +8,12 @@ public class MenuInBattlePopup : PopupTemplate
 
     public void OnBackButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
     }
 
     public void OnStatsButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
         _ShowStatsPopup();
     }
 
@@ -24,7 +24,7 @@ public class MenuInBattlePopup : PopupTemplate
 
     public void OnOutBattleButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
         _ReturnPreviousScene();
     }
 

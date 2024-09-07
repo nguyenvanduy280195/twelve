@@ -254,7 +254,7 @@ public class PlayerStatPopup : PopupTemplate
 
     public void OnCloseClicked()
     {
-        _HidePopup();
+        HidePopup();
     }
 
 

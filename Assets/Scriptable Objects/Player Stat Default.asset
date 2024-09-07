@@ -12,28 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4898d6cd6b1eab74aba428edcc90a49f, type: 3}
   m_Name: Player Stat Default
   m_EditorClassIdentifier: 
-  PlayerStat:
-    Class: Class Default
+  _statMini:
+    Name: Duy
+    Class: Soldier
     Level: 1
-    Attack: 1
-    HPMax: 100
-    HPRegen: 1
-    ManaMax: 100
-    ManaRegen: 1
-    StaminaMax: 100
-    StaminaConsumeWeight: 0.5
-    StaminaRegen: 1
-    Strength: 10
+    Strength: 9
     Vitality: 10
-    Endurance: 10
-    Intelligent: 10
-    Luck: 10
-    nPoints: 0
-    Name: Player Default
-    HP: 100
-    Mana: 0
-    Stamina: 100
-    PositionX: 0
-    PositionY: 0
-    Gold: 0
-    Exp: 0
+    Endurance: 11
+    Intelligent: 12
+    Luck: 1

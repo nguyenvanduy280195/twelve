@@ -64,24 +64,25 @@ public class Moving2Points : EnemyMovingHandler
     {
         _destination = _firstPoint.position;
 
-        var matchingBattleManager = MatchingBattleManager.Instance;
-        if (matchingBattleManager is not null)
-        {
-            var playerPosition = matchingBattleManager.PlayerPositionBeforeBattle;
-            var firstDistance = (playerPosition - _firstPoint.position).magnitude;
-            var secondDistance = (playerPosition - _secondPoint.position).magnitude;
-            if (firstDistance > secondDistance)
-            {
-                transform.position = _firstPoint.position;
-                _destination = _secondPoint.position;
-            }
-            else
-            {
-                transform.position = _secondPoint.position;
-                _destination = _firstPoint.position;
-            }
-        }
+        //TODO pending
+        // var matchingBattleManager = MatchingBattleManager.Instance;
+        // if (matchingBattleManager is not null)
+        // {
+        //     var playerPosition = matchingBattleManager.PlayerPositionBeforeBattle;
+        //     var firstDistance = (playerPosition - _firstPoint.position).magnitude;
+        //     var secondDistance = (playerPosition - _secondPoint.position).magnitude;
+        //     if (firstDistance > secondDistance)
+        //     {
+        //         transform.position = _firstPoint.position;
+        //         _destination = _secondPoint.position;
+        //     }
+        //     else
+        //     {
+        //         transform.position = _secondPoint.position;
+        //         _destination = _firstPoint.position;
+        //     }
+        // }
 
-        
+
     }
 }

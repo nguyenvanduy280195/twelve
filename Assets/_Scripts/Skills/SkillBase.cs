@@ -11,10 +11,6 @@ public abstract class SkillBase : MonoBehaviour
 
     protected bool _skillAnimationRunning;
     protected bool _unitAnimationRunning;
-
-    private Coroutine _unitCoroutine;
-    private Coroutine _skillCoroutine;
-
     public float ManaConsumed => _manaConsumed;
 
     public void Execute(BattleUnitBase target, Action OnDone)

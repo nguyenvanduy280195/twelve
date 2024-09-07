@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animationDefaultName: SNoArmor_idle_left
   _idleUpAnimationName: SNoArmor_idle_up
   _idleDownAnimationName: SNoArmor_idle_down
   _idleLeftAnimationName: SNoArmor_idle_left
@@ -129,15 +130,27 @@ MonoBehaviour:
   _walkDownAnimationName: SNoArmor_walk_down
   _walkLeftAnimationName: SNoArmor_walk_left
   _walkRightAnimationName: SNoArmor_walk_right
-  _animationDefaultName: SNoArmor_idle_left
-  _attackRightAnimationName: SNoArmor_attack_right
-  _attackRightAnimationDuration: 0.5
-  _attackLeftAnimationName: SNoArmor_attack_left
-  _attackLeftAnimationDuration: 0.5
-  _hurtAnimationName: SNoArmor_hurt
-  _hurtAnimationDuration: 0.583
-  _deadAnimationName: SNoArmor_dead
-  _deadAnimationDuration: 0.5
+  _attackLeftAnimation:
+    Name: SNoArmor_attack_left
+    Duration: 0.5
+  _attackRightAnimation:
+    Name: SNoArmor_attack_right
+    Duration: 0.5
+  _hurtAnimation:
+    Name: SNoArmor_hurt
+    Duration: 0.583
+  _aliveAnimation:
+    Name: 
+    Duration: 0
+  _deadAnimation:
+    Name: SNoArmor_dead
+    Duration: 0.5
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
+    Name: 
+    Duration: 0
 --- !u!50 &-4600955015630430396
 Rigidbody2D:
   serializedVersion: 4
@@ -179,18 +192,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveDuration: 1
   _nTurnsText: {fileID: 0}
+  _skills: []
   _stat:
-    Name: Skeleton0
     Class: Skeleton
     Level: 1
     Attack: 1
-    MaxHP: 0
-    HP: 100
-    RegenHP: 2
-    MaxMana: 0
-    Mana: 50
-    RegenMana: 1
-    MaxStamina: 0
-    Stamina: 100
-    RegenStamina: 1
+    HPMax: 0
+    HPRegen: 0
+    ManaMax: 0
+    ManaRegen: 0
+    StaminaMax: 0
+    StaminaConsumeWeight: 0
+    StaminaRegen: 0
     BonusExp: 50
+    BonusGold: 0

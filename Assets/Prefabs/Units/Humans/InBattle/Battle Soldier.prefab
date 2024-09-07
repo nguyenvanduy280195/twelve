@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animationDefaultName: Soldier_idle_right
   _idleUpAnimationName: Soldier_idle_up
   _idleDownAnimationName: Soldier_idle_down
   _idleLeftAnimationName: Soldier_idle_left
@@ -156,19 +157,27 @@ MonoBehaviour:
   _walkDownAnimationName: Soldier_walk_down
   _walkLeftAnimationName: Soldier_walk_left
   _walkRightAnimationName: Soldier_walk_right
-  _animationDefaultName: Soldier_idle_right
-  _attackRightAnimationName: Soldier_thrust_right
-  _attackRightAnimationDuration: 0.5
-  _attackLeftAnimationName: Soldier_thrust_left
-  _attackLeftAnimationDuration: 0.5
-  _hurtAnimationName: Soldier_hurt
-  _hurtAnimationDuration: 0.438
-  _deadAnimationName: Soldier_dead
-  _deadAnimationDuration: 0.5
-  _castLeftAnimationName: Soldier_cast_left
-  _castLeftAnimationDuration: 0.583
-  _castRightAnimationName: Soldier_cast_right
-  _castRightAnimationDuration: 0.583
+  _attackLeftAnimation:
+    Name: Soldier_thrust_left
+    Duration: 0.5
+  _attackRightAnimation:
+    Name: Soldier_thrust_right
+    Duration: 0.5
+  _hurtAnimation:
+    Name: Soldier_hurt
+    Duration: 0.438
+  _aliveAnimation:
+    Name: Soldier_alive
+    Duration: 0.5
+  _deadAnimation:
+    Name: Soldier_dead
+    Duration: 0.5
+  _castLeftAnimation:
+    Name: Soldier_cast_left
+    Duration: 0.583
+  _castRightAnimation:
+    Name: Soldier_cast_right
+    Duration: 0.583
 --- !u!114 &8394429098968283358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +210,7 @@ MonoBehaviour:
     Intelligent: 0
     Luck: 0
     nPoints: 0
-    Name: Duy
+    Name: Battle Soldier
     HP: 100
     Mana: 50
     Stamina: 100

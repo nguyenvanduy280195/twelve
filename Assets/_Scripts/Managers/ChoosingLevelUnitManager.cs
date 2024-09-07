@@ -1,34 +1,46 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitManager>
 {
-    [SerializeField] private List<int> _listDeadEnemyID;
+    private List<int> _listDeadEnemyID;
 
     private PlayerStat _playerStat;
 
-    public PlayerStat PlayerStat => _playerStat;
+    #region Public methods
+    public PlayerStat PlayerStat
+    {
+        get
+        {
+            if (_playerStat == null)
+            {
+                _playerStat = SaveSystem.LoadPlayerStat();
+            }
+            return _playerStat;
+        }
+    }
     public GameObject Player => Finder.FindGameObjectByTag("Player"); // TODO Let find a better way
     public List<GameObject> Enemies { get; private set; }
+    public void AddDeadEnemy(int id) => _listDeadEnemyID.Add(id);
+    #endregion
+
+    #region Unity methods
 
     private void Start()
     {
-        SceneListener.OnCreate += _ReloadEnemies;
-        SceneListener.OnCreate += _FilterDeadEnemy;
+        MySceneBase.OnCreate += _ReloadEnemies;
+        MySceneBase.OnCreate += _FilterDeadEnemy;
 
         _listDeadEnemyID = new();
-        _playerStat = SaveSystem.LoadPlayerStat();
     }
 
     private void OnDestroy()
     {
-        SceneListener.OnCreate -= _ReloadEnemies;
-        SceneListener.OnCreate -= _FilterDeadEnemy;
+        MySceneBase.OnCreate -= _ReloadEnemies;
+        MySceneBase.OnCreate -= _FilterDeadEnemy;
     }
 
-    public void AddDeadEnemy(int id) => _listDeadEnemyID.Add(id);
+    #endregion
 
     #region Support methods
 

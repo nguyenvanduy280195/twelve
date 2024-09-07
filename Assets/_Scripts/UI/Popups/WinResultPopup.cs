@@ -62,7 +62,7 @@ public class WinResultPopup : PopupTemplate
 
     public void OnNextButtonClicked()
     {
-        _HidePopup();
+        HidePopup();
         _ReturnPreviousScene();
     }
 

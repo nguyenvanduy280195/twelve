@@ -1,12 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class UnitAnimationHandler : MonoBehaviour
 {
+
+    [Serializable]
+    public class AnimationInfo
+    {
+        public string Name;
+        public float Duration;
+    }
+
     //============== For inspector ==============
+
+    [SerializeField] private string _animationDefaultName;
 
     [Header("Idle")]
     [SerializeField] private string _idleUpAnimationName;
@@ -18,54 +26,58 @@ public class UnitAnimationHandler : MonoBehaviour
     [SerializeField] private string _walkDownAnimationName;
     [SerializeField] private string _walkLeftAnimationName;
     [SerializeField] private string _walkRightAnimationName;
-    [SerializeField] private string _animationDefaultName;
 
     [Header("Attack")]
-    [SerializeField] private string _attackRightAnimationName;
-    [SerializeField] private float _attackRightAnimationDuration;
-
-    [SerializeField] private string _attackLeftAnimationName;
-    [SerializeField] private float _attackLeftAnimationDuration;
+    [SerializeField] private AnimationInfo _attackLeftAnimation;
+    [SerializeField] private AnimationInfo _attackRightAnimation;
 
     [Header("Hurt")]
-    [SerializeField] private string _hurtAnimationName;
-    [SerializeField] private float _hurtAnimationDuration;
+    [SerializeField] private AnimationInfo _hurtAnimation;
+
+    [Header("Alive")]
+    [SerializeField] private AnimationInfo _aliveAnimation;
 
     [Header("Dead")]
-    [SerializeField] private string _deadAnimationName;
-    [SerializeField] private float _deadAnimationDuration;
+    [SerializeField] private AnimationInfo _deadAnimation;
 
     [Header("Cast")]
-    [SerializeField] private string _castLeftAnimationName;
-    [SerializeField] private float _castLeftAnimationDuration;
-    [SerializeField] private string _castRightAnimationName;
-    [SerializeField] private float _castRightAnimationDuration;
+    [SerializeField] private AnimationInfo _castLeftAnimation;
+    [SerializeField] private AnimationInfo _castRightAnimation;
 
     private string _stateName;
     private Animator _animator;
     private float _lockedTill;
 
     public bool CurrentStateLocked => Time.time < _lockedTill;
+    public void RunWalkAnimation(float x, float y) => _RunAnimation(_GetState(x, y));
+    public void RunIdleAnimation(Vector2 left, Vector2 right) => _RunAnimation(_GetIdleAnimation(left.x, right.x));
+    public void RunIdleLeftAnimation() => _RunAnimation(_idleLeftAnimationName);
+    public void RunIdleRightAnimation() => _RunAnimation(_idleRightAnimationName);
+    public void RunWalkAnimation(Vector2 left, Vector2 right) => _RunAnimation(_GetWalkAnimation(left.x, right.x));
+    public void RunAttackAnimation(Vector2 left, Vector2 right) => _RunAnimation(_GetAttackAnimation(left.x, right.x));
+    public void RunHurtAnimation() => _RunAnimation(_hurtAnimation.Name, _hurtAnimation.Duration);
+    public void RunAliveAnimation() => _RunAnimation(_aliveAnimation.Name, _aliveAnimation.Duration);
+    public void RunDeadAnimation() => _RunAnimation(_deadAnimation.Name, _deadAnimation.Duration);
+    public void RunCastLeftAnimation() => _RunAnimation(_castLeftAnimation.Name, _castLeftAnimation.Duration);
+    public void RunCastRightAnimation() => _RunAnimation(_castRightAnimation.Name, _castRightAnimation.Duration);
+
+    #region Supporting methods
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _stateName = _animationDefaultName;
-        RunAnimation(_stateName);
+        _RunAnimation(_stateName);
     }
 
-
-    public void RunWalkAnimation(float x, float y) => RunAnimation(_GetState(x, y));
-
-    private string _GetState(float x, float y) => _GetState(x, y, _stateName);
+    private string _GetState(float x, float y)
+    {
+        _stateName = _GetState(x, y, _stateName);
+        return _stateName;
+    }
 
     private string _GetState(float x, float y, string currentStateName)
     {
-        if (Time.time < _lockedTill)
-        {
-            return currentStateName;
-        }
-
         var stateName = currentStateName;
         var absx = Mathf.Abs(x);
         var absy = Mathf.Abs(y);
@@ -115,34 +127,17 @@ public class UnitAnimationHandler : MonoBehaviour
         return stateName;
     }
 
-    public void RunIdleAnimation(Vector2 left, Vector2 right) => RunAnimation(_GetIdleAnimation(left.x, right.x));
-
-    public void RunIdleLeftAnimation() => RunAnimation(_idleLeftAnimationName);
-
-    public void RunIdleRightAnimation() => RunAnimation(_idleRightAnimationName);
-
     private string _GetIdleAnimation(float l, float r) => l > r ? _idleLeftAnimationName : _idleRightAnimationName;
-
-    public void RunWalkAnimation(Vector2 left, Vector2 right) => RunAnimation(_GetWalkAnimation(left.x, right.x));
 
     private string _GetWalkAnimation(float l, float r) => l > r ? _walkLeftAnimationName : _walkRightAnimationName;
 
-    public void RunAttackAnimation(Vector2 left, Vector2 right) => RunAnimation(_GetAttackAnimation(left.x, right.x));
+    private (string, float) _GetAttackAnimation(float l, float r) => l < r ? (_attackLeftAnimation.Name, _attackLeftAnimation.Duration) : (_attackRightAnimation.Name, _attackRightAnimation.Duration);
 
-    private (string, float) _GetAttackAnimation(float l, float r) => l < r ? (_attackLeftAnimationName, _attackLeftAnimationDuration) : (_attackRightAnimationName, _attackRightAnimationDuration);
+    private void _RunAnimation(string name) => _animator.CrossFade(name, 0);
 
-    public void RunHurtAnimation() => RunAnimation(_hurtAnimationName, _hurtAnimationDuration);
+    private void _RunAnimation((string, float) animationInfo) => _RunAnimation(animationInfo.Item1, animationInfo.Item2);
 
-    public void RunDeadAnimation() => RunAnimation(_deadAnimationName, _deadAnimationDuration);
-
-    public void RunCastLeftAnimation() => RunAnimation(_castLeftAnimationName, _castLeftAnimationDuration);
-    public void RunCastRightAnimation() => RunAnimation(_castRightAnimationName, _castRightAnimationDuration);
-
-    public void RunAnimation(string name) => _animator.CrossFade(name, 0);
-
-    public void RunAnimation((string, float) animationInfo) => RunAnimation(animationInfo.Item1, animationInfo.Item2);
-
-    public void RunAnimation(string name, float duration)
+    private void _RunAnimation(string name, float duration)
     {
         _LockState(duration);
         _animator.CrossFade(name, duration);
@@ -150,4 +145,5 @@ public class UnitAnimationHandler : MonoBehaviour
 
     private void _LockState(float duration) => _lockedTill = Time.time + duration;
 
+    #endregion
 }
