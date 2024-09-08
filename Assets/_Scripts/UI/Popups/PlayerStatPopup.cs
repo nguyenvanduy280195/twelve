@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO Make it inherit via PopupTemplate
 public class PlayerStatPopup : PopupTemplate
 {
     #region Fields

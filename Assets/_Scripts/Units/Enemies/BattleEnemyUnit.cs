@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,6 +9,25 @@ public class BattleEnemyUnit : BattleUnitBase
     [SerializeField] private EnemyStat _stat;
 
     private readonly ItemsSupporter.ItemLocation UNDEFINED = new(-1, -1);
+
+    public override IEnumerator ControlCoroutine()
+    {
+        while (true)
+        {
+            var gameManager = BattleGameManager.Instance;
+
+            (var iSelected, var iDragged) = Level1;
+            if (!iSelected.Equals(UNDEFINED) && !iDragged.Equals(UNDEFINED))
+            {
+                gameManager.SelectedGameObject = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
+                gameManager.DraggedGameObject = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
+                gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
+                gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+                break;
+            }
+            yield return null;
+        }
+    }
 
     public override bool Control()
     {

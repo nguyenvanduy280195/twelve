@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,24 +10,7 @@ public class FireballSkill : SkillBase
 
     private readonly float _myEpsilon = 0.0001f;
 
-    protected override IEnumerator _RunUnitAnimation()
-    {
-        _unitAnimationHandler.RunCastRightAnimation();
-        yield return new WaitUntil(() => !_unitAnimationHandler.CurrentStateLocked);
-        _unitAnimationHandler.RunIdleRightAnimation();
-
-        _unitAnimationRunning = false;
-    }
-
-    protected override IEnumerator _RunSkillAnimation(BattleUnitBase target)
-    {
-        _ResetPosition();
-
-        yield return StartCoroutine(_MoveToTargetByFrame(target));
-        
-        _LetTargetTakeDamage(target);
-        _skillAnimationRunning = false;
-    }
+    #region Supports methods
 
     private bool _IsContactingTarget(Vector3 targetPosition)
     {
@@ -55,4 +37,52 @@ public class FireballSkill : SkillBase
         target?.TakeHit(damage);
     }
 
+    #endregion
+
+    #region Inheriting via SkillBase
+    protected override IEnumerator _RunUnitAnimation()
+    {
+        _unitAnimationHandler.RunCastRightAnimation();
+        yield return new WaitUntil(() => !_unitAnimationHandler.CurrentStateLocked);
+        _unitAnimationHandler.RunIdleRightAnimation();
+
+        _unitAnimationRunning = false;
+    }
+
+    protected override IEnumerator _RunSkillAnimation(BattleUnitBase target)
+    {
+        _ResetPosition();
+
+        yield return StartCoroutine(_MoveToTargetByFrame(target));
+
+        _LetTargetTakeDamage(target);
+        _skillAnimationRunning = false;
+    }
+
+    protected override IEnumerator _RunHavestingItems()
+    {
+        var battleGameManager = BattleGameManager.Instance;
+        if (battleGameManager != null)
+        {
+            var battleData = battleGameManager.MyData;
+            var items = battleData.Items;
+            var iRandomRow = Random.Range(1, battleData.NumberOfRow - 2);
+            var iRandomCol = Random.Range(1, battleData.NumberOfColumn - 2);
+
+            var itemsWillBeHarvested = new List<GameObject>();
+            for (int iCol = iRandomCol - 1; iCol <= iRandomCol + 1; iCol++)
+            {
+                for (int iRow = iRandomRow - 1; iRow <= iRandomRow + 1; iRow++)
+                {
+                    Debug.Log($"Items[{iCol},{iRow}] = {items[iCol, iRow].tag}");
+                    itemsWillBeHarvested.Add(items[iCol, iRow]);
+                }
+            }
+            battleGameManager.HarvestItems(itemsWillBeHarvested);
+        }
+        _harvestingItemsRunning = false;
+        yield return null;
+    }
+
+    #endregion
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BattlePlayerUnit : BattleUnitBase
@@ -44,6 +45,40 @@ public class BattlePlayerUnit : BattleUnitBase
 
         return false;
     }
+
+    public override IEnumerator ControlCoroutine()
+    {
+        while (true)
+        {
+            var gameManager = BattleGameManager.Instance;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+                if (hit.collider != null)
+                {
+                    gameManager.SelectedGameObject = hit.collider.gameObject;
+                }
+            }
+
+            if (Input.GetMouseButton(0) && gameManager.SelectedGameObject != null)
+            {
+                var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+                if (hit.collider != null && IsDraggingSuccess(hit.collider.gameObject))
+                {
+                    gameManager.DraggedGameObject = hit.collider.gameObject;
+                    gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
+                    gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+                    break;
+                }
+            }
+            yield return null;
+        }
+    }
+
 
     public override void IncreaseGold(float bonusFactor) => nGold += (1 + 0.01f * _stat.Luck) * bonusFactor;
 

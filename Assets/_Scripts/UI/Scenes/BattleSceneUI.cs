@@ -19,12 +19,14 @@ public class BattleSceneUI : MonoBehaviour
     {
         if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
         {
+            BattleGameManager.Instance.WaitingForSkill = true;
             button.interactable = false;
             var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
             var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
             Action onSkillExecuted = () =>
             {
-                BattleGameManager.Instance?.SkipTurn();
+                //BattleGameManager.Instance?.SkipTurn();
+                BattleGameManager.Instance.WaitingForSkill = false;
                 button.interactable = true;
             };
             player.ExecuteSkill(iSkill, enemy, onSkillExecuted);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using IEnumerator = System.Collections.IEnumerator;
 
 public abstract class BattleUnitBase : MonoBehaviour
 {
@@ -92,6 +93,8 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public abstract bool Control();
 
+    public abstract IEnumerator ControlCoroutine();
+
     public abstract UnitStat Stat { get; set; }
 
     protected abstract UIUnit UIUnit { get; }
@@ -138,7 +141,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
             // active
             _state = UnitState.MoveToTargetPosition;
-            _animationHandler.RunWalkAnimation(transform.position, target.transform.position);
+            _animationHandler.RunWalkAnimation(transform.position, target?.transform.position ?? Vector3.zero);
         }
 
         _actions[UnitState.Attack].Enqueue(() =>
@@ -147,7 +150,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
             var damage = Stat.Attack * bonusFactor;
             damage *= (nEffectTurns > 0) ? DamageBuff : 1;
-            target.TakeHit(damage);
+            target?.TakeHit(damage);
 
             Debug.Log($"[Attack] Damage = {damage}");
         });

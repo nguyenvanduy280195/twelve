@@ -13,18 +13,14 @@ MonoBehaviour:
   m_Name: Enemy Stat Default
   m_EditorClassIdentifier: 
   EnemyStat:
-    Name: Enemy Default
     Class: Class Default
     Level: 1
     Attack: 1
-    HPMax: 100
-    HP: 50
+    HPMax: 200
     HPRegen: 1
     ManaMax: 50
-    Mana: 0
     ManaRegen: 1
     StaminaMax: 50
-    Stamina: 0
     StaminaConsumeWeight: 1
     StaminaRegen: 1
     BonusExp: 0

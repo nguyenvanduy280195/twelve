@@ -25,4 +25,9 @@ public class WeaponAura : SkillBase
         _skillAnimationRunning = false;
         yield return null;
     }
+
+    protected override IEnumerator _RunHavestingItems()
+    {
+        yield return null;
+    }
 }

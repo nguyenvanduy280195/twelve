@@ -6,6 +6,18 @@ public class MenuInBattlePopup : PopupTemplate
     [SerializeField]
     private GameObject _statsCanvas;
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        BattleGameManager.Instance?.SetResuming(false);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        BattleGameManager.Instance?.SetResuming(true);
+    }
+
     public void OnBackButtonClicked()
     {
         HidePopup();

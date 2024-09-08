@@ -16,8 +16,8 @@ MonoBehaviour:
     Name: Duy
     Class: Soldier
     Level: 1
-    Strength: 9
+    Strength: 5
     Vitality: 10
     Endurance: 11
-    Intelligent: 12
+    Intelligent: 1200
     Luck: 1
