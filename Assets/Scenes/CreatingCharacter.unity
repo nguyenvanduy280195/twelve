@@ -425,18 +425,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -448,12 +446,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &262596676
 Animator:
   serializedVersion: 5
@@ -578,18 +578,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -601,12 +599,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &284976264
 Animator:
   serializedVersion: 5
@@ -765,18 +765,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -788,12 +786,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &502937304
 Animator:
   serializedVersion: 5
@@ -918,18 +918,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -941,12 +939,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &566253470
 Animator:
   serializedVersion: 5
@@ -1983,18 +1983,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -2006,12 +2004,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &1138990427
 Animator:
   serializedVersion: 5
@@ -2260,18 +2260,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -2283,12 +2281,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &1328143966
 Animator:
   serializedVersion: 5
@@ -2372,7 +2372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404631767}
   m_Layer: 0
-  m_Name: Environments
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3142,18 +3142,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -3165,12 +3163,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &1832945787
 Animator:
   serializedVersion: 5
@@ -3295,18 +3295,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -3318,12 +3316,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &1852412997
 Animator:
   serializedVersion: 5
@@ -3479,18 +3479,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -3502,12 +3500,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &2004210711
 Animator:
   serializedVersion: 5
@@ -3632,18 +3632,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -3655,12 +3653,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &2026693318
 Animator:
   serializedVersion: 5
@@ -3785,18 +3785,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: 
     Duration: 0
   _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
     Name: 
     Duration: 0
   _hurtAnimation:
@@ -3808,12 +3806,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: 
     Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!95 &2039885962
 Animator:
   serializedVersion: 5

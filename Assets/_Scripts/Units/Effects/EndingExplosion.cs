@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EndingExplosion : MonoBehaviour
 {
-    private void OnDestroy() => BattleGameManager.Instance.ExplosionAnimations.Remove(gameObject);
+    private void OnDestroy() => BattleGameManager.Instance?.ExplosionAnimations?.Remove(gameObject);
 }

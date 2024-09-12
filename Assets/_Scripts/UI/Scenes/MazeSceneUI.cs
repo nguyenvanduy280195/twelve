@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MazeSceneUI : Singleton<MySceneBase>
+public class MazeSceneUI : MySceneBase
 {
     [SerializeField] private GameObject _menuInGame;
 

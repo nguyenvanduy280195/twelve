@@ -249,11 +249,13 @@ public class PlayerStatPopup : PopupTemplate
         _AllDownButtonsEnabled = false;
 
         SaveSystem.SavePlayerStat(_playerStat);
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnCloseClicked()
     {
         HidePopup();
+        AudioManager.Instance?.PlayButton();
     }
 
 

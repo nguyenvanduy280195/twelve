@@ -15,7 +15,9 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     [SerializeField] private GameObject[] _explosionPrefabs;
 
-    [SerializeField] private GameObject _selector;
+    [SerializeField] private GameObject _unitChooser;
+
+    [SerializeField] private GameObject _itemSelector;
 
     [SerializeField] private Transform _origin;
 
@@ -39,31 +41,51 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private Vector2 _itemSize = Vector2.zero;
 
-    private BattleUnitBase _currentPlayer;
+    private BattleUnitBase _currentUnit;
 
     private float _bonusFactor = 1f;
 
     private bool _resuming = true;
 
+    private GameObject _itemSelected;
     #endregion
 
     #region Properties
+
     public BattleData MyData { private set; get; }
+
     public bool WaitingForSkill = false;
 
-    [NonSerialized] public GameObject SelectedGameObject;
-    [NonSerialized] public GameObject DraggedGameObject;
+    public GameObject ItemSelected
+    {
+        get => _itemSelected;
+        set
+        {
+            _itemSelected = value;
+
+            if (_itemSelector != null && _itemSelected != null)
+            {
+                _itemSelector.SetActive(true);
+                _itemSelector.transform.position = _itemSelected.transform.position;
+            }
+        }
+    }
+
+    [NonSerialized] public GameObject ItemDragged;
+    public List<GameObject> ExplosionAnimations { get; private set; }
+
     public Vector3 PreSelectedPosition { private get; set; }
     public Vector3 PreDraggedPosition { private get; set; }
 
-    [NonSerialized]
-    public List<GameObject> ExplosionAnimations;
     #endregion
 
     #region Public methods
+    public bool IsChoosingUnitState => _gameState == GameState.ChoosingUnit;
+    public void SkipTurn() => _gameState = GameState.ChoosingUnit;
+
     public void SetResuming(bool value) => _resuming = value;
 
-    public void HarvestItems(List<GameObject> items)
+    public void HarvestItems(IEnumerable<GameObject> items)
     {
         _matchedItems.AddRange(items);
         _gameState = GameState.RemovingMatches;
@@ -169,6 +191,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     private void Start()
     {
         StartCoroutine(_StartBattle());
+        StartCoroutine(_CreateConsumingStaminaWorker());
     }
 
     private IEnumerator _StartBattle()
@@ -177,77 +200,96 @@ public class BattleGameManager : Singleton<BattleGameManager>
         {
             yield return new WaitUntil(() => !GameManager.Instance?.IsPausing() ?? _resuming);
 
-            switch (_gameState)
-            {
-                case GameState.Starting:
-                    yield return StartCoroutine(_HandleStarting());
-                    break;
-                case GameState.ChoosingUnit:
-                    yield return StartCoroutine(_HandleChoosingPlayer());
-                    break;
-                case GameState.PlayerTurn:
-                    yield return StartCoroutine(_HandlePlayerTurn());
-                    break;
-                case GameState.EnemyTurn:
-                    yield return StartCoroutine(_HandleEnemyTurn());
-                    break;
-                case GameState.Swapping:
-                    yield return StartCoroutine(_HandleSwaping2Items());
-                    break;
-                case GameState.UndoSwapping:
-                    yield return StartCoroutine(_HandleUndoSwapping());
-                    break;
-                case GameState.FindingMatches:
-                    yield return StartCoroutine(_HandleFindingMatches());
-                    break;
-                case GameState.HighlightMatches:
-                    yield return StartCoroutine(_HandleHighlightMatches());
-                    break;
-                case GameState.RemovingMatches:
-                    yield return StartCoroutine(_HandleRemovingMatches());
-                    break;
-                case GameState.SetupItemsFall:
-                    yield return StartCoroutine(_HandleSetupItemsFall());
-                    break;
-                case GameState.SpawningNewItems:
-                    yield return StartCoroutine(_HandleSpawningItemsInColumns());
-                    break;
-                case GameState.ItemsFalling:
-                    yield return StartCoroutine(_HandleItemsFalling());
-                    break;
-                case GameState.ScanningMatchesInAlteredColumns:
-                    yield return StartCoroutine(_HandleScanningMatchesInAlteredColumns());
-                    break;
-                case GameState.ExplosionAnimation:
-                    yield return StartCoroutine(_HandleWaitingForExplosionAnimation());
-                    break;
-                case GameState.CheckingGameOver:
-                    yield return StartCoroutine(_HandleCheckingGameOver());
-                    break;
-                case GameState.CheckingNoSwappable:
-                    yield return StartCoroutine(_HandleCheckingCantSwap());
-                    break;
-                case GameState.Rearrangement:
-                    yield return StartCoroutine(_HandleRearrangement());
-                    break;
-                case GameState.WaitingForUnitAnimation:
-                    yield return StartCoroutine(_HandleWaitingForUnitAnimation());
-                    break;
-                case GameState.Win:
-                    yield return StartCoroutine(_HandleWin());
-                    break;
-                case GameState.Lose:
-                    yield return StartCoroutine(_HandleLose());
-                    break;
-                case GameState.GameOver:
-                    break;
-                case GameState.WaitingForSkill:
-                    yield return StartCoroutine(_HandleWaitingForSkill());
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(_gameState), _gameState, null);
-            }
+            Debug.Log($"_gameState = {_gameState}");
 
+            yield return _SetState(_gameState);
+
+            if (_gameState == GameState.GameOver)
+            {
+                break;
+            }
+        }
+    }
+
+    private IEnumerator _SetState(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Starting:
+                yield return StartCoroutine(_HandleStarting());
+                break;
+            case GameState.ChoosingUnit:
+                yield return StartCoroutine(_HandleChoosingPlayer());
+                break;
+            case GameState.PlayerTurn:
+                yield return StartCoroutine(_HandlePlayerTurn());
+                break;
+            case GameState.EnemyTurn:
+                yield return StartCoroutine(_HandleEnemyTurn());
+                break;
+            case GameState.Swapping:
+                yield return StartCoroutine(_HandleSwaping2Items());
+                break;
+            case GameState.UndoSwapping:
+                yield return StartCoroutine(_HandleUndoSwapping());
+                break;
+            case GameState.FindingMatches:
+                yield return StartCoroutine(_HandleFindingMatches());
+                break;
+            case GameState.HighlightMatches:
+                yield return StartCoroutine(_HandleHighlightMatches());
+                break;
+            case GameState.RemovingMatches:
+                yield return StartCoroutine(_HandleRemovingMatches());
+                break;
+            case GameState.SetupItemsFall:
+                yield return StartCoroutine(_HandleSetupItemsFall());
+                break;
+            case GameState.SpawningNewItems:
+                yield return StartCoroutine(_HandleSpawningItemsInColumns());
+                break;
+            case GameState.ItemsFalling:
+                yield return StartCoroutine(_HandleItemsFalling());
+                break;
+            case GameState.ScanningMatchesInAlteredColumns:
+                yield return StartCoroutine(_HandleScanningMatchesInAlteredColumns());
+                break;
+            case GameState.WaitingForExplosionAnimation:
+                yield return StartCoroutine(_HandleWaitingForExplosionAnimation());
+                break;
+            case GameState.CheckingGameOver:
+                yield return StartCoroutine(_HandleCheckingGameOver());
+                break;
+            case GameState.CheckingNoSwappable:
+                yield return StartCoroutine(_HandleCheckingCantSwap());
+                break;
+            case GameState.Rearrangement:
+                yield return StartCoroutine(_HandleRearrangement());
+                break;
+            case GameState.WaitingForUnitAnimation:
+                yield return StartCoroutine(_HandleWaitingForUnitAnimation());
+                break;
+            case GameState.Win:
+                yield return StartCoroutine(_HandleWin());
+                break;
+            case GameState.Lose:
+                yield return StartCoroutine(_HandleLose());
+                break;
+            case GameState.GameOver:
+                break;
+            case GameState.WaitingForSkill:
+                yield return StartCoroutine(_HandleWaitingForSkill());
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
+        }
+    }
+
+    private IEnumerator _CreateConsumingStaminaWorker()
+    {
+        while (true)
+        {
+            _currentUnit?.ConsumeStamina();
             yield return null;
         }
     }
@@ -549,6 +591,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         var explosionAlive = ExplosionAnimations.Select(it => it != null);
         yield return new WaitUntil(() => explosionAlive.Count() <= 0);
+        AudioManager.Instance?.PlayRemovingItem();
         _gameState = GameState.SetupItemsFall;
     }
 
@@ -574,7 +617,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         }
 
         _alterCols = alterCols.Distinct().OrderBy(it => it);
-        _gameState = GameState.ExplosionAnimation;
+        _gameState = GameState.WaitingForExplosionAnimation;
     }
 
     private IEnumerator _HandleWaitingForUnitAnimation()
@@ -582,11 +625,9 @@ public class BattleGameManager : Singleton<BattleGameManager>
         var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
 
-        if ((player.Idle || player.Dealth) && (enemy.Idle || enemy.Dealth))
-        {
-            _gameState = GameState.CheckingGameOver;
-        }
-        yield return null;
+        yield return new WaitUntil(() => (player.Idle || player.Dealth) && (enemy.Idle || enemy.Dealth));
+
+        _gameState = GameState.CheckingGameOver;
     }
 
     private IEnumerator _HandleHighlightMatches()
@@ -611,13 +652,13 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         while (true)
         {
-            SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
-            DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
+            ItemSelected.transform.position = Vector2.MoveTowards(ItemSelected.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
+            ItemDragged.transform.position = Vector2.MoveTowards(ItemDragged.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
 
-            var delta = SelectedGameObject.transform.position - PreSelectedPosition;
+            var delta = ItemSelected.transform.position - PreSelectedPosition;
             if (delta.magnitude < Mathf.Epsilon)
             {
-                MyData.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
+                MyData.ItemsSupporter.SwapItems(ItemSelected, ItemDragged);
                 _gameState = GameState.ChoosingUnit;
                 break;
             }
@@ -631,8 +672,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         Func<int, bool> predicate = nMatches => nMatches + 1 > MyData.MinMatches;
 
-        var existMatchesInDragged = _FindMatchedItems(DraggedGameObject, predicate);
-        var existMatchesInSelected = _FindMatchedItems(SelectedGameObject, predicate);
+        var existMatchesInDragged = _FindMatchedItems(ItemDragged, predicate);
+        var existMatchesInSelected = _FindMatchedItems(ItemSelected, predicate);
 
         if (!existMatchesInDragged && !existMatchesInSelected)
         {
@@ -650,20 +691,23 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         while (true)
         {
-            SelectedGameObject.transform.position = Vector2.MoveTowards(SelectedGameObject.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
-            DraggedGameObject.transform.position = Vector2.MoveTowards(DraggedGameObject.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
+            ItemSelected.transform.position = Vector2.MoveTowards(ItemSelected.transform.position, PreDraggedPosition, MyData.SwappingAnimationSpeed);
+            ItemDragged.transform.position = Vector2.MoveTowards(ItemDragged.transform.position, PreSelectedPosition, MyData.SwappingAnimationSpeed);
 
-            var delta = SelectedGameObject.transform.position - PreDraggedPosition;
+            var delta = ItemSelected.transform.position - PreDraggedPosition;
 
             if (delta.magnitude < Mathf.Epsilon)
             {
-                MyData.ItemsSupporter.SwapItems(SelectedGameObject, DraggedGameObject);
+                MyData.ItemsSupporter.SwapItems(ItemSelected, ItemDragged);
                 _gameState = GameState.FindingMatches;
                 break;
             }
 
             yield return null;
         }
+
+
+        _itemSelector?.SetActive(false);
     }
 
     private IEnumerator _HandleEnemyTurn()
@@ -675,7 +719,13 @@ public class BattleGameManager : Singleton<BattleGameManager>
     private IEnumerator _HandlePlayerTurn()
     {
         yield return StartCoroutine(BattleUnitManager.Instance.PlayerAsBattleUnitBase.ControlCoroutine());
-        _gameState = GameState.Swapping;
+        if (ItemSelected != null && ItemDragged != null)
+        {
+            _gameState = GameState.Swapping;
+        }
+
+        // TODO Find a better way, because clicking skill is able to occur error if ItemSelected and ItemDragged are not null.
+
     }
 
     private IEnumerator _HandleChoosingPlayer()
@@ -683,24 +733,36 @@ public class BattleGameManager : Singleton<BattleGameManager>
         var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
 
-        if (_currentPlayer.nTurns <= 0)
+        if (_currentUnit.nTurns <= 0)
         {
-            if (_currentPlayer == player)
+            if (_currentUnit == player)
             {
-                _currentPlayer = enemy;
-                _gameState = GameState.EnemyTurn;
+                _currentUnit = enemy;
             }
             else
             {
-                _currentPlayer = player;
-                _gameState = GameState.PlayerTurn;
+                _currentUnit = player;
             }
-            _currentPlayer.nTurns++;
+            _currentUnit.nTurns++;
         }
 
         _bonusFactor = 1;
-        _currentPlayer.nTurns--;
-        _selector.transform.position = _currentPlayer.transform.position;
+        _currentUnit.nTurns--;
+
+        if (_unitChooser != null)
+        {
+            _unitChooser.transform.position = _currentUnit.transform.position;
+        }
+
+
+        if (_currentUnit == player)
+        {
+            _gameState = GameState.PlayerTurn;
+        }
+        else
+        {
+            _gameState = GameState.EnemyTurn;
+        }
         yield return null;
     }
 
@@ -737,12 +799,12 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
         if (player.Stat.Level >= enemy.Stat.Level)
         {
-            _currentPlayer = player;
+            _currentUnit = player;
             _gameState = GameState.PlayerTurn;
         }
         else
         {
-            _currentPlayer = enemy;
+            _currentUnit = enemy;
             _gameState = GameState.EnemyTurn;
         }
     }
@@ -785,17 +847,17 @@ public class BattleGameManager : Singleton<BattleGameManager>
         {
             if (predicateBonusTurn(matchesInRow.Count))
             {
-                if (_currentPlayer != null)
+                if (_currentUnit != null)
                 {
-                    _currentPlayer.nTurns++;
+                    _currentUnit.nTurns++;
                 }
             }
 
             if (predicateBonusTurn(matchesInCol.Count))
             {
-                if (_currentPlayer != null)
+                if (_currentUnit != null)
                 {
-                    _currentPlayer.nTurns++;
+                    _currentUnit.nTurns++;
                 }
             }
         }
@@ -810,7 +872,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         {
             return null;
         }
-        else if (_currentPlayer == unitManager.PlayerAsBattleUnitBase)
+        else if (_currentUnit == unitManager.PlayerAsBattleUnitBase)
         {
             return unitManager.EnemyAsBattleUnitBase;
         }
@@ -838,27 +900,27 @@ public class BattleGameManager : Singleton<BattleGameManager>
     {
         if (item.tag == "Attack")
         {
-            _currentPlayer?.Attack(_GetTargetUnit(), _bonusFactor);
+            _currentUnit?.Attack(_GetTargetUnit(), _bonusFactor);
         }
         else if (item.tag == "HP")
         {
-            _currentPlayer?.RestoreHP(_bonusFactor);
+            _currentUnit?.RestoreHPByFormula(_bonusFactor);
         }
         else if (item.tag == "MP")
         {
-            _currentPlayer?.RestoreMana(_bonusFactor);
+            _currentUnit?.RestoreManaByFormula(_bonusFactor);
         }
         else if (item.tag == "Stamina")
         {
-            _currentPlayer?.RestoreStamina(_bonusFactor);
+            _currentUnit?.RestoreStaminaByFormula(_bonusFactor);
         }
         else if (item.tag == "Gold")
         {
-            _currentPlayer?.IncreaseGold(_bonusFactor);
+            _currentUnit?.IncreaseGold(_bonusFactor);
         }
         else if (item.tag == "Exp")
         {
-            _currentPlayer?.IncreaseExp(_bonusFactor);
+            _currentUnit?.IncreaseExp(_bonusFactor);
         }
     }
 
@@ -892,7 +954,7 @@ public enum GameState
     SpawningNewItems,
     ItemsFalling,
     ScanningMatchesInAlteredColumns,
-    ExplosionAnimation,
+    WaitingForExplosionAnimation,
     WaitingForUnitAnimation,
     CheckingGameOver,
     CheckingNoSwappable,

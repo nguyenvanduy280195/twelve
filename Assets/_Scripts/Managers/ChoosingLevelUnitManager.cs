@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitManager>
+public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitManager>
 {
-    private List<int> _listDeadEnemyID;
+    [SerializeField] private List<int> _listDeadEnemyID;
 
     private PlayerStat _playerStat;
 
@@ -21,7 +21,7 @@ public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitMan
     }
     public GameObject Player => Finder.FindGameObjectByTag("Player"); // TODO Let find a better way
     public List<GameObject> Enemies { get; private set; }
-    public void AddDeadEnemy(int id) => _listDeadEnemyID.Add(id);
+    public void AddDeadEnemy(int id) => _listDeadEnemyID?.Add(id);
     #endregion
 
     #region Unity methods
@@ -44,7 +44,10 @@ public class ChoosingLevelUnitManager : SingletonPersistent<ChoosingLevelUnitMan
 
     #region Support methods
 
-    private void _ReloadEnemies() => Enemies = Finder.FindGameObjectsByTag("Enemy"); // TODO Let find a better way
+    private void _ReloadEnemies()
+    {
+        Enemies = Finder.FindGameObjectsByTag("Enemy"); // TODO Let find a better way
+    }
 
     private void _FilterDeadEnemy()
     {

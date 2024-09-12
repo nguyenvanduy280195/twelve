@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
+public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 {
     [SerializeField]
     private ScriptableEnemyStat DefaultEnemyStat;
@@ -44,7 +44,7 @@ public class MatchingBattleManager : SingletonPersistent<MatchingBattleManager>
         SaveSystem.SavePlayerStat(PlayerStat);
     }
 
-    private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance.AddDeadEnemy(_enemyID);
+    private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance?.AddDeadEnemy(_enemyID);
 
     private EnemyStat _GetEnemyStatFromEnemy(GameObject enemy)
     {

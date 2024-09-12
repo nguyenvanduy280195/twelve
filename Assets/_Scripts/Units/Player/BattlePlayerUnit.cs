@@ -5,13 +5,15 @@ public class BattlePlayerUnit : BattleUnitBase
 {
     [SerializeField] private PlayerStat _stat;
 
+    public bool ExecutingSkill { set; private get; } = false;
+
     private bool IsDraggingSuccess(GameObject go) => IsDraggingSuccess(go.GetComponent<Item>());
 
     private bool IsDraggingSuccess(Item item)
     {
         var gameManager = BattleGameManager.Instance;
-        bool duplicated = item.IsDuplicatedWith(gameManager.SelectedGameObject);
-        bool neighbored = item.IsNeighborWith(gameManager.SelectedGameObject);
+        bool duplicated = item.IsDuplicatedWith(gameManager.ItemSelected);
+        bool neighbored = item.IsNeighborWith(gameManager.ItemSelected);
         return !duplicated && neighbored;
     }
 
@@ -25,20 +27,21 @@ public class BattlePlayerUnit : BattleUnitBase
             var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
             if (hit.collider != null)
             {
-                gameManager.SelectedGameObject = hit.collider.gameObject;
+                gameManager.ItemSelected = hit.collider.gameObject;
+
             }
         }
 
-        if (Input.GetMouseButton(0) && gameManager.SelectedGameObject != null)
+        if (Input.GetMouseButton(0) && gameManager.ItemSelected != null)
         {
             var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
             if (hit.collider != null && IsDraggingSuccess(hit.collider.gameObject))
             {
-                gameManager.DraggedGameObject = hit.collider.gameObject;
-                gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
-                gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+                gameManager.ItemDragged = hit.collider.gameObject;
+                gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
+                gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
                 return true;
             }
         }
@@ -48,33 +51,44 @@ public class BattlePlayerUnit : BattleUnitBase
 
     public override IEnumerator ControlCoroutine()
     {
+        var gameManager = BattleGameManager.Instance;
+
+
+        gameManager.ItemSelected = null;
+        gameManager.ItemDragged = null;
+
         while (true)
         {
-            var gameManager = BattleGameManager.Instance;
-
             if (Input.GetMouseButtonDown(0))
             {
                 var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
                 if (hit.collider != null)
                 {
-                    gameManager.SelectedGameObject = hit.collider.gameObject;
+                    gameManager.ItemSelected = hit.collider.gameObject;
                 }
             }
 
-            if (Input.GetMouseButton(0) && gameManager.SelectedGameObject != null)
+            if (Input.GetMouseButton(0) && gameManager.ItemSelected != null)
             {
                 var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
                 if (hit.collider != null && IsDraggingSuccess(hit.collider.gameObject))
                 {
-                    gameManager.DraggedGameObject = hit.collider.gameObject;
-                    gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
-                    gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+                    gameManager.ItemDragged = hit.collider.gameObject;
+                    gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
+                    gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
                     break;
                 }
             }
+
+            if (ExecutingSkill)
+            {
+                ExecutingSkill = false;
+                break;
+            }
+
             yield return null;
         }
     }

@@ -47,6 +47,74 @@ public class PlayerStat : UnitStat
     public int Exp;
 
     public PlayerStat Clone() => (PlayerStat)MemberwiseClone();
+
+    public PlayerStat() { }
+
+    public PlayerStat(PlayerStatMini statMini)
+    {
+        Name = statMini.Name;
+        Class = statMini.Class;
+        Level = statMini.Level;
+
+        Attack = _GenerateAttack(statMini.Strength);
+
+        HPMax = _GenerateHPMax(statMini.Vitality);
+        HP = HPMax;
+        HPRegen = _GenerateHPRegen(statMini.Vitality);
+
+        ManaMax = _GenerateManaMax(statMini.Intelligent);
+        Mana = 0f;
+        ManaRegen = _GenerateManaRegen(statMini.Intelligent);
+
+        StaminaMax = _GenerateStaminaMax(statMini.Endurance);
+        Stamina = StaminaMax;
+        StaminaRegen = _GenerateStaminaRegen(statMini.Endurance);
+        StaminaConsumeWeight = _GenerateStaminaConsumeWeight(statMini.Level);
+
+        Strength = statMini.Strength;
+        Vitality = statMini.Vitality;
+        Endurance = statMini.Endurance;
+        Intelligent = statMini.Intelligent;
+        Luck = statMini.Luck;
+    }
+
+    public PlayerStat(PlayerStat other)
+    {
+        Name = other.Name;
+        Class = other.Class;
+        Level = other.Level;
+
+        Attack = _GenerateAttack(other.Strength);
+        
+        HPMax = _GenerateHPMax(other.Vitality);
+        HP = HPMax;
+        HPRegen = _GenerateHPRegen(other.Vitality);
+        
+        ManaMax = _GenerateManaMax(other.Intelligent);
+        Mana = 0f;
+        ManaRegen = _GenerateManaRegen(other.Intelligent);
+
+        StaminaMax = _GenerateStaminaMax(other.Endurance);
+        Stamina = StaminaMax;
+        StaminaRegen = _GenerateStaminaRegen(other.Endurance);
+        StaminaConsumeWeight = _GenerateStaminaConsumeWeight(other.Level);
+
+        Strength = other.Strength;
+        Vitality = other.Vitality;
+        Endurance = other.Endurance;
+        Intelligent = other.Intelligent;
+        Luck = other.Luck;
+    }
+
+    private float _GenerateAttack(int strength) => 0.5f * strength;
+    private float _GenerateHPMax(int vitality) => 10f * vitality;
+    private float _GenerateHPRegen(int vitality) => 0.1f * vitality;
+    private float _GenerateManaMax(int intelligent) => 10f * intelligent;
+    private float _GenerateManaRegen(int intelligent) => 0.1f * intelligent;
+    private float _GenerateStaminaMax(int endurance) => 10f * endurance;
+    private float _GenerateStaminaRegen(int endurance) => 0.1f * endurance;
+    private float _GenerateStaminaConsumeWeight(int level) => 0.2f * level;
+
 }
 
 [Serializable]
@@ -73,5 +141,6 @@ public class MyPosition
         z = vector3.z;
     }
 
-    public Vector3 ToVector3() => new Vector3(x,y,z);
+    public Vector3 ToVector3() => new Vector3(x, y, z);
 }
+

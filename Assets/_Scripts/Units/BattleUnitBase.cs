@@ -9,7 +9,7 @@ public abstract class BattleUnitBase : MonoBehaviour
     #region============= Properties =============
     [SerializeField] private float _moveDuration = 1f;
     [SerializeField] private TextMeshProUGUI _nTurnsText;
-    [SerializeField] private SkillBase[] _skills;
+    [SerializeField] protected SkillBase[] _skills;
     #endregion
 
     #region ============= Fields =============
@@ -18,6 +18,8 @@ public abstract class BattleUnitBase : MonoBehaviour
     private IDictionary<UnitState, Queue<Action>> _actions;
     private UnitAnimationHandler _animationHandler;
     private Vector3 _unitPosition;
+
+    private IList<IBuffSkill> _buffSkills;
     #endregion
 
     #region ============= Getters & Setters =============
@@ -50,7 +52,7 @@ public abstract class BattleUnitBase : MonoBehaviour
             }
 
             _nTurns = value;
-            Debug.Log($"nTurns = {value}");
+            Debug.Log($"{gameObject.tag}.nTurns = {value}");
 
             if (_nTurnsText != null)
             {
@@ -59,8 +61,8 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public int nEffectTurns { set; private get; }
-    public float DamageBuff { set; private get; } = 1;
+    public int nEffectTurns;
+    public float DamageBuff { set; private get; } = 1f;
 
     protected virtual float HP { get => UIUnit.HP.Value; set => UIUnit.HP.Value = value; }
     protected virtual float Mana { get => UIUnit.Mana.Value; set => UIUnit.Mana.Value = value; }
@@ -70,23 +72,26 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     #region ============= Methods for Inheriting =============
 
-    public void ExecuteSkill(int iSkill, BattleUnitBase target, Action OnDone)
+    public void ExecuteSkill(int iSkill, BattleUnitBase target, Action onSucceeded, Action onFailed, Action onExecuted, Action onDone)
     {
         try
         {
             var manaRemain = Mana - _skills[iSkill].ManaConsumed;
             if (manaRemain >= 0)
             {
-                _skills[iSkill].Execute(target, OnDone);
+                _skills[iSkill].Execute(target, onExecuted, onDone);
                 Mana = manaRemain;
+                onSucceeded?.Invoke();
             }
             else
             {
+                onFailed?.Invoke();
                 Debug.Log($"Not enough mana, you need some mana");
             }
         }
         catch (Exception e)
         {
+            onFailed?.Invoke();
             Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}");
         }
     }
@@ -120,10 +125,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     #region ============= public Methods =============
 
-    public void DoSkill(BattleUnitBase target, float bonusFactor)
-    {
-
-    }
+    public void AddBuffSkill(IBuffSkill buffSkill) => _buffSkills.Add(buffSkill);
 
     public void Attack(BattleUnitBase target, float bonusFactor)
     {
@@ -175,11 +177,11 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     public virtual void IncreaseExp(float bonusFactor) => nExp += bonusFactor;
 
-    public void ConsumeStamina(float value)
+    public void ConsumeStamina()
     {
         if (Stamina > 0)
         {
-            Stamina -= value * Stat.StaminaConsumeWeight * Stat.Level;
+            Stamina -= Stat.StaminaConsumeWeight * Time.deltaTime;
         }
         else
         {
@@ -187,11 +189,11 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void RestoreHP(float bonusFactor) => HP = Mathf.Min(HP + Stat.HPRegen * bonusFactor, Stat.HPMax);
+    public void RestoreHPByFormula(float bonusFactor) => HP = Mathf.Min(HP + Stat.HPRegen * bonusFactor, Stat.HPMax);
+    public void RestoreManaByFormula(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.ManaRegen * bonusFactor, Stat.ManaMax);
+    public void RestoreStaminaByFormula(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.StaminaRegen * bonusFactor, Stat.StaminaMax);
 
-    public void RestoreMana(float bonusFactor) => Mana = Mathf.Min(Mana + Stat.ManaRegen * bonusFactor, Stat.ManaMax);
-
-    public void RestoreStamina(float bonusFactor) => Stamina = Mathf.Min(Stamina + Stat.StaminaRegen * bonusFactor, Stat.StaminaMax);
+    public void RestoreMana(float value) => Mana = Mathf.Min(Mana + value, Stat.ManaMax);
 
     #endregion
 
@@ -202,6 +204,8 @@ public abstract class BattleUnitBase : MonoBehaviour
         _InitializeUIUnit();
 
         Stamina = Stat.StaminaMax;
+
+        _buffSkills = new List<IBuffSkill>();
 
         _unitPosition = transform.position;
 
@@ -250,6 +254,8 @@ public abstract class BattleUnitBase : MonoBehaviour
     #endregion
 
     #region ============= Support Methods =============
+
+    private float _fAttack() => 0f;
 
     private void _HandleMoveToTargetPositionState()
     {

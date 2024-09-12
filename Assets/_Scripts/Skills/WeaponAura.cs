@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponAura : SkillBase
+public class WeaponAura : BuffSkillBase
 {
     [Header("Buff")]
     [SerializeField] private int _nEffectTurns;
@@ -17,7 +17,6 @@ public class WeaponAura : SkillBase
         _unitAnimationRunning = false;
     }
 
-
     protected override IEnumerator _RunSkillAnimation(BattleUnitBase target)
     {
         _battleUnitBase.nEffectTurns = _nEffectTurns;
@@ -26,7 +25,12 @@ public class WeaponAura : SkillBase
         yield return null;
     }
 
-    protected override IEnumerator _RunHavestingItems()
+    protected override IEnumerator _CountTheEffectBuff()
+    {
+        yield return null;
+    }
+
+    protected override IEnumerator _ShutdownBuffEffect()
     {
         yield return null;
     }

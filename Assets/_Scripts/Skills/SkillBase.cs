@@ -5,44 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class SkillBase : MonoBehaviour
 {
-    [SerializeField] private float _manaConsumed;
+    [SerializeField] protected float _manaConsumed;
     [SerializeField] protected BattleUnitBase _battleUnitBase;
     [SerializeField] protected UnitAnimationHandler _unitAnimationHandler;
+    [SerializeField] protected int _level = 1;
 
-    protected bool _skillAnimationRunning;
-    protected bool _unitAnimationRunning;
-    protected bool _harvestingItemsRunning;
+    protected Action _onDone;
+    protected Action _onExecuted;
 
-    public float ManaConsumed => _manaConsumed;
+    public float ManaConsumed => _manaConsumed * _level;
 
-    public void Execute(BattleUnitBase target, Action OnDone)
+    public void Execute(BattleUnitBase target, Action onExecuted, Action onDone)
     {
+        _onDone = onDone;
+        _onExecuted = onExecuted;
+        
         _ShowSelf(); // gameobject must be active, if wanting starts a coroutine
-        StartCoroutine(_Execute(target, OnDone));
-
+        StartCoroutine(_Execute(target));
     }
 
-    private IEnumerator _Execute(BattleUnitBase target, Action OnDone)
-    {
-        _unitAnimationRunning = true;
-        _skillAnimationRunning = true;
-        _harvestingItemsRunning = true;
 
-        StartCoroutine(_RunHavestingItems());
-        StartCoroutine(_RunUnitAnimation());
-        StartCoroutine(_RunSkillAnimation(target));
+    protected abstract IEnumerator _Execute(BattleUnitBase target);
 
-        yield return new WaitUntil(() => !_unitAnimationRunning && !_skillAnimationRunning && !_harvestingItemsRunning);
-        OnDone?.Invoke();
+    protected void _ShowSelf() => gameObject.SetActive(true);
 
-        _HideSelf();
-    }
+    protected void _HideSelf() => gameObject.SetActive(false);
 
-    private void _ShowSelf() => gameObject.SetActive(true);
-
-    private void _HideSelf() => gameObject.SetActive(false);
-
-    protected abstract IEnumerator _RunHavestingItems();
-    protected abstract IEnumerator _RunUnitAnimation();
-    protected abstract IEnumerator _RunSkillAnimation(BattleUnitBase target);
 }

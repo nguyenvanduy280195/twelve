@@ -17,18 +17,18 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     }
 }
 
-//TODO this is working not well
-public abstract class SingletonPersistent<T> : Singleton<T> where T : MonoBehaviour
+public abstract class PersistentSingleton<T> : Singleton<T> where T : MonoBehaviour
 {
     protected override void Awake()
     {
         if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
-
-        DontDestroyOnLoad(gameObject.transform.root);
-
+        
         base.Awake();
+        transform.parent = null;
+        DontDestroyOnLoad(transform.root);
     }
 }

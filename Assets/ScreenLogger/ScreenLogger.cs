@@ -8,7 +8,7 @@ namespace AClockworkBerry
 
     public class ScreenLogger : MonoBehaviour
     {
-        public static bool IsPersistent = true;
+        public static bool IsPersistent = false;
 
         private static ScreenLogger instance;
         private static bool instantiated = false;
@@ -130,7 +130,7 @@ namespace AClockworkBerry
             InitStyles();
 
             if (IsPersistent)
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(transform.root);
 
 			SceneManager.sceneLoaded += OnSceneLoaded;
         }

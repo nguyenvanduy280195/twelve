@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class MainMenuSceneUI : MonoBehaviour
+public class MainMenuSceneUI : MySceneBase
 {
     [SerializeField] private ConfirmPopup _confirmPopup;
     [SerializeField] private MoveTo _casualMenuMoveTo;
@@ -11,7 +12,7 @@ public class MainMenuSceneUI : MonoBehaviour
 
     private void Start()
     {
-        _casualMenuPositionFirst = _casualMenuMoveTo.transform.position;
+        _casualMenuPositionFirst = _casualMenuMoveTo.transform.localPosition;
         _casualMenuLocalScaleFirst = Vector3.one;
 
         _confirmPopup.YesButtonClick = () => MySceneManager.Instance?.LoadCreatingCharacterScene();
@@ -19,9 +20,8 @@ public class MainMenuSceneUI : MonoBehaviour
         {
             var scaleTo = _confirmPopup.GetComponent<ScaleTo>();
             scaleTo.To = new Vector2(0.0001f, 0.0001f);
-            scaleTo.ActiveOnDoneOnce = true;
-            scaleTo.OnDone = go => _confirmPopup.HidePopup();
         };
+
     }
 
     public void OnCasualButtonClicked()
@@ -32,6 +32,7 @@ public class MainMenuSceneUI : MonoBehaviour
         {
             _casualMenuMoveTo.To = Vector2.zero;
         }
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnContinueButtonClicked()
@@ -44,17 +45,18 @@ public class MainMenuSceneUI : MonoBehaviour
         {
             Debug.Log("What? You don't have save game");
         }
-
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnNewGameButtonClicked()
     {
-
+        OnCloseButtonClicked();
 
         _confirmPopup.ShowPopup();
         var scaleTo = _confirmPopup.GetComponent<ScaleTo>();
         scaleTo.To = new Vector2(1f, 1f);
-        scaleTo.ActiveOnDoneOnce = true;
+        
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnCloseButtonClicked()
@@ -65,20 +67,23 @@ public class MainMenuSceneUI : MonoBehaviour
             _casualMenuScaleTo.ActiveOnDoneOnce = true;
             _casualMenuScaleTo.OnDone = go =>
             {
-                Debug.Log("_casualMenuScaleTo");
                 var rectTransform = go.GetComponent<RectTransform>();
-                rectTransform.position = _casualMenuPositionFirst;
-                rectTransform.localScale = _casualMenuLocalScaleFirst;
-
+                rectTransform.localPosition = _casualMenuPositionFirst;
                 _casualMenuMoveTo.To = _casualMenuPositionFirst;
+
+                rectTransform.localScale = _casualMenuLocalScaleFirst;
                 _casualMenuScaleTo.To = _casualMenuLocalScaleFirst;
             };
         }
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnBattleButtonClicked()
     {
         GameManager.Instance?.SetGameMode(GameMode.Battle);
         MySceneManager.Instance?.LoadInBattleScene();
+        AudioManager.Instance?.PlayButton();
     }
+
 }
+

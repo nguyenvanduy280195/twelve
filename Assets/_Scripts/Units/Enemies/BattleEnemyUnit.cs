@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class BattleEnemyUnit : BattleUnitBase
 {
     [SerializeField] private EnemyStat _stat;
+    [SerializeField] private float _delayMove = 0.5f;
 
     private readonly ItemsSupporter.ItemLocation UNDEFINED = new(-1, -1);
 
@@ -19,14 +20,16 @@ public class BattleEnemyUnit : BattleUnitBase
             (var iSelected, var iDragged) = Level1;
             if (!iSelected.Equals(UNDEFINED) && !iDragged.Equals(UNDEFINED))
             {
-                gameManager.SelectedGameObject = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
-                gameManager.DraggedGameObject = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
-                gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
-                gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+                gameManager.ItemSelected = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
+                gameManager.ItemDragged = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
+                gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
+                gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
                 break;
             }
             yield return null;
         }
+
+        yield return new WaitForSeconds(_delayMove);
     }
 
     public override bool Control()
@@ -36,10 +39,10 @@ public class BattleEnemyUnit : BattleUnitBase
         (var iSelected, var iDragged) = Level1;
         if (!iSelected.Equals(UNDEFINED) && !iDragged.Equals(UNDEFINED))
         {
-            gameManager.SelectedGameObject = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
-            gameManager.DraggedGameObject = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
-            gameManager.PreSelectedPosition = gameManager.SelectedGameObject.transform.position;
-            gameManager.PreDraggedPosition = gameManager.DraggedGameObject.transform.position;
+            gameManager.ItemSelected = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
+            gameManager.ItemDragged = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
+            gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
+            gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
 
             return true;
         }

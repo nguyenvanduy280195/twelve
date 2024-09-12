@@ -21,23 +21,26 @@ public class MenuInBattlePopup : PopupTemplate
     public void OnBackButtonClicked()
     {
         HidePopup();
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnStatsButtonClicked()
     {
         HidePopup();
         _ShowStatsPopup();
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnInventoryButtonClicked()
     {
-
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnOutBattleButtonClicked()
     {
         HidePopup();
         _ReturnPreviousScene();
+        AudioManager.Instance?.PlayButton();
     }
 
     private void _ShowStatsPopup() => _statsCanvas?.SetActive(true);

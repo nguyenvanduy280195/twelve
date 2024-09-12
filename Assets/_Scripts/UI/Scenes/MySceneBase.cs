@@ -5,5 +5,12 @@ public class MySceneBase : MonoBehaviour
 {
     public static event Action OnCreate;
 
-    private void Awake() => OnCreate?.Invoke();
+    [SerializeField] private GameObject _sceneTransition;
+
+    private void Awake()
+    {
+        _sceneTransition?.SetActive(true);
+
+        OnCreate?.Invoke();
+    }
 }

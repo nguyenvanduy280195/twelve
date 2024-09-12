@@ -10,10 +10,12 @@ public class ConfirmPopup : PopupTemplate
     public void OnYesButtonClicked()
     {
         YesButtonClick?.Invoke();
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnNoButtonClicked()
     {
         NoButtonClick?.Invoke();
+        AudioManager.Instance?.PlayButton();
     }
 }

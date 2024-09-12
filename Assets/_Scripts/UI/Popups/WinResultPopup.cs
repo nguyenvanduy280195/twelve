@@ -64,6 +64,7 @@ public class WinResultPopup : PopupTemplate
     {
         HidePopup();
         _ReturnPreviousScene();
+        AudioManager.Instance?.PlayButton();
     }
 
     #endregion

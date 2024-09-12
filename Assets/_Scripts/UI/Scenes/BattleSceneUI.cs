@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BattleSceneUI : MonoBehaviour
+public class BattleSceneUI : MySceneBase
 {
     [SerializeField] private GameObject _menuInGame;
 
@@ -11,7 +11,11 @@ public class BattleSceneUI : MonoBehaviour
 
     public void OnSkill1Clicked(Button button) => _LetPlayerExecuteSkill(0, button);
 
-    public void OnSkill2Clicked(Button button) => _LetPlayerExecuteSkill(1, button);
+    public void OnSkill2Clicked(Button button)
+    {
+        //Debug.Log("Weapon aura skill is block");
+        _LetPlayerExecuteSkill(1, button);
+    }
 
     public void OnSkill3Clicked(Button button) => _LetPlayerExecuteSkill(2, button);
 
@@ -20,21 +24,20 @@ public class BattleSceneUI : MonoBehaviour
         if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
         {
             BattleGameManager.Instance.WaitingForSkill = true;
-            button.interactable = false;
             var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
             var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-            Action onSkillExecuted = () =>
-            {
-                //BattleGameManager.Instance?.SkipTurn();
-                BattleGameManager.Instance.WaitingForSkill = false;
-                button.interactable = true;
-            };
-            player.ExecuteSkill(iSkill, enemy, onSkillExecuted);
+            Action onSkillSucceeded = () => button.interactable = false;
+            Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
+            Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
+            Action onSkillDone = () => button.interactable = true;
+
+            player.ExecuteSkill(iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
         }
         else
         {
             Debug.Log("This is not player's turn");
         }
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnExportItems()

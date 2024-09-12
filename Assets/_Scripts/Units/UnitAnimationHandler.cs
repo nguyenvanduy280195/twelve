@@ -15,6 +15,13 @@ public class UnitAnimationHandler : MonoBehaviour
     //============== For inspector ==============
 
     [SerializeField] private string _animationDefaultName;
+    [SerializeField] private AnimationInfo _attackLeftAnimation;
+    [SerializeField] private AnimationInfo _attackRightAnimation;
+    [SerializeField] private AnimationInfo _castLeftAnimation;
+    [SerializeField] private AnimationInfo _castRightAnimation;
+    [SerializeField] private AnimationInfo _hurtAnimation;
+    [SerializeField] private AnimationInfo _aliveAnimation;
+    [SerializeField] private AnimationInfo _deadAnimation;
 
     [Header("Idle")]
     [SerializeField] private string _idleUpAnimationName;
@@ -26,23 +33,6 @@ public class UnitAnimationHandler : MonoBehaviour
     [SerializeField] private string _walkDownAnimationName;
     [SerializeField] private string _walkLeftAnimationName;
     [SerializeField] private string _walkRightAnimationName;
-
-    [Header("Attack")]
-    [SerializeField] private AnimationInfo _attackLeftAnimation;
-    [SerializeField] private AnimationInfo _attackRightAnimation;
-
-    [Header("Hurt")]
-    [SerializeField] private AnimationInfo _hurtAnimation;
-
-    [Header("Alive")]
-    [SerializeField] private AnimationInfo _aliveAnimation;
-
-    [Header("Dead")]
-    [SerializeField] private AnimationInfo _deadAnimation;
-
-    [Header("Cast")]
-    [SerializeField] private AnimationInfo _castLeftAnimation;
-    [SerializeField] private AnimationInfo _castRightAnimation;
 
     private string _stateName;
     private Animator _animator;

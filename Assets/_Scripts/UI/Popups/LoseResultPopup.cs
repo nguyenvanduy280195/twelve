@@ -44,5 +44,9 @@ public class LoseResultPopup : PopupTemplate
         }
     }
 
-    public void OnNextButtonClicked() => _ReturnPreviousScene();
+    public void OnNextButtonClicked()
+    {
+        _ReturnPreviousScene();
+        AudioManager.Instance?.PlayButton();
+    }
 }

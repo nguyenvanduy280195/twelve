@@ -32,6 +32,7 @@ public class UIChangaleStatInt : UIStatInt
             OnNumberOfPointsChanged?.Invoke(1);
             Content += Weight;
         }
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnDecrease()
@@ -41,5 +42,6 @@ public class UIChangaleStatInt : UIStatInt
             Content -= Weight;
             OnNumberOfPointsChanged?.Invoke(-1);
         }
+        AudioManager.Instance?.PlayButton();
     }
 }

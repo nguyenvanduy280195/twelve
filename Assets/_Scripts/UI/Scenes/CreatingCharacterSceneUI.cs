@@ -2,7 +2,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class CreatingCharacterSceneUI : MonoBehaviour
+public class CreatingCharacterSceneUI : MySceneBase
 {
 
     [SerializeField] private ScriptablePlayerStat _soldier;
@@ -18,33 +18,19 @@ public class CreatingCharacterSceneUI : MonoBehaviour
 
         _CreateCharacter();
         MySceneManager.Instance?.LoadMazeScene();
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnNopeButtonClicked()
     {
         MySceneManager.Instance?.LoadMainMenuScene();
+        AudioManager.Instance?.PlayButton();
     }
 
     private void _CreateCharacter()
     {
-        var playerStat = _GeneratePlayerStat(_soldier.PlayerStat.Clone());
+        var playerStat = new PlayerStat(_soldier.PlayerStat);
         playerStat.Name = _name.text;
         SaveSystem.SavePlayerStat(playerStat);
-    }
-
-    private PlayerStat _GeneratePlayerStat(PlayerStat playerStat)
-    {
-        playerStat.Attack = 0.5f * playerStat.Strength;
-        playerStat.HPMax = 10f * playerStat.Vitality;
-        playerStat.HP = 10f * playerStat.Vitality;
-        playerStat.HPRegen = 0.1f * playerStat.Vitality;
-        playerStat.ManaMax = 10f * playerStat.Intelligent;
-        playerStat.Mana = 0f;
-        playerStat.ManaRegen = 0.1f * playerStat.Intelligent;
-        playerStat.StaminaMax = 10f * playerStat.Endurance;
-        playerStat.StaminaRegen = 0.1f * playerStat.Endurance;
-        playerStat.StaminaConsumeWeight = 0.5f * playerStat.Level;
-        playerStat.Stamina = 10f * playerStat.Endurance;
-        return playerStat;
     }
 }

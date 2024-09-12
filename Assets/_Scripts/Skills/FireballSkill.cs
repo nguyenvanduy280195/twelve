@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballSkill : SkillBase
+public class FireballSkill : DamageSkillBase
 {
-    [Header("Fireball's info")]
-    [SerializeField] private float _weightDamage;
     [SerializeField] private float _speed;
+
+    [Header("Fireball's Damage = atk x (damage_zero + weight_damage * skill_level)")]
+    [SerializeField] private float _damageZero;
+    [SerializeField] private float _weightDamage;
 
     private readonly float _myEpsilon = 0.0001f;
 
@@ -32,7 +34,7 @@ public class FireballSkill : SkillBase
 
     private void _LetTargetTakeDamage(BattleUnitBase target)
     {
-        var damage = _battleUnitBase.Stat.Attack * _weightDamage;
+        var damage = _battleUnitBase.Stat.Attack * (_damageZero + _weightDamage * _level);
         Debug.Log($"[FireballSkill] - Damage = {damage}");
         target?.TakeHit(damage);
     }
@@ -79,6 +81,8 @@ public class FireballSkill : SkillBase
                 }
             }
             battleGameManager.HarvestItems(itemsWillBeHarvested);
+
+            //yield return new WaitUntil(() => battleGameManager.IsChoosingUnitState);
         }
         _harvestingItemsRunning = false;
         yield return null;

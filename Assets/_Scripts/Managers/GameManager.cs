@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : SingletonPersistent<GameManager>
+public class GameManager : PersistentSingleton<GameManager>
 {
     [Header("For Observing")]
 
