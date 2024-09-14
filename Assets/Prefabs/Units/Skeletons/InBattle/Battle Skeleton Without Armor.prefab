@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5180493612770761980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,20 +122,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: SNoArmor_idle_left
-  _idleUpAnimationName: SNoArmor_idle_up
-  _idleDownAnimationName: SNoArmor_idle_down
-  _idleLeftAnimationName: SNoArmor_idle_left
-  _idleRightAnimationName: SNoArmor_idle_right
-  _walkUpAnimationName: SNoArmor_walk_up
-  _walkDownAnimationName: SNoArmor_walk_down
-  _walkLeftAnimationName: SNoArmor_walk_left
-  _walkRightAnimationName: SNoArmor_walk_right
   _attackLeftAnimation:
     Name: SNoArmor_attack_left
     Duration: 0.5
   _attackRightAnimation:
     Name: SNoArmor_attack_right
     Duration: 0.5
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
+    Name: 
+    Duration: 0
   _hurtAnimation:
     Name: SNoArmor_hurt
     Duration: 0.583
@@ -145,12 +143,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: SNoArmor_dead
     Duration: 0.5
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
+  _idleUpAnimationName: SNoArmor_idle_up
+  _idleDownAnimationName: SNoArmor_idle_down
+  _idleLeftAnimationName: SNoArmor_idle_left
+  _idleRightAnimationName: SNoArmor_idle_right
+  _walkUpAnimationName: SNoArmor_walk_up
+  _walkDownAnimationName: SNoArmor_walk_down
+  _walkLeftAnimationName: SNoArmor_walk_left
+  _walkRightAnimationName: SNoArmor_walk_right
 --- !u!50 &-4600955015630430396
 Rigidbody2D:
   serializedVersion: 4
@@ -193,6 +193,7 @@ MonoBehaviour:
   _moveDuration: 1
   _nTurnsText: {fileID: 0}
   _skills: []
+  nEffectTurns: 0
   _stat:
     Class: Skeleton
     Level: 1
@@ -206,3 +207,4 @@ MonoBehaviour:
     StaminaRegen: 0
     BonusExp: 50
     BonusGold: 0
+  _delayMove: 0.5

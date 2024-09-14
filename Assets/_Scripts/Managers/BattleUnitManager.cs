@@ -1,27 +1,36 @@
+using System;
 using UnityEngine;
 
 public class BattleUnitManager : Singleton<BattleUnitManager>
 {
-    [SerializeField] private Transform _playerAttackPosition;
-    public Vector3 PlayerAttackPosition => _playerAttackPosition.position;
+    [Serializable]
+    public class UnitInfo
+    {
+        public Transform AttackPosition;
+        public Transform Container;
+        public ScriptableUnitStat StatDefault;
+    }
 
-    [SerializeField] private BattlePlayerUnit _player;
-    public BattlePlayerUnit PlayerAsBattlePlayerUnit => _player;
+
+    [SerializeField] private UnitInfo _playerInfo;
+    [SerializeField] private UnitInfo _enemyInfo;
+
+    private GameObject _player;
+    private GameObject _enemy;
+
+    public Vector3 PlayerAttackPosition => _playerInfo.AttackPosition.position;
+    public BattlePlayerUnit PlayerAsBattlePlayerUnit => _player.GetComponent<BattlePlayerUnit>();
     public BattleUnitBase PlayerAsBattleUnitBase => PlayerAsBattlePlayerUnit;
 
 
-    [SerializeField] private Transform _enemyAttackPosition;
-    public Vector3 EnemyAttackPosition => _enemyAttackPosition.position;
-
-    [SerializeField] private BattleEnemyUnit _enemy;
-    public BattleEnemyUnit EnemyAsBattleEnemyUnit => _enemy;
+    public Vector3 EnemyAttackPosition => _enemyInfo.AttackPosition.position;
+    public BattleEnemyUnit EnemyAsBattleEnemyUnit => _enemy.GetComponent<BattleEnemyUnit>();
     public BattleUnitBase EnemyAsBattleUnitBase => EnemyAsBattleEnemyUnit;
-
-    [SerializeField] private ScriptablePlayerStat _playerStatDefault;
-    [SerializeField] private ScriptableEnemyStat _enemyStatDefault;
 
     private void Start()
     {
+        _SetupBattleUnits();
+
         var gameMode = GameManager.Instance?.GetGameMode() ?? _GetGameMode();
         switch (gameMode)
         {
@@ -40,14 +49,50 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
 
     private void _SetupBattleMode()
     {
-        PlayerAsBattleUnitBase.Stat = _playerStatDefault?.PlayerStat.Clone();
-        EnemyAsBattleUnitBase.Stat = _enemyStatDefault?.EnemyStat.Clone();
+        if (_playerInfo.StatDefault is ScriptablePlayerStat scriptablePlayerStat)
+        {
+            PlayerAsBattleUnitBase.Stat = scriptablePlayerStat?.PlayerStat.Clone();
+        }
+        if (_enemyInfo.StatDefault is ScriptableEnemyStat scriptableEnemyStat)
+        {
+            EnemyAsBattleUnitBase.Stat = scriptableEnemyStat?.EnemyStat.Clone();
+        }
     }
 
     private void _SetupCasualMode()
     {
         var manager = MatchingBattleManager.Instance;
-        PlayerAsBattleUnitBase.Stat = manager?.PlayerStat ?? _playerStatDefault?.PlayerStat.Clone();
-        EnemyAsBattleUnitBase.Stat = manager?.EnemyStat ?? _enemyStatDefault?.EnemyStat.Clone();
+        PlayerAsBattleUnitBase.Stat = manager?.PlayerStat;
+        EnemyAsBattleUnitBase.Stat = manager?.EnemyStat;
     }
+
+    private void _SetupBattleUnits()
+    {
+        var manager = MatchingBattleManager.Instance;
+        if (manager != null)
+        {
+            var playerStat = manager.PlayerStat;
+            var enemyStat = manager.EnemyStat;
+
+            if (playerStat.Class == "Soldier")
+            {
+                _player = Instantiate(PrefabManager.Instance.PrefabBattleSoldier, _playerInfo.Container);
+            }
+            else if (playerStat.Class == "Priest")
+            {
+                _player = Instantiate(PrefabManager.Instance.PrefabBattlePriest, _playerInfo.Container);
+            }
+
+            if (enemyStat.Class == "Skeleton")
+            {
+                _enemy = Instantiate(PrefabManager.Instance.PrefabBattleSkeletonNoArmor, _enemyInfo.Container);
+            }
+        }
+        else
+        {
+            _player = Instantiate(PrefabManager.Instance.PrefabBattleHumanDefault, _playerInfo.Container);
+            _enemy = Instantiate(PrefabManager.Instance.PrefabBattleSkeletonDefault, _enemyInfo.Container);
+        }
+    }
+
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeSceneUI : MySceneBase
@@ -10,11 +8,10 @@ public class MazeSceneUI : MySceneBase
 
     private void Start()
     {
-        _SetPlayerPreviousPosition();
+        _SetupPlayer();
     }
 
-
-    private void _SetPlayerPreviousPosition()
+    private void _SetupPlayer()
     {
         var choosingLevelUnitManager = ChoosingLevelUnitManager.Instance;
         if (choosingLevelUnitManager != null)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton without armor
   m_EditorClassIdentifier: 
   EnemyStat:
-    Class: Class Default
+    Class: Skeleton
     Level: 1
     Attack: 1
     HPMax: 100

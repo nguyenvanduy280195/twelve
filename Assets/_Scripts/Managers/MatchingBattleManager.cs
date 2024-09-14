@@ -8,31 +8,28 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
     public PlayerStat PlayerStat => ChoosingLevelUnitManager.Instance.PlayerStat;
     public EnemyStat EnemyStat { get; private set; }
 
-
-    public Vector3 EnemyPositionBeforeBattle { get; private set; }
-
     private int _enemyID;
 
     public void BeginBattle(GameObject enemy)
     {
         _SavePlayerPosition();
 
-        EnemyPositionBeforeBattle = enemy.transform.position;
-
-
-        EnemyStat = _GetEnemyStatFromEnemy(enemy) ?? DefaultEnemyStat.EnemyStat;
+        EnemyStat = _GetEnemyStatFromEnemy(enemy);
+        if(EnemyStat == null)
+        {
+            Debug.LogWarning("[MatchingBattleManager][BeginBattle(...)] - Getting EnemyStat from Enemy failed");
+            EnemyStat = DefaultEnemyStat.EnemyStat;
+        }
 
         _enemyID = enemy.GetComponent<EnemyData>().ID;
 
         GameManager.Instance?.SetPausing(true);
-
         MySceneManager.Instance?.LoadInBattleScene();
     }
 
     public void EndBattle()
     {
         MySceneManager.Instance?.LoadMazeScene();
-
         _HideDeadEnemy();
     }
 

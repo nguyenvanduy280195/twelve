@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddc69509391da2c4f831e41c3761098f
+guid: 3c7dca2a0fb2cb04683ae561f2b373ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -74,7 +74,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soldier_sprites_0
+      name: spritesheet_priest_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7965eb3d66cdbf4f9e72032debd7848
-      internalID: -1393587535
+      spriteID: 6767caebbcd8be841835f0cc6cb07763
+      internalID: -603803850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_1
+      name: spritesheet_priest_1
       rect:
         serializedVersion: 2
         x: 64
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2feb1216cf7df264096055ce74508a03
-      internalID: -648439151
+      spriteID: f8d5992743e1eb4409ef13936a5d396a
+      internalID: -827825927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_2
+      name: spritesheet_priest_2
       rect:
         serializedVersion: 2
         x: 128
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66d515fc251c0614ea56bb1767dd03dc
-      internalID: 346259468
+      spriteID: 40998deecda6e854e8a2f069a0930f6d
+      internalID: 59976580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_3
+      name: spritesheet_priest_3
       rect:
         serializedVersion: 2
         x: 192
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2001445f77a39da4baae9677a1e0a938
-      internalID: -1186139872
+      spriteID: 9b86f02bc41676744a2ad50ceb295a5a
+      internalID: 1772448707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_4
+      name: spritesheet_priest_4
       rect:
         serializedVersion: 2
         x: 256
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64aae5cb564437d4483a416148424a0b
-      internalID: -2138754581
+      spriteID: 2ad619109963c094aa4598296837e099
+      internalID: -628875121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_5
+      name: spritesheet_priest_5
       rect:
         serializedVersion: 2
         x: 320
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eff00fff7fb9a5a4da28967a047740da
-      internalID: -1391544208
+      spriteID: f2e8ea60d21c2344ba42c2181b2660b7
+      internalID: 1338103304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_6
+      name: spritesheet_priest_6
       rect:
         serializedVersion: 2
         x: 384
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7943b7e9106f92d459f2379d96603821
-      internalID: 1924603810
+      spriteID: d54785f23d68c1043abb9c70bfd46137
+      internalID: -1068307914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_7
+      name: spritesheet_priest_7
       rect:
         serializedVersion: 2
         x: 0
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0284d114c588773478f30c63795b1eae
-      internalID: 750015960
+      spriteID: ac839309af7625d4c97dbea885391fe1
+      internalID: -2032396116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_8
+      name: spritesheet_priest_8
       rect:
         serializedVersion: 2
         x: 64
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db52e8af9aa942e449d650db28cbb15c
-      internalID: -309312362
+      spriteID: 24c56bed08baad4488321ff77d12c545
+      internalID: -514993403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_9
+      name: spritesheet_priest_9
       rect:
         serializedVersion: 2
         x: 128
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 815afbc82639f804c97a2c9577b68bc8
-      internalID: 308346817
+      spriteID: f549abe4a11b5724392e9eec7f3ae159
+      internalID: 783825305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_10
+      name: spritesheet_priest_10
       rect:
         serializedVersion: 2
         x: 192
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0743f83e53b96a04f96dcbdcb9151fa8
-      internalID: -1975699491
+      spriteID: c7d003baf9baa394f9a33d926968991c
+      internalID: 1051649310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_11
+      name: spritesheet_priest_11
       rect:
         serializedVersion: 2
         x: 256
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 784724785d76e7d4f84abb427c93b658
-      internalID: -839524062
+      spriteID: 4d065e836020462449de42537bf1b792
+      internalID: 1062019137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_12
+      name: spritesheet_priest_12
       rect:
         serializedVersion: 2
         x: 320
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11fcc420f8dce4f4eb7747fc2a9aa409
-      internalID: -713297754
+      spriteID: 00bce399234694e489a1d6cb95baff8b
+      internalID: 629858995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_13
+      name: spritesheet_priest_13
       rect:
         serializedVersion: 2
         x: 384
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efe96c7bcc3a89b47a5552dfd0b0bde3
-      internalID: -1324032692
+      spriteID: 152b14927fd9adf4191f9ee214bb64ae
+      internalID: -649795434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_14
+      name: spritesheet_priest_14
       rect:
         serializedVersion: 2
         x: 0
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b1f7283d2a3034280c02318b163d5c
-      internalID: 1571620107
+      spriteID: a4393f5ae76be644cbc024e20fbe54fd
+      internalID: 43849600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_15
+      name: spritesheet_priest_15
       rect:
         serializedVersion: 2
         x: 64
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dcf77c9e95d54c41aae8afd7dba0559
-      internalID: 1728463484
+      spriteID: 9b8792af57bf3c249843f491e41307f1
+      internalID: 97136075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_16
+      name: spritesheet_priest_16
       rect:
         serializedVersion: 2
         x: 128
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f61ee1b0ce128a48996b35b023d8d22
-      internalID: -231368137
+      spriteID: 21343c20300d9de40ac07ab8a91c0dbd
+      internalID: 81481579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_17
+      name: spritesheet_priest_17
       rect:
         serializedVersion: 2
         x: 192
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0647520963623743b681aa9c77826ed
-      internalID: 314244390
+      spriteID: 5eb5ae807f2d3f243b0049c4e0ba5963
+      internalID: -395812089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_18
+      name: spritesheet_priest_18
       rect:
         serializedVersion: 2
         x: 256
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e2474b3f8163c244934ceabd99f398c
-      internalID: 402814418
+      spriteID: b5974bb76678b774fb50df9f2c23b553
+      internalID: 750309264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_19
+      name: spritesheet_priest_19
       rect:
         serializedVersion: 2
         x: 320
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a40cc83ce35c646b7fc1cb07f9b88e
-      internalID: 641424767
+      spriteID: fdcb46bda4fbf61479c8f3457fddefed
+      internalID: 618447197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_20
+      name: spritesheet_priest_20
       rect:
         serializedVersion: 2
         x: 384
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 406712d2d5f95d7428316887f625fbf1
-      internalID: -1478811004
+      spriteID: b8b6363294cd9224b967a847455453d3
+      internalID: 248642373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_21
+      name: spritesheet_priest_21
       rect:
         serializedVersion: 2
         x: 0
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7949189549ac065489f497ace8b34a3b
-      internalID: -1615389791
+      spriteID: e2e0799ff3baeb041bb8c8342acd88dd
+      internalID: -1884227914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_22
+      name: spritesheet_priest_22
       rect:
         serializedVersion: 2
         x: 64
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 339b883b75467bd4e8af10f50952377b
-      internalID: 2125304294
+      spriteID: 8d41d2d583ff4e34d8df501355869a7f
+      internalID: 358371900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_23
+      name: spritesheet_priest_23
       rect:
         serializedVersion: 2
         x: 128
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d70e29e2b9b39cc4080dc81b91049e9c
-      internalID: 37018123
+      spriteID: 6a7ee906694f4c54ab61a706f4dee2e1
+      internalID: 1154103285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_24
+      name: spritesheet_priest_24
       rect:
         serializedVersion: 2
         x: 192
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7abe1f1e975ca32409c5734f678daa1a
-      internalID: -1157081868
+      spriteID: 8279770356ae39c4c99a3dc5d4678a63
+      internalID: -1393100196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_25
+      name: spritesheet_priest_25
       rect:
         serializedVersion: 2
         x: 256
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 338b5c013b65fd6409f34483215c84b4
-      internalID: -824170778
+      spriteID: 41e68665e5e964d46bd1e6913704fe3f
+      internalID: 366932647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_26
+      name: spritesheet_priest_26
       rect:
         serializedVersion: 2
         x: 320
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b13e88cc8ffc7984cb5eb49a05404756
-      internalID: 1450242763
+      spriteID: b70c8dfbd8134c54fa6c19c82d839c99
+      internalID: 198078387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_27
+      name: spritesheet_priest_27
       rect:
         serializedVersion: 2
         x: 384
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ebc479410260b469332c5e3201b0cd
-      internalID: -357212597
+      spriteID: f0f1ca79905c70341a70d55c0dc01948
+      internalID: 2061406039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_28
+      name: spritesheet_priest_28
       rect:
         serializedVersion: 2
         x: 0
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ceacd2519dba0a4ebb1ca33f2c9633e
-      internalID: 1399165232
+      spriteID: 3ae0a59c041f146479b68ad918910ad6
+      internalID: 779709149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_29
+      name: spritesheet_priest_29
       rect:
         serializedVersion: 2
         x: 64
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0296881f197c5c640ad84fc0d8d39fcb
-      internalID: 847977652
+      spriteID: 0e7da45cae64b3949a67cf8851f6cc27
+      internalID: -2080848326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_30
+      name: spritesheet_priest_30
       rect:
         serializedVersion: 2
         x: 128
@@ -767,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c9716b2d1eac4f4188280f05d7906da
-      internalID: -1466553312
+      spriteID: 7d42aaed307105649b02c324ee7f58f3
+      internalID: -1860395181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_31
+      name: spritesheet_priest_31
       rect:
         serializedVersion: 2
         x: 192
@@ -788,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a8f1e28c1a81f4aa427afb9da4cbc7
-      internalID: -1344824279
+      spriteID: 9f9eb15b24fcd444faf15758957cc5bd
+      internalID: 523141213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_32
+      name: spritesheet_priest_32
       rect:
         serializedVersion: 2
         x: 256
@@ -809,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 192d27b66ea97934d81b56bf26e07490
-      internalID: 34228008
+      spriteID: c33e9c7fdc2d36347bc6e96bd2a3d064
+      internalID: 1953070751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_33
+      name: spritesheet_priest_33
       rect:
         serializedVersion: 2
         x: 320
@@ -830,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d80e9f20f46efd143a3f7d0edf8e71a7
-      internalID: -192973868
+      spriteID: ea78a193e0b2fb74a95c35c65028de40
+      internalID: -1572977153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_34
+      name: spritesheet_priest_34
       rect:
         serializedVersion: 2
         x: 384
@@ -851,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4bb04f9fe390e640a4eb7ddb7124bb7
-      internalID: -631664659
+      spriteID: 8f8927da9e2295d449c156e09c1ba17d
+      internalID: -1029353764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_35
+      name: spritesheet_priest_35
       rect:
         serializedVersion: 2
         x: 448
@@ -872,14 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6600e5e42d4bca42afa10668fbfff55
-      internalID: -467259670
+      spriteID: 8612bdadf4dca70409aff2811989c71a
+      internalID: 2001165278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_36
+      name: spritesheet_priest_36
       rect:
         serializedVersion: 2
         x: 0
@@ -893,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb435d4ef70795b4c8b0719e3dfa1485
-      internalID: -2097243444
+      spriteID: 33e25411fbd37df48a9e5719f8f34799
+      internalID: -294503121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_37
+      name: spritesheet_priest_37
       rect:
         serializedVersion: 2
         x: 64
@@ -914,14 +914,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc95cf2b95ac06d44a3bcdef1d888c66
-      internalID: 528898453
+      spriteID: 4f11f1cbbd5d9f143817a17f39057c56
+      internalID: 923170659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_38
+      name: spritesheet_priest_38
       rect:
         serializedVersion: 2
         x: 128
@@ -935,14 +935,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e59c5ddd74549fb41bfa56172c71a7ff
-      internalID: -272567218
+      spriteID: 42aa28f205553704ea36282664f30b9b
+      internalID: -220952556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_39
+      name: spritesheet_priest_39
       rect:
         serializedVersion: 2
         x: 192
@@ -956,14 +956,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e43b33fabe15869499670f5cd2d2c6d3
-      internalID: -1381276211
+      spriteID: 794305c6a28aaa44bacb6ad50a19f9e1
+      internalID: -8626098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_40
+      name: spritesheet_priest_40
       rect:
         serializedVersion: 2
         x: 256
@@ -977,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 784b50ef8c2c6914eb2518ad5acc07ca
-      internalID: 551121296
+      spriteID: 37d0307c7a58e134bb443ebb0be6d8c1
+      internalID: 157438783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_41
+      name: spritesheet_priest_41
       rect:
         serializedVersion: 2
         x: 320
@@ -998,14 +998,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c1cbd5ae584bf34ca4a51586dcc1f2d
-      internalID: -1553338534
+      spriteID: 0064c38830be9c8499d562b719171733
+      internalID: 1296206263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_42
+      name: spritesheet_priest_42
       rect:
         serializedVersion: 2
         x: 384
@@ -1019,14 +1019,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 289136d6e7204894a951e81ad7e1c23f
-      internalID: -45661237
+      spriteID: ab62050a9d3f2ae40815dcaba243265f
+      internalID: 404230729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_43
+      name: spritesheet_priest_43
       rect:
         serializedVersion: 2
         x: 448
@@ -1040,14 +1040,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31fedb2eb56ca024aa9b3f20158220f0
-      internalID: -1402552369
+      spriteID: b219be3c5ef13fb42a5011e1386a6afc
+      internalID: -432948893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_44
+      name: spritesheet_priest_44
       rect:
         serializedVersion: 2
         x: 0
@@ -1061,14 +1061,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4751bd8de43956b4180dfafeedaf3e20
-      internalID: -543651175
+      spriteID: 6306055b51ca8824b9d7d65e4bdfc728
+      internalID: -1411647088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_45
+      name: spritesheet_priest_45
       rect:
         serializedVersion: 2
         x: 64
@@ -1082,14 +1082,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f9e88ef90f4df04a9cba41f93c8bef7
-      internalID: -846608416
+      spriteID: ce2672f45e226c644ace0c4c4787da18
+      internalID: 1512119577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_46
+      name: spritesheet_priest_46
       rect:
         serializedVersion: 2
         x: 128
@@ -1103,14 +1103,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 579d8af0a794d884880bb0802a69fac1
-      internalID: -1761124359
+      spriteID: 7ded3b636d323d34186e9350993e0e6b
+      internalID: -407297759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_47
+      name: spritesheet_priest_47
       rect:
         serializedVersion: 2
         x: 192
@@ -1124,14 +1124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58c42b410d2fd21448252d688b5a3ced
-      internalID: -170677827
+      spriteID: 6a856f92a7187e9488696c217a0783e4
+      internalID: 1226471099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_48
+      name: spritesheet_priest_48
       rect:
         serializedVersion: 2
         x: 256
@@ -1145,14 +1145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea0a10c17862dc4eb8eef0c33332c86
-      internalID: 635031889
+      spriteID: 34bb5aaa9fcd74b4eb593023d303eb6d
+      internalID: 1019459557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_49
+      name: spritesheet_priest_49
       rect:
         serializedVersion: 2
         x: 320
@@ -1166,14 +1166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab03f216c24aaa428fab68e3480c78a
-      internalID: 1867751819
+      spriteID: 763daa267f3c662439367051a3251729
+      internalID: 1523927481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_50
+      name: spritesheet_priest_50
       rect:
         serializedVersion: 2
         x: 384
@@ -1187,14 +1187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dfcfb7a6adeed54bb3a30a2c15d5d0a
-      internalID: 583885787
+      spriteID: 5dc1105defe08d448a88f4fb4cfa1374
+      internalID: -195661301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_51
+      name: spritesheet_priest_51
       rect:
         serializedVersion: 2
         x: 448
@@ -1208,14 +1208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a64b1296c4172ff46a5040c0f89b7e13
-      internalID: 1520545983
+      spriteID: bb35620eeabec0f47a50e6dea0f79d31
+      internalID: 501238264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_52
+      name: spritesheet_priest_52
       rect:
         serializedVersion: 2
         x: 0
@@ -1229,14 +1229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 503d8a6786f7a1d4c88b5753f8319167
-      internalID: -703279158
+      spriteID: 02a06d1ec733adc4cb91c2a3f9b24da1
+      internalID: 2075594959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_53
+      name: spritesheet_priest_53
       rect:
         serializedVersion: 2
         x: 64
@@ -1250,14 +1250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a1688b5dc60ed944910d72a5efd0827
-      internalID: 926363124
+      spriteID: 13dffc4ac65fbc240b50445e7177574d
+      internalID: -1978026466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_54
+      name: spritesheet_priest_54
       rect:
         serializedVersion: 2
         x: 128
@@ -1271,14 +1271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1faeef7e57fc0374ba60f64a483ff98e
-      internalID: -1975361373
+      spriteID: bbc4c814b0d90d24bb07d4453ae5fd37
+      internalID: -2004605584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_55
+      name: spritesheet_priest_55
       rect:
         serializedVersion: 2
         x: 192
@@ -1292,14 +1292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14fa21018ac53a742bcb6b847781eba7
-      internalID: 1387012096
+      spriteID: d4e025409448d3a42bd0211b160944cc
+      internalID: 1343879819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_56
+      name: spritesheet_priest_56
       rect:
         serializedVersion: 2
         x: 256
@@ -1313,14 +1313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd8ff67d3e54a1643a1456760601988f
-      internalID: -1161760704
+      spriteID: b295489e277eaa54d8d1016a17a1453d
+      internalID: 1476077013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_57
+      name: spritesheet_priest_57
       rect:
         serializedVersion: 2
         x: 320
@@ -1334,14 +1334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f0f1c81dcc37c4283dcab60ad10874
-      internalID: -1241833852
+      spriteID: 1e56f6ae0059341439d0bdc0cc65ca09
+      internalID: 1738984606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_58
+      name: spritesheet_priest_58
       rect:
         serializedVersion: 2
         x: 384
@@ -1355,14 +1355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04dc62080065f61438fb11a6b7ce2570
-      internalID: 1522818076
+      spriteID: 5a6c0aea8e2b1af4487de295782bdddd
+      internalID: 2011719866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_59
+      name: spritesheet_priest_59
       rect:
         serializedVersion: 2
         x: 448
@@ -1376,14 +1376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7549c281fbefaf64b9087e8e2603476e
-      internalID: -2067482703
+      spriteID: 283f3e145bddb9d48bf2601189677c46
+      internalID: 1205220743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_60
+      name: spritesheet_priest_60
       rect:
         serializedVersion: 2
         x: 0
@@ -1397,14 +1397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d06028594cdca4fa22dd35b1aa864a
-      internalID: 810152357
+      spriteID: 18cbcea1a55608242a63e38393cbac2a
+      internalID: 1502191116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_61
+      name: spritesheet_priest_61
       rect:
         serializedVersion: 2
         x: 64
@@ -1418,14 +1418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa68d2c53292d5c49a1e3fff40869928
-      internalID: 1493632848
+      spriteID: f7fb2639fea4615438d9ef64a09a2cb0
+      internalID: -513909079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_62
+      name: spritesheet_priest_62
       rect:
         serializedVersion: 2
         x: 128
@@ -1439,14 +1439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bbe227097361d743b8f66b79082f6e4
-      internalID: -2103303413
+      spriteID: 0077f4dc06da47e498d201201e0ea66e
+      internalID: -225647308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_63
+      name: spritesheet_priest_63
       rect:
         serializedVersion: 2
         x: 192
@@ -1460,14 +1460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fee330606896e24cbdcdd348c685f3e
-      internalID: -1053844925
+      spriteID: 00b1d2f64d3d2864ea7de854891fb191
+      internalID: 480463610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_64
+      name: spritesheet_priest_64
       rect:
         serializedVersion: 2
         x: 256
@@ -1481,14 +1481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b19172dd9fcf9c4d9b9ca15e0fb61a7
-      internalID: 1199686282
+      spriteID: 95a3df0e109dbcb479ebd69294e386be
+      internalID: 131415950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_65
+      name: spritesheet_priest_65
       rect:
         serializedVersion: 2
         x: 320
@@ -1502,14 +1502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471311c4989b23447b00469804c80c11
-      internalID: 1949016294
+      spriteID: 35fdbbe8aff44f44686381bce55e9d8e
+      internalID: -165796099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_66
+      name: spritesheet_priest_66
       rect:
         serializedVersion: 2
         x: 384
@@ -1523,14 +1523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 646fd3bc01afcdf43a4b78ed877818ed
-      internalID: 777894809
+      spriteID: 7baf00bff78e3a2409ebfa47d758f498
+      internalID: 1791598681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_67
+      name: spritesheet_priest_67
       rect:
         serializedVersion: 2
         x: 448
@@ -1544,14 +1544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f35ec023e62cd45b8df09b49c9f3ef
-      internalID: -377053868
+      spriteID: 429dc8b5a6ce9c54ab0b3085a7998ccf
+      internalID: -1447010282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_68
+      name: spritesheet_priest_68
       rect:
         serializedVersion: 2
         x: 512
@@ -1565,14 +1565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82d3e76ff034c21489747bd3c30d4667
-      internalID: -1930507045
+      spriteID: 9c5ba4c8857b4804eb405705277a8eb8
+      internalID: 2054538297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_69
+      name: spritesheet_priest_69
       rect:
         serializedVersion: 2
         x: 0
@@ -1586,14 +1586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a892b731c41fd441a465d5e446f4b0d
-      internalID: -971266819
+      spriteID: 0767511993b20fb458c3a405e0ccf64f
+      internalID: -484675522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_70
+      name: spritesheet_priest_70
       rect:
         serializedVersion: 2
         x: 64
@@ -1607,14 +1607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df8da3b3611bca14fa57179bf8413a26
-      internalID: -1864807757
+      spriteID: a4e1b7e379a043c48a4063cf7697863c
+      internalID: 1477577154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_71
+      name: spritesheet_priest_71
       rect:
         serializedVersion: 2
         x: 128
@@ -1628,14 +1628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6333b28d37a61ca48b73201852d0ca3a
-      internalID: -907939144
+      spriteID: 207838bd3aeadb44a9c8d6584ae8e0d6
+      internalID: 721555543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_72
+      name: spritesheet_priest_72
       rect:
         serializedVersion: 2
         x: 192
@@ -1649,14 +1649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 625a4aaf6beadef41aa5335d051b9c03
-      internalID: -28678443
+      spriteID: 1365f4d2077a6a145b7a3d15f7748bb6
+      internalID: -1632620269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_73
+      name: spritesheet_priest_73
       rect:
         serializedVersion: 2
         x: 256
@@ -1670,14 +1670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0442b51ec846c2a47a87432c975fd01c
-      internalID: -55516858
+      spriteID: 11672a74690a2c34faf36cddb3300c1f
+      internalID: -1272717605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_74
+      name: spritesheet_priest_74
       rect:
         serializedVersion: 2
         x: 320
@@ -1691,14 +1691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f1811801485d7b46b304a3c26ca1f02
-      internalID: -1828657017
+      spriteID: 9a631358e337f3741832d2064478ba55
+      internalID: -898557422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_75
+      name: spritesheet_priest_75
       rect:
         serializedVersion: 2
         x: 384
@@ -1712,14 +1712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bc00d04ddcedbe44a28b4bb13377b27
-      internalID: -1928974459
+      spriteID: f2dea44f8b6f2f0419f1da16d43adfdf
+      internalID: -1796987781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_76
+      name: spritesheet_priest_76
       rect:
         serializedVersion: 2
         x: 448
@@ -1733,14 +1733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eb3be2f62f8298428888f41b1a143be
-      internalID: 2045329823
+      spriteID: 022b0b38de03da049a15f9ec2dd1478f
+      internalID: 960989458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_77
+      name: spritesheet_priest_77
       rect:
         serializedVersion: 2
         x: 512
@@ -1754,14 +1754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc136049e7c67a4e8b118690aae200f
-      internalID: 114115291
+      spriteID: ef414a556afbf3643ba9dc530a9f86ef
+      internalID: 1413479031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_78
+      name: spritesheet_priest_78
       rect:
         serializedVersion: 2
         x: 0
@@ -1775,14 +1775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 189b9f22962409242bfe5d0b473dc22c
-      internalID: -896283366
+      spriteID: 52a4178609f136b4ca507322297038be
+      internalID: -1434865201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_79
+      name: spritesheet_priest_79
       rect:
         serializedVersion: 2
         x: 64
@@ -1796,14 +1796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dea5bb3911d683f46813507e48a76a85
-      internalID: -90389342
+      spriteID: 9086ccafe0b0bcb4393067ffb3298836
+      internalID: 493035655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_80
+      name: spritesheet_priest_80
       rect:
         serializedVersion: 2
         x: 128
@@ -1817,14 +1817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98846a33124812c4fb64c403961450d9
-      internalID: -521310122
+      spriteID: 7142728c337d04145b9b5dbd9023b126
+      internalID: -814109664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_81
+      name: spritesheet_priest_81
       rect:
         serializedVersion: 2
         x: 192
@@ -1838,14 +1838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66af6bf3f38f1f44cae0da423b87aba4
-      internalID: 1408256270
+      spriteID: 51ea0166e9a60974e83c35ab3b6de17b
+      internalID: 1351363418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_82
+      name: spritesheet_priest_82
       rect:
         serializedVersion: 2
         x: 256
@@ -1859,14 +1859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 175ad7bb1af8195418e551dc48c962f1
-      internalID: 1305388941
+      spriteID: 182ee429b4d467e4c9e906a3ec166241
+      internalID: -833324764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_83
+      name: spritesheet_priest_83
       rect:
         serializedVersion: 2
         x: 320
@@ -1880,14 +1880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 297a6d62ce734164cb71ee789c45a949
-      internalID: -1617540605
+      spriteID: 0784d4038b064464eb4769a6b28eefc3
+      internalID: -296392459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_84
+      name: spritesheet_priest_84
       rect:
         serializedVersion: 2
         x: 384
@@ -1901,14 +1901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21238f6dba7838d4ba259cfa5ba4f464
-      internalID: 1012347035
+      spriteID: 7907ed3c72e433444be702cbfffc913c
+      internalID: -1804465673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_85
+      name: spritesheet_priest_85
       rect:
         serializedVersion: 2
         x: 448
@@ -1922,14 +1922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3643bf0e4410bdd4fab7795fcde371a0
-      internalID: 1162821108
+      spriteID: a12772f282cae7141be759e252a8935e
+      internalID: -1220628990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_86
+      name: spritesheet_priest_86
       rect:
         serializedVersion: 2
         x: 512
@@ -1943,14 +1943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e0fc5e6e0e4674ea0bff47c9be8bda
-      internalID: 1702800968
+      spriteID: 8b0df433642da454a9c591c011459d10
+      internalID: 679694461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_87
+      name: spritesheet_priest_87
       rect:
         serializedVersion: 2
         x: 0
@@ -1964,14 +1964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fc60d2a3dd8a6046bd360b535758bd0
-      internalID: 1276496246
+      spriteID: 0bd8425a0ed417449944cd82c4f058b6
+      internalID: -163166599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_88
+      name: spritesheet_priest_88
       rect:
         serializedVersion: 2
         x: 64
@@ -1985,14 +1985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9359f3c724915a14783fd9bf3dc3ce76
-      internalID: 157721887
+      spriteID: d942a7b6c5ba4fb42b25a1db56837927
+      internalID: -1264207278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_89
+      name: spritesheet_priest_89
       rect:
         serializedVersion: 2
         x: 128
@@ -2006,14 +2006,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f063bbc11686620499ec37c4e3667f4d
-      internalID: -1408615559
+      spriteID: 2b9f6846168d7be4e80eb20fd126dd4b
+      internalID: 1737228912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_90
+      name: spritesheet_priest_90
       rect:
         serializedVersion: 2
         x: 192
@@ -2027,14 +2027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 582fcec0642264044ac95cb61c29c08a
-      internalID: -292604366
+      spriteID: 61e7159fec0c3d140acbdb000547c082
+      internalID: 1492900896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_91
+      name: spritesheet_priest_91
       rect:
         serializedVersion: 2
         x: 256
@@ -2048,14 +2048,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbdd698cf739c8d4da8fcf72ae6c80ca
-      internalID: 1949934296
+      spriteID: 75191755f4498f342bf3cfea5f84d735
+      internalID: 142764635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_92
+      name: spritesheet_priest_92
       rect:
         serializedVersion: 2
         x: 320
@@ -2069,14 +2069,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e0d6c93d1b7ad4aa838c4fc0368b5a
-      internalID: 1330926073
+      spriteID: 7a44159415043824fad375b96315699f
+      internalID: 138804511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_93
+      name: spritesheet_priest_93
       rect:
         serializedVersion: 2
         x: 384
@@ -2090,14 +2090,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb5a6712c9568fc4380de0d255423c35
-      internalID: 996668008
+      spriteID: ba6c2e50d28ddd741bd901237283b9bb
+      internalID: -1002287096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_94
+      name: spritesheet_priest_94
       rect:
         serializedVersion: 2
         x: 448
@@ -2111,14 +2111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6aa35d2e0e349d47862442725fb8b7e
-      internalID: 1392568289
+      spriteID: 2900ed685a500604aab081ebb95f6ff3
+      internalID: 64251022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_95
+      name: spritesheet_priest_95
       rect:
         serializedVersion: 2
         x: 512
@@ -2132,14 +2132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c99cbc2f470b80408865c76000b9679
-      internalID: 818857844
+      spriteID: 8d443744a6fb4de41bd14e29b12c6956
+      internalID: 1046152068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_96
+      name: spritesheet_priest_96
       rect:
         serializedVersion: 2
         x: 0
@@ -2153,14 +2153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fa71c28547083145892b9d8183e2931
-      internalID: -672847131
+      spriteID: bad1e77da70b64846a517e3be2f948a1
+      internalID: 1064693669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_97
+      name: spritesheet_priest_97
       rect:
         serializedVersion: 2
         x: 64
@@ -2174,14 +2174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ad07c10a7dc1f4b9e487b58b54a102
-      internalID: 1240896566
+      spriteID: e26a282e152a3cd43acb0bf2b7ef4103
+      internalID: 1554600291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_98
+      name: spritesheet_priest_98
       rect:
         serializedVersion: 2
         x: 128
@@ -2195,14 +2195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce78171e7312a6242983af6297e6ffa2
-      internalID: 1260795200
+      spriteID: 84f22826a30234543899668441651252
+      internalID: 2000669761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_99
+      name: spritesheet_priest_99
       rect:
         serializedVersion: 2
         x: 192
@@ -2216,14 +2216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835cd9a8eee09014d8c2a6c5193f5828
-      internalID: 1456881798
+      spriteID: f387e4d972fca8d4594f1f75c6490c47
+      internalID: 2044268849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_100
+      name: spritesheet_priest_100
       rect:
         serializedVersion: 2
         x: 256
@@ -2237,14 +2237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d05cdfbedba78354eb7d5c84b5cc9ce7
-      internalID: 891445417
+      spriteID: 30787259a3a9eb141ba94c7a8d7fa2eb
+      internalID: 887143408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_101
+      name: spritesheet_priest_101
       rect:
         serializedVersion: 2
         x: 320
@@ -2258,14 +2258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f5eec4e8d0c2145880b5b17a91b18f
-      internalID: -318090236
+      spriteID: 824b10cdf434bee42bbd2ba9e640a6b0
+      internalID: -839761285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_102
+      name: spritesheet_priest_102
       rect:
         serializedVersion: 2
         x: 0
@@ -2279,14 +2279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918ba49b8799743449593aa23afaf068
-      internalID: 1426547722
+      spriteID: 2fb8fa2cd59e7fa48ab6f92c41bf5163
+      internalID: 1766307507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_103
+      name: spritesheet_priest_103
       rect:
         serializedVersion: 2
         x: 64
@@ -2300,14 +2300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181d0f8236f2b384eb99c4cab1282f3d
-      internalID: -1491653357
+      spriteID: c5d34f3341650f84593fb4fdd69e2464
+      internalID: -1352549500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_104
+      name: spritesheet_priest_104
       rect:
         serializedVersion: 2
         x: 128
@@ -2321,14 +2321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d96189d82afbfa84a9ffd5eeeab441b1
-      internalID: -566907281
+      spriteID: 3c448c31ed901cb439992031a714929d
+      internalID: -493274236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_105
+      name: spritesheet_priest_105
       rect:
         serializedVersion: 2
         x: 192
@@ -2342,14 +2342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c2812bc7971be749b56390318d8a62d
-      internalID: -1859121440
+      spriteID: 9900c5fbc72a01c4aa32b441d0ffc61d
+      internalID: 746989070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_106
+      name: spritesheet_priest_106
       rect:
         serializedVersion: 2
         x: 256
@@ -2363,14 +2363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd227217483969e45abd1295cdc7b7d8
-      internalID: 983911722
+      spriteID: b16d4596d70898e49b07b5c7b812fc45
+      internalID: -178743124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_107
+      name: spritesheet_priest_107
       rect:
         serializedVersion: 2
         x: 320
@@ -2384,14 +2384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c41aa31ec72882418450a3a1ab3218c
-      internalID: -368806107
+      spriteID: 9ef03b815f3254547abe821dc7c288b4
+      internalID: -909325017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_108
+      name: spritesheet_priest_108
       rect:
         serializedVersion: 2
         x: 0
@@ -2405,14 +2405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c7a1995df004743b296e25812ada34
-      internalID: -299834859
+      spriteID: 1d810cc3892b3ec4292779178d272972
+      internalID: -1671333905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_109
+      name: spritesheet_priest_109
       rect:
         serializedVersion: 2
         x: 64
@@ -2426,14 +2426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 744c5cbd967e1e94d80482e1cbc6dff2
-      internalID: -1888647257
+      spriteID: 9b9b9bd21e964c8438dc50871c365f1f
+      internalID: 1787928330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_110
+      name: spritesheet_priest_110
       rect:
         serializedVersion: 2
         x: 128
@@ -2447,14 +2447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14067528917794f45b1306a8750c9ee9
-      internalID: -1884977814
+      spriteID: 172d61ff65b0d8a4cbb438754cf9e29c
+      internalID: -1466520717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_111
+      name: spritesheet_priest_111
       rect:
         serializedVersion: 2
         x: 192
@@ -2468,14 +2468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d7666ae84378bd4985e828d701ae91d
-      internalID: 205071847
+      spriteID: d5b0255afa555fb4f9bdc3b6b2392859
+      internalID: 454241702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_112
+      name: spritesheet_priest_112
       rect:
         serializedVersion: 2
         x: 256
@@ -2489,14 +2489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9dfae10baae3c4bb98a7d4c61abe00
-      internalID: 1296285501
+      spriteID: 9fe57617822177c4fa28cfe58428f820
+      internalID: 56304006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_113
+      name: spritesheet_priest_113
       rect:
         serializedVersion: 2
         x: 320
@@ -2510,14 +2510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d063b355db406045976f5f0e7e50256
-      internalID: -1254304291
+      spriteID: 64f4524c1966419429a6ee22da9f9d2d
+      internalID: 914305696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_114
+      name: spritesheet_priest_114
       rect:
         serializedVersion: 2
         x: 0
@@ -2531,14 +2531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbc565657afc00642a55fcddf25ea578
-      internalID: -1830069754
+      spriteID: 9b0936e38306aca4bad625edcb123f71
+      internalID: -908875434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_115
+      name: spritesheet_priest_115
       rect:
         serializedVersion: 2
         x: 64
@@ -2552,14 +2552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 909e52e3983c42c4ea35eaab40c51d82
-      internalID: 64411774
+      spriteID: cb5976cbded52474ea8b80d0df5a715a
+      internalID: 521650330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_116
+      name: spritesheet_priest_116
       rect:
         serializedVersion: 2
         x: 128
@@ -2573,14 +2573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90a2314ff3b70e249a3e84fb128791bf
-      internalID: -577500594
+      spriteID: c75acf4fd2aed094f80b87f146bc890e
+      internalID: -1309481954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_117
+      name: spritesheet_priest_117
       rect:
         serializedVersion: 2
         x: 192
@@ -2594,14 +2594,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c4e1943cf9ff54d8ae873c5e533a0c
-      internalID: -967788221
+      spriteID: 466a603ba6344da419f8f37f04008e73
+      internalID: -1012858549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_118
+      name: spritesheet_priest_118
       rect:
         serializedVersion: 2
         x: 256
@@ -2615,14 +2615,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a65acb2c96207b48a885c503ff21e2d
-      internalID: 2002139342
+      spriteID: b9647566ae920294a8bd4775f2e68a44
+      internalID: 599473488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_119
+      name: spritesheet_priest_119
       rect:
         serializedVersion: 2
         x: 320
@@ -2636,14 +2636,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96b28bdd8f09d37459c9469c93c3a32a
-      internalID: 72710293
+      spriteID: d86a9e3b56cd3bd4ba9544b0df4b6331
+      internalID: -2128449290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_120
+      name: spritesheet_priest_120
       rect:
         serializedVersion: 2
         x: 0
@@ -2657,14 +2657,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cbe0bf9197a2724c9057b1da2a2ebfc
-      internalID: -1628373731
+      spriteID: 0a968b02adfa95744844c32f73af1d58
+      internalID: 1076511369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_121
+      name: spritesheet_priest_121
       rect:
         serializedVersion: 2
         x: 64
@@ -2678,14 +2678,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84c95851aa835ce49a9ee81655471ea1
-      internalID: -2076251966
+      spriteID: 79a1b13a06565924f8764068d4e08927
+      internalID: 1184014733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_122
+      name: spritesheet_priest_122
       rect:
         serializedVersion: 2
         x: 128
@@ -2699,14 +2699,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81fd1d0a5a300da4b819cc920d19dc6f
-      internalID: 1159442330
+      spriteID: bce2fb7c4cac37a47803ae375e3a76de
+      internalID: -1664194035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_123
+      name: spritesheet_priest_123
       rect:
         serializedVersion: 2
         x: 192
@@ -2720,14 +2720,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4fc1b3c75562d45bdb18b191058698
-      internalID: -175530063
+      spriteID: f4d4694513ce2794980245587214533e
+      internalID: 1931548416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_124
+      name: spritesheet_priest_124
       rect:
         serializedVersion: 2
         x: 256
@@ -2741,14 +2741,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f97df8785ef54dc40b894ee28c485b6f
-      internalID: 1671391294
+      spriteID: ef9f9afe7f3904648b9be4666b0f6372
+      internalID: -914483817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_125
+      name: spritesheet_priest_125
       rect:
         serializedVersion: 2
         x: 320
@@ -2762,14 +2762,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d17a5f95ecbe3a4b9d39ac0093b3fa3
-      internalID: 1898783858
+      spriteID: 82b1b317bbf35e44c8292f4a5e9045da
+      internalID: 63138618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_126
+      name: spritesheet_priest_126
       rect:
         serializedVersion: 2
         x: 384
@@ -2783,14 +2783,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 446492f0a1f7cf64d825ebee8b4ca274
-      internalID: 817442151
+      spriteID: c9dfd47521a5c9c478831770bf29e8ee
+      internalID: -1016426090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_127
+      name: spritesheet_priest_127
       rect:
         serializedVersion: 2
         x: 448
@@ -2804,14 +2804,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a96db4d2ce7f7439c2a361b8bf9c17
-      internalID: -705035429
+      spriteID: b45b5ac1fc818c94ab1d2c5996568a8c
+      internalID: 170125979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_128
+      name: spritesheet_priest_128
       rect:
         serializedVersion: 2
         x: 512
@@ -2825,14 +2825,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc27f15c0adca2e45914efe66c701111
-      internalID: 173902275
+      spriteID: 771cb6b79b18cff4fb8e7133e4222627
+      internalID: 1176405375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_129
+      name: spritesheet_priest_129
       rect:
         serializedVersion: 2
         x: 576
@@ -2846,14 +2846,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d501b80681e6aad4faae421a60963811
-      internalID: 77011356
+      spriteID: 2956c7b79bd2cdc4cb4264e8aa683b1c
+      internalID: 1544862245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_130
+      name: spritesheet_priest_130
       rect:
         serializedVersion: 2
         x: 640
@@ -2867,14 +2867,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 232885d7a4010674cb90f5be0f312a2c
-      internalID: 520833724
+      spriteID: 2831fae26d8ce774ba755fb6eb0d4258
+      internalID: 1535371829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_131
+      name: spritesheet_priest_131
       rect:
         serializedVersion: 2
         x: 704
@@ -2888,14 +2888,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11fcaeceddaf17446b626cc15a784752
-      internalID: -2108471013
+      spriteID: 541ad00c04a2fda44901bebdf9cb65c5
+      internalID: -1719481190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_132
+      name: spritesheet_priest_132
       rect:
         serializedVersion: 2
         x: 768
@@ -2909,14 +2909,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbea339e8349cfa4291646a4843ad6d3
-      internalID: 668550262
+      spriteID: e4792d09a45d31044aa285cb5e1e3d9e
+      internalID: -105665299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_133
+      name: spritesheet_priest_133
       rect:
         serializedVersion: 2
         x: 0
@@ -2930,14 +2930,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd9f3329e93199749bf2ac9dae9cf573
-      internalID: 367782525
+      spriteID: 06aa3933607e7834a9b42d35693a7d1f
+      internalID: -282382030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_134
+      name: spritesheet_priest_134
       rect:
         serializedVersion: 2
         x: 64
@@ -2951,14 +2951,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f85c9fec6489e4dafcce37547da7e4
-      internalID: 710554729
+      spriteID: 59701a85ea7e048458c7c1bf1d2c4ce6
+      internalID: -1472738833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_135
+      name: spritesheet_priest_135
       rect:
         serializedVersion: 2
         x: 128
@@ -2972,14 +2972,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f122397cf9261ff4a9bf5fbcad4f687c
-      internalID: -911461100
+      spriteID: 76d056b51f495c9499c1f117564c72f0
+      internalID: -1450941574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_136
+      name: spritesheet_priest_136
       rect:
         serializedVersion: 2
         x: 192
@@ -2993,14 +2993,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5304c5148403c854aaa816b822e4f352
-      internalID: -1617738655
+      spriteID: e3535016c2d71654bbd8db46eaf4aef1
+      internalID: 1123772875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_137
+      name: spritesheet_priest_137
       rect:
         serializedVersion: 2
         x: 256
@@ -3014,14 +3014,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1abc0ad381bb6644a91718ebf824cce
-      internalID: -314190433
+      spriteID: 3df19ab8cecd02a4a9146c6b0891a33d
+      internalID: 549715521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_138
+      name: spritesheet_priest_138
       rect:
         serializedVersion: 2
         x: 320
@@ -3035,14 +3035,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8ed434330def8041844131f7907652a
-      internalID: 578301166
+      spriteID: 98266c49d82698a4fb92cc4d47ac8f94
+      internalID: 2107574031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_139
+      name: spritesheet_priest_139
       rect:
         serializedVersion: 2
         x: 384
@@ -3056,14 +3056,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd8bde9feaab88544ba87b1f18c1ce66
-      internalID: 2090217943
+      spriteID: a767b393ff057ca40a3cf2175e1cbed1
+      internalID: -1903798832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_140
+      name: spritesheet_priest_140
       rect:
         serializedVersion: 2
         x: 448
@@ -3077,14 +3077,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5f2a0488532a944cb61168f33b4cbf6
-      internalID: -154938047
+      spriteID: 4e792366333bbcd45a687f38e7d60b7d
+      internalID: 1366476216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_141
+      name: spritesheet_priest_141
       rect:
         serializedVersion: 2
         x: 512
@@ -3098,14 +3098,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d3a46c63c535847a4013b86dac9dac
-      internalID: 1217415804
+      spriteID: e9b073e615e9cda4bb302e4765a572f8
+      internalID: 859095366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_142
+      name: spritesheet_priest_142
       rect:
         serializedVersion: 2
         x: 576
@@ -3119,14 +3119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f53b9e8636b1e408dca331b58949d9
-      internalID: -699331253
+      spriteID: 30aa973bd10a3a44284ce841ef58b57c
+      internalID: -903113778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_143
+      name: spritesheet_priest_143
       rect:
         serializedVersion: 2
         x: 640
@@ -3140,14 +3140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f0f0197882e9864da5b0b52b81ea1eb
-      internalID: -1860267776
+      spriteID: adcbcfb24bc996e449fe7cae02040433
+      internalID: 2034755474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_144
+      name: spritesheet_priest_144
       rect:
         serializedVersion: 2
         x: 704
@@ -3161,14 +3161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45fe28980baf0404ebcf1519422317f7
-      internalID: 1112931638
+      spriteID: b1a7400748de83f498a93eafbd598f0b
+      internalID: -1891495867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_145
+      name: spritesheet_priest_145
       rect:
         serializedVersion: 2
         x: 768
@@ -3182,14 +3182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a24ef75299ad14e4eb9c242f27d5e019
-      internalID: -646582081
+      spriteID: 46a3641e721aea74a80919cc5a260d60
+      internalID: -2000572196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_146
+      name: spritesheet_priest_146
       rect:
         serializedVersion: 2
         x: 0
@@ -3203,14 +3203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81c39ce2545df0449d0e54b50768df0
-      internalID: -1941406209
+      spriteID: 482cc3448ce17264ca809789bcbbfc5b
+      internalID: -1340305237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_147
+      name: spritesheet_priest_147
       rect:
         serializedVersion: 2
         x: 64
@@ -3224,14 +3224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4424f046c71277348a4ea5fbccd5684c
-      internalID: -721846772
+      spriteID: feae97eac37acb7448ebebb3a386af26
+      internalID: -1073474927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_148
+      name: spritesheet_priest_148
       rect:
         serializedVersion: 2
         x: 128
@@ -3245,14 +3245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8865c76d5991e948bc69f1089510ff6
-      internalID: -1877009550
+      spriteID: 9862eecd97db905449035ad906c009b7
+      internalID: 597307656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_149
+      name: spritesheet_priest_149
       rect:
         serializedVersion: 2
         x: 192
@@ -3266,14 +3266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c49c68b1456e6b44963c1caa9db8f53
-      internalID: -726469033
+      spriteID: f912d8719908b3b418ea84bf8264a1af
+      internalID: 86923919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_150
+      name: spritesheet_priest_150
       rect:
         serializedVersion: 2
         x: 256
@@ -3287,14 +3287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e211768ba7eb894fbca1fb71dc82c9f
-      internalID: 906260524
+      spriteID: da921849cafbad04882962abfdfbcc26
+      internalID: -1345881398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_151
+      name: spritesheet_priest_151
       rect:
         serializedVersion: 2
         x: 320
@@ -3308,14 +3308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf8b2c1c6d4b8aa498f8e7ca2ff5958a
-      internalID: -770929186
+      spriteID: 646536957075a584b950885988fb6e8a
+      internalID: -832199010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_152
+      name: spritesheet_priest_152
       rect:
         serializedVersion: 2
         x: 384
@@ -3329,14 +3329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 132541ee6cbccbb4c80e8a1626297ffd
-      internalID: 417331125
+      spriteID: 19abae3114209d64e9c287120015c05c
+      internalID: -1403180854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_153
+      name: spritesheet_priest_153
       rect:
         serializedVersion: 2
         x: 448
@@ -3350,14 +3350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b683170e5eaaf49b6138b4fd13a19c
-      internalID: 376186910
+      spriteID: 86d9dc87181530744807fad8c052010a
+      internalID: 1485958385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_154
+      name: spritesheet_priest_154
       rect:
         serializedVersion: 2
         x: 512
@@ -3371,14 +3371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2bd989d59ace8445a179d9e0bf7be04
-      internalID: -1384056538
+      spriteID: 368ede5258af77947bf374d11d05e3bd
+      internalID: 1216877976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_155
+      name: spritesheet_priest_155
       rect:
         serializedVersion: 2
         x: 576
@@ -3392,14 +3392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3906d054fa207cf42bcd73a7ef71965b
-      internalID: -1088210500
+      spriteID: 707b9ade5ff43034991c974c79a02c59
+      internalID: 947991444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_156
+      name: spritesheet_priest_156
       rect:
         serializedVersion: 2
         x: 640
@@ -3413,14 +3413,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc65f5a7011a12047bc1f962815b21fa
-      internalID: 1291245815
+      spriteID: 0f1f7026fc9c52449adab90cae3543de
+      internalID: 1078975480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_157
+      name: spritesheet_priest_157
       rect:
         serializedVersion: 2
         x: 704
@@ -3434,14 +3434,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a817fa8b3ce25594baf841cac9e84d22
-      internalID: -1857143502
+      spriteID: 8e3c63fb1b549ca4c8b18dc44d01f03f
+      internalID: 1315884097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_158
+      name: spritesheet_priest_158
       rect:
         serializedVersion: 2
         x: 768
@@ -3455,14 +3455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d5c7a5c51b9f93469f8a4e971b32f0f
-      internalID: 1290627111
+      spriteID: 532e410b0dd961c4ebe4187dc5947aa4
+      internalID: 1719927531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_159
+      name: spritesheet_priest_159
       rect:
         serializedVersion: 2
         x: 0
@@ -3476,14 +3476,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64bb83b23ed977647b4aada914666926
-      internalID: 900934631
+      spriteID: 177d992bb8346db4a814273312db4bfb
+      internalID: 952918021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_160
+      name: spritesheet_priest_160
       rect:
         serializedVersion: 2
         x: 64
@@ -3497,14 +3497,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a991bcfc2cb3b2b42a2ba065bd64eddc
-      internalID: -1170408431
+      spriteID: 7b5b8aa75d04c7240ab412a320b89ac0
+      internalID: 1395739884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_161
+      name: spritesheet_priest_161
       rect:
         serializedVersion: 2
         x: 128
@@ -3518,14 +3518,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cee64ce0965a50e4ebf947333c447425
-      internalID: -1205725792
+      spriteID: 5dc0ae8531a84224c93fa7d7e9322eb2
+      internalID: -1071402096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_162
+      name: spritesheet_priest_162
       rect:
         serializedVersion: 2
         x: 192
@@ -3539,14 +3539,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9560f3fdc3f882e4bb20843780268207
-      internalID: 660948814
+      spriteID: 15ca5267ba073694ab6a7206896ab213
+      internalID: -1189741908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_163
+      name: spritesheet_priest_163
       rect:
         serializedVersion: 2
         x: 256
@@ -3560,14 +3560,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a85b5ab5a9dcf4e9247daeb12d118f
-      internalID: 1013111804
+      spriteID: bb2f621df317aa94ab133ad2dc2e6b9a
+      internalID: -1042833921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_164
+      name: spritesheet_priest_164
       rect:
         serializedVersion: 2
         x: 320
@@ -3581,14 +3581,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2df00a2223084cc4ab6610679ac52ff0
-      internalID: -1363646285
+      spriteID: 24c3b4b525ccc3c4bac9efd0c2b1d731
+      internalID: 1783471947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_165
+      name: spritesheet_priest_165
       rect:
         serializedVersion: 2
         x: 384
@@ -3602,14 +3602,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15d0cad703b12374ea47aca7671dd1a9
-      internalID: -1006841267
+      spriteID: 62a8050cbd56a8e4db5b6dd74cc33cb8
+      internalID: 221016024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_166
+      name: spritesheet_priest_166
       rect:
         serializedVersion: 2
         x: 448
@@ -3623,14 +3623,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba23e4c4499b0df49a99302f342864c1
-      internalID: -1349184227
+      spriteID: a5fd407a0bc97474eaff6d4ebed3e553
+      internalID: 1044898287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_167
+      name: spritesheet_priest_167
       rect:
         serializedVersion: 2
         x: 512
@@ -3644,14 +3644,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: effa34e86e072d047b535216db30d59e
-      internalID: 1333896054
+      spriteID: 5ce895164f2127c4fa4607b33d61dc9b
+      internalID: -223828843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_168
+      name: spritesheet_priest_168
       rect:
         serializedVersion: 2
         x: 576
@@ -3665,14 +3665,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1df8c48515eb1cd4b9a6ccce81337d8b
-      internalID: 1880419587
+      spriteID: 62af5ac2290044144ab5b65c268e6a0c
+      internalID: -793883990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_169
+      name: spritesheet_priest_169
       rect:
         serializedVersion: 2
         x: 640
@@ -3686,14 +3686,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2be62f847edab524193c9f0b7ca7573e
-      internalID: 1271324927
+      spriteID: 53e03384cf0fc7140b53e5f979ebf8b5
+      internalID: 1158960274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_170
+      name: spritesheet_priest_170
       rect:
         serializedVersion: 2
         x: 704
@@ -3707,14 +3707,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ebea772f026b474cb5a3bf3de1e2cca
-      internalID: 2099194581
+      spriteID: d07675d4347287444bccb82314bca1bb
+      internalID: -1807441761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_171
+      name: spritesheet_priest_171
       rect:
         serializedVersion: 2
         x: 768
@@ -3728,14 +3728,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d18982e3dc84f24391239296e27b2bc
-      internalID: 577637354
+      spriteID: 177a6a1b18725bd4781e29c7ddbf064f
+      internalID: 1780359634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_172
+      name: spritesheet_priest_172
       rect:
         serializedVersion: 2
         x: 0
@@ -3749,14 +3749,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3988b0c7dde46bb448fd79bbec997463
-      internalID: 378905504
+      spriteID: 1dcfa76e5513ad94290e57c532080766
+      internalID: 647898577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_173
+      name: spritesheet_priest_173
       rect:
         serializedVersion: 2
         x: 64
@@ -3770,14 +3770,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7910e568fc3307f46ae33f4183eb2792
-      internalID: 1528496818
+      spriteID: 41be64bf1bfbbf441b331a036ebf8265
+      internalID: -1244588570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_174
+      name: spritesheet_priest_174
       rect:
         serializedVersion: 2
         x: 128
@@ -3791,14 +3791,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd5cbf654717bf247945e0d2c4fb62a9
-      internalID: -1065655569
+      spriteID: 06251865d475b7f449502da45bff3d1d
+      internalID: -951806708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_175
+      name: spritesheet_priest_175
       rect:
         serializedVersion: 2
         x: 192
@@ -3812,14 +3812,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f247b6dca916b94aaec62266b89fbde
-      internalID: -1827659264
+      spriteID: 759a568504fb5e14bbcd3566dcd315ca
+      internalID: 723406665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_176
+      name: spritesheet_priest_176
       rect:
         serializedVersion: 2
         x: 256
@@ -3833,14 +3833,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a2c2bfd6f21e7c4daddef8c15a74e2e
-      internalID: 1163496513
+      spriteID: 32e75597147b9934594a52f6b03d3813
+      internalID: 262237332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: soldier_sprites_177
+      name: spritesheet_priest_177
       rect:
         serializedVersion: 2
         x: 320
@@ -3854,8 +3854,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bd52385755190945b81a507c4cb7373
-      internalID: -1386870086
+      spriteID: 46ac706083671b84b92c36141e3b2eb8
+      internalID: -1888826342
       vertices: []
       indices: 
       edges: []
@@ -3871,184 +3871,184 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      soldier_sprites_0: -1393587535
-      soldier_sprites_1: -648439151
-      soldier_sprites_10: -1975699491
-      soldier_sprites_100: 891445417
-      soldier_sprites_101: -318090236
-      soldier_sprites_102: 1426547722
-      soldier_sprites_103: -1491653357
-      soldier_sprites_104: -566907281
-      soldier_sprites_105: -1859121440
-      soldier_sprites_106: 983911722
-      soldier_sprites_107: -368806107
-      soldier_sprites_108: -299834859
-      soldier_sprites_109: -1888647257
-      soldier_sprites_11: -839524062
-      soldier_sprites_110: -1884977814
-      soldier_sprites_111: 205071847
-      soldier_sprites_112: 1296285501
-      soldier_sprites_113: -1254304291
-      soldier_sprites_114: -1830069754
-      soldier_sprites_115: 64411774
-      soldier_sprites_116: -577500594
-      soldier_sprites_117: -967788221
-      soldier_sprites_118: 2002139342
-      soldier_sprites_119: 72710293
-      soldier_sprites_12: -713297754
-      soldier_sprites_120: -1628373731
-      soldier_sprites_121: -2076251966
-      soldier_sprites_122: 1159442330
-      soldier_sprites_123: -175530063
-      soldier_sprites_124: 1671391294
-      soldier_sprites_125: 1898783858
-      soldier_sprites_126: 817442151
-      soldier_sprites_127: -705035429
-      soldier_sprites_128: 173902275
-      soldier_sprites_129: 77011356
-      soldier_sprites_13: -1324032692
-      soldier_sprites_130: 520833724
-      soldier_sprites_131: -2108471013
-      soldier_sprites_132: 668550262
-      soldier_sprites_133: 367782525
-      soldier_sprites_134: 710554729
-      soldier_sprites_135: -911461100
-      soldier_sprites_136: -1617738655
-      soldier_sprites_137: -314190433
-      soldier_sprites_138: 578301166
-      soldier_sprites_139: 2090217943
-      soldier_sprites_14: 1571620107
-      soldier_sprites_140: -154938047
-      soldier_sprites_141: 1217415804
-      soldier_sprites_142: -699331253
-      soldier_sprites_143: -1860267776
-      soldier_sprites_144: 1112931638
-      soldier_sprites_145: -646582081
-      soldier_sprites_146: -1941406209
-      soldier_sprites_147: -721846772
-      soldier_sprites_148: -1877009550
-      soldier_sprites_149: -726469033
-      soldier_sprites_15: 1728463484
-      soldier_sprites_150: 906260524
-      soldier_sprites_151: -770929186
-      soldier_sprites_152: 417331125
-      soldier_sprites_153: 376186910
-      soldier_sprites_154: -1384056538
-      soldier_sprites_155: -1088210500
-      soldier_sprites_156: 1291245815
-      soldier_sprites_157: -1857143502
-      soldier_sprites_158: 1290627111
-      soldier_sprites_159: 900934631
-      soldier_sprites_16: -231368137
-      soldier_sprites_160: -1170408431
-      soldier_sprites_161: -1205725792
-      soldier_sprites_162: 660948814
-      soldier_sprites_163: 1013111804
-      soldier_sprites_164: -1363646285
-      soldier_sprites_165: -1006841267
-      soldier_sprites_166: -1349184227
-      soldier_sprites_167: 1333896054
-      soldier_sprites_168: 1880419587
-      soldier_sprites_169: 1271324927
-      soldier_sprites_17: 314244390
-      soldier_sprites_170: 2099194581
-      soldier_sprites_171: 577637354
-      soldier_sprites_172: 378905504
-      soldier_sprites_173: 1528496818
-      soldier_sprites_174: -1065655569
-      soldier_sprites_175: -1827659264
-      soldier_sprites_176: 1163496513
-      soldier_sprites_177: -1386870086
-      soldier_sprites_18: 402814418
-      soldier_sprites_19: 641424767
-      soldier_sprites_2: 346259468
-      soldier_sprites_20: -1478811004
-      soldier_sprites_21: -1615389791
-      soldier_sprites_22: 2125304294
-      soldier_sprites_23: 37018123
-      soldier_sprites_24: -1157081868
-      soldier_sprites_25: -824170778
-      soldier_sprites_26: 1450242763
-      soldier_sprites_27: -357212597
-      soldier_sprites_28: 1399165232
-      soldier_sprites_29: 847977652
-      soldier_sprites_3: -1186139872
-      soldier_sprites_30: -1466553312
-      soldier_sprites_31: -1344824279
-      soldier_sprites_32: 34228008
-      soldier_sprites_33: -192973868
-      soldier_sprites_34: -631664659
-      soldier_sprites_35: -467259670
-      soldier_sprites_36: -2097243444
-      soldier_sprites_37: 528898453
-      soldier_sprites_38: -272567218
-      soldier_sprites_39: -1381276211
-      soldier_sprites_4: -2138754581
-      soldier_sprites_40: 551121296
-      soldier_sprites_41: -1553338534
-      soldier_sprites_42: -45661237
-      soldier_sprites_43: -1402552369
-      soldier_sprites_44: -543651175
-      soldier_sprites_45: -846608416
-      soldier_sprites_46: -1761124359
-      soldier_sprites_47: -170677827
-      soldier_sprites_48: 635031889
-      soldier_sprites_49: 1867751819
-      soldier_sprites_5: -1391544208
-      soldier_sprites_50: 583885787
-      soldier_sprites_51: 1520545983
-      soldier_sprites_52: -703279158
-      soldier_sprites_53: 926363124
-      soldier_sprites_54: -1975361373
-      soldier_sprites_55: 1387012096
-      soldier_sprites_56: -1161760704
-      soldier_sprites_57: -1241833852
-      soldier_sprites_58: 1522818076
-      soldier_sprites_59: -2067482703
-      soldier_sprites_6: 1924603810
-      soldier_sprites_60: 810152357
-      soldier_sprites_61: 1493632848
-      soldier_sprites_62: -2103303413
-      soldier_sprites_63: -1053844925
-      soldier_sprites_64: 1199686282
-      soldier_sprites_65: 1949016294
-      soldier_sprites_66: 777894809
-      soldier_sprites_67: -377053868
-      soldier_sprites_68: -1930507045
-      soldier_sprites_69: -971266819
-      soldier_sprites_7: 750015960
-      soldier_sprites_70: -1864807757
-      soldier_sprites_71: -907939144
-      soldier_sprites_72: -28678443
-      soldier_sprites_73: -55516858
-      soldier_sprites_74: -1828657017
-      soldier_sprites_75: -1928974459
-      soldier_sprites_76: 2045329823
-      soldier_sprites_77: 114115291
-      soldier_sprites_78: -896283366
-      soldier_sprites_79: -90389342
-      soldier_sprites_8: -309312362
-      soldier_sprites_80: -521310122
-      soldier_sprites_81: 1408256270
-      soldier_sprites_82: 1305388941
-      soldier_sprites_83: -1617540605
-      soldier_sprites_84: 1012347035
-      soldier_sprites_85: 1162821108
-      soldier_sprites_86: 1702800968
-      soldier_sprites_87: 1276496246
-      soldier_sprites_88: 157721887
-      soldier_sprites_89: -1408615559
-      soldier_sprites_9: 308346817
-      soldier_sprites_90: -292604366
-      soldier_sprites_91: 1949934296
-      soldier_sprites_92: 1330926073
-      soldier_sprites_93: 996668008
-      soldier_sprites_94: 1392568289
-      soldier_sprites_95: 818857844
-      soldier_sprites_96: -672847131
-      soldier_sprites_97: 1240896566
-      soldier_sprites_98: 1260795200
-      soldier_sprites_99: 1456881798
+      spritesheet_priest_0: -603803850
+      spritesheet_priest_1: -827825927
+      spritesheet_priest_10: 1051649310
+      spritesheet_priest_100: 887143408
+      spritesheet_priest_101: -839761285
+      spritesheet_priest_102: 1766307507
+      spritesheet_priest_103: -1352549500
+      spritesheet_priest_104: -493274236
+      spritesheet_priest_105: 746989070
+      spritesheet_priest_106: -178743124
+      spritesheet_priest_107: -909325017
+      spritesheet_priest_108: -1671333905
+      spritesheet_priest_109: 1787928330
+      spritesheet_priest_11: 1062019137
+      spritesheet_priest_110: -1466520717
+      spritesheet_priest_111: 454241702
+      spritesheet_priest_112: 56304006
+      spritesheet_priest_113: 914305696
+      spritesheet_priest_114: -908875434
+      spritesheet_priest_115: 521650330
+      spritesheet_priest_116: -1309481954
+      spritesheet_priest_117: -1012858549
+      spritesheet_priest_118: 599473488
+      spritesheet_priest_119: -2128449290
+      spritesheet_priest_12: 629858995
+      spritesheet_priest_120: 1076511369
+      spritesheet_priest_121: 1184014733
+      spritesheet_priest_122: -1664194035
+      spritesheet_priest_123: 1931548416
+      spritesheet_priest_124: -914483817
+      spritesheet_priest_125: 63138618
+      spritesheet_priest_126: -1016426090
+      spritesheet_priest_127: 170125979
+      spritesheet_priest_128: 1176405375
+      spritesheet_priest_129: 1544862245
+      spritesheet_priest_13: -649795434
+      spritesheet_priest_130: 1535371829
+      spritesheet_priest_131: -1719481190
+      spritesheet_priest_132: -105665299
+      spritesheet_priest_133: -282382030
+      spritesheet_priest_134: -1472738833
+      spritesheet_priest_135: -1450941574
+      spritesheet_priest_136: 1123772875
+      spritesheet_priest_137: 549715521
+      spritesheet_priest_138: 2107574031
+      spritesheet_priest_139: -1903798832
+      spritesheet_priest_14: 43849600
+      spritesheet_priest_140: 1366476216
+      spritesheet_priest_141: 859095366
+      spritesheet_priest_142: -903113778
+      spritesheet_priest_143: 2034755474
+      spritesheet_priest_144: -1891495867
+      spritesheet_priest_145: -2000572196
+      spritesheet_priest_146: -1340305237
+      spritesheet_priest_147: -1073474927
+      spritesheet_priest_148: 597307656
+      spritesheet_priest_149: 86923919
+      spritesheet_priest_15: 97136075
+      spritesheet_priest_150: -1345881398
+      spritesheet_priest_151: -832199010
+      spritesheet_priest_152: -1403180854
+      spritesheet_priest_153: 1485958385
+      spritesheet_priest_154: 1216877976
+      spritesheet_priest_155: 947991444
+      spritesheet_priest_156: 1078975480
+      spritesheet_priest_157: 1315884097
+      spritesheet_priest_158: 1719927531
+      spritesheet_priest_159: 952918021
+      spritesheet_priest_16: 81481579
+      spritesheet_priest_160: 1395739884
+      spritesheet_priest_161: -1071402096
+      spritesheet_priest_162: -1189741908
+      spritesheet_priest_163: -1042833921
+      spritesheet_priest_164: 1783471947
+      spritesheet_priest_165: 221016024
+      spritesheet_priest_166: 1044898287
+      spritesheet_priest_167: -223828843
+      spritesheet_priest_168: -793883990
+      spritesheet_priest_169: 1158960274
+      spritesheet_priest_17: -395812089
+      spritesheet_priest_170: -1807441761
+      spritesheet_priest_171: 1780359634
+      spritesheet_priest_172: 647898577
+      spritesheet_priest_173: -1244588570
+      spritesheet_priest_174: -951806708
+      spritesheet_priest_175: 723406665
+      spritesheet_priest_176: 262237332
+      spritesheet_priest_177: -1888826342
+      spritesheet_priest_18: 750309264
+      spritesheet_priest_19: 618447197
+      spritesheet_priest_2: 59976580
+      spritesheet_priest_20: 248642373
+      spritesheet_priest_21: -1884227914
+      spritesheet_priest_22: 358371900
+      spritesheet_priest_23: 1154103285
+      spritesheet_priest_24: -1393100196
+      spritesheet_priest_25: 366932647
+      spritesheet_priest_26: 198078387
+      spritesheet_priest_27: 2061406039
+      spritesheet_priest_28: 779709149
+      spritesheet_priest_29: -2080848326
+      spritesheet_priest_3: 1772448707
+      spritesheet_priest_30: -1860395181
+      spritesheet_priest_31: 523141213
+      spritesheet_priest_32: 1953070751
+      spritesheet_priest_33: -1572977153
+      spritesheet_priest_34: -1029353764
+      spritesheet_priest_35: 2001165278
+      spritesheet_priest_36: -294503121
+      spritesheet_priest_37: 923170659
+      spritesheet_priest_38: -220952556
+      spritesheet_priest_39: -8626098
+      spritesheet_priest_4: -628875121
+      spritesheet_priest_40: 157438783
+      spritesheet_priest_41: 1296206263
+      spritesheet_priest_42: 404230729
+      spritesheet_priest_43: -432948893
+      spritesheet_priest_44: -1411647088
+      spritesheet_priest_45: 1512119577
+      spritesheet_priest_46: -407297759
+      spritesheet_priest_47: 1226471099
+      spritesheet_priest_48: 1019459557
+      spritesheet_priest_49: 1523927481
+      spritesheet_priest_5: 1338103304
+      spritesheet_priest_50: -195661301
+      spritesheet_priest_51: 501238264
+      spritesheet_priest_52: 2075594959
+      spritesheet_priest_53: -1978026466
+      spritesheet_priest_54: -2004605584
+      spritesheet_priest_55: 1343879819
+      spritesheet_priest_56: 1476077013
+      spritesheet_priest_57: 1738984606
+      spritesheet_priest_58: 2011719866
+      spritesheet_priest_59: 1205220743
+      spritesheet_priest_6: -1068307914
+      spritesheet_priest_60: 1502191116
+      spritesheet_priest_61: -513909079
+      spritesheet_priest_62: -225647308
+      spritesheet_priest_63: 480463610
+      spritesheet_priest_64: 131415950
+      spritesheet_priest_65: -165796099
+      spritesheet_priest_66: 1791598681
+      spritesheet_priest_67: -1447010282
+      spritesheet_priest_68: 2054538297
+      spritesheet_priest_69: -484675522
+      spritesheet_priest_7: -2032396116
+      spritesheet_priest_70: 1477577154
+      spritesheet_priest_71: 721555543
+      spritesheet_priest_72: -1632620269
+      spritesheet_priest_73: -1272717605
+      spritesheet_priest_74: -898557422
+      spritesheet_priest_75: -1796987781
+      spritesheet_priest_76: 960989458
+      spritesheet_priest_77: 1413479031
+      spritesheet_priest_78: -1434865201
+      spritesheet_priest_79: 493035655
+      spritesheet_priest_8: -514993403
+      spritesheet_priest_80: -814109664
+      spritesheet_priest_81: 1351363418
+      spritesheet_priest_82: -833324764
+      spritesheet_priest_83: -296392459
+      spritesheet_priest_84: -1804465673
+      spritesheet_priest_85: -1220628990
+      spritesheet_priest_86: 679694461
+      spritesheet_priest_87: -163166599
+      spritesheet_priest_88: -1264207278
+      spritesheet_priest_89: 1737228912
+      spritesheet_priest_9: 783825305
+      spritesheet_priest_90: 1492900896
+      spritesheet_priest_91: 142764635
+      spritesheet_priest_92: 138804511
+      spritesheet_priest_93: -1002287096
+      spritesheet_priest_94: 64251022
+      spritesheet_priest_95: 1046152068
+      spritesheet_priest_96: 1064693669
+      spritesheet_priest_97: 1554600291
+      spritesheet_priest_98: 2000669761
+      spritesheet_priest_99: 2044268849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

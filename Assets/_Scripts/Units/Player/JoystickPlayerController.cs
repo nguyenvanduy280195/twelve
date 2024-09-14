@@ -3,18 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class JoystickPlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Joystick _joystick;
+    [SerializeField] private float _moveSpeed;
 
-    [SerializeField]
-    private float _moveSpeed;
-
+    private JoystickManager _joystickManager;
     private Rigidbody2D _rigidbody;
     private UnitAnimationHandler _unitAnimationHandler;
 
     // Start is called before the first frame update
     void Start()
     {
+        _joystickManager = JoystickManager.Instance;
         _rigidbody = GetComponent<Rigidbody2D>();
         _unitAnimationHandler = GetComponent<UnitAnimationHandler>();
     }
@@ -28,10 +26,11 @@ public class JoystickPlayerController : MonoBehaviour
             return;
         }
 
-        if (_joystick != null)
+        var joystick = _joystickManager?.Joystick;
+        if (joystick != null)
         {
-            float x = _joystick.Horizontal * _moveSpeed;
-            float y = _joystick.Vertical * _moveSpeed;
+            float x = joystick.Horizontal * _moveSpeed;
+            float y = joystick.Vertical * _moveSpeed;
             _rigidbody.velocity = new Vector2(x, y);
 
             _unitAnimationHandler.RunWalkAnimation(x, y);

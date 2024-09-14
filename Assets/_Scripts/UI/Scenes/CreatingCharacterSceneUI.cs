@@ -1,11 +1,12 @@
+using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class CreatingCharacterSceneUI : MySceneBase
-{
 
-    [SerializeField] private ScriptablePlayerStat _soldier;
+public class CreatingCharacterSceneUI : Singleton<CreatingCharacterSceneUI>
+{
+    public ScriptablePlayerStat Player { set; private get; }
     [SerializeField] private TMP_InputField _name;
 
     public void OnEnjoyButtonClicked()
@@ -16,9 +17,11 @@ public class CreatingCharacterSceneUI : MySceneBase
             return;
         }
 
-        _CreateCharacter();
-        MySceneManager.Instance?.LoadMazeScene();
-        AudioManager.Instance?.PlayButton();
+        if (_CreateCharacter())
+        {
+            MySceneManager.Instance?.LoadMazeScene();
+            AudioManager.Instance?.PlayButton();
+        }
     }
 
     public void OnNopeButtonClicked()
@@ -27,10 +30,20 @@ public class CreatingCharacterSceneUI : MySceneBase
         AudioManager.Instance?.PlayButton();
     }
 
-    private void _CreateCharacter()
+    private bool _CreateCharacter()
     {
-        var playerStat = new PlayerStat(_soldier.PlayerStat);
-        playerStat.Name = _name.text;
-        SaveSystem.SavePlayerStat(playerStat);
+        try
+        {
+            var playerStat = new PlayerStat(Player.PlayerStat);
+            playerStat.Name = _name.text;
+            SaveSystem.SavePlayerStat(playerStat);
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Creating character fails. {e}");
+            return false;
+        }
+        Debug.Log("Creating character successes");
+        return true;
     }
 }

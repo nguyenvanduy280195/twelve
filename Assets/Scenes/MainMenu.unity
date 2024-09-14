@@ -3572,6 +3572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc875c3f4904c546b8fdb50a3ffaff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneTransition: {fileID: 1227620306}
   _confirmPopup: {fileID: 873010698}
   _casualMenuMoveTo: {fileID: 2107563218}
   _casualMenuScaleTo: {fileID: 2107563219}
