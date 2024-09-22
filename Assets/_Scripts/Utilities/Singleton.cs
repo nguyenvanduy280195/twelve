@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
@@ -22,7 +23,7 @@ public abstract class PersistentSingleton<T> : Singleton<T> where T : MonoBehavi
             Destroy(gameObject);
             return;
         }
-        
+
         base.Awake();
         transform.parent = null;
         DontDestroyOnLoad(transform.root);

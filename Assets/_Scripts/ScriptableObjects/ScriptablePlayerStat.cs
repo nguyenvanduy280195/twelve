@@ -1,12 +1,15 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStat", menuName = "Stats/PlayerStat")]
 public class ScriptablePlayerStat : ScriptableUnitStat
 {
-    public PlayerStat PlayerStat => new PlayerStat(_statMini);
+    public PlayerData PlayerStat => new PlayerData(_statMini, _skillData.ToList());
 
     [SerializeField] private PlayerStatMini _statMini;
+
+    [SerializeField] private SkillData[] _skillData;
 
 }
 
@@ -14,7 +17,7 @@ public class ScriptablePlayerStat : ScriptableUnitStat
 public struct PlayerStatMini
 {
     public string Name;
-    public string Class;
+    public UnitClass Class;
     public int Level;
     public int Strength;
     public int Vitality;

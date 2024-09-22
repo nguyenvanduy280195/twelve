@@ -34,7 +34,7 @@ public class CreatingCharacterSceneUI : Singleton<CreatingCharacterSceneUI>
     {
         try
         {
-            var playerStat = new PlayerStat(Player.PlayerStat);
+            var playerStat = new PlayerData(Player.PlayerStat);
             playerStat.Name = _name.text;
             SaveSystem.SavePlayerStat(playerStat);
         }

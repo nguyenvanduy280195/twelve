@@ -13,11 +13,24 @@ MonoBehaviour:
   m_Name: Player Stat Default
   m_EditorClassIdentifier: 
   _statMini:
-    Name: Duy
-    Class: Soldier
+    Name: My Fire Mage
+    Class: 1
     Level: 1
-    Strength: 5
-    Vitality: 10
-    Endurance: 11
-    Intelligent: 1200
-    Luck: 1
+    Strength: 7
+    Vitality: 8
+    Endurance: 9
+    Intelligent: 10
+    Luck: 2
+  _skillData:
+  - Level: 1
+    IconPath: Sprites/Skill Icons/Fire mage/Meditate
+    Name: 0
+    Describe: <This is a place to describe the skill>
+  - Level: 1
+    IconPath: Sprites/Skill Icons/Fire mage/Fireball
+    Name: 1
+    Describe: <This is a place to describe the skill>
+  - Level: 1
+    IconPath: Sprites/Skill Icons/Fire mage/Meteor
+    Name: 2
+    Describe: <This is a place to describe the skill>

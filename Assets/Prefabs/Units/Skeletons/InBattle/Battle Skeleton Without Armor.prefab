@@ -190,12 +190,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274fb225a32535a4c8e30b2b3882c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 1
+  _moveDuration: 2
   _nTurnsText: {fileID: 0}
   _skills: []
   nEffectTurns: 0
   _stat:
-    Class: Skeleton
+    Class: 0
     Level: 1
     Attack: 1
     HPMax: 0

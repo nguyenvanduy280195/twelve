@@ -34,7 +34,7 @@ public class FireballSkill : DamageSkillBase
 
     private void _LetTargetTakeDamage(BattleUnitBase target)
     {
-        var damage = _battleUnitBase.Stat.Attack * (_damageZero + _weightDamage * _level);
+        var damage = SkillDamageCalculator.Instance?.GetDamage(SkillName.Fireball, _battleUnitBase.Stat.Attack, _SkillData.Level) ?? -2;
         Debug.Log($"[FireballSkill] - Damage = {damage}");
         target?.TakeHit(damage);
     }

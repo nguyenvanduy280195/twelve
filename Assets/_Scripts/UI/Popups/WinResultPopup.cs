@@ -31,7 +31,7 @@ public class WinResultPopup : PopupTemplate
 
     private void Start()
     {
-        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerData;
         if (playerStat is not null)
         {
             _expCurrent.text = playerStat.Exp.ToString();
@@ -43,7 +43,7 @@ public class WinResultPopup : PopupTemplate
 
     private void OnDestroy()
     {
-        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerData;
         if (playerStat is not null)
         {
             playerStat.Exp += _xpEnemy + _xpBattle;
@@ -117,7 +117,7 @@ public class WinResultPopup : PopupTemplate
 
     private void _UpdateExpTotal()
     {
-        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerData;
         if (playerStat is not null)
         {
             var total = playerStat.Exp + _xpEnemy + _xpBattle;
@@ -127,7 +127,7 @@ public class WinResultPopup : PopupTemplate
 
     private void _UpdateGoldTotal()
     {
-        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat;
+        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerData;
         if (playerStat is not null)
         {
             var total = playerStat.Gold + _gEnemy + _gBattle;

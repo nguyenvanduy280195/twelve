@@ -123,7 +123,7 @@ public class UnitAnimationHandler : MonoBehaviour
 
     private (string, float) _GetAttackAnimation(float l, float r) => l < r ? (_attackLeftAnimation.Name, _attackLeftAnimation.Duration) : (_attackRightAnimation.Name, _attackRightAnimation.Duration);
 
-    private void _RunAnimation(string name) => _animator.CrossFade(name, 0);
+    private void _RunAnimation(string name) => _animator?.CrossFade(name, 0);
 
     private void _RunAnimation((string, float) animationInfo) => _RunAnimation(animationInfo.Item1, animationInfo.Item2);
 

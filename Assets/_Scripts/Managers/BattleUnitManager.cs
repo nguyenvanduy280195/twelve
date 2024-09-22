@@ -71,27 +71,13 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
         var manager = MatchingBattleManager.Instance;
         if (manager != null)
         {
-            var playerStat = manager.PlayerStat;
-            var enemyStat = manager.EnemyStat;
-
-            if (playerStat.Class == "Soldier")
-            {
-                _player = Instantiate(PrefabManager.Instance.PrefabBattleSoldier, _playerInfo.Container);
-            }
-            else if (playerStat.Class == "Priest")
-            {
-                _player = Instantiate(PrefabManager.Instance.PrefabBattlePriest, _playerInfo.Container);
-            }
-
-            if (enemyStat.Class == "Skeleton")
-            {
-                _enemy = Instantiate(PrefabManager.Instance.PrefabBattleSkeletonNoArmor, _enemyInfo.Container);
-            }
+            _player = UnitFactory.CreateBattleUnit(manager.PlayerStat.Class, _playerInfo.Container);
+            _enemy = UnitFactory.CreateBattleUnit(manager.EnemyStat.Class, _enemyInfo.Container);
         }
         else
         {
-            _player = Instantiate(PrefabManager.Instance.PrefabBattleHumanDefault, _playerInfo.Container);
-            _enemy = Instantiate(PrefabManager.Instance.PrefabBattleSkeletonDefault, _enemyInfo.Container);
+            _player = Instantiate(PrefabManager.Instance.GetDefaultUnitPrefab(UnitDefaultType.BattleHuman), _playerInfo.Container);
+            _enemy = Instantiate(PrefabManager.Instance.GetDefaultUnitPrefab(UnitDefaultType.BattleSkeleton), _enemyInfo.Container);
         }
     }
 

@@ -11,7 +11,7 @@ public class MeteorSkill : DamageSkillBase
     [Header("Meteor's Damage = atk x (damage_zero + weight_damage * skill_level)")]
     [SerializeField] private float _damageZero;
     [SerializeField] private float _weightDamage;
-    
+
 
     private readonly float _myEpsilon = 0.0001f;
 
@@ -37,7 +37,7 @@ public class MeteorSkill : DamageSkillBase
 
     private void _LetTargetTakeDamage(BattleUnitBase target)
     {
-        var damage = _battleUnitBase.Stat.Attack * (_damageZero + _weightDamage * _level);
+        var damage = SkillDamageCalculator.Instance?.GetDamage(SkillName.Meteor, _battleUnitBase.Stat.Attack, _SkillData.Level) ?? -2f;
         Debug.Log($"[Meteor] - Damage = {damage}");
         target?.TakeHit(damage);
     }

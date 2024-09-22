@@ -10,7 +10,7 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
     /// <summary>
     /// Please dont use me, Just use my getter
     /// </summary>
-    private PlayerStat _playerStat;
+    private PlayerData _playerStat;
 
     /// <summary>
     /// Please dont use me, Just use my getter
@@ -18,7 +18,7 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
     private GameObject _player;
 
     #region Public methods
-    public PlayerStat PlayerStat
+    public PlayerData PlayerData
     {
         get
         {
@@ -36,20 +36,14 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
         {
             if (_player == null)
             {
-                if (PlayerStat.Class == "Soldier")
-                {
-                    _player = Instantiate(PrefabManager.Instance.PrefabSoldier, _playerContainer);
-                }
-                else if (PlayerStat.Class == "Priest")
-                {
-                    _player = Instantiate(PrefabManager.Instance.PrefabPriest, _playerContainer);
-                }
-                else
-                {
-                    Debug.LogWarning($"[ChoosingLevelUnitManager] - Creating Player gameobject fails. Because Player's Class is {PlayerStat.Class}");
-                    _player = Instantiate(PrefabManager.Instance.PrefabHumanDefault, _playerContainer);
-                }
+                _player = UnitFactory.CreateUnit(PlayerData.Class, _playerContainer);
             }
+
+            if (_player == null)
+            {
+                _player = Instantiate(PrefabManager.Instance.GetDefaultUnitPrefab(UnitDefaultType.Human), _playerContainer);
+            }
+            
             return _player;
         }
     }

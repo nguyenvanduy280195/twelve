@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MazeSceneUI : MySceneBase
@@ -17,7 +18,7 @@ public class MazeSceneUI : MySceneBase
         if (choosingLevelUnitManager != null)
         {
             var player = choosingLevelUnitManager.Player;
-            var playerStat = choosingLevelUnitManager.PlayerStat;
+            var playerStat = choosingLevelUnitManager.PlayerData;
             var position = playerStat.Position ?? new MyPosition();
             player.transform.position = position.ToVector3();
         }

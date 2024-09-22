@@ -7,14 +7,14 @@ public static class SaveSystem
 {
     private static readonly string PLAYER_SAVE_FILENAME = "player.data";
     private static readonly string PLAYER_SAVE_FILEPATH = Application.persistentDataPath + PLAYER_SAVE_FILENAME;
-    public static void SavePlayerStat(PlayerStat stat)
+    public static void SavePlayerStat(PlayerData stat)
     {
         using var stream = new FileStream(PLAYER_SAVE_FILEPATH, FileMode.OpenOrCreate);
         var formatter = new BinaryFormatter();
         formatter.Serialize(stream, stat);
     }
 
-    public static PlayerStat LoadPlayerStat()
+    public static PlayerData LoadPlayerStat()
     {
         if (!File.Exists(PLAYER_SAVE_FILEPATH))
         {
@@ -24,7 +24,7 @@ public static class SaveSystem
 
         using var stream = new FileStream(PLAYER_SAVE_FILEPATH, FileMode.Open);
         var formatter = new BinaryFormatter();
-        var playerStat = formatter.Deserialize(stream) as PlayerStat;
+        var playerStat = formatter.Deserialize(stream) as PlayerData;
         return playerStat;
     }
 

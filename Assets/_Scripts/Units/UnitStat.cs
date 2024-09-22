@@ -1,11 +1,20 @@
 using System;
+using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
 [Serializable]
+public enum UnitClass
+{
+    Soldier,
+    FireMage,
+    Skeleton,
+}
+
+[Serializable]
 public class UnitStat
 {
-    public string Class;
+    public UnitClass Class;
     public int Level; // this can be lost
 
     public float Attack;
@@ -22,7 +31,7 @@ public class UnitStat
 }
 
 [Serializable]
-public class PlayerStat : UnitStat
+public class PlayerData : UnitStat
 {
     [Tooltip("Increase Attack\nAttack = 0.1f * Strength")]
     public int Strength;
@@ -45,12 +54,13 @@ public class PlayerStat : UnitStat
 
     public int Gold;
     public int Exp;
+    public List<SkillData> SkillData;
 
-    public PlayerStat Clone() => (PlayerStat)MemberwiseClone();
+    public PlayerData Clone() => (PlayerData)MemberwiseClone();
 
-    public PlayerStat() { }
+    public PlayerData() { SkillData = new(); }
 
-    public PlayerStat(PlayerStatMini statMini)
+    public PlayerData(PlayerStatMini statMini, List<SkillData> skillData)
     {
         Name = statMini.Name;
         Class = statMini.Class;
@@ -76,20 +86,22 @@ public class PlayerStat : UnitStat
         Endurance = statMini.Endurance;
         Intelligent = statMini.Intelligent;
         Luck = statMini.Luck;
+
+        SkillData = skillData;
     }
 
-    public PlayerStat(PlayerStat other)
+    public PlayerData(PlayerData other)
     {
         Name = other.Name;
         Class = other.Class;
         Level = other.Level;
 
         Attack = _GenerateAttack(other.Strength);
-        
+
         HPMax = _GenerateHPMax(other.Vitality);
         HP = HPMax;
         HPRegen = _GenerateHPRegen(other.Vitality);
-        
+
         ManaMax = _GenerateManaMax(other.Intelligent);
         Mana = 0f;
         ManaRegen = _GenerateManaRegen(other.Intelligent);
@@ -104,6 +116,8 @@ public class PlayerStat : UnitStat
         Endurance = other.Endurance;
         Intelligent = other.Intelligent;
         Luck = other.Luck;
+
+        SkillData = other.SkillData;
     }
 
     private float _GenerateAttack(int strength) => 0.5f * strength;
@@ -143,4 +157,3 @@ public class MyPosition
 
     public Vector3 ToVector3() => new Vector3(x, y, z);
 }
-

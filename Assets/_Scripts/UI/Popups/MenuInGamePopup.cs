@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MenuInGamePopup : PopupTemplate
 {
-    [SerializeField]
-    private GameObject _statsCanvas;
+    [SerializeField] private PopupTemplate _statsPopup;
+    [SerializeField] private PopupTemplate _skillTreePopup;
 
     public void OnBackButtonClicked()
     {
@@ -14,7 +14,14 @@ public class MenuInGamePopup : PopupTemplate
     public void OnStatsButtonClicked()
     {
         HidePopup();
-        _ShowStatsPopup();
+        _statsPopup.ShowPopup();
+        AudioManager.Instance?.PlayButton();
+    }
+
+    public void OnSkillTreeButtonClicked()
+    {
+        HidePopup();
+        _skillTreePopup.ShowPopup();
         AudioManager.Instance?.PlayButton();
     }
 
@@ -29,6 +36,4 @@ public class MenuInGamePopup : PopupTemplate
         MySceneManager.Instance?.LoadMainMenuScene();
         AudioManager.Instance?.PlayButton();
     }
-
-    private void _ShowStatsPopup() => _statsCanvas?.SetActive(true);
 }

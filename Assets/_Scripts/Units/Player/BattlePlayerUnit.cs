@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BattlePlayerUnit : BattleUnitBase
 {
-    [SerializeField] private PlayerStat _stat;
+    [SerializeField] private PlayerData _stat;
 
     public bool ExecutingSkill { set; private get; } = false;
 
@@ -107,7 +107,7 @@ public class BattlePlayerUnit : BattleUnitBase
         get => _stat;
         set
         {
-            _stat = (PlayerStat)value;
+            _stat = (PlayerData)value;
             _InitializeUIUnit();
         }
     }
@@ -146,5 +146,5 @@ public class BattlePlayerUnit : BattleUnitBase
         }
     }
 
-    public PlayerStat PlayerStat => Stat as PlayerStat;
+    public PlayerData PlayerStat => Stat as PlayerData;
 }

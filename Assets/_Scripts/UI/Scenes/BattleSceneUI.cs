@@ -6,38 +6,49 @@ using UnityEngine.UI;
 public class BattleSceneUI : MySceneBase
 {
     [SerializeField] private GameObject _menuInGame;
+    [SerializeField] private SkillInfoPopup _skillInfoPopup;
 
     public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 
     public void OnSkill1Clicked(Button button) => _LetPlayerExecuteSkill(0, button);
 
-    public void OnSkill2Clicked(Button button)
-    {
-        //Debug.Log("Weapon aura skill is block");
-        _LetPlayerExecuteSkill(1, button);
-    }
+    public void OnSkill2Clicked(Button button) => _LetPlayerExecuteSkill(1, button);
 
     public void OnSkill3Clicked(Button button) => _LetPlayerExecuteSkill(2, button);
 
     private void _LetPlayerExecuteSkill(int iSkill, Button button)
     {
-        if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
+        if (_skillInfoPopup != null)
         {
-            BattleGameManager.Instance.WaitingForSkill = true;
-            var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
-            var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-            Action onSkillSucceeded = () => button.interactable = false;
-            Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
-            Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
-            Action onSkillDone = () => button.interactable = true;
+            var player = BattleUnitManager.Instance.PlayerAsBattlePlayerUnit;
+            var playerStat = player.PlayerStat;
+            var skillData = playerStat.SkillData[iSkill];
 
-            player.ExecuteSkill(iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
+            _skillInfoPopup.SkillName = skillData.Name.ToString();
+            _skillInfoPopup.SkillImage = Resources.Load<Sprite>(skillData.IconPath);
+            _skillInfoPopup.SkillDescribe = skillData.Describe;
+            _skillInfoPopup.ManaConsumed = SkillManaConsumptionCalculator.Instance.GetManaConsumption(skillData.Name, skillData.Level);
+            _skillInfoPopup.OnUsed = () =>
+            {
+                if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
+                {
+                    var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
+                    BattleGameManager.Instance.WaitingForSkill = true;
+                    Action onSkillSucceeded = () => button.interactable = false;
+                    Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
+                    Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
+                    Action onSkillDone = () => button.interactable = true;
+
+                    player.ExecuteSkill(iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
+                }
+                else
+                {
+                    Debug.Log("This is not player's turn");
+                }
+                AudioManager.Instance?.PlayButton();
+            };
+            _skillInfoPopup.ShowPopup();
         }
-        else
-        {
-            Debug.Log("This is not player's turn");
-        }
-        AudioManager.Instance?.PlayButton();
     }
 
     public void OnExportItems()

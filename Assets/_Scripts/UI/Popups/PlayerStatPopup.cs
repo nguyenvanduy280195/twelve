@@ -47,7 +47,7 @@ public class PlayerStatPopup : PopupTemplate
     [Header("For observing")]
     [SerializeField] private bool _allButtonsEnabled = true;
 
-    private PlayerStat _playerStat;
+    private PlayerData _playerStat;
 
     #endregion
 
@@ -76,7 +76,7 @@ public class PlayerStatPopup : PopupTemplate
 
     private void Start()
     {
-        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerStat ?? BattleUnitManager.Instance?.PlayerAsBattlePlayerUnit.PlayerStat;
+        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerData ?? BattleUnitManager.Instance?.PlayerAsBattlePlayerUnit.PlayerStat;
 
         _InitializeContents();
 
@@ -91,8 +91,8 @@ public class PlayerStatPopup : PopupTemplate
         _name.Content = _playerStat.Name;
         _name.OnContentChanged = newValue => _playerStat.Name = newValue;
 
-        _class.Content = _playerStat.Class;
-        _class.OnContentChanged = newValue => _playerStat.Class = newValue;
+        _class.Content = _playerStat.Class.ToString();
+        //_class.OnContentChanged = newValue => _playerStat.Class = newValue;
 
         _level.Content = _playerStat.Level;
         _level.OnContentChanged = newValue =>

@@ -55,5 +55,5 @@ public class MeditateSkill : BuffSkillBase
         _HideSelf();
     }
 
-    private float _fManaRestore() => _weightBuff * _level * _manaConsumed;
+    private float _fManaRestore() => _weightBuff * _SkillData.Level * ManaConsumed;
 }

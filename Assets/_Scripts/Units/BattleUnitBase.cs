@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using IEnumerator = System.Collections.IEnumerator;
@@ -72,29 +73,7 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     #region ============= Methods for Inheriting =============
 
-    public void ExecuteSkill(int iSkill, BattleUnitBase target, Action onSucceeded, Action onFailed, Action onExecuted, Action onDone)
-    {
-        try
-        {
-            var manaRemain = Mana - _skills[iSkill].ManaConsumed;
-            if (manaRemain >= 0)
-            {
-                _skills[iSkill].Execute(target, onExecuted, onDone);
-                Mana = manaRemain;
-                onSucceeded?.Invoke();
-            }
-            else
-            {
-                onFailed?.Invoke();
-                Debug.Log($"Not enough mana, you need some mana");
-            }
-        }
-        catch (Exception e)
-        {
-            onFailed?.Invoke();
-            Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}");
-        }
-    }
+    public int GetSkillIndex(SkillBase skill) => _skills.ToList().FindIndex(0, it => it == skill);
 
     public abstract bool Control();
 
@@ -124,6 +103,33 @@ public abstract class BattleUnitBase : MonoBehaviour
     #endregion
 
     #region ============= public Methods =============
+
+    public void ExecuteSkill(int iSkill, BattleUnitBase target, Action onSucceeded, Action onFailed, Action onExecuted, Action onDone)
+    {
+        try
+        {
+            var skill = _skills[iSkill];
+            var manaRemain = Mana - skill.ManaConsumed;
+            if (manaRemain >= 0)
+            {
+                skill.Execute(target, onExecuted, onDone);
+                Mana = manaRemain;
+                onSucceeded?.Invoke();
+            }
+            else
+            {
+                onFailed?.Invoke();
+                Debug.Log($"Not enough mana, you need some mana");
+            }
+        }
+        catch (Exception e)
+        {
+            onFailed?.Invoke();
+            Debug.Log($"BattleUnitBase.ExecuteSkill - {e.Message}");
+        }
+    }
+
+    public float GetManaConsumed(int iSkill) => _skills[iSkill].ManaConsumed;
 
     public void AddBuffSkill(IBuffSkill buffSkill) => _buffSkills.Add(buffSkill);
 

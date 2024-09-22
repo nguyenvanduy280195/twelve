@@ -299,7 +299,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
     private IEnumerator _HandleLose()
     {
         var player = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
-        var playerStat = player.Stat as PlayerStat;
+        var playerStat = player.Stat as PlayerData;
 
         var info = _loseResult?.GetComponent<LoseResultPopup>();
         info.Gold = playerStat.Gold;

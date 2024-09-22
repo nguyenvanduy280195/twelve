@@ -5,7 +5,7 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
     [SerializeField]
     private ScriptableEnemyStat DefaultEnemyStat;
 
-    public PlayerStat PlayerStat => ChoosingLevelUnitManager.Instance.PlayerStat;
+    public PlayerData PlayerStat => ChoosingLevelUnitManager.Instance.PlayerData;
     public EnemyStat EnemyStat { get; private set; }
 
     private int _enemyID;
