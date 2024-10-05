@@ -49,9 +49,9 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
 
     private void _SetupBattleMode()
     {
-        if (_playerInfo.StatDefault is ScriptablePlayerStat scriptablePlayerStat)
+        if (_playerInfo.StatDefault is ScriptablePlayerData scriptablePlayerStat)
         {
-            PlayerAsBattleUnitBase.Stat = scriptablePlayerStat?.PlayerStat.Clone();
+            PlayerAsBattleUnitBase.Stat = scriptablePlayerStat?.PlayerData.Clone();
         }
         if (_enemyInfo.StatDefault is ScriptableEnemyStat scriptableEnemyStat)
         {

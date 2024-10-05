@@ -2271,7 +2271,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -503430259
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &905344827
@@ -2460,6 +2460,8 @@ MonoBehaviour:
       Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
+    - Key: 7
+      Value: {fileID: 5180493612770761980, guid: 85afce723d43cb0408279c6616ba686e, type: 3}
   _defaultUnitPrefabs:
     _serializedList:
     - Key: 0
@@ -2478,6 +2480,8 @@ MonoBehaviour:
       Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
+    - Key: 7
+      Value: {fileID: 5180493612770761980, guid: 329ef8c0df3c19740ab01f647dc43a3b, type: 3}
 --- !u!1 &958311937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,7 +2980,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -503430259
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!95 &1227620311
@@ -3359,9 +3363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16e8c155851b8144b95ff0a2b0b369e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weightSkill1: 10
-  _weightSkill2: 20
-  _weightSkill3: 30
+  _weightSkill1: 30
+  _weightSkill2: 60
+  _weightSkill3: 90
 --- !u!114 &1776052875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3382,8 +3386,8 @@ MonoBehaviour:
         WeightDamage: 0.5
     - Key: 2
       Value:
-        Damage0: 4
-        WeightDamage: 0.5
+        Damage0: 1
+        WeightDamage: 0.1
 --- !u!114 &1776052876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3713,7 +3717,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -503430259
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1939386150
@@ -4096,7 +4100,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -503430259
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &2100331161

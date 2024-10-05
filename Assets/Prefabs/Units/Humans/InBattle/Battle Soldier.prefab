@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3274114459069713410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195012607840785065}
+  m_Layer: 0
+  m_Name: Leech Life
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195012607840785065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274114459069713410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5135052964353341053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4251017241521201012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2180846561627449671}
+  m_Layer: 0
+  m_Name: Mobile Spin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2180846561627449671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251017241521201012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5135052964353341053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8016938021091995193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984225067270691265}
+  m_Layer: 0
+  m_Name: Power Strike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984225067270691265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016938021091995193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5135052964353341053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8394038651822192452
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +107,7 @@ GameObject:
   - component: {fileID: 4677635205520800137}
   - component: {fileID: 80776150718565348}
   - component: {fileID: 8394429098968283358}
+  - component: {fileID: 1676180095398867355}
   m_Layer: 0
   m_Name: Battle Soldier
   m_TagString: Player
@@ -33,7 +127,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 984225067270691265}
+  - {fileID: 2180846561627449671}
+  - {fileID: 1195012607840785065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8867754093160265708
@@ -74,8 +171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -503430259
-  m_SortingLayer: 9
+  m_SortingLayerID: 1108742151
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_Sprite: {fileID: -703279158, guid: ddc69509391da2c4f831e41c3761098f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,20 +246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDefaultName: Soldier_idle_right
-  _idleUpAnimationName: Soldier_idle_up
-  _idleDownAnimationName: Soldier_idle_down
-  _idleLeftAnimationName: Soldier_idle_left
-  _idleRightAnimationName: Soldier_idle_right
-  _walkUpAnimationName: Soldier_walk_up
-  _walkDownAnimationName: Soldier_walk_down
-  _walkLeftAnimationName: Soldier_walk_left
-  _walkRightAnimationName: Soldier_walk_right
   _attackLeftAnimation:
     Name: Soldier_thrust_left
     Duration: 0.5
   _attackRightAnimation:
     Name: Soldier_thrust_right
     Duration: 0.5
+  _castLeftAnimation:
+    Name: Soldier_cast_left
+    Duration: 0.583
+  _castRightAnimation:
+    Name: Soldier_cast_right
+    Duration: 0.583
   _hurtAnimation:
     Name: Soldier_hurt
     Duration: 0.438
@@ -172,12 +267,14 @@ MonoBehaviour:
   _deadAnimation:
     Name: Soldier_dead
     Duration: 0.5
-  _castLeftAnimation:
-    Name: Soldier_cast_left
-    Duration: 0.583
-  _castRightAnimation:
-    Name: Soldier_cast_right
-    Duration: 0.583
+  _idleUpAnimationName: Soldier_idle_up
+  _idleDownAnimationName: Soldier_idle_down
+  _idleLeftAnimationName: Soldier_idle_left
+  _idleRightAnimationName: Soldier_idle_right
+  _walkUpAnimationName: Soldier_walk_up
+  _walkDownAnimationName: Soldier_walk_down
+  _walkLeftAnimationName: Soldier_walk_left
+  _walkRightAnimationName: Soldier_walk_right
 --- !u!114 &8394429098968283358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,11 +287,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3004454e698738a4290b678b7bd0e2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 1
+  _moveSpeed: 1
+  _bulletSpeed: 1
   _nTurnsText: {fileID: 0}
-  _skills: []
+  _skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  State: 3
+  nEffectTurns: 0
   _stat:
-    Class: Soldier
+    Class: 0
     Level: 12
     Attack: 2
     HPMax: 0
@@ -214,7 +317,22 @@ MonoBehaviour:
     HP: 100
     Mana: 50
     Stamina: 100
-    PositionX: 0
-    PositionY: 0
+    Position:
+      x: 0
+      y: 0
+      z: 0
     Gold: 12
     Exp: 34
+    SkillData: []
+--- !u!114 &1676180095398867355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394038651822192452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9ee1e9f4320fa419a9c7f3a389e6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

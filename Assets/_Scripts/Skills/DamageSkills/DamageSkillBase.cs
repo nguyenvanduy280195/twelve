@@ -15,6 +15,8 @@ public abstract class DamageSkillBase : SkillBase
         _skillAnimationRunning = true;
         _harvestingItemsRunning = true;
 
+        yield return new WaitUntil(() => gameObject.activeSelf);
+
         StartCoroutine(_RunHavestingItems());
         StartCoroutine(_RunUnitAnimation());
         StartCoroutine(_RunSkillAnimation(target));

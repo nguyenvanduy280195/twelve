@@ -3,9 +3,9 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStat", menuName = "Stats/PlayerStat")]
-public class ScriptablePlayerStat : ScriptableUnitStat
+public class ScriptablePlayerData : ScriptableUnitStat
 {
-    public PlayerData PlayerStat => new PlayerData(_statMini, _skillData.ToList());
+    public PlayerData PlayerData => new(_statMini, _skillData.ToList());
 
     [SerializeField] private PlayerStatMini _statMini;
 
