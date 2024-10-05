@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Animator))]
 public abstract class SkillBase : MonoBehaviour
 {
     [SerializeField] protected BattleUnitBase _battleUnitBase;
@@ -12,17 +11,17 @@ public abstract class SkillBase : MonoBehaviour
     private SkillData _skillData;
     protected Action _onDone;
     protected Action _onExecuted;
+    protected BattleUnitBase _target;
     protected SkillData _SkillData
     {
         get
         {
-            if(_skillData == null)
+            if (_skillData == null)
             {
                 var unitStat = _battleUnitBase.Stat;
                 if (unitStat is PlayerData playerData)
                 {
                     var skillIndex = _battleUnitBase.GetSkillIndex(this);
-                    Debug.Log($"Skill Index = {skillIndex}");
                     _skillData = playerData.SkillData[skillIndex];
                 }
             }
@@ -30,15 +29,16 @@ public abstract class SkillBase : MonoBehaviour
         }
     }
 
-
     public float ManaConsumed => SkillManaConsumptionCalculator.Instance.GetManaConsumption(_SkillData.Name, _SkillData.Level);
 
     public void Execute(BattleUnitBase target, Action onExecuted, Action onDone)
     {
         _onDone = onDone;
         _onExecuted = onExecuted;
+        _target = target;
 
-        _ShowSelf(); // gameobject must be active, if wanting starts a coroutine
+        // the gameobject must be active, if wanting to start a coroutine
+        _ShowSelf();
         StartCoroutine(_Execute(target));
     }
 

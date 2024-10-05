@@ -139,6 +139,7 @@ public class PlayerStatPopup : PopupTemplate
         _strength.OnContentChanged = value =>
         {
             _playerStat.Strength = value;
+            _playerStat.Attack = 0.5f * value;
             _attack.Content = 0.5f * value;
         };
 
@@ -146,6 +147,8 @@ public class PlayerStatPopup : PopupTemplate
         _vitality.OnContentChanged = value =>
         {
             _playerStat.Vitality = value;
+            _playerStat.HPMax = 10f * value;
+            _playerStat.HPRegen = 0.1f * value;
             _hpMax.Content = 10f * value;
             _hpRegen.Content = 0.1f * value;
         };
@@ -154,6 +157,8 @@ public class PlayerStatPopup : PopupTemplate
         _endurance.OnContentChanged = value =>
         {
             _playerStat.Endurance = value;
+            _playerStat.StaminaMax = 10f * value;
+            _playerStat.StaminaRegen = 0.1f * value;
             _staminaMax.Content = 10f * value;
             _staminaRegen.Content = 0.1f * value;
         };
@@ -162,6 +167,8 @@ public class PlayerStatPopup : PopupTemplate
         _intelligent.OnContentChanged = value =>
         {
             _playerStat.Intelligent = value;
+            _playerStat.ManaMax = 10f * value;
+            _playerStat.ManaRegen = 0.1f * value;
             _manaMax.Content = 10f * value;
             _manaRegen.Content = 0.1f * value;
         };

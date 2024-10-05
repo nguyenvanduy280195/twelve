@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -12,7 +10,8 @@ public static class UnitFactory
         try
         {
             unit = Object.Instantiate(PrefabManager.Instance.GetUnitPrefab(unitClass), container);
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogWarning($"Probaly, I haven't implemented {unitClass} class yet");
             Debug.LogWarning($"Messages: {e}");

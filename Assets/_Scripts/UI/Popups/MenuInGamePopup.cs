@@ -27,6 +27,13 @@ public class MenuInGamePopup : PopupTemplate
 
     public void OnInventoryButtonClicked()
     {
+        HidePopup();
+        AlertPopup.Instance
+                  .SetTitle("Test title")
+                  .SetMessage("Test message")
+                  .SetOnYesButtonClicked(() => Debug.Log("Test yes button of AlertPopup"))
+                  .SetOnNoButtonClicked(() => Debug.Log("Test no button of AlertPopup"))
+                  .Show();
         AudioManager.Instance?.PlayButton();
     }
 

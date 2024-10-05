@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 {
-    [SerializeField]
-    private ScriptableEnemyStat DefaultEnemyStat;
+    [SerializeField] private ScriptableEnemyStat DefaultEnemyStat;
 
     public PlayerData PlayerStat => ChoosingLevelUnitManager.Instance.PlayerData;
     public EnemyStat EnemyStat { get; private set; }
 
+    public Vector3 PlayerPosition { get; private set; }
+
+    
     private int _enemyID;
 
     public void BeginBattle(GameObject enemy)
@@ -15,7 +17,7 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
         _SavePlayerPosition();
 
         EnemyStat = _GetEnemyStatFromEnemy(enemy);
-        if(EnemyStat == null)
+        if (EnemyStat == null)
         {
             Debug.LogWarning("[MatchingBattleManager][BeginBattle(...)] - Getting EnemyStat from Enemy failed");
             EnemyStat = DefaultEnemyStat.EnemyStat;
@@ -37,8 +39,9 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 
     private void _SavePlayerPosition()
     {
-        PlayerStat.Position = new MyPosition(ChoosingLevelUnitManager.Instance.Player.transform.position);
-        SaveSystem.SavePlayerStat(PlayerStat);
+        // PlayerStat.Position = new MyPosition(ChoosingLevelUnitManager.Instance.Player.transform.position);
+        // SaveSystem.SavePlayerStat(PlayerStat);
+        PlayerPosition = ChoosingLevelUnitManager.Instance.Player.transform.position;
     }
 
     private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance?.AddDeadEnemy(_enemyID);

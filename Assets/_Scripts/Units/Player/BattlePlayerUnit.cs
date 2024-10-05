@@ -102,7 +102,7 @@ public class BattlePlayerUnit : BattleUnitBase
 
     protected override Vector3 UnitAttackPosition => BattleUnitManager.Instance.PlayerAttackPosition;
 
-    public override UnitStat Stat
+    public override UnitData Stat
     {
         get => _stat;
         set

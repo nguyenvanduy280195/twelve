@@ -3,13 +3,25 @@ using UnityEngine;
 
 public class MazeSceneUI : MySceneBase
 {
+    public static event Action OnEnabled;
+    public static event Action OnStarted;
+
     [SerializeField] private GameObject _menuInGame;
 
     public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 
+    protected override void Awake()
+    {
+        Debug.Log("MazeSceneUI.Awake()");
+        base.Awake();
+    }
+
+    private void OnEnable() => OnEnabled?.Invoke();
+
     private void Start()
     {
         _SetupPlayer();
+        OnStarted?.Invoke();
     }
 
     private void _SetupPlayer()
@@ -19,8 +31,8 @@ public class MazeSceneUI : MySceneBase
         {
             var player = choosingLevelUnitManager.Player;
             var playerStat = choosingLevelUnitManager.PlayerData;
-            var position = playerStat.Position ?? new MyPosition();
-            player.transform.position = position.ToVector3();
+            var position = MatchingBattleManager.Instance?.PlayerPosition ?? playerStat.Position.ToVector3();
+            player.transform.position = position;
         }
 
     }

@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class CreatingCharacterSceneUI : Singleton<CreatingCharacterSceneUI>
 {
-    public ScriptablePlayerStat Player { set; private get; }
-    [SerializeField] private TMP_InputField _name;
+    [SerializeField] private TMP_InputField _playerName;
+
+    private PlayerData _playerData;
+
+    public void SetPlayerData(PlayerData value) => _playerData = value;
 
     public void OnEnjoyButtonClicked()
     {
-        if (_name.text.Count() <= 0)
+        if (_playerName.text.Count() <= 0)
         {
-            Debug.Log("Please fill your name.");
+            AlertSnackbar.Instance
+                        ?.SetText("Please fill a name for your character")
+                         .Show();
             return;
         }
 
@@ -32,15 +37,23 @@ public class CreatingCharacterSceneUI : Singleton<CreatingCharacterSceneUI>
 
     private bool _CreateCharacter()
     {
+        if(_playerData == null)
+        {
+            AlertSnackbar.Instance
+                        ?.SetText("Please choose class for your character")
+                         .Show();
+            return false;
+        }
+
         try
         {
-            var playerStat = new PlayerData(Player.PlayerStat);
-            playerStat.Name = _name.text;
+            var playerStat = new PlayerData(_playerData);
+            playerStat.Name = _playerName.text;
             SaveSystem.SavePlayerStat(playerStat);
         }
         catch (Exception e)
         {
-            Debug.Log($"Creating character fails. {e}");
+            Debug.Log($"Creating character fails - {e}");
             return false;
         }
         Debug.Log("Creating character successes");

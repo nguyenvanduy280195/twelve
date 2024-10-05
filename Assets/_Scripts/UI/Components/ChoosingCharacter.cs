@@ -4,7 +4,7 @@ public class ChoosingCharacter : MonoBehaviour
 {
     [SerializeField] private GameObject _container;
     [SerializeField] private GameObject _class;
-    [SerializeField] private ScriptablePlayerStat _playerStat;
+    [SerializeField] private ScriptablePlayerData _scriptablePlayerData;
 
     public void OnChoosingCharacter()
     {
@@ -12,10 +12,7 @@ public class ChoosingCharacter : MonoBehaviour
         {
             _DestroyContainerAllChildren();
             Instantiate(_class, _container.transform);
-            if (CreatingCharacterSceneUI.Instance != null)
-            {
-                CreatingCharacterSceneUI.Instance.Player = _playerStat;
-            }
+            CreatingCharacterSceneUI.Instance?.SetPlayerData(_scriptablePlayerData.PlayerData);
         }
     }
 

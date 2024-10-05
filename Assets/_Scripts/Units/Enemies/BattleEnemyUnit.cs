@@ -84,7 +84,7 @@ public class BattleEnemyUnit : BattleUnitBase
 
     protected override UIUnit UIUnit => BattleUIManager.Instance.Enemy;
 
-    public override UnitStat Stat
+    public override UnitData Stat
     {
         get => _stat;
         set

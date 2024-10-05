@@ -43,7 +43,9 @@ public class BattleSceneUI : MySceneBase
                 }
                 else
                 {
-                    Debug.Log("This is not player's turn");
+                    AlertSnackbar.Instance
+                                ?.SetText("This is not player's turn")
+                                 .Show();
                 }
                 AudioManager.Instance?.PlayButton();
             };

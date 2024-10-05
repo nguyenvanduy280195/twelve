@@ -43,6 +43,7 @@ public class ExitSnackbar : MonoBehaviour
 
     private IEnumerator _WaitForEscapeKey()
     {
+        // this methods will be occured only once if not while true
         while (true)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -56,6 +57,7 @@ public class ExitSnackbar : MonoBehaviour
 
     private IEnumerator _WaitForShowingSnackBar()
     {
+        // this methods will be occured only once if not while true
         while (true)
         {
             yield return new WaitUntil(() => _escapeCount >= 1 && !_snackbarShowing);

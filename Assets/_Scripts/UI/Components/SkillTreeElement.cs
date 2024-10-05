@@ -80,7 +80,9 @@ public class SkillTreeElement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough gold to level up");
+            AlertSnackbar.Instance
+                        ?.SetText("Not enough gold to level up")
+                         .Show();
         }
         AudioManager.Instance?.PlayButton();
     }

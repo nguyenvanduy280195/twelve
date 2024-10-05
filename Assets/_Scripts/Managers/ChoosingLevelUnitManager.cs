@@ -43,7 +43,7 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
             {
                 _player = Instantiate(PrefabManager.Instance.GetDefaultUnitPrefab(UnitDefaultType.Human), _playerContainer);
             }
-            
+
             return _player;
         }
     }
@@ -56,30 +56,23 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
 
     private void Start()
     {
-        MySceneBase.OnCreate += _ReloadEnemies;
-        MySceneBase.OnCreate += _FilterDeadEnemy;
+        MazeSceneUI.OnStarted += _FilterDeadEnemies;
 
         _listDeadEnemyID = new();
     }
 
     private void OnDestroy()
     {
-        MySceneBase.OnCreate -= _ReloadEnemies;
-        MySceneBase.OnCreate -= _FilterDeadEnemy;
+        MazeSceneUI.OnStarted -= _FilterDeadEnemies;
     }
 
     #endregion
 
     #region Support methods
 
-    private void _ReloadEnemies()
+    private void _FilterDeadEnemies()
     {
-        Enemies = Finder.FindGameObjectsByTag("Enemy"); // TODO Let find a better way
-    }
-
-    private void _FilterDeadEnemy()
-    {
-        var enemies = Enemies;
+        var enemies = EnemyManager.Instance.Enemies;
         foreach (var deadEnemyID in _listDeadEnemyID)
         {
             foreach (var enemy in enemies)

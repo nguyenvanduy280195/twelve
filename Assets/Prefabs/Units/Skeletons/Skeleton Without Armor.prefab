@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4550108888685157428}
   - component: {fileID: 6778968128263510746}
   - component: {fileID: 737430349254017329}
-  - component: {fileID: 3006700083388422783}
   - component: {fileID: 147855882128722038}
   - component: {fileID: -4600955015630430396}
+  - component: {fileID: 3006700083388422783}
   - component: {fileID: 6319159988317066479}
   - component: {fileID: 2516206834883238732}
   m_Layer: 0
@@ -111,48 +111,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3006700083388422783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5180493612770761980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationDefaultName: SNoArmor_idle_down
-  _attackLeftAnimation:
-    Name: 
-    Duration: 0
-  _attackRightAnimation:
-    Name: 
-    Duration: 0
-  _castLeftAnimation:
-    Name: 
-    Duration: 0
-  _castRightAnimation:
-    Name: 
-    Duration: 0
-  _hurtAnimation:
-    Name: 
-    Duration: 0
-  _aliveAnimation:
-    Name: 
-    Duration: 0
-  _deadAnimation:
-    Name: 
-    Duration: 0
-  _idleUpAnimationName: SNoArmor_idle_up
-  _idleDownAnimationName: SNoArmor_idle_down
-  _idleLeftAnimationName: SNoArmor_idle_left
-  _idleRightAnimationName: SNoArmor_idle_right
-  _walkUpAnimationName: SNoArmor_walk_up
-  _walkDownAnimationName: SNoArmor_walk_down
-  _walkLeftAnimationName: SNoArmor_walk_left
-  _walkRightAnimationName: SNoArmor_walk_right
 --- !u!61 &147855882128722038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +140,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.16159672}
@@ -225,6 +183,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3006700083388422783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180493612770761980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationDefaultName: SNoArmor_idle_down
+  _attackLeftAnimation:
+    Name: 
+    Duration: 0
+  _attackRightAnimation:
+    Name: 
+    Duration: 0
+  _castLeftAnimation:
+    Name: 
+    Duration: 0
+  _castRightAnimation:
+    Name: 
+    Duration: 0
+  _hurtAnimation:
+    Name: 
+    Duration: 0
+  _aliveAnimation:
+    Name: 
+    Duration: 0
+  _deadAnimation:
+    Name: 
+    Duration: 0
+  _idleUpAnimationName: SNoArmor_idle_up
+  _idleDownAnimationName: SNoArmor_idle_down
+  _idleLeftAnimationName: SNoArmor_idle_left
+  _idleRightAnimationName: SNoArmor_idle_right
+  _walkUpAnimationName: SNoArmor_walk_up
+  _walkDownAnimationName: SNoArmor_walk_down
+  _walkLeftAnimationName: SNoArmor_walk_left
+  _walkRightAnimationName: SNoArmor_walk_right
 --- !u!114 &6319159988317066479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,5 +252,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd3b476c5e7eeb4d96c3e711338f57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
   ScriptableEnemyStat: {fileID: 11400000, guid: 1612169e57e51794c9de312bf60e8ee4, type: 2}

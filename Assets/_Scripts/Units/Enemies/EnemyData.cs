@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyData : MonoBehaviour
 {
-    public int ID;
+    [Header("For Observing")]
+    [SerializeField] private int _id = -1;
+
+
+    public int ID => _id;
     public ScriptableEnemyStat ScriptableEnemyStat;
 }
