@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2516206834883238732}
   m_Layer: 0
   m_Name: Skeleton Plate Armor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1108742151
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1599100225, guid: f9c48f6c5f6b5bf4b9ce81586d521442, type: 3}
+  m_Sprite: {fileID: -34019627, guid: ef83a08ca40d8224280247cbb46b957c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 5180493612770761980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9aa77defd8310748b086b15f523a16d, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd2201ae845a8e8408128b8e261a77c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.16159672}
@@ -195,13 +195,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationDefaultName: SNoArmor_idle_down
+  _animationDefaultName: SkeletonPlate_idle_down
   _attackLeftAnimation:
-    Name: 
-    Duration: 0
+    Name: SkeletonPlate_attack_left
+    Duration: 0.667
   _attackRightAnimation:
-    Name: 
-    Duration: 0
+    Name: SkeletonPlate_attack_right
+    Duration: 0.667
   _castLeftAnimation:
     Name: 
     Duration: 0
@@ -209,22 +209,22 @@ MonoBehaviour:
     Name: 
     Duration: 0
   _hurtAnimation:
-    Name: 
-    Duration: 0
+    Name: SkeletonPlate_hurt
+    Duration: 0.583
   _aliveAnimation:
     Name: 
     Duration: 0
   _deadAnimation:
-    Name: 
-    Duration: 0
-  _idleUpAnimationName: SNoArmor_idle_up
-  _idleDownAnimationName: SNoArmor_idle_down
-  _idleLeftAnimationName: SNoArmor_idle_left
-  _idleRightAnimationName: SNoArmor_idle_right
-  _walkUpAnimationName: SNoArmor_walk_up
-  _walkDownAnimationName: SNoArmor_walk_down
-  _walkLeftAnimationName: SNoArmor_walk_left
-  _walkRightAnimationName: SNoArmor_walk_right
+    Name: SkeletonPlate_dead
+    Duration: 0.5
+  _idleUpAnimationName: SkeletonPlate_idle_up
+  _idleDownAnimationName: SkeletonPlate_idle_down
+  _idleLeftAnimationName: SkeletonPlate_idle_left
+  _idleRightAnimationName: SkeletonPlate_idle_right
+  _walkUpAnimationName: SkeletonPlate_walk_up
+  _walkDownAnimationName: SkeletonPlate_walk_down
+  _walkLeftAnimationName: SkeletonPlate_walk_left
+  _walkRightAnimationName: SkeletonPlate_walk_right
 --- !u!114 &6319159988317066479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,4 +252,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd3b476c5e7eeb4d96c3e711338f57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScriptableEnemyStat: {fileID: 11400000, guid: 1612169e57e51794c9de312bf60e8ee4, type: 2}
+  _id: 0
+  ScriptableEnemyStat: {fileID: 11400000, guid: bc1883af1a7183a45968f123abba6fb0, type: 2}

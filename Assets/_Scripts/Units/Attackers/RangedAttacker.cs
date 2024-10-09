@@ -14,6 +14,9 @@ public class RangedAttacker : AttackerBase
             _myUnit.State = UnitState.Attack;
             _animationHandler.RunAttackAnimation(_targetUnit.transform.position, transform.position);
 
+        });
+        _myUnit.Actions[UnitState.Attack].Enqueue(() =>
+        {
             var bullet = Instantiate(_bulletPrefab, transform);
             bullet.SetDamage(_damage)
                 .SetSpeed(_bulletSpeed)

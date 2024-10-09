@@ -119,6 +119,8 @@ public class MeteorSkill : DamageSkillBase
         var battleGameManager = BattleGameManager.Instance;
         if (battleGameManager != null)
         {
+            _destinationOfStoneForTarget.Clear();
+
             var battleData = battleGameManager.MyData;
             var items = battleData.Items;
 

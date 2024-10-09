@@ -29,19 +29,19 @@ public class BulletNormal : MonoBehaviour
 
     private IEnumerator _Fire()
     {
-        yield return _MoveToTargetUnit();
-        _targetUnit?.TakeHit(_damage);
-        Destroy(gameObject);
-    }
-
-    private IEnumerator _MoveToTargetUnit() // TODO make object pool for this
-    {
-        while (!IsContactWithTarget())
+        while (true)
         {
             transform.position = Vector2.MoveTowards(transform.position, _targetUnit.transform.position, _speed * Time.deltaTime);
             yield return null;
         }
     }
 
-    private bool IsContactWithTarget() => (transform.position - _targetUnit.transform.position).magnitude < float.Epsilon;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject == _targetUnit.gameObject)
+        {
+            _targetUnit?.TakeHit(_damage);
+            Destroy(gameObject);
+        }
+    }
 }

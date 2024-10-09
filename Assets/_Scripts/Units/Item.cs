@@ -1,8 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -18,7 +13,7 @@ public class Item : MonoBehaviour
 
     public bool IsDuplicatedWith(GameObject go) => gameObject == go;
 
-    public bool IsDuplicatedWith(Item item) => gameObject == item.gameObject;
+    public bool IsDuplicatedWith(Item item) => IsDuplicatedWith(item.gameObject);
 
     public bool IsNeighborWith(GameObject go) => IsNeighborWith(go.GetComponent<Item>());
 

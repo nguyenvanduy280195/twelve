@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using IEnumerator = System.Collections.IEnumerator;
 
+[RequireComponent(typeof(IAttacker))]
 public abstract class BattleUnitBase : MonoBehaviour
 {
     private readonly float MY_EPSILON = 0.0001f;
@@ -14,8 +15,6 @@ public abstract class BattleUnitBase : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 1f;
     [SerializeField] private TextMeshProUGUI _nTurnsText;
     [SerializeField] protected SkillBase[] _skills;
-
-
     #endregion
 
     #region ============= Fields =============
@@ -74,8 +73,6 @@ public abstract class BattleUnitBase : MonoBehaviour
     #region ============= Methods for Inheriting =============
 
     public int GetSkillIndex(SkillBase skill) => _skills.ToList().FindIndex(0, it => it == skill);
-
-    public abstract bool Control();
 
     public abstract IEnumerator ControlCoroutine();
 
