@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3006700083388422783}
   - component: {fileID: -4600955015630430396}
   - component: {fileID: 3430719321997586238}
+  - component: {fileID: 8459463764433330962}
+  - component: {fileID: 3479649555357231677}
   m_Layer: 0
   m_Name: Battle Skeleton Plate Armor
   m_TagString: Enemy
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 1108742151
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -97861586, guid: f9c48f6c5f6b5bf4b9ce81586d521442, type: 3}
+  m_Sprite: {fileID: -1946577855, guid: ef83a08ca40d8224280247cbb46b957c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 5180493612770761980}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9aa77defd8310748b086b15f523a16d, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd2201ae845a8e8408128b8e261a77c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,13 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab7f692fbfe8d94cacbd02026acc4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationDefaultName: SNoArmor_idle_left
+  _animationDefaultName: SkeletonPlate_idle_left
   _attackLeftAnimation:
-    Name: SNoArmor_attack_left
-    Duration: 0.5
+    Name: SkeletonPlate_attack_left
+    Duration: 0.667
   _attackRightAnimation:
-    Name: SNoArmor_attack_right
-    Duration: 0.5
+    Name: SkeletonPlate_attack_right
+    Duration: 0.667
   _castLeftAnimation:
     Name: 
     Duration: 0
@@ -135,22 +137,22 @@ MonoBehaviour:
     Name: 
     Duration: 0
   _hurtAnimation:
-    Name: SNoArmor_hurt
+    Name: SkeletonPlate_hurt
     Duration: 0.583
   _aliveAnimation:
     Name: 
     Duration: 0
   _deadAnimation:
-    Name: SNoArmor_dead
+    Name: SkeletonPlate_dead
     Duration: 0.5
-  _idleUpAnimationName: SNoArmor_idle_up
-  _idleDownAnimationName: SNoArmor_idle_down
-  _idleLeftAnimationName: SNoArmor_idle_left
-  _idleRightAnimationName: SNoArmor_idle_right
-  _walkUpAnimationName: SNoArmor_walk_up
-  _walkDownAnimationName: SNoArmor_walk_down
-  _walkLeftAnimationName: SNoArmor_walk_left
-  _walkRightAnimationName: SNoArmor_walk_right
+  _idleUpAnimationName: SkeletonPlate_idle_up
+  _idleDownAnimationName: SkeletonPlate_idle_down
+  _idleLeftAnimationName: SkeletonPlate_idle_left
+  _idleRightAnimationName: SkeletonPlate_idle_right
+  _walkUpAnimationName: SkeletonPlate_walk_up
+  _walkDownAnimationName: SkeletonPlate_walk_down
+  _walkLeftAnimationName: SkeletonPlate_walk_left
+  _walkRightAnimationName: SkeletonPlate_walk_right
 --- !u!50 &-4600955015630430396
 Rigidbody2D:
   serializedVersion: 4
@@ -159,7 +161,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5180493612770761980}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -190,9 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274fb225a32535a4c8e30b2b3882c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 2
+  _moveSpeed: 1
+  _bulletSpeed: 1
   _nTurnsText: {fileID: 0}
   _skills: []
+  State: 3
   nEffectTurns: 0
   _stat:
     Class: 0
@@ -208,3 +212,60 @@ MonoBehaviour:
     BonusExp: 50
     BonusGold: 0
   _delayMove: 0.5
+--- !u!114 &8459463764433330962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180493612770761980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9ee1e9f4320fa419a9c7f3a389e6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &3479649555357231677
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180493612770761980}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01, y: -0.1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27651665, y: 0.6825002}
+  m_EdgeRadius: 0

@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,14 +131,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ee8cdd274cc4d548b065727e67e5c84
-      internalID: -464401235
+      spriteID: 4fd451e25f432cf49bfcb1981a04e13c
+      internalID: 1074073525
       vertices: []
       indices: 
       edges: []
@@ -152,14 +152,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1500c1c6eb3ccb4580ab810557a23f6
-      internalID: -1607136335
+      spriteID: 2f330b11238bfc64b9dc8a0c4445088d
+      internalID: -808703901
       vertices: []
       indices: 
       edges: []
@@ -173,14 +173,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e43ecf52cb4797e439dedb85c8bcff2c
-      internalID: 1124413969
+      spriteID: 89400ee9ba6f55242ba7ab9dce67c3fa
+      internalID: -494997651
       vertices: []
       indices: 
       edges: []
@@ -194,14 +194,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1ff8e1ec161ec64888a00acd2e7374f
-      internalID: -666267147
+      spriteID: 4e3703ec8f5760047945513c732af9d2
+      internalID: -1498627496
       vertices: []
       indices: 
       edges: []
@@ -215,14 +215,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad6d58a0324e4164599b50dbb3367ceb
-      internalID: -1553482637
+      spriteID: 05b8cc5ca1344f04cb89fa981c4ee95d
+      internalID: -564680729
       vertices: []
       indices: 
       edges: []
@@ -236,14 +236,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7b626a4bea6d64196a029a5cf0f1ce
-      internalID: -30538327
+      spriteID: 17d9fc9a51071b6429b627d305a0c4b8
+      internalID: 388476290
       vertices: []
       indices: 
       edges: []
@@ -257,14 +257,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da52c9be21fc704387fe13da6b886b3
-      internalID: -634312953
+      spriteID: 474d585df22432645a02ce3b831d9b4e
+      internalID: -862903718
       vertices: []
       indices: 
       edges: []
@@ -278,14 +278,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b225d470f6f48468256ade6cb3a29b
-      internalID: 1887051856
+      spriteID: 667eaf1ab3b3f414da5b8456a2d9be93
+      internalID: 1245568294
       vertices: []
       indices: 
       edges: []
@@ -299,14 +299,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf125b72a69359540bb1a8ae04b0721f
-      internalID: -1072725971
+      spriteID: 665e8f1fd9543b2448250131c50f4f98
+      internalID: -1173889493
       vertices: []
       indices: 
       edges: []
@@ -320,14 +320,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e430a7dd30670349870ef473302c522
-      internalID: 467936601
+      spriteID: 0a6aceb512eaddc4ebc10ad65b55fb79
+      internalID: 1001706914
       vertices: []
       indices: 
       edges: []
@@ -341,14 +341,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 024c8adaa48f3294bbbc3522b0a7b696
-      internalID: 295118862
+      spriteID: da76c5baa43518b4e8fe6abd8963008a
+      internalID: -1377317875
       vertices: []
       indices: 
       edges: []
@@ -362,14 +362,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536a38d925df51d41ab8990a5290c5a8
-      internalID: 1339037387
+      spriteID: 77295bdf43800744e8598637fcf99d80
+      internalID: -1395038250
       vertices: []
       indices: 
       edges: []
@@ -383,14 +383,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0cae3b813f68fd40affe552f3ba04e1
-      internalID: 758569969
+      spriteID: 963e57f93a65d8d458d3e9b8fae2487d
+      internalID: 1393159184
       vertices: []
       indices: 
       edges: []
@@ -404,35 +404,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26feb6a08e3a38f4eab6755359866a67
-      internalID: -165932831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1152
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26cb17f5da96c3a4a9ac09e25c88f479
-      internalID: 1536803320
+      spriteID: 6d9eb804bd972de48bf214ad1f50f3a4
+      internalID: -1399027884
       vertices: []
       indices: 
       edges: []
@@ -441,19 +420,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4625383393f30d348a386af5909e1805
-      internalID: 2142147428
+      spriteID: e1f385c2df5d9a94eaf4b1194550d276
+      internalID: 1371203081
       vertices: []
       indices: 
       edges: []
@@ -462,19 +441,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99c33be9b5679b849aef0d6173d3f99f
-      internalID: -1272269100
+      spriteID: d3549d1b407456c45bb36264518782bc
+      internalID: -278956983
       vertices: []
       indices: 
       edges: []
@@ -483,19 +462,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4bd4b2c818e10945a6943f5baee5274
-      internalID: 392555545
+      spriteID: ab60d76e37e57f54f962364a02763e07
+      internalID: 397631946
       vertices: []
       indices: 
       edges: []
@@ -504,19 +483,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 765cc46d71dfb6946b6667e3267e69aa
-      internalID: -2103240736
+      spriteID: fa53a1d22200e2d43899faa4b8821227
+      internalID: 1471756669
       vertices: []
       indices: 
       edges: []
@@ -525,19 +504,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 320
+        x: 256
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbab823d9ddbf0f4eba1390294250890
-      internalID: -1755032603
+      spriteID: 8ad461a29478dc149815ceb030f73aba
+      internalID: -1075206921
       vertices: []
       indices: 
       edges: []
@@ -546,19 +525,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_20
       rect:
         serializedVersion: 2
-        x: 384
+        x: 320
         y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b045d8db2954fab489a3d09b3aebcb1c
-      internalID: 2029993806
+      spriteID: cdceac0c72a326d4c83fc61e20ab5e0d
+      internalID: 974329893
       vertices: []
       indices: 
       edges: []
@@ -567,19 +546,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_21
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1088
+        x: 384
+        y: 1152
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c52fc461b2dc3d14abc213a8881fdc44
-      internalID: -1693998235
+      spriteID: fc410698f4428294d928ab30ec5884f5
+      internalID: 2032255235
       vertices: []
       indices: 
       edges: []
@@ -588,19 +567,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_22
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60450e52e132611458d5167cdbc3f5b1
-      internalID: 961435308
+      spriteID: 5ac56596993a43646a9524b7df890966
+      internalID: -1193312933
       vertices: []
       indices: 
       edges: []
@@ -609,19 +588,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_23
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ceb7ffefbe4d76449e9a8c2181bb0b1
-      internalID: -284876149
+      spriteID: 4ef18a6968139404f81ecc96720a62ed
+      internalID: 1029002630
       vertices: []
       indices: 
       edges: []
@@ -630,19 +609,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_24
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a1c413f980ec641a6efa92bee93989
-      internalID: -1737646129
+      spriteID: 369d6d31bc1198447b09ce2c75259e1c
+      internalID: 1274740664
       vertices: []
       indices: 
       edges: []
@@ -651,19 +630,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_25
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dbc40bb4537add4db3e821d9db03307
-      internalID: -1669089044
+      spriteID: 4d25c53e0d7c6594ab5f247ceacce868
+      internalID: -332641528
       vertices: []
       indices: 
       edges: []
@@ -672,19 +651,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_26
       rect:
         serializedVersion: 2
-        x: 320
+        x: 256
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33530ec09ef3e67409a8bff24ce2861c
-      internalID: 574773818
+      spriteID: 8f6696eb7ba664d4686efac6174e8b54
+      internalID: 1918585552
       vertices: []
       indices: 
       edges: []
@@ -693,19 +672,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_27
       rect:
         serializedVersion: 2
-        x: 384
+        x: 320
         y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 728c26cbcf3cb114481a6ab9c12d8c81
-      internalID: 1667674319
+      spriteID: 5f23c03194ab12b4b811a35b4a8d2d55
+      internalID: 2127678611
       vertices: []
       indices: 
       edges: []
@@ -714,19 +693,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
+        x: 384
+        y: 1088
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 776ab0938f0c06a448df1752f1097e79
-      internalID: 1405898792
+      spriteID: a4a4a91405450e24ca7354af7c59b275
+      internalID: -339758647
       vertices: []
       indices: 
       edges: []
@@ -735,19 +714,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_29
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 201dbcfec8b41b5449c064ebf7154d80
-      internalID: 1360396285
+      spriteID: 7a7a2999c55c6ea45a0af46893a42aec
+      internalID: 1064339967
       vertices: []
       indices: 
       edges: []
@@ -756,19 +735,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_30
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b0879d86c0d0e49a31b54facf376d4
-      internalID: -1327274911
+      spriteID: b80897e398d203f43b067f215a0c3d9b
+      internalID: -1907922948
       vertices: []
       indices: 
       edges: []
@@ -777,19 +756,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_31
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e48554089ac0afa43af0996d49a99354
-      internalID: -375316828
+      spriteID: 2dcc52b1cea6bbc4aaf4bec8640c2d62
+      internalID: 854449042
       vertices: []
       indices: 
       edges: []
@@ -798,19 +777,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_32
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 188f6865cb8a82446a7f985106200879
-      internalID: 108936959
+      spriteID: 972937cc7b599aa4baace5a9df2b90f3
+      internalID: -310377680
       vertices: []
       indices: 
       edges: []
@@ -819,19 +798,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_33
       rect:
         serializedVersion: 2
-        x: 320
+        x: 256
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c28a422db5262446bbffa417094c819
-      internalID: -689800924
+      spriteID: 6c3acb0d2ea839d43b87e3d68990665b
+      internalID: 473305627
       vertices: []
       indices: 
       edges: []
@@ -840,19 +819,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_34
       rect:
         serializedVersion: 2
-        x: 384
+        x: 320
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd7046cc7c0cc8b4fbd94c65f166286d
-      internalID: 165199236
+      spriteID: c53632dbd5631f2419738f8a023c1185
+      internalID: 911937564
       vertices: []
       indices: 
       edges: []
@@ -861,19 +840,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_35
       rect:
         serializedVersion: 2
-        x: 448
+        x: 384
         y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c01f77588f9ab6479e93ab9f66a13a9
-      internalID: -819929104
+      spriteID: 0556fc61dd9549c4d9dc14f50a8eaa05
+      internalID: -152496316
       vertices: []
       indices: 
       edges: []
@@ -882,40 +861,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_36
       rect:
         serializedVersion: 2
-        x: 0
-        y: 960
+        x: 448
+        y: 1024
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f8170e8c93da0444b1a0ed71b928945
-      internalID: -1742011224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_37
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 960
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f63ca03d7f91ac43a0682165feb5df4
-      internalID: -1136200840
+      spriteID: c437056a9c900a949a1fa3c1c8e11892
+      internalID: 1331198036
       vertices: []
       indices: 
       edges: []
@@ -924,19 +882,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_38
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c4d312f7f64fe645a7363c51903885f
-      internalID: -599608812
+      spriteID: 0624ff2b6eb25014e9c9b9011d4f8ce3
+      internalID: -1946577855
       vertices: []
       indices: 
       edges: []
@@ -945,19 +903,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_39
       rect:
         serializedVersion: 2
-        x: 192
+        x: 64
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 652e79a5da88b9844b35a8fe7af4a1d6
-      internalID: -322378208
+      spriteID: 1a4bb53eeae0ade4d8ee8b90eaec9c27
+      internalID: 2024053900
       vertices: []
       indices: 
       edges: []
@@ -966,19 +924,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_40
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea53e2b3475fa84c8e243dfff43626a
-      internalID: -109983621
+      spriteID: c3f63a6ef62468b41a83da7e74978a97
+      internalID: 1906569385
       vertices: []
       indices: 
       edges: []
@@ -987,19 +945,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_41
       rect:
         serializedVersion: 2
-        x: 320
+        x: 192
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874ec77523a452b429342ca4f6eb4e35
-      internalID: -1394904929
+      spriteID: 878246f3fc386e949ac66c8dc159c749
+      internalID: 216580038
       vertices: []
       indices: 
       edges: []
@@ -1008,19 +966,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_42
       rect:
         serializedVersion: 2
-        x: 384
+        x: 256
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dfadfd14cce115499d6791bd687325f
-      internalID: -183488635
+      spriteID: 4ce528b43cb975d4398be9fc0fdd7605
+      internalID: -1947543544
       vertices: []
       indices: 
       edges: []
@@ -1029,19 +987,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_43
       rect:
         serializedVersion: 2
-        x: 448
+        x: 320
         y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c3fcaba1be31c34191b8875a291c8c2
-      internalID: 996312011
+      spriteID: f7520e6965aec0842bb5c688bab56c6e
+      internalID: 157343260
       vertices: []
       indices: 
       edges: []
@@ -1050,19 +1008,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_44
       rect:
         serializedVersion: 2
-        x: 0
-        y: 896
+        x: 384
+        y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0590d5b2f9a90674fa9bd773ad218dcb
-      internalID: 1582664358
+      spriteID: d8ed8a0e9584e6e4aad44201042291b8
+      internalID: 1415219602
       vertices: []
       indices: 
       edges: []
@@ -1071,40 +1029,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_45
       rect:
         serializedVersion: 2
-        x: 64
-        y: 896
+        x: 448
+        y: 960
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2382c1d97ad1d9c43af574ebb730ba06
-      internalID: 818326809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_46
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 896
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8d181a7315bf934ea6da984fdba6396
-      internalID: 1670148485
+      spriteID: 248a0edb1f039974194ec77ade8ae0fe
+      internalID: -1953563317
       vertices: []
       indices: 
       edges: []
@@ -1113,19 +1050,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_47
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61595450f1517c24fb91a8728aa5e91b
-      internalID: 842436898
+      spriteID: 226f149eb9eb1514caf8cdeb87bfb026
+      internalID: -2061044875
       vertices: []
       indices: 
       edges: []
@@ -1134,19 +1071,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_48
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9b72a4bf2f269145a70c5c3613e03e5
-      internalID: -1451931351
+      spriteID: 17ef4661b1ab20f4a9b6b4fc00d4fcd3
+      internalID: 1037237476
       vertices: []
       indices: 
       edges: []
@@ -1155,19 +1092,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_49
       rect:
         serializedVersion: 2
-        x: 320
+        x: 128
         y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ae3042c5a1a8ac45b660a5c01825a0c
-      internalID: 632231441
+      spriteID: 60994208ed0a16943b68837403a5d1b0
+      internalID: -925504201
       vertices: []
       indices: 
       edges: []
@@ -1176,19 +1113,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_50
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 034d9315ff0d5244c8d1e28194f40248
-      internalID: 1632563146
+      spriteID: e9c63f538f55d7f4697d3d3e52e02235
+      internalID: 829727125
       vertices: []
       indices: 
       edges: []
@@ -1197,19 +1134,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_51
       rect:
         serializedVersion: 2
-        x: 448
+        x: 256
         y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da8f087bf6a56f468ff9b7fcae1f9db
-      internalID: -127102307
+      spriteID: d9b97f3de6885a7429adc25afcef347b
+      internalID: -26081878
       vertices: []
       indices: 
       edges: []
@@ -1218,19 +1155,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_52
       rect:
         serializedVersion: 2
-        x: 0
-        y: 832
+        x: 320
+        y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 449c7714dbb41af4f90693be2fb2685a
-      internalID: 2125046480
+      spriteID: e2fa5ef075c020f48b2132461eb6b1c1
+      internalID: -749649712
       vertices: []
       indices: 
       edges: []
@@ -1239,19 +1176,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_53
       rect:
         serializedVersion: 2
-        x: 64
-        y: 832
+        x: 384
+        y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c910765daebe05479109d31761fdc6c
-      internalID: -895058324
+      spriteID: feda7d5b434124c4998a4cea9f7ce83d
+      internalID: 872215283
       vertices: []
       indices: 
       edges: []
@@ -1260,19 +1197,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_54
       rect:
         serializedVersion: 2
-        x: 128
-        y: 832
+        x: 448
+        y: 896
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19685265f860be840b0d737056af9abe
-      internalID: 759669687
+      spriteID: 4c7cb4ab9f74b8a40918f4638045070f
+      internalID: -1694990611
       vertices: []
       indices: 
       edges: []
@@ -1281,19 +1218,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_55
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 227997fa8ec41c14b981ce263a40732f
-      internalID: 936520926
+      spriteID: 06950d1cff583654f91968cea0ea1b11
+      internalID: -188568554
       vertices: []
       indices: 
       edges: []
@@ -1302,19 +1239,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_56
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3146a08e28b67f488e0f3fac6854c7a
-      internalID: -1418738202
+      spriteID: 5a28f6c4f7613534ebb7a31fa9d7fe59
+      internalID: -1757742654
       vertices: []
       indices: 
       edges: []
@@ -1323,19 +1260,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_57
       rect:
         serializedVersion: 2
-        x: 320
+        x: 128
         y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 038bb4c93aebc574db6f2754522f7178
-      internalID: -845798105
+      spriteID: dbd300b44843c1b4296736ca760a733d
+      internalID: 438645512
       vertices: []
       indices: 
       edges: []
@@ -1344,19 +1281,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_58
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9a0078ded615884e9eef478f3e7bc0a
-      internalID: 413399092
+      spriteID: ccce2b7aad6870b4591295c9d78d20f7
+      internalID: 1128532322
       vertices: []
       indices: 
       edges: []
@@ -1365,19 +1302,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_59
       rect:
         serializedVersion: 2
-        x: 448
+        x: 256
         y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6b8aca09b3f450429d29607f37dedb5
-      internalID: 1884257538
+      spriteID: 411151ca3268a3b4badb858e07d72d7e
+      internalID: -1618246432
       vertices: []
       indices: 
       edges: []
@@ -1386,19 +1323,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_60
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
+        x: 320
+        y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 490085eaa3d93894e8ed670ca7a76f7f
-      internalID: -41819022
+      spriteID: b7f2ad0b2e1b8e64888e41c32fd442db
+      internalID: -855394417
       vertices: []
       indices: 
       edges: []
@@ -1407,19 +1344,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_61
       rect:
         serializedVersion: 2
-        x: 64
-        y: 768
+        x: 384
+        y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0c5a31988a80f42a08f8cc2f6af7bf
-      internalID: -1442827226
+      spriteID: d6245ea4dd5321a408d9e14904e00d0e
+      internalID: -947534284
       vertices: []
       indices: 
       edges: []
@@ -1428,19 +1365,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_62
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
+        x: 448
+        y: 832
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47f282d03a69b40409f647b61c63e41d
-      internalID: -1279372722
+      spriteID: 08b78df49ba091a4fab11668f9386a19
+      internalID: 469023453
       vertices: []
       indices: 
       edges: []
@@ -1449,19 +1386,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_63
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a2563d9301fe834baba7d420ceac442
-      internalID: 1261857300
+      spriteID: d3699d9a5c299674b90b74205569cd31
+      internalID: -96383202
       vertices: []
       indices: 
       edges: []
@@ -1470,19 +1407,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_64
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0595f10d37e38f4aa45135eac516a1a
-      internalID: 1132068011
+      spriteID: 542ddd303c9dee04da93d663af695f0a
+      internalID: 736863089
       vertices: []
       indices: 
       edges: []
@@ -1491,19 +1428,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_65
       rect:
         serializedVersion: 2
-        x: 320
+        x: 128
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d280b448c5027c45bcd1e49e7772151
-      internalID: 470195453
+      spriteID: 1546af0b9aee7214d8c6a9f627fba794
+      internalID: 1125686759
       vertices: []
       indices: 
       edges: []
@@ -1512,19 +1449,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_66
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0075046db0815424eba5b82d28df5179
-      internalID: 1510793727
+      spriteID: eee3e4934c0947b4c901650d7ca99a9c
+      internalID: -90023559
       vertices: []
       indices: 
       edges: []
@@ -1533,19 +1470,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_67
       rect:
         serializedVersion: 2
-        x: 448
+        x: 256
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b4853243128dc45ab526bd8d14cd0b
-      internalID: 1541513468
+      spriteID: 62473324bd3b246448c071601afe1c3b
+      internalID: -62346224
       vertices: []
       indices: 
       edges: []
@@ -1554,19 +1491,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_68
       rect:
         serializedVersion: 2
-        x: 512
+        x: 320
         y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7325d4a0447b18408464024fbcc1aeb
-      internalID: 448570942
+      spriteID: 49fc5de6e2ea6b4479c4285cd4141f44
+      internalID: 524719740
       vertices: []
       indices: 
       edges: []
@@ -1575,19 +1512,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_69
       rect:
         serializedVersion: 2
-        x: 0
-        y: 704
+        x: 384
+        y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc2ee1666367d5499f09f0c60c941de
-      internalID: 1850869483
+      spriteID: e3c4f7744609639488ecb9ea37df76fd
+      internalID: -761807655
       vertices: []
       indices: 
       edges: []
@@ -1596,19 +1533,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_70
       rect:
         serializedVersion: 2
-        x: 64
-        y: 704
+        x: 448
+        y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 096eddd0995663a42bb15b52c8f2fb68
-      internalID: 1734193495
+      spriteID: 006edf047cde7624f8a3ee1628e895f6
+      internalID: 136168070
       vertices: []
       indices: 
       edges: []
@@ -1617,19 +1554,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_71
       rect:
         serializedVersion: 2
-        x: 128
-        y: 704
+        x: 512
+        y: 768
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09a8426c92c02994fb9386aead52c669
-      internalID: -116513656
+      spriteID: 0f62baff4ef9cfe46a43473134808a60
+      internalID: 1578082489
       vertices: []
       indices: 
       edges: []
@@ -1638,19 +1575,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_72
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7e83158ec8f653498e151421c045d17
-      internalID: 1728358629
+      spriteID: 43d3477ec66eaef4a9b599c0ab882414
+      internalID: 567822000
       vertices: []
       indices: 
       edges: []
@@ -1659,19 +1596,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_73
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51b53f55dd6a3334194800b950bb699a
-      internalID: 600712812
+      spriteID: f928633131d52c9459b6c2c41f1f8524
+      internalID: -583735968
       vertices: []
       indices: 
       edges: []
@@ -1680,19 +1617,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_74
       rect:
         serializedVersion: 2
-        x: 320
+        x: 128
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc90d6b60b2a5f9409d8a2234084ca0f
-      internalID: 1766693397
+      spriteID: 6abdea200efcb7a4395e4d67a6e19b7a
+      internalID: -316977269
       vertices: []
       indices: 
       edges: []
@@ -1701,19 +1638,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_75
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fb82922410e93945ab818f2ee399001
-      internalID: 2141074740
+      spriteID: 7383aaaede8644249ac6defe95331586
+      internalID: -928843326
       vertices: []
       indices: 
       edges: []
@@ -1722,19 +1659,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_76
       rect:
         serializedVersion: 2
-        x: 448
+        x: 256
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30a29d5575715e3439d0b86a317c2715
-      internalID: -1616474156
+      spriteID: 87a3ea263896faf4392e116f70029947
+      internalID: -1456467109
       vertices: []
       indices: 
       edges: []
@@ -1743,19 +1680,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_77
       rect:
         serializedVersion: 2
-        x: 512
+        x: 320
         y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b39a5f1f5bb9c2b4fbc837a917e77d0f
-      internalID: -151313880
+      spriteID: 4f4a8b0d37ca58749a332e726156ed17
+      internalID: -172409844
       vertices: []
       indices: 
       edges: []
@@ -1764,19 +1701,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_78
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
+        x: 384
+        y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 993b04e0dd9b6c64897f4d110dd9fd96
-      internalID: -122808976
+      spriteID: 87437c1bc88d81a40b1fc99bed5e3504
+      internalID: -339914886
       vertices: []
       indices: 
       edges: []
@@ -1785,19 +1722,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_79
       rect:
         serializedVersion: 2
-        x: 64
-        y: 640
+        x: 448
+        y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a21897cf99caf0b46909655dfe14fb04
-      internalID: 686551098
+      spriteID: 6404db04b962fa74e88e80b1d4f0110b
+      internalID: 2112585054
       vertices: []
       indices: 
       edges: []
@@ -1806,40 +1743,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_80
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
+        x: 512
+        y: 704
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af76c9e1eafcfb847a6d92d0d4e99e67
-      internalID: -1781072254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_81
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 640
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: abe07772e6fc52e4d882f04f719b260a
-      internalID: 1220799994
+      spriteID: c6122090562c5b64391198f09245c6b8
+      internalID: 1878458999
       vertices: []
       indices: 
       edges: []
@@ -1848,19 +1764,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_82
       rect:
         serializedVersion: 2
-        x: 256
+        x: 0
         y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 541f5994babd8a143ae192b07b1ce634
-      internalID: 1291059258
+      spriteID: f47154124d98761439de0d96dcbf937a
+      internalID: -34019627
       vertices: []
       indices: 
       edges: []
@@ -1869,19 +1785,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_83
       rect:
         serializedVersion: 2
-        x: 320
+        x: 64
         y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35dcbe418f301954dac3600838c58d01
-      internalID: 943848405
+      spriteID: caa5a354d90412f46878222b263ba7d9
+      internalID: 1680388685
       vertices: []
       indices: 
       edges: []
@@ -1890,19 +1806,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_84
       rect:
         serializedVersion: 2
-        x: 384
+        x: 128
         y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be93b4fb34df53844b34656e85c1db3c
-      internalID: -568121936
+      spriteID: c19b23ac634861943ab6eabc59ca5a84
+      internalID: -171707544
       vertices: []
       indices: 
       edges: []
@@ -1911,19 +1827,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_85
       rect:
         serializedVersion: 2
-        x: 448
+        x: 192
         y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e840061f1dd62aa4aad34da2ac2675f0
-      internalID: -142305257
+      spriteID: 8664aa4af28baf44a8c54979c5b97669
+      internalID: 1410101921
       vertices: []
       indices: 
       edges: []
@@ -1932,19 +1848,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_86
       rect:
         serializedVersion: 2
-        x: 512
+        x: 256
         y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b951efd3eda17854da1930653f2ac827
-      internalID: 174691539
+      spriteID: b30e632dcad97764f8572076976a2730
+      internalID: 159841057
       vertices: []
       indices: 
       edges: []
@@ -1953,19 +1869,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_87
       rect:
         serializedVersion: 2
-        x: 0
-        y: 576
+        x: 320
+        y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f8ee46a66e14d24da981d09e91cc3fc
-      internalID: -1208744684
+      spriteID: d7bc16db14e021e468262ffc20b69361
+      internalID: 432815140
       vertices: []
       indices: 
       edges: []
@@ -1974,19 +1890,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_88
       rect:
         serializedVersion: 2
-        x: 64
-        y: 576
+        x: 384
+        y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b7d66f6efe6ac640908d036cf94011e
-      internalID: 724575514
+      spriteID: cd77288d5a945b84db638a6f75504f49
+      internalID: -1657598849
       vertices: []
       indices: 
       edges: []
@@ -1995,19 +1911,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_89
       rect:
         serializedVersion: 2
-        x: 128
-        y: 576
+        x: 448
+        y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45431d6daeca73e4aada3579434aa94d
-      internalID: 1864654456
+      spriteID: f0ea49663c83b0c44ae5647d9503ec95
+      internalID: -1721869171
       vertices: []
       indices: 
       edges: []
@@ -2016,40 +1932,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_90
       rect:
         serializedVersion: 2
-        x: 192
-        y: 576
+        x: 512
+        y: 640
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0125658405a20984c9376ba1497a8ada
-      internalID: 1634968568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_91
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 576
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44959d6a849d5034aa8946d37e97fe61
-      internalID: 1730971785
+      spriteID: 763f09b1a089db24b9b16b96ff1fb105
+      internalID: 1185647185
       vertices: []
       indices: 
       edges: []
@@ -2058,19 +1953,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_92
       rect:
         serializedVersion: 2
-        x: 320
+        x: 0
         y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb658dfd054649b44bb96b6b94155d7f
-      internalID: 2097899102
+      spriteID: 95fcbb8cc9bb0464f996e53ba7382fa0
+      internalID: -398282904
       vertices: []
       indices: 
       edges: []
@@ -2079,19 +1974,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_93
       rect:
         serializedVersion: 2
-        x: 384
+        x: 64
         y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2361fb21c5ec1f4480b4921ad8f82cc
-      internalID: 1553536099
+      spriteID: f952d49f9968b104fbb6d55f5dea4abc
+      internalID: -1793075380
       vertices: []
       indices: 
       edges: []
@@ -2100,19 +1995,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_94
       rect:
         serializedVersion: 2
-        x: 448
+        x: 128
         y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db734ba53126db3488d406506293e170
-      internalID: -991229276
+      spriteID: f181dc3f82fc13a4b97a36dd08ec2405
+      internalID: -1014312940
       vertices: []
       indices: 
       edges: []
@@ -2121,19 +2016,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_95
       rect:
         serializedVersion: 2
-        x: 512
+        x: 192
         y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b7fb4d0d83bdf44c93f8e440f0722a1
-      internalID: 1861856753
+      spriteID: 32ba474a3bb20184e9a5bdaec634b7e2
+      internalID: -388897058
       vertices: []
       indices: 
       edges: []
@@ -2142,19 +2037,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_96
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
+        x: 256
+        y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a29d926b483972a4b9818831829aba35
-      internalID: 1957893337
+      spriteID: d364de7e52d5b1f4f9dcf98c3592e889
+      internalID: -1586950364
       vertices: []
       indices: 
       edges: []
@@ -2163,19 +2058,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_97
       rect:
         serializedVersion: 2
-        x: 64
-        y: 512
+        x: 320
+        y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7caee916be81b049bac732f9a767c35
-      internalID: 1691216881
+      spriteID: 648dec53b7d388542b77828d48977285
+      internalID: -443806877
       vertices: []
       indices: 
       edges: []
@@ -2184,19 +2079,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_98
       rect:
         serializedVersion: 2
-        x: 128
-        y: 512
+        x: 384
+        y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3595a315f8bb4b542b44015dac879f59
-      internalID: 1760953512
+      spriteID: d76e28a34e22f504fa6b917d7d88e45a
+      internalID: -156559255
       vertices: []
       indices: 
       edges: []
@@ -2205,19 +2100,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_99
       rect:
         serializedVersion: 2
-        x: 192
-        y: 512
+        x: 448
+        y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 879445a34ed6e754d94fb3e9c99a27e4
-      internalID: 646244353
+      spriteID: 5da338a5d8792754c884543bb323a666
+      internalID: 710567451
       vertices: []
       indices: 
       edges: []
@@ -2226,19 +2121,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_100
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
+        x: 512
+        y: 576
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24b510fb487cdb14db0e316c7bc40dbc
-      internalID: 393077640
+      spriteID: 9129994098cbaac46a8b0c3fc6d0a0cf
+      internalID: -1864515746
       vertices: []
       indices: 
       edges: []
@@ -2247,19 +2142,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_101
       rect:
         serializedVersion: 2
-        x: 320
+        x: 0
         y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91dee6b0ab07eb34fbc3c844cb6bfbb6
-      internalID: -706407840
+      spriteID: 6e642e8b4884dc14ea8d41f7b7071a4b
+      internalID: -1532643225
       vertices: []
       indices: 
       edges: []
@@ -2268,19 +2163,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_102
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
+        x: 64
+        y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 885be5b3a505e054ea91e0d601918672
-      internalID: 487010628
+      spriteID: ed5aac095483878469caf6c4f3897800
+      internalID: 411466946
       vertices: []
       indices: 
       edges: []
@@ -2289,19 +2184,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_103
       rect:
         serializedVersion: 2
-        x: 64
-        y: 448
+        x: 128
+        y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 847cff8389e97f1438646175d4b93840
-      internalID: -2035680358
+      spriteID: 754dfc98dbf3b7e4b93868dc6eb1f1e2
+      internalID: 547076455
       vertices: []
       indices: 
       edges: []
@@ -2310,19 +2205,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_104
       rect:
         serializedVersion: 2
-        x: 128
-        y: 448
+        x: 192
+        y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2614c73669bbc2a40b7949bfb02fbddd
-      internalID: -1068484777
+      spriteID: a38cb6262d56ff1438f3cf23d0850182
+      internalID: -1000951734
       vertices: []
       indices: 
       edges: []
@@ -2331,19 +2226,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_105
       rect:
         serializedVersion: 2
-        x: 192
-        y: 448
+        x: 256
+        y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b52d0e0a72900e45bb5cfd9f87b9a83
-      internalID: 1894693217
+      spriteID: 63e28cc8553ef044798c7e0f503aaeb7
+      internalID: -2045276771
       vertices: []
       indices: 
       edges: []
@@ -2352,82 +2247,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_106
       rect:
         serializedVersion: 2
-        x: 256
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be85c01951fbd1c428fe4e10970eae8b
-      internalID: -88619127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_107
-      rect:
-        serializedVersion: 2
         x: 320
-        y: 448
+        y: 512
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85648a9e1de15bf48862c48b06861e7f
-      internalID: -1860373735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_108
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c112e73a631fba243be3903e4eb1e0db
-      internalID: 1110713033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_109
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c14a3f1399ab56b499a4ccf3e0bc6615
-      internalID: -1487530938
+      spriteID: 78459be02a3c1654e857a6d61e461a3b
+      internalID: 2072575694
       vertices: []
       indices: 
       edges: []
@@ -2436,19 +2268,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_110
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dfcaca0497316944932b66cdaa37c6d
-      internalID: 1632066072
+      spriteID: e810cf543d3f32f4991902278b7d8bba
+      internalID: -960715040
       vertices: []
       indices: 
       edges: []
@@ -2457,19 +2289,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_111
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 64
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcbd17092c7f6bc46a7a3f671db15f2f
-      internalID: 298769682
+      spriteID: 21495a069be749d4caa36f218389739d
+      internalID: -1745646361
       vertices: []
       indices: 
       edges: []
@@ -2478,19 +2310,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_112
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 128
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44b30db2b4bb8c34e859c9b19853ece4
-      internalID: -321834480
+      spriteID: 624e6e5af7e884a4fbdfb42a70385c22
+      internalID: -1606495235
       vertices: []
       indices: 
       edges: []
@@ -2499,19 +2331,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_113
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
+        x: 192
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f028453ec500a478b792c31113efa1
-      internalID: 1909172970
+      spriteID: 78c2cd51bf188ee4db9e90be11bf3fbe
+      internalID: 2002040680
       vertices: []
       indices: 
       edges: []
@@ -2520,19 +2352,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_114
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
+        x: 256
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d9b1f01182a9824cb4bfb70a196b8bd
-      internalID: 1006513884
+      spriteID: f7ba1c6e8bfc2b84eb4f618d9b0db5a2
+      internalID: -139753212
       vertices: []
       indices: 
       edges: []
@@ -2541,40 +2373,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_115
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
+        x: 320
+        y: 448
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1240c147f448364f99ac367b9f51f1c
-      internalID: 794006030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleton_plate_armor_spritesheet_116
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 039884b7d6ed02e4da504358e8ac4129
-      internalID: -823876406
+      spriteID: a1f9c30ff05f69f4690cb59a119dd1de
+      internalID: -1916386190
       vertices: []
       indices: 
       edges: []
@@ -2583,19 +2394,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_117
       rect:
         serializedVersion: 2
-        x: 192
-        y: 320
+        x: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ee7bed53cbb35a4ba3b55eeb7fc8ead
-      internalID: -272078740
+      spriteID: f323dc9ca2ba1ba4cbe0e2f4f1a6c0b5
+      internalID: 1561895738
       vertices: []
       indices: 
       edges: []
@@ -2604,19 +2415,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_118
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
+        x: 64
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaf6b1e8d81352c428efd2d29d52f3ca
-      internalID: -335266124
+      spriteID: e21e1690318031041942775365845dd5
+      internalID: 1900535302
       vertices: []
       indices: 
       edges: []
@@ -2625,19 +2436,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_119
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
+        x: 128
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5284e9f29d5b22b4b98705f56eb15c64
-      internalID: -880220031
+      spriteID: 75eb710a696647944a5cfaf62ff519b6
+      internalID: 301076523
       vertices: []
       indices: 
       edges: []
@@ -2646,19 +2457,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_120
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 192
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fb16a27429f03f469be071caeded89b
-      internalID: 1811265464
+      spriteID: b296d7ee30e5ea74ca764f9f2ce99cd4
+      internalID: 1167658514
       vertices: []
       indices: 
       edges: []
@@ -2667,19 +2478,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_121
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
+        x: 256
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8fc9ca833fd2cb4a89a894436757ad5
-      internalID: 1539056941
+      spriteID: 2695b97860074b546bbfc83d9fb383e6
+      internalID: -760718901
       vertices: []
       indices: 
       edges: []
@@ -2688,19 +2499,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_122
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 320
+        y: 384
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6999d2d1f030c864db770f7f7cfa7fea
-      internalID: -834154969
+      spriteID: 0c69bdd7e2689484492facef38bdf638
+      internalID: -980550119
       vertices: []
       indices: 
       edges: []
@@ -2709,19 +2520,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_123
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
+        x: 0
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f19eb0e8224b554fa8fe06629d7a388
-      internalID: 1310437040
+      spriteID: ac88142e4dd605c4096151c0bfeb018f
+      internalID: 1361248589
       vertices: []
       indices: 
       edges: []
@@ -2730,19 +2541,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_124
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 64
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68804ff92e79ed8409acf903bfe81dda
-      internalID: -204247481
+      spriteID: 4b30ac83ce09c7347abf11d756cd8c4c
+      internalID: 543143078
       vertices: []
       indices: 
       edges: []
@@ -2751,19 +2562,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_125
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
+        x: 128
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf79adf503bf3a4693c6d35cd605046
-      internalID: -1099866646
+      spriteID: bc5bf74b317eb7342bf4860f2d89f0ed
+      internalID: -911604780
       vertices: []
       indices: 
       edges: []
@@ -2772,19 +2583,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_126
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdfd46c4b6eb1a14f8737f8c1064afdc
-      internalID: -1071766907
+      spriteID: 32c7ff8b2bac3bf46ac56df570ecd765
+      internalID: -1992443924
       vertices: []
       indices: 
       edges: []
@@ -2793,19 +2604,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_127
       rect:
         serializedVersion: 2
-        x: 448
-        y: 256
+        x: 256
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e54aaba6b9b9c2445918df327c7deb55
-      internalID: -1919073669
+      spriteID: da552ad8d26668e44a73b4a2feb4ec6f
+      internalID: 2084835871
       vertices: []
       indices: 
       edges: []
@@ -2814,19 +2625,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_128
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
+        x: 320
+        y: 320
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90bb982481491744fa264fa1bdb6ae18
-      internalID: 593776693
+      spriteID: 7cc3b931b36fdfe48823d76fab0e5035
+      internalID: 787535922
       vertices: []
       indices: 
       edges: []
@@ -2835,19 +2646,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_129
       rect:
         serializedVersion: 2
-        x: 576
+        x: 0
         y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e48c10d1dfe36354eb620dc12d9f046e
-      internalID: -1672743249
+      spriteID: c503eafb5fea3ab4d9606408041059fc
+      internalID: -2105092360
       vertices: []
       indices: 
       edges: []
@@ -2856,19 +2667,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_130
       rect:
         serializedVersion: 2
-        x: 640
+        x: 64
         y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2aa7ba20a647d84da8763170748a05d
-      internalID: -1313489475
+      spriteID: 7a120407838952645a4fb20ba84a76f6
+      internalID: 974713168
       vertices: []
       indices: 
       edges: []
@@ -2877,19 +2688,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_131
       rect:
         serializedVersion: 2
-        x: 704
+        x: 128
         y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d0a8f96daa7d5c49bdc3154c7bfb223
-      internalID: -1989252279
+      spriteID: 7ca88661a87a6404fb91c109293385db
+      internalID: -389068824
       vertices: []
       indices: 
       edges: []
@@ -2898,19 +2709,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_132
       rect:
         serializedVersion: 2
-        x: 768
+        x: 192
         y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083f1b3a9363ecd489b823a9cd0975e2
-      internalID: 1435787013
+      spriteID: 77b2aa4429ab51444aeedc653353d5d8
+      internalID: 1472636510
       vertices: []
       indices: 
       edges: []
@@ -2919,19 +2730,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_133
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 256
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a3294086289a04e914cc85a4f8ef13
-      internalID: 1610734452
+      spriteID: 7725480ce892c8b4890ac9a5b6b32058
+      internalID: -92884114
       vertices: []
       indices: 
       edges: []
@@ -2940,19 +2751,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_134
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 320
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a1b27ff0254ef646a905c0e8701a005
-      internalID: 366784339
+      spriteID: 375a619c381ee984e9744713b4d2d273
+      internalID: 1816097241
       vertices: []
       indices: 
       edges: []
@@ -2961,19 +2772,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_135
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
+        x: 384
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844c5e53eed45654aa3acec2ceac0e0e
-      internalID: -2020512200
+      spriteID: 649e50b40f0a6cd48b72f1a096719fb7
+      internalID: -1313336273
       vertices: []
       indices: 
       edges: []
@@ -2982,19 +2793,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_136
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
+        x: 448
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85859e5685cd05d43bea760e3eab25e9
-      internalID: 958811796
+      spriteID: 97ee519590ca3b44ca85867bb1be9fe7
+      internalID: 804584651
       vertices: []
       indices: 
       edges: []
@@ -3003,19 +2814,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_137
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
+        x: 512
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78227721c057dc1439ceeaf8a00e02f1
-      internalID: 1004591634
+      spriteID: 51e7fa885342bf540b3eca5245904d95
+      internalID: -1597109824
       vertices: []
       indices: 
       edges: []
@@ -3024,19 +2835,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_138
       rect:
         serializedVersion: 2
-        x: 320
-        y: 192
+        x: 576
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78f39c242ff1bc74983ef0531ca936af
-      internalID: 2094605613
+      spriteID: d694ae3facd7d214aa5cb1b2505665f6
+      internalID: -1791637268
       vertices: []
       indices: 
       edges: []
@@ -3045,19 +2856,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_139
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
+        x: 640
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be7cf30ab8b91414ab3f9b0a9a68c378
-      internalID: 222063615
+      spriteID: eeb96a245a6b4ab46ace1e651ca90fa6
+      internalID: -97373124
       vertices: []
       indices: 
       edges: []
@@ -3066,19 +2877,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_140
       rect:
         serializedVersion: 2
-        x: 448
-        y: 192
+        x: 704
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de4d1dcf122eb34d9c6c5dc817d2fc5
-      internalID: 1813708023
+      spriteID: 9316ea4935febcd4ea3ae3bf48679d3d
+      internalID: 515670100
       vertices: []
       indices: 
       edges: []
@@ -3087,19 +2898,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_141
       rect:
         serializedVersion: 2
-        x: 512
-        y: 192
+        x: 768
+        y: 256
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 292c5a20baf3c674382c3714573af856
-      internalID: -1088541693
+      spriteID: 9f3223c955762d94daac0c7f615de3b8
+      internalID: 1531753711
       vertices: []
       indices: 
       edges: []
@@ -3108,19 +2919,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_142
       rect:
         serializedVersion: 2
-        x: 576
+        x: 0
         y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0be72d13a3b117e49b1c99bf2c5d555d
-      internalID: -1477084675
+      spriteID: 568dcdeac6240cc4abd2fd11d1293d24
+      internalID: -1936151382
       vertices: []
       indices: 
       edges: []
@@ -3129,19 +2940,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_143
       rect:
         serializedVersion: 2
-        x: 640
+        x: 64
         y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfec90e10abb61541932c61c7f337c1d
-      internalID: -562255891
+      spriteID: f5eb7aa5a690ebf49922f23c29a04228
+      internalID: -837459362
       vertices: []
       indices: 
       edges: []
@@ -3150,19 +2961,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_144
       rect:
         serializedVersion: 2
-        x: 704
+        x: 128
         y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d0b385ac7066b742a4eb559edc1066f
-      internalID: 286080192
+      spriteID: 2f76319aa79cf494f8021242046bffed
+      internalID: 1515918899
       vertices: []
       indices: 
       edges: []
@@ -3171,19 +2982,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_145
       rect:
         serializedVersion: 2
-        x: 768
+        x: 192
         y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d58f75539ffc3c34289c5d24177b6218
-      internalID: 809048107
+      spriteID: 25ae6744d9917754bb0383b87b8d4a14
+      internalID: 1057917959
       vertices: []
       indices: 
       edges: []
@@ -3192,19 +3003,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_146
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 256
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4656cfe75cdec3b47908b5fe01442951
-      internalID: -246118638
+      spriteID: 746970b1efb202d4090774a88a30684c
+      internalID: 53144533
       vertices: []
       indices: 
       edges: []
@@ -3213,19 +3024,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_147
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 320
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c601209148fc2144780e488f64531dd4
-      internalID: -2071249579
+      spriteID: 4c055d83fc590784ca841d902fc51891
+      internalID: 1491379397
       vertices: []
       indices: 
       edges: []
@@ -3234,19 +3045,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_148
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 384
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 545c42532521a2d469e10bf002082a6a
-      internalID: 1070713613
+      spriteID: 636177fecdc76e94597a57bcb5d91d78
+      internalID: -1267729800
       vertices: []
       indices: 
       edges: []
@@ -3255,19 +3066,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_149
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 448
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4531e1a8285650941833f24dad32e869
-      internalID: 1186282009
+      spriteID: 3b7b8d35f4870dd45b67ce156e0173ab
+      internalID: 1642084239
       vertices: []
       indices: 
       edges: []
@@ -3276,19 +3087,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_150
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 512
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d61d2a338056bf64cbe16fed63f0ad4b
-      internalID: 381757131
+      spriteID: cb59e0cfc04b1f14489976ba04a043bf
+      internalID: 792122228
       vertices: []
       indices: 
       edges: []
@@ -3297,19 +3108,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_151
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
+        x: 576
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 033fa041570ee7e42ba343b64aa569fb
-      internalID: -1263201549
+      spriteID: e4bca79a3b6e9e94695e8d5a7dd412f1
+      internalID: -1247408388
       vertices: []
       indices: 
       edges: []
@@ -3318,19 +3129,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_152
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 640
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608a26b3d904d3e4e88f12f2ed85a846
-      internalID: -568962501
+      spriteID: 2b9e00d3d0e4f3247a43a7ec786f7ed8
+      internalID: 1316604875
       vertices: []
       indices: 
       edges: []
@@ -3339,19 +3150,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_153
       rect:
         serializedVersion: 2
-        x: 448
-        y: 128
+        x: 704
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 513cc73d77c54c440ae4be4bb1dd35b0
-      internalID: -15424595
+      spriteID: b31d036ec1fe338429948d8e88dc70c3
+      internalID: -749468647
       vertices: []
       indices: 
       edges: []
@@ -3360,19 +3171,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_154
       rect:
         serializedVersion: 2
-        x: 512
-        y: 128
+        x: 768
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0610e06b9464cb41a9f76196224baa8
-      internalID: 1151931502
+      spriteID: f51dd10dcae6a6046a5d37071967ad31
+      internalID: -930608960
       vertices: []
       indices: 
       edges: []
@@ -3381,19 +3192,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_155
       rect:
         serializedVersion: 2
-        x: 576
+        x: 0
         y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4302ffdaa6d12046b30906268f5c61e
-      internalID: -1560284882
+      spriteID: 3d92d35b4344d474c998d5aa0f55e225
+      internalID: 1945295247
       vertices: []
       indices: 
       edges: []
@@ -3402,19 +3213,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_156
       rect:
         serializedVersion: 2
-        x: 640
+        x: 64
         y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb113ba6ac927084a9f91007c83139c5
-      internalID: -164212446
+      spriteID: 16b3c14f32763504cb628e3ed99777f1
+      internalID: 860159839
       vertices: []
       indices: 
       edges: []
@@ -3423,19 +3234,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_157
       rect:
         serializedVersion: 2
-        x: 704
+        x: 128
         y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88d561a0d3d95c645a4cb0406d55733a
-      internalID: -508369998
+      spriteID: be58139beff4f68498af71bf70fb11f3
+      internalID: -68936381
       vertices: []
       indices: 
       edges: []
@@ -3444,19 +3255,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_158
       rect:
         serializedVersion: 2
-        x: 768
+        x: 192
         y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0712ed2256fe34240b03f5ba38e92585
-      internalID: 764753262
+      spriteID: 79c5f620abeb1484caa400fffa1305e9
+      internalID: -1344481134
       vertices: []
       indices: 
       edges: []
@@ -3465,19 +3276,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_159
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 256
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7713bfa03ca6c1a40b8b7e68e9b73e84
-      internalID: 194948262
+      spriteID: 6b4f8ed84b257f94e867d6bd6073df48
+      internalID: 187882010
       vertices: []
       indices: 
       edges: []
@@ -3486,19 +3297,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_160
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 320
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8cf2b59dc89ee14f96116c819a1a284
-      internalID: -1535606261
+      spriteID: daa469b01d382d546859a543ac8eee46
+      internalID: 1115833836
       vertices: []
       indices: 
       edges: []
@@ -3507,19 +3318,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_161
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 384
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be6afbba78229fa42a235290aafae7da
-      internalID: 2057839304
+      spriteID: e0ca968760911964da561a9960088194
+      internalID: -759936705
       vertices: []
       indices: 
       edges: []
@@ -3528,19 +3339,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_162
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
+        x: 448
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8df3f9b5e76c9f04cbce5c315eafe553
-      internalID: -491289553
+      spriteID: 014666d91903f274f80f7f32bd0fabdc
+      internalID: -13437311
       vertices: []
       indices: 
       edges: []
@@ -3549,19 +3360,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_163
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
+        x: 512
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94b3f200bc5ba7e4986a48ba64e4f362
-      internalID: 409445989
+      spriteID: f5282e0f014b6404a9c88aa4fe0f7194
+      internalID: 830640438
       vertices: []
       indices: 
       edges: []
@@ -3570,19 +3381,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_164
       rect:
         serializedVersion: 2
-        x: 320
-        y: 64
+        x: 576
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c694f5d4c503d468a76c0d9878106d
-      internalID: -292354283
+      spriteID: 922502302e47ffc4c97af695bf2c25ea
+      internalID: 567182160
       vertices: []
       indices: 
       edges: []
@@ -3591,19 +3402,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_165
       rect:
         serializedVersion: 2
-        x: 384
-        y: 64
+        x: 640
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc95cab9e171f5942b267d02f7c58939
-      internalID: -425984208
+      spriteID: c6aec7d25508f8a4c80efded07c78031
+      internalID: -1834641739
       vertices: []
       indices: 
       edges: []
@@ -3612,19 +3423,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_166
       rect:
         serializedVersion: 2
-        x: 448
-        y: 64
+        x: 704
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bdab051e58228c478ed12173eabb8d4
-      internalID: 5658363
+      spriteID: ad1001f1afb2804498764a3da5abd002
+      internalID: 28154519
       vertices: []
       indices: 
       edges: []
@@ -3633,19 +3444,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_167
       rect:
         serializedVersion: 2
-        x: 512
-        y: 64
+        x: 768
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2021af78eb25c01468b78fa41e5b1afc
-      internalID: 34320971
+      spriteID: aef4f3396691d4141a508a4eedb5bd5a
+      internalID: -147912113
       vertices: []
       indices: 
       edges: []
@@ -3654,19 +3465,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_168
       rect:
         serializedVersion: 2
-        x: 576
+        x: 0
         y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5da946bdd52e7354db28d2ab164da548
-      internalID: -214126260
+      spriteID: f95a072c58cd4454d977f32ffdf28a5b
+      internalID: -444107016
       vertices: []
       indices: 
       edges: []
@@ -3675,19 +3486,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_169
       rect:
         serializedVersion: 2
-        x: 640
+        x: 64
         y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d80d414e77349e41814eba77bf2d671
-      internalID: -891711411
+      spriteID: 0222ce44139ca8a49bb436332d61f468
+      internalID: 376942278
       vertices: []
       indices: 
       edges: []
@@ -3696,19 +3507,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_170
       rect:
         serializedVersion: 2
-        x: 704
+        x: 128
         y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a8b03588983c2d48841d80e5c168205
-      internalID: 1275859846
+      spriteID: c79da4a6c293d24418d5b4c53c7a2dfa
+      internalID: 79431854
       vertices: []
       indices: 
       edges: []
@@ -3717,19 +3528,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_171
       rect:
         serializedVersion: 2
-        x: 768
+        x: 192
         y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35e484b97952f744096c2362f6c3d56a
-      internalID: 695639071
+      spriteID: ba5f04e5f6154724c97df74dc95fb51e
+      internalID: 1228514224
       vertices: []
       indices: 
       edges: []
@@ -3738,19 +3549,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_172
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4ad30a04e96c49499e6de9b0195f521
-      internalID: 174871466
+      spriteID: b9a4d9d948b5172499f6e3baff8c3c82
+      internalID: 1814981809
       vertices: []
       indices: 
       edges: []
@@ -3759,19 +3570,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_173
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 320
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92415ea3dc23fef4abd0cf230ee468a7
-      internalID: -120907206
+      spriteID: 9a939070a9d0f264e8f52413ec8c4508
+      internalID: -936610905
       vertices: []
       indices: 
       edges: []
@@ -3780,19 +3591,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_174
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 384
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e13352ca691d548a2583d395f9ef85
-      internalID: 905666933
+      spriteID: e16da6d55bd76fb4f8b8539476b33215
+      internalID: 64421343
       vertices: []
       indices: 
       edges: []
@@ -3801,19 +3612,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_175
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 448
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4bcaa0fec09483438dac0e9740afe76
-      internalID: 694921125
+      spriteID: 131ffcf1a6c94ad49b9bd115185b6488
+      internalID: -1733363477
       vertices: []
       indices: 
       edges: []
@@ -3822,19 +3633,19 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_176
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
+        x: 512
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c574f5ff936de1b41b971e5d4bffbe99
-      internalID: 1128874132
+      spriteID: 8f8f3468524ba1546a037463fdaef349
+      internalID: 496611308
       vertices: []
       indices: 
       edges: []
@@ -3843,19 +3654,208 @@ TextureImporter:
       name: skeleton_plate_armor_spritesheet_177
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
+        x: 576
+        y: 64
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f3484fdc88adeb41a422d0413b3a4c7
-      internalID: 961891422
+      spriteID: 85dff41987b6fc64d9b122c89e67f37a
+      internalID: -841953648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_178
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919bfb0d3350cc944b5b9b56340fc150
+      internalID: 976877313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_179
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc25685a7b9a0da43a5ccdf2eedd628f
+      internalID: -1176917169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_180
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee99ed805da38c40bb4133bdb41919b
+      internalID: 1190885589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_181
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd5bbe8cb7b503438523b89b07ea3c3
+      internalID: 1817340150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_182
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b872a80c019a964fa7032e3bd6e71c0
+      internalID: 52629937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_183
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a5c33d9f0cf0c4aac6f0ddea04006b
+      internalID: -1711354171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_184
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067cf123c07e2bf40ac4e233372df3a3
+      internalID: -288112161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_185
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ab896c3c2fe1b409b1bd5fa5eaddc5
+      internalID: -434222950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_plate_armor_spritesheet_186
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f52fbc95bb8eb4ab9cb4dffd6371ea
+      internalID: -1740403425
       vertices: []
       indices: 
       edges: []
@@ -3871,184 +3871,196 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      skeleton_plate_armor_spritesheet_0: -464401235
-      skeleton_plate_armor_spritesheet_1: -1607136335
-      skeleton_plate_armor_spritesheet_10: 295118862
-      skeleton_plate_armor_spritesheet_100: 393077640
-      skeleton_plate_armor_spritesheet_101: -706407840
-      skeleton_plate_armor_spritesheet_102: 487010628
-      skeleton_plate_armor_spritesheet_103: -2035680358
-      skeleton_plate_armor_spritesheet_104: -1068484777
-      skeleton_plate_armor_spritesheet_105: 1894693217
-      skeleton_plate_armor_spritesheet_106: -88619127
-      skeleton_plate_armor_spritesheet_107: -1860373735
-      skeleton_plate_armor_spritesheet_108: 1110713033
-      skeleton_plate_armor_spritesheet_109: -1487530938
-      skeleton_plate_armor_spritesheet_11: 1339037387
-      skeleton_plate_armor_spritesheet_110: 1632066072
-      skeleton_plate_armor_spritesheet_111: 298769682
-      skeleton_plate_armor_spritesheet_112: -321834480
-      skeleton_plate_armor_spritesheet_113: 1909172970
-      skeleton_plate_armor_spritesheet_114: 1006513884
-      skeleton_plate_armor_spritesheet_115: 794006030
-      skeleton_plate_armor_spritesheet_116: -823876406
-      skeleton_plate_armor_spritesheet_117: -272078740
-      skeleton_plate_armor_spritesheet_118: -335266124
-      skeleton_plate_armor_spritesheet_119: -880220031
-      skeleton_plate_armor_spritesheet_12: 758569969
-      skeleton_plate_armor_spritesheet_120: 1811265464
-      skeleton_plate_armor_spritesheet_121: 1539056941
-      skeleton_plate_armor_spritesheet_122: -834154969
-      skeleton_plate_armor_spritesheet_123: 1310437040
-      skeleton_plate_armor_spritesheet_124: -204247481
-      skeleton_plate_armor_spritesheet_125: -1099866646
-      skeleton_plate_armor_spritesheet_126: -1071766907
-      skeleton_plate_armor_spritesheet_127: -1919073669
-      skeleton_plate_armor_spritesheet_128: 593776693
-      skeleton_plate_armor_spritesheet_129: -1672743249
-      skeleton_plate_armor_spritesheet_13: -165932831
-      skeleton_plate_armor_spritesheet_130: -1313489475
-      skeleton_plate_armor_spritesheet_131: -1989252279
-      skeleton_plate_armor_spritesheet_132: 1435787013
-      skeleton_plate_armor_spritesheet_133: 1610734452
-      skeleton_plate_armor_spritesheet_134: 366784339
-      skeleton_plate_armor_spritesheet_135: -2020512200
-      skeleton_plate_armor_spritesheet_136: 958811796
-      skeleton_plate_armor_spritesheet_137: 1004591634
-      skeleton_plate_armor_spritesheet_138: 2094605613
-      skeleton_plate_armor_spritesheet_139: 222063615
-      skeleton_plate_armor_spritesheet_14: 1536803320
-      skeleton_plate_armor_spritesheet_140: 1813708023
-      skeleton_plate_armor_spritesheet_141: -1088541693
-      skeleton_plate_armor_spritesheet_142: -1477084675
-      skeleton_plate_armor_spritesheet_143: -562255891
-      skeleton_plate_armor_spritesheet_144: 286080192
-      skeleton_plate_armor_spritesheet_145: 809048107
-      skeleton_plate_armor_spritesheet_146: -246118638
-      skeleton_plate_armor_spritesheet_147: -2071249579
-      skeleton_plate_armor_spritesheet_148: 1070713613
-      skeleton_plate_armor_spritesheet_149: 1186282009
-      skeleton_plate_armor_spritesheet_15: 2142147428
-      skeleton_plate_armor_spritesheet_150: 381757131
-      skeleton_plate_armor_spritesheet_151: -1263201549
-      skeleton_plate_armor_spritesheet_152: -568962501
-      skeleton_plate_armor_spritesheet_153: -15424595
-      skeleton_plate_armor_spritesheet_154: 1151931502
-      skeleton_plate_armor_spritesheet_155: -1560284882
-      skeleton_plate_armor_spritesheet_156: -164212446
-      skeleton_plate_armor_spritesheet_157: -508369998
-      skeleton_plate_armor_spritesheet_158: 764753262
-      skeleton_plate_armor_spritesheet_159: 194948262
-      skeleton_plate_armor_spritesheet_16: -1272269100
-      skeleton_plate_armor_spritesheet_160: -1535606261
-      skeleton_plate_armor_spritesheet_161: 2057839304
-      skeleton_plate_armor_spritesheet_162: -491289553
-      skeleton_plate_armor_spritesheet_163: 409445989
-      skeleton_plate_armor_spritesheet_164: -292354283
-      skeleton_plate_armor_spritesheet_165: -425984208
-      skeleton_plate_armor_spritesheet_166: 5658363
-      skeleton_plate_armor_spritesheet_167: 34320971
-      skeleton_plate_armor_spritesheet_168: -214126260
-      skeleton_plate_armor_spritesheet_169: -891711411
-      skeleton_plate_armor_spritesheet_17: 392555545
-      skeleton_plate_armor_spritesheet_170: 1275859846
-      skeleton_plate_armor_spritesheet_171: 695639071
-      skeleton_plate_armor_spritesheet_172: 174871466
-      skeleton_plate_armor_spritesheet_173: -120907206
-      skeleton_plate_armor_spritesheet_174: 905666933
-      skeleton_plate_armor_spritesheet_175: 694921125
-      skeleton_plate_armor_spritesheet_176: 1128874132
-      skeleton_plate_armor_spritesheet_177: 961891422
-      skeleton_plate_armor_spritesheet_18: -2103240736
-      skeleton_plate_armor_spritesheet_19: -1755032603
-      skeleton_plate_armor_spritesheet_2: 1124413969
-      skeleton_plate_armor_spritesheet_20: 2029993806
-      skeleton_plate_armor_spritesheet_21: -1693998235
-      skeleton_plate_armor_spritesheet_22: 961435308
-      skeleton_plate_armor_spritesheet_23: -284876149
-      skeleton_plate_armor_spritesheet_24: -1737646129
-      skeleton_plate_armor_spritesheet_25: -1669089044
-      skeleton_plate_armor_spritesheet_26: 574773818
-      skeleton_plate_armor_spritesheet_27: 1667674319
-      skeleton_plate_armor_spritesheet_28: 1405898792
-      skeleton_plate_armor_spritesheet_29: 1360396285
-      skeleton_plate_armor_spritesheet_3: -666267147
-      skeleton_plate_armor_spritesheet_30: -1327274911
-      skeleton_plate_armor_spritesheet_31: -375316828
-      skeleton_plate_armor_spritesheet_32: 108936959
-      skeleton_plate_armor_spritesheet_33: -689800924
-      skeleton_plate_armor_spritesheet_34: 165199236
-      skeleton_plate_armor_spritesheet_35: -819929104
-      skeleton_plate_armor_spritesheet_36: -1742011224
-      skeleton_plate_armor_spritesheet_37: -1136200840
-      skeleton_plate_armor_spritesheet_38: -599608812
-      skeleton_plate_armor_spritesheet_39: -322378208
-      skeleton_plate_armor_spritesheet_4: -1553482637
-      skeleton_plate_armor_spritesheet_40: -109983621
-      skeleton_plate_armor_spritesheet_41: -1394904929
-      skeleton_plate_armor_spritesheet_42: -183488635
-      skeleton_plate_armor_spritesheet_43: 996312011
-      skeleton_plate_armor_spritesheet_44: 1582664358
-      skeleton_plate_armor_spritesheet_45: 818326809
-      skeleton_plate_armor_spritesheet_46: 1670148485
-      skeleton_plate_armor_spritesheet_47: 842436898
-      skeleton_plate_armor_spritesheet_48: -1451931351
-      skeleton_plate_armor_spritesheet_49: 632231441
-      skeleton_plate_armor_spritesheet_5: -30538327
-      skeleton_plate_armor_spritesheet_50: 1632563146
-      skeleton_plate_armor_spritesheet_51: -127102307
-      skeleton_plate_armor_spritesheet_52: 2125046480
-      skeleton_plate_armor_spritesheet_53: -895058324
-      skeleton_plate_armor_spritesheet_54: 759669687
-      skeleton_plate_armor_spritesheet_55: 936520926
-      skeleton_plate_armor_spritesheet_56: -1418738202
-      skeleton_plate_armor_spritesheet_57: -845798105
-      skeleton_plate_armor_spritesheet_58: 413399092
-      skeleton_plate_armor_spritesheet_59: 1884257538
-      skeleton_plate_armor_spritesheet_6: -634312953
-      skeleton_plate_armor_spritesheet_60: -41819022
-      skeleton_plate_armor_spritesheet_61: -1442827226
-      skeleton_plate_armor_spritesheet_62: -1279372722
-      skeleton_plate_armor_spritesheet_63: 1261857300
-      skeleton_plate_armor_spritesheet_64: 1132068011
-      skeleton_plate_armor_spritesheet_65: 470195453
-      skeleton_plate_armor_spritesheet_66: 1510793727
-      skeleton_plate_armor_spritesheet_67: 1541513468
-      skeleton_plate_armor_spritesheet_68: 448570942
-      skeleton_plate_armor_spritesheet_69: 1850869483
-      skeleton_plate_armor_spritesheet_7: 1887051856
-      skeleton_plate_armor_spritesheet_70: 1734193495
-      skeleton_plate_armor_spritesheet_71: -116513656
-      skeleton_plate_armor_spritesheet_72: 1728358629
-      skeleton_plate_armor_spritesheet_73: 600712812
-      skeleton_plate_armor_spritesheet_74: 1766693397
-      skeleton_plate_armor_spritesheet_75: 2141074740
-      skeleton_plate_armor_spritesheet_76: -1616474156
-      skeleton_plate_armor_spritesheet_77: -151313880
-      skeleton_plate_armor_spritesheet_78: -122808976
-      skeleton_plate_armor_spritesheet_79: 686551098
-      skeleton_plate_armor_spritesheet_8: -1072725971
-      skeleton_plate_armor_spritesheet_80: -1781072254
-      skeleton_plate_armor_spritesheet_81: 1220799994
-      skeleton_plate_armor_spritesheet_82: 1291059258
-      skeleton_plate_armor_spritesheet_83: 943848405
-      skeleton_plate_armor_spritesheet_84: -568121936
-      skeleton_plate_armor_spritesheet_85: -142305257
-      skeleton_plate_armor_spritesheet_86: 174691539
-      skeleton_plate_armor_spritesheet_87: -1208744684
-      skeleton_plate_armor_spritesheet_88: 724575514
-      skeleton_plate_armor_spritesheet_89: 1864654456
-      skeleton_plate_armor_spritesheet_9: 467936601
-      skeleton_plate_armor_spritesheet_90: 1634968568
-      skeleton_plate_armor_spritesheet_91: 1730971785
-      skeleton_plate_armor_spritesheet_92: 2097899102
-      skeleton_plate_armor_spritesheet_93: 1553536099
-      skeleton_plate_armor_spritesheet_94: -991229276
-      skeleton_plate_armor_spritesheet_95: 1861856753
-      skeleton_plate_armor_spritesheet_96: 1957893337
-      skeleton_plate_armor_spritesheet_97: 1691216881
-      skeleton_plate_armor_spritesheet_98: 1760953512
-      skeleton_plate_armor_spritesheet_99: 646244353
+      skeleton_plate_armor_spritesheet_0: 1074073525
+      skeleton_plate_armor_spritesheet_1: -808703901
+      skeleton_plate_armor_spritesheet_10: -1377317875
+      skeleton_plate_armor_spritesheet_100: -1864515746
+      skeleton_plate_armor_spritesheet_101: -1532643225
+      skeleton_plate_armor_spritesheet_102: 411466946
+      skeleton_plate_armor_spritesheet_103: 547076455
+      skeleton_plate_armor_spritesheet_104: -1000951734
+      skeleton_plate_armor_spritesheet_105: -2045276771
+      skeleton_plate_armor_spritesheet_106: 2072575694
+      skeleton_plate_armor_spritesheet_107: 612794847
+      skeleton_plate_armor_spritesheet_108: 1241311683
+      skeleton_plate_armor_spritesheet_109: 1655159545
+      skeleton_plate_armor_spritesheet_11: -1395038250
+      skeleton_plate_armor_spritesheet_110: -960715040
+      skeleton_plate_armor_spritesheet_111: -1745646361
+      skeleton_plate_armor_spritesheet_112: -1606495235
+      skeleton_plate_armor_spritesheet_113: 2002040680
+      skeleton_plate_armor_spritesheet_114: -139753212
+      skeleton_plate_armor_spritesheet_115: -1916386190
+      skeleton_plate_armor_spritesheet_116: -1075397382
+      skeleton_plate_armor_spritesheet_117: 1561895738
+      skeleton_plate_armor_spritesheet_118: 1900535302
+      skeleton_plate_armor_spritesheet_119: 301076523
+      skeleton_plate_armor_spritesheet_12: 1393159184
+      skeleton_plate_armor_spritesheet_120: 1167658514
+      skeleton_plate_armor_spritesheet_121: -760718901
+      skeleton_plate_armor_spritesheet_122: -980550119
+      skeleton_plate_armor_spritesheet_123: 1361248589
+      skeleton_plate_armor_spritesheet_124: 543143078
+      skeleton_plate_armor_spritesheet_125: -911604780
+      skeleton_plate_armor_spritesheet_126: -1992443924
+      skeleton_plate_armor_spritesheet_127: 2084835871
+      skeleton_plate_armor_spritesheet_128: 787535922
+      skeleton_plate_armor_spritesheet_129: -2105092360
+      skeleton_plate_armor_spritesheet_13: -1399027884
+      skeleton_plate_armor_spritesheet_130: 974713168
+      skeleton_plate_armor_spritesheet_131: -389068824
+      skeleton_plate_armor_spritesheet_132: 1472636510
+      skeleton_plate_armor_spritesheet_133: -92884114
+      skeleton_plate_armor_spritesheet_134: 1816097241
+      skeleton_plate_armor_spritesheet_135: -1313336273
+      skeleton_plate_armor_spritesheet_136: 804584651
+      skeleton_plate_armor_spritesheet_137: -1597109824
+      skeleton_plate_armor_spritesheet_138: -1791637268
+      skeleton_plate_armor_spritesheet_139: -97373124
+      skeleton_plate_armor_spritesheet_14: 1169799097
+      skeleton_plate_armor_spritesheet_140: 515670100
+      skeleton_plate_armor_spritesheet_141: 1531753711
+      skeleton_plate_armor_spritesheet_142: -1936151382
+      skeleton_plate_armor_spritesheet_143: -837459362
+      skeleton_plate_armor_spritesheet_144: 1515918899
+      skeleton_plate_armor_spritesheet_145: 1057917959
+      skeleton_plate_armor_spritesheet_146: 53144533
+      skeleton_plate_armor_spritesheet_147: 1491379397
+      skeleton_plate_armor_spritesheet_148: -1267729800
+      skeleton_plate_armor_spritesheet_149: 1642084239
+      skeleton_plate_armor_spritesheet_15: 1371203081
+      skeleton_plate_armor_spritesheet_150: 792122228
+      skeleton_plate_armor_spritesheet_151: -1247408388
+      skeleton_plate_armor_spritesheet_152: 1316604875
+      skeleton_plate_armor_spritesheet_153: -749468647
+      skeleton_plate_armor_spritesheet_154: -930608960
+      skeleton_plate_armor_spritesheet_155: 1945295247
+      skeleton_plate_armor_spritesheet_156: 860159839
+      skeleton_plate_armor_spritesheet_157: -68936381
+      skeleton_plate_armor_spritesheet_158: -1344481134
+      skeleton_plate_armor_spritesheet_159: 187882010
+      skeleton_plate_armor_spritesheet_16: -278956983
+      skeleton_plate_armor_spritesheet_160: 1115833836
+      skeleton_plate_armor_spritesheet_161: -759936705
+      skeleton_plate_armor_spritesheet_162: -13437311
+      skeleton_plate_armor_spritesheet_163: 830640438
+      skeleton_plate_armor_spritesheet_164: 567182160
+      skeleton_plate_armor_spritesheet_165: -1834641739
+      skeleton_plate_armor_spritesheet_166: 28154519
+      skeleton_plate_armor_spritesheet_167: -147912113
+      skeleton_plate_armor_spritesheet_168: -444107016
+      skeleton_plate_armor_spritesheet_169: 376942278
+      skeleton_plate_armor_spritesheet_17: 397631946
+      skeleton_plate_armor_spritesheet_170: 79431854
+      skeleton_plate_armor_spritesheet_171: 1228514224
+      skeleton_plate_armor_spritesheet_172: 1814981809
+      skeleton_plate_armor_spritesheet_173: -936610905
+      skeleton_plate_armor_spritesheet_174: 64421343
+      skeleton_plate_armor_spritesheet_175: -1733363477
+      skeleton_plate_armor_spritesheet_176: 496611308
+      skeleton_plate_armor_spritesheet_177: -841953648
+      skeleton_plate_armor_spritesheet_178: 976877313
+      skeleton_plate_armor_spritesheet_179: -1176917169
+      skeleton_plate_armor_spritesheet_18: 1471756669
+      skeleton_plate_armor_spritesheet_180: 1190885589
+      skeleton_plate_armor_spritesheet_181: 1817340150
+      skeleton_plate_armor_spritesheet_182: 52629937
+      skeleton_plate_armor_spritesheet_183: -1711354171
+      skeleton_plate_armor_spritesheet_184: -288112161
+      skeleton_plate_armor_spritesheet_185: -434222950
+      skeleton_plate_armor_spritesheet_186: -1740403425
+      skeleton_plate_armor_spritesheet_187: -1564556734
+      skeleton_plate_armor_spritesheet_188: -947350770
+      skeleton_plate_armor_spritesheet_189: -89269427
+      skeleton_plate_armor_spritesheet_19: -1075206921
+      skeleton_plate_armor_spritesheet_2: -494997651
+      skeleton_plate_armor_spritesheet_20: 974329893
+      skeleton_plate_armor_spritesheet_21: 2032255235
+      skeleton_plate_armor_spritesheet_22: -1193312933
+      skeleton_plate_armor_spritesheet_23: 1029002630
+      skeleton_plate_armor_spritesheet_24: 1274740664
+      skeleton_plate_armor_spritesheet_25: -332641528
+      skeleton_plate_armor_spritesheet_26: 1918585552
+      skeleton_plate_armor_spritesheet_27: 2127678611
+      skeleton_plate_armor_spritesheet_28: -339758647
+      skeleton_plate_armor_spritesheet_29: 1064339967
+      skeleton_plate_armor_spritesheet_3: -1498627496
+      skeleton_plate_armor_spritesheet_30: -1907922948
+      skeleton_plate_armor_spritesheet_31: 854449042
+      skeleton_plate_armor_spritesheet_32: -310377680
+      skeleton_plate_armor_spritesheet_33: 473305627
+      skeleton_plate_armor_spritesheet_34: 911937564
+      skeleton_plate_armor_spritesheet_35: -152496316
+      skeleton_plate_armor_spritesheet_36: 1331198036
+      skeleton_plate_armor_spritesheet_37: 1050671130
+      skeleton_plate_armor_spritesheet_38: -1946577855
+      skeleton_plate_armor_spritesheet_39: 2024053900
+      skeleton_plate_armor_spritesheet_4: -564680729
+      skeleton_plate_armor_spritesheet_40: 1906569385
+      skeleton_plate_armor_spritesheet_41: 216580038
+      skeleton_plate_armor_spritesheet_42: -1947543544
+      skeleton_plate_armor_spritesheet_43: 157343260
+      skeleton_plate_armor_spritesheet_44: 1415219602
+      skeleton_plate_armor_spritesheet_45: -1953563317
+      skeleton_plate_armor_spritesheet_46: 425038408
+      skeleton_plate_armor_spritesheet_47: -2061044875
+      skeleton_plate_armor_spritesheet_48: 1037237476
+      skeleton_plate_armor_spritesheet_49: -925504201
+      skeleton_plate_armor_spritesheet_5: 388476290
+      skeleton_plate_armor_spritesheet_50: 829727125
+      skeleton_plate_armor_spritesheet_51: -26081878
+      skeleton_plate_armor_spritesheet_52: -749649712
+      skeleton_plate_armor_spritesheet_53: 872215283
+      skeleton_plate_armor_spritesheet_54: -1694990611
+      skeleton_plate_armor_spritesheet_55: -188568554
+      skeleton_plate_armor_spritesheet_56: -1757742654
+      skeleton_plate_armor_spritesheet_57: 438645512
+      skeleton_plate_armor_spritesheet_58: 1128532322
+      skeleton_plate_armor_spritesheet_59: -1618246432
+      skeleton_plate_armor_spritesheet_6: -862903718
+      skeleton_plate_armor_spritesheet_60: -855394417
+      skeleton_plate_armor_spritesheet_61: -947534284
+      skeleton_plate_armor_spritesheet_62: 469023453
+      skeleton_plate_armor_spritesheet_63: -96383202
+      skeleton_plate_armor_spritesheet_64: 736863089
+      skeleton_plate_armor_spritesheet_65: 1125686759
+      skeleton_plate_armor_spritesheet_66: -90023559
+      skeleton_plate_armor_spritesheet_67: -62346224
+      skeleton_plate_armor_spritesheet_68: 524719740
+      skeleton_plate_armor_spritesheet_69: -761807655
+      skeleton_plate_armor_spritesheet_7: 1245568294
+      skeleton_plate_armor_spritesheet_70: 136168070
+      skeleton_plate_armor_spritesheet_71: 1578082489
+      skeleton_plate_armor_spritesheet_72: 567822000
+      skeleton_plate_armor_spritesheet_73: -583735968
+      skeleton_plate_armor_spritesheet_74: -316977269
+      skeleton_plate_armor_spritesheet_75: -928843326
+      skeleton_plate_armor_spritesheet_76: -1456467109
+      skeleton_plate_armor_spritesheet_77: -172409844
+      skeleton_plate_armor_spritesheet_78: -339914886
+      skeleton_plate_armor_spritesheet_79: 2112585054
+      skeleton_plate_armor_spritesheet_8: -1173889493
+      skeleton_plate_armor_spritesheet_80: 1878458999
+      skeleton_plate_armor_spritesheet_81: 2099051604
+      skeleton_plate_armor_spritesheet_82: -34019627
+      skeleton_plate_armor_spritesheet_83: 1680388685
+      skeleton_plate_armor_spritesheet_84: -171707544
+      skeleton_plate_armor_spritesheet_85: 1410101921
+      skeleton_plate_armor_spritesheet_86: 159841057
+      skeleton_plate_armor_spritesheet_87: 432815140
+      skeleton_plate_armor_spritesheet_88: -1657598849
+      skeleton_plate_armor_spritesheet_89: -1721869171
+      skeleton_plate_armor_spritesheet_9: 1001706914
+      skeleton_plate_armor_spritesheet_90: 1185647185
+      skeleton_plate_armor_spritesheet_91: -246915134
+      skeleton_plate_armor_spritesheet_92: -398282904
+      skeleton_plate_armor_spritesheet_93: -1793075380
+      skeleton_plate_armor_spritesheet_94: -1014312940
+      skeleton_plate_armor_spritesheet_95: -388897058
+      skeleton_plate_armor_spritesheet_96: -1586950364
+      skeleton_plate_armor_spritesheet_97: -443806877
+      skeleton_plate_armor_spritesheet_98: -156559255
+      skeleton_plate_armor_spritesheet_99: 710567451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

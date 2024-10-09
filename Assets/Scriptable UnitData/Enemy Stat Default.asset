@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyStat:
     Class: 2
-    Level: 1
+    Level: 2
     Attack: 1
-    HPMax: 100
-    HPRegen: 1
+    HPMax: 1000
+    HPRegen: 10
     ManaMax: 50
     ManaRegen: 1
-    StaminaMax: 100
+    StaminaMax: 1000
     StaminaConsumeWeight: 1
     StaminaRegen: 1
-    BonusExp: 10
-    BonusGold: 50
+    BonusExp: 100
+    BonusGold: 200

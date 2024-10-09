@@ -2460,6 +2460,14 @@ MonoBehaviour:
       Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
+    - Key: 3
+      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
+    - Key: 4
+      Value: {fileID: 5180493612770761980, guid: 09877717e61dd134981199c0cc2341dc, type: 3}
+    - Key: 5
+      Value: {fileID: 5180493612770761980, guid: bf388c4320f145d49a57a6e96701cc28, type: 3}
+    - Key: 6
+      Value: {fileID: 5180493612770761980, guid: 32f6f17eb14b03c448a9e07d3dcaeacc, type: 3}
     - Key: 7
       Value: {fileID: 5180493612770761980, guid: 85afce723d43cb0408279c6616ba686e, type: 3}
   _defaultUnitPrefabs:
@@ -2467,11 +2475,11 @@ MonoBehaviour:
     - Key: 0
       Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
     - Key: 1
-      Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
+      Value: {fileID: 5180493612770761980, guid: 67b63da40ea1d4745a9d32f2649d1981, type: 3}
     - Key: 2
       Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
     - Key: 3
-      Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
+      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
   _unitPrefabs:
     _serializedList:
     - Key: 0
@@ -2480,6 +2488,14 @@ MonoBehaviour:
       Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
+    - Key: 3
+      Value: {fileID: 5180493612770761980, guid: 217863b4cfcfb3f4699afce049b405bb, type: 3}
+    - Key: 4
+      Value: {fileID: 5180493612770761980, guid: c51b58ff4249e5a4fba6e7047b6c502f, type: 3}
+    - Key: 5
+      Value: {fileID: 5180493612770761980, guid: 285eeb47993b6b3418985721a2507524, type: 3}
+    - Key: 6
+      Value: {fileID: 5180493612770761980, guid: 67b63da40ea1d4745a9d32f2649d1981, type: 3}
     - Key: 7
       Value: {fileID: 5180493612770761980, guid: 329ef8c0df3c19740ab01f647dc43a3b, type: 3}
 --- !u!1 &958311937

@@ -807,6 +807,11 @@ public class BattleGameManager : Singleton<BattleGameManager>
             _currentUnit = enemy;
             _gameState = GameState.EnemyTurn;
         }
+
+        if (_unitChooser != null)
+        {
+            _unitChooser.transform.position = _currentUnit.transform.position;
+        }
     }
 
     private bool _FindMatchedItems(GameObject go, Func<int, bool> predicateBonusTurn)

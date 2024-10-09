@@ -10,12 +10,6 @@ public class MazeSceneUI : MySceneBase
 
     public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 
-    protected override void Awake()
-    {
-        Debug.Log("MazeSceneUI.Awake()");
-        base.Awake();
-    }
-
     private void OnEnable() => OnEnabled?.Invoke();
 
     private void Start()

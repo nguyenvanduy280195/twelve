@@ -7,9 +7,9 @@ public class BattlePlayerUnit : BattleUnitBase
 
     public bool ExecutingSkill { set; private get; } = false;
 
-    private bool IsDraggingSuccess(GameObject go) => IsDraggingSuccess(go.GetComponent<Item>());
+    private bool _IsDraggingSuccess(GameObject go) => _IsDraggingSuccess(go.GetComponent<Item>());
 
-    private bool IsDraggingSuccess(Item item)
+    private bool _IsDraggingSuccess(Item item)
     {
         var gameManager = BattleGameManager.Instance;
         bool duplicated = item.IsDuplicatedWith(gameManager.ItemSelected);
@@ -17,37 +17,7 @@ public class BattlePlayerUnit : BattleUnitBase
         return !duplicated && neighbored;
     }
 
-    public override bool Control()
-    {
-        var gameManager = BattleGameManager.Instance;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-            if (hit.collider != null)
-            {
-                gameManager.ItemSelected = hit.collider.gameObject;
-
-            }
-        }
-
-        if (Input.GetMouseButton(0) && gameManager.ItemSelected != null)
-        {
-            var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-
-            if (hit.collider != null && IsDraggingSuccess(hit.collider.gameObject))
-            {
-                gameManager.ItemDragged = hit.collider.gameObject;
-                gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
-                gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
-                return true;
-            }
-        }
-
-        return false;
-    }
+    private bool _HasItemComponent(GameObject go) => go.GetComponent<Item>() != null;
 
     public override IEnumerator ControlCoroutine()
     {
@@ -63,7 +33,7 @@ public class BattlePlayerUnit : BattleUnitBase
             {
                 var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-                if (hit.collider != null)
+                if (hit.collider != null && _HasItemComponent(hit.collider.gameObject))
                 {
                     gameManager.ItemSelected = hit.collider.gameObject;
                 }
@@ -74,7 +44,7 @@ public class BattlePlayerUnit : BattleUnitBase
                 var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
-                if (hit.collider != null && IsDraggingSuccess(hit.collider.gameObject))
+                if (hit.collider != null && _IsDraggingSuccess(hit.collider.gameObject))
                 {
                     gameManager.ItemDragged = hit.collider.gameObject;
                     gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
@@ -92,7 +62,6 @@ public class BattlePlayerUnit : BattleUnitBase
             yield return null;
         }
     }
-
 
     public override void IncreaseGold(float bonusFactor) => nGold += (1 + 0.01f * _stat.Luck) * bonusFactor;
 

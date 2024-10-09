@@ -32,24 +32,6 @@ public class BattleEnemyUnit : BattleUnitBase
         yield return new WaitForSeconds(_delayMove);
     }
 
-    public override bool Control()
-    {
-        var gameManager = BattleGameManager.Instance;
-
-        (var iSelected, var iDragged) = Level1;
-        if (!iSelected.Equals(UNDEFINED) && !iDragged.Equals(UNDEFINED))
-        {
-            gameManager.ItemSelected = gameManager.MyData.Items[iSelected.iCol, iSelected.iRow];
-            gameManager.ItemDragged = gameManager.MyData.Items[iDragged.iCol, iDragged.iRow];
-            gameManager.PreSelectedPosition = gameManager.ItemSelected.transform.position;
-            gameManager.PreDraggedPosition = gameManager.ItemDragged.transform.position;
-
-            return true;
-        }
-
-        return false;
-    }
-
     private (ItemsSupporter.ItemLocation, ItemsSupporter.ItemLocation) Level1
     {
         get
