@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
 public class UnitAnimationHandler : MonoBehaviour
 {

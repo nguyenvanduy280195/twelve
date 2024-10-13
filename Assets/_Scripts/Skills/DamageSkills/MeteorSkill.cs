@@ -22,6 +22,7 @@ public class MeteorSkill : DamageSkillBase
     private readonly float _myEpsilon = 0.00001f;
     private IDictionary<GameObject, bool> _stonesArrived;
     private IDictionary<GameObject, Vector3> _stonesFirstPosition;
+    private List<GameObject> _explosions;
 
     #region Unity methods
 
@@ -30,6 +31,8 @@ public class MeteorSkill : DamageSkillBase
         _destinationOfStoneForTarget = new();
 
         _stonesArrived = new Dictionary<GameObject, bool>();
+
+        _explosions = new();
 
         _stonesFirstPosition = new Dictionary<GameObject, Vector3>();
         foreach (var stone in _listStoneForBattle)
@@ -61,9 +64,12 @@ public class MeteorSkill : DamageSkillBase
     private IEnumerator _OnStoneToBattleArrived(GameObject stone)
     {
         yield return new WaitUntil(() => _stonesArrived[stone]);
+
         var explosion = Instantiate(_explosionPrefab, stone.transform.position, Quaternion.identity, transform);
+        _explosions.Add(explosion);
+
         stone.SetActive(false);
-        yield return new WaitUntil(() => explosion == null);
+
     }
 
     private IEnumerator _OnStoneToTargetArrived(GameObject stone)
@@ -94,15 +100,28 @@ public class MeteorSkill : DamageSkillBase
             StartCoroutine(_MoveTo(_listStoneForTarget[i].transform, target.transform.position));
             StartCoroutine(_OnStoneToTargetArrived(_listStoneForTarget[i]));
             yield return new WaitForSeconds(_stonesToTargetDelay);
-
         }
 
+        // waiting for all stones arrived
         yield return new WaitUntil(() =>
         {
             var arrivedStones = _stonesArrived.Select(it => it.Value);
             foreach (var arrivedStone in arrivedStones)
             {
                 if (!arrivedStone)
+                {
+                    return false;
+                }
+            }
+            return true;
+        });
+
+        // waiting for explosion destroyed
+        yield return new WaitUntil(() =>
+        {
+            foreach(var explosion in _explosions)
+            {
+                if(explosion != null)
                 {
                     return false;
                 }
@@ -142,7 +161,11 @@ public class MeteorSkill : DamageSkillBase
                 }
             }
 
-            battleGameManager.HarvestItems(itemsWillBeHarvested);
+            var theItemsWillBeHarvested = itemsWillBeHarvested.Distinct()
+                                                            .OrderBy(it => it.GetComponent<Item>().col)
+                                                            .OrderByDescending(it => it.GetComponent<Item>().row)
+                                                            ;
+            battleGameManager.HarvestItems(theItemsWillBeHarvested);
         }
         _harvestingItemsRunning = false;
         yield return null;

@@ -1450,7 +1450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939386150}
+        m_TargetAssemblyTypeName: MainMenuSceneUI, Assembly-CSharp
+        m_MethodName: OnPlayButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1482809787}
+          m_ObjectArgumentAssemblyTypeName: ChangableImage, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &481545743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2461,25 +2473,31 @@ MonoBehaviour:
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
     - Key: 3
-      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
+      Value: {fileID: 5180493612770761980, guid: fa902b38578896641b460c77fe6dbf0e, type: 3}
     - Key: 4
-      Value: {fileID: 5180493612770761980, guid: 09877717e61dd134981199c0cc2341dc, type: 3}
+      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
     - Key: 5
-      Value: {fileID: 5180493612770761980, guid: bf388c4320f145d49a57a6e96701cc28, type: 3}
+      Value: {fileID: 5180493612770761980, guid: 8e6f3d27b08806746a311d73158a6fbe, type: 3}
     - Key: 6
-      Value: {fileID: 5180493612770761980, guid: 32f6f17eb14b03c448a9e07d3dcaeacc, type: 3}
+      Value: {fileID: 5180493612770761980, guid: 09877717e61dd134981199c0cc2341dc, type: 3}
     - Key: 7
+      Value: {fileID: 5180493612770761980, guid: bf388c4320f145d49a57a6e96701cc28, type: 3}
+    - Key: 8
+      Value: {fileID: 5180493612770761980, guid: c8377d093e88a5e40b90d41a419ff785, type: 3}
+    - Key: 9
+      Value: {fileID: 5180493612770761980, guid: 32f6f17eb14b03c448a9e07d3dcaeacc, type: 3}
+    - Key: 10
       Value: {fileID: 5180493612770761980, guid: 85afce723d43cb0408279c6616ba686e, type: 3}
   _defaultUnitPrefabs:
     _serializedList:
     - Key: 0
       Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
     - Key: 1
-      Value: {fileID: 5180493612770761980, guid: 67b63da40ea1d4745a9d32f2649d1981, type: 3}
+      Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
     - Key: 2
       Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
     - Key: 3
-      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
+      Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
   _unitPrefabs:
     _serializedList:
     - Key: 0
@@ -2488,16 +2506,6 @@ MonoBehaviour:
       Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
     - Key: 2
       Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
-    - Key: 3
-      Value: {fileID: 5180493612770761980, guid: 217863b4cfcfb3f4699afce049b405bb, type: 3}
-    - Key: 4
-      Value: {fileID: 5180493612770761980, guid: c51b58ff4249e5a4fba6e7047b6c502f, type: 3}
-    - Key: 5
-      Value: {fileID: 5180493612770761980, guid: 285eeb47993b6b3418985721a2507524, type: 3}
-    - Key: 6
-      Value: {fileID: 5180493612770761980, guid: 67b63da40ea1d4745a9d32f2649d1981, type: 3}
-    - Key: 7
-      Value: {fileID: 5180493612770761980, guid: 329ef8c0df3c19740ab01f647dc43a3b, type: 3}
 --- !u!1 &958311937
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,6 +3143,7 @@ GameObject:
   - component: {fileID: 1482809784}
   - component: {fileID: 1482809786}
   - component: {fileID: 1482809785}
+  - component: {fileID: 1482809787}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -3158,7 +3167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482809785
@@ -3199,6 +3208,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482809783}
   m_CullTransparentMesh: 1
+--- !u!114 &1482809787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482809783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87c6ad32b411c14ba8096f8f700a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 2
+  _rotationAngle: -180
+  _openRawImage: {fileID: 21300000, guid: 025bae0102c79dc4384c1b59f668f6e1, type: 3}
+  _closeRawImage: {fileID: 21300000, guid: 4135703a9986ef748a846cb71cb73f3b, type: 3}
 --- !u!1 &1570101929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,6 +3777,8 @@ MonoBehaviour:
   _confirmPopup: {fileID: 873010698}
   _casualMenuMoveTo: {fileID: 2107563218}
   _casualMenuScaleTo: {fileID: 2107563219}
+  _casualModeButton: {fileID: 0}
+  _battleModeButton: {fileID: 0}
 --- !u!1 &1961305147
 GameObject:
   m_ObjectHideFlags: 0

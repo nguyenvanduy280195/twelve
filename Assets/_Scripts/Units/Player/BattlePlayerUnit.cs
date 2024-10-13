@@ -71,6 +71,15 @@ public class BattlePlayerUnit : BattleUnitBase
 
     protected override Vector3 UnitAttackPosition => BattleUnitManager.Instance.PlayerAttackPosition;
 
+    protected override void _InitializeUIUnit()
+    {
+        base._InitializeUIUnit();
+
+        UIUnit.HP.Value = PlayerStat.HP;
+        UIUnit.Mana.Value = PlayerStat.Mana;
+        UIUnit.Stamina.Value = PlayerStat.Stamina;
+    }
+    
     public override UnitData Stat
     {
         get => _stat;
@@ -79,14 +88,6 @@ public class BattlePlayerUnit : BattleUnitBase
             _stat = (PlayerData)value;
             _InitializeUIUnit();
         }
-    }
-    protected override void _InitializeUIUnit()
-    {
-        base._InitializeUIUnit();
-
-        UIUnit.HP.Value = PlayerStat.HP;
-        UIUnit.Mana.Value = PlayerStat.Mana;
-        UIUnit.Stamina.Value = PlayerStat.Stamina;
     }
     protected override float HP
     {

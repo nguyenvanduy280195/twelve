@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton Plate
   m_EditorClassIdentifier: 
   EnemyStat:
-    Class: 6
+    Class: 9
     Level: 1
     Attack: 1
     HPMax: 1000

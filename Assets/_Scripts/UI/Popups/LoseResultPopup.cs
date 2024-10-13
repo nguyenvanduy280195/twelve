@@ -47,6 +47,7 @@ public class LoseResultPopup : PopupTemplate
     public void OnNextButtonClicked()
     {
         _ReturnPreviousScene();
+        MatchingBattleManager.Instance?.ReviveAtCheckpoint();
         AudioManager.Instance?.PlayButton();
     }
 }
