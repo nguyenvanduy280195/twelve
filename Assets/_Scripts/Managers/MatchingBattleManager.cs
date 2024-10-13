@@ -9,7 +9,7 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 
     public Vector3 PlayerPosition { get; private set; }
 
-    
+
     private int _enemyID;
 
     public void BeginBattle(GameObject enemy)
@@ -33,6 +33,12 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
     {
         MySceneManager.Instance?.LoadMazeScene();
         _HideDeadEnemy();
+    }
+
+    private Vector2 _checkpoint = new(-18f, -20f);
+    public void ReviveAtCheckpoint()
+    {
+        PlayerPosition = _checkpoint;
     }
 
     #region Support methods

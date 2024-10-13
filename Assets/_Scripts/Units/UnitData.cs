@@ -10,11 +10,14 @@ public enum UnitClass
     Soldier,
     FireMage,
     Skeleton,
-    SkeletonChainArmor,
-    SkeletonChainHoodArmor,
-    SkeletonLeatherArmor,
-    SkeletonPlateArmor,
-    SkeletonRobeArmor,
+    SkeletonChainMelee,
+    SkeletonChainRanged,
+    SkeletonChainHoodMelee,
+    SkeletonChainHoodRanged,
+    SkeletonLeatherMelee,
+    SkeletonLeatherRanged,
+    SkeletonPlate,
+    SkeletonRobe,
 }
 
 [Serializable]

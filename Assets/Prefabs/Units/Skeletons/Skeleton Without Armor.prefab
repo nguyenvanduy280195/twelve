@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2516206834883238732}
   m_Layer: 0
   m_Name: Skeleton Without Armor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,4 +252,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd3b476c5e7eeb4d96c3e711338f57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
   ScriptableEnemyStat: {fileID: 11400000, guid: 1612169e57e51794c9de312bf60e8ee4, type: 2}

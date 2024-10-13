@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuSceneUI : MySceneBase
 {
@@ -22,6 +24,10 @@ public class MainMenuSceneUI : MySceneBase
             scaleTo.To = new Vector2(0.0001f, 0.0001f);
         };
 
+    }
+    public void OnPlayButtonClicked(ChangableImage image)
+    {
+        AudioManager.Instance?.PlayButton();
     }
 
     public void OnCasualButtonClicked()
@@ -55,7 +61,7 @@ public class MainMenuSceneUI : MySceneBase
         _confirmPopup.ShowPopup();
         var scaleTo = _confirmPopup.GetComponent<ScaleTo>();
         scaleTo.To = new Vector2(1f, 1f);
-        
+
         AudioManager.Instance?.PlayButton();
     }
 
