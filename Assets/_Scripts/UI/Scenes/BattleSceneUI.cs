@@ -10,49 +10,6 @@ public class BattleSceneUI : MySceneBase
 
     public void OnMenuInGameButtonClicked() => _menuInGame.SetActive(true);
 
-    public void OnSkill1Clicked(Button button) => _LetPlayerExecuteSkill(0, button);
-
-    public void OnSkill2Clicked(Button button) => _LetPlayerExecuteSkill(1, button);
-
-    public void OnSkill3Clicked(Button button) => _LetPlayerExecuteSkill(2, button);
-
-    private void _LetPlayerExecuteSkill(int iSkill, Button button)
-    {
-        if (_skillInfoPopup != null)
-        {
-            var player = BattleUnitManager.Instance.PlayerAsBattlePlayerUnit;
-            var playerStat = player.PlayerStat;
-            var skillData = playerStat.SkillData[iSkill];
-
-            _skillInfoPopup.SkillName = skillData.Name.ToString();
-            _skillInfoPopup.SkillImage = Resources.Load<Sprite>(skillData.IconPath);
-            _skillInfoPopup.SkillDescribe = skillData.Describe;
-            _skillInfoPopup.ManaConsumed = SkillManaConsumptionCalculator.Instance.GetManaConsumption(skillData.Name, skillData.Level);
-            _skillInfoPopup.OnUsed = () =>
-            {
-                if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
-                {
-                    var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-                    BattleGameManager.Instance.WaitingForSkill = true;
-                    Action onSkillSucceeded = () => button.interactable = false;
-                    Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
-                    Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
-                    Action onSkillDone = () => button.interactable = true;
-
-                    player.ExecuteSkill(iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
-                }
-                else
-                {
-                    AlertSnackbar.Instance
-                                ?.SetText("This is not player's turn")
-                                 .Show();
-                }
-                AudioManager.Instance?.PlayButton();
-            };
-            _skillInfoPopup.ShowPopup();
-        }
-    }
-
     public void OnExportItems()
     {
         const string filename = "Assets/Resources/Text/output.csv";

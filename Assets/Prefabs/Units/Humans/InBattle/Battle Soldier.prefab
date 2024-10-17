@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195012607840785065}
+  - component: {fileID: 9084472331648351071}
   m_Layer: 0
-  m_Name: Leech Life
+  m_Name: Multi Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5135052964353341053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9084472331648351071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274114459069713410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a232bb7281a960b40a49e7c90bf7a9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleUnitBase: {fileID: 8394429098968283358}
+  _unitAnimationHandler: {fileID: 80776150718565348}
+  _speed: 1
+  _distanceToAttackTarget: 100
 --- !u!1 &4251017241521201012
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984225067270691265}
+  - component: {fileID: 1456781103545378997}
   m_Layer: 0
   m_Name: Power Strike
   m_TagString: Untagged
@@ -93,6 +111,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5135052964353341053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1456781103545378997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016938021091995193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303859c704cc9cd40baa735ad4245199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleUnitBase: {fileID: 8394429098968283358}
+  _unitAnimationHandler: {fileID: 80776150718565348}
+  _speed: 1
+  _distanceToAttackTarget: 100
 --- !u!1 &8394038651822192452
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,9 +326,9 @@ MonoBehaviour:
   _bulletSpeed: 1
   _nTurnsText: {fileID: 0}
   _skills:
+  - {fileID: 1456781103545378997}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9084472331648351071}
   State: 3
   nEffectTurns: 0
   _stat:
