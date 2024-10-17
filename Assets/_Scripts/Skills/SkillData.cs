@@ -13,7 +13,10 @@ public class SkillData
 [Serializable]
 public enum SkillName
 {
-    Meditate,
+    Meditate = 0,
     Fireball,
     Meteor,
+    PowerStrike,
+    SpearSpin,
+    MultiAttack,
 }

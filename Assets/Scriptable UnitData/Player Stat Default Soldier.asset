@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4898d6cd6b1eab74aba428edcc90a49f, type: 3}
-  m_Name: Player Stat Default Fire Mage
+  m_Name: Player Stat Default Soldier
   m_EditorClassIdentifier: 
   _statMini:
-    Name: My Fire Mage
-    Class: 1
+    Name: My Soldier
+    Class: 0
     Level: 1
     Strength: 7
     Vitality: 8
@@ -23,14 +23,14 @@ MonoBehaviour:
     Luck: 2
   _skillData:
   - Level: 1
-    IconPath: Sprites/Skill Icons/Fire mage/Meditate
-    Name: 0
+    IconPath: Sprites/Skill Icons/Lance Soldier/Power Strike
+    Name: 3
     Describe: <This is a place to describe the skill>
   - Level: 1
-    IconPath: Sprites/Skill Icons/Fire mage/Fireball
-    Name: 1
+    IconPath: Sprites/Skill Icons/Lance Soldier/Spear Spin
+    Name: 4
     Describe: <This is a place to describe the skill>
   - Level: 1
-    IconPath: Sprites/Skill Icons/Fire mage/Meteor
-    Name: 2
+    IconPath: Sprites/Skill Icons/Lance Soldier/Multi Attack
+    Name: 5
     Describe: <This is a place to describe the skill>

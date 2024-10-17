@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Scripts/Skills/DamageSkills/MultiAttack.cs.meta
+guid: a232bb7281a960b40a49e7c90bf7a9e3
+========
+guid: 303859c704cc9cd40baa735ad4245199
+>>>>>>>> 1fd2b71124b1d2cd10e4f713603ce78bfdaa8b93:Assets/_Scripts/Skills/DamageSkills/PowerStrike.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -33,7 +33,7 @@ public class PowerStrike : DamageSkillBase
         yield return new WaitUntil(() => _unitAnimationRunning);
 
         // run skill animation
-
+        _skillAnimationRunning = false;
     }
 
     protected override IEnumerator _RunUnitAnimation()
@@ -48,7 +48,7 @@ public class PowerStrike : DamageSkillBase
             return distance < _distanceToAttackTarget;
         });
 
-        
+
         _unitAnimationHandler.RunAttackAnimation(transform.position, _target.transform.position);
         _unitAnimationRunning = false;
     }

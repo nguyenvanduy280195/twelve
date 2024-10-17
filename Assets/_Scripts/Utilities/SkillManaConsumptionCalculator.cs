@@ -10,15 +10,16 @@ public class SkillManaConsumptionCalculator : PersistentSingleton<SkillManaConsu
     public float GetManaConsumption(SkillName type, int level)
     {
         var manaConsumption = -1f;
-        switch (type)
+        var iSkill = (int)type % 3;
+        switch (iSkill)
         {
-            case SkillName.Meditate:
+            case 0:
                 manaConsumption = _weightSkill1 * level;
                 break;
-            case SkillName.Fireball:
+            case 1:
                 manaConsumption = _weightSkill2 * level;
                 break;
-            case SkillName.Meteor:
+            case 2:
                 manaConsumption = _weightSkill3 * level;
                 break;
         }

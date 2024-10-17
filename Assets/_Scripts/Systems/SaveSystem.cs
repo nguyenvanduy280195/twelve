@@ -2,7 +2,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-// TODO We don't need checkpoint. The game will be saved after each battle ends
 public static class SaveSystem
 {
     private static readonly string PLAYER_SAVE_FILENAME = "player.data";

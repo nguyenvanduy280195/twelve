@@ -2491,11 +2491,11 @@ MonoBehaviour:
   _defaultUnitPrefabs:
     _serializedList:
     - Key: 0
-      Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
+      Value: {fileID: 734537960716935345, guid: a79fd90d2187f694e9450d1c37b29020, type: 3}
     - Key: 1
       Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
     - Key: 2
-      Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
+      Value: {fileID: 8394038651822192452, guid: 216d254306426fc4bacbb14182a40b67, type: 3}
     - Key: 3
       Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
   _unitPrefabs:

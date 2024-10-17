@@ -29,7 +29,7 @@ public class BattlePlayerUnit : BattleUnitBase
 
         while (true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !SkillInfoPopup.Instance.Showing)
             {
                 var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var hit = Physics2D.Raycast(worldPoint, Vector2.zero);

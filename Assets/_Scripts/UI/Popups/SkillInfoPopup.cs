@@ -5,30 +5,79 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillInfoPopup : PopupTemplate
+public class SkillInfoPopup : Singleton<SkillInfoPopup>
 {
-    [SerializeField] TextMeshProUGUI _skillName;
-    [SerializeField] Image _skillImage;
-    [SerializeField] TextMeshProUGUI _describe;
-    [SerializeField] TextMeshProUGUI _manaConsumed;
+    [SerializeField] private TextMeshProUGUI _skillName;
+    [SerializeField] private Image _skillImage;
+    [SerializeField] private TextMeshProUGUI _describe;
+    [SerializeField] private TextMeshProUGUI _manaConsumed;
+    [SerializeField] private MoveTo _content;
+    [SerializeField] private GameObject _background;
+    [SerializeField] private Vector3 _contentStartPosition;
+    private Action _onUsed;
+    private bool _showing = false;
 
-    public string SkillName { set => _skillName.text = value; }
+    public bool Showing => _showing;
 
-    public Sprite SkillImage { set => _skillImage.sprite = value; }
+    private void Start()
+    {
+        _contentStartPosition = _content.transform.localPosition;
+    }
 
-    public string SkillDescribe { set => _describe.text = value; }
+    public SkillInfoPopup SetSkillName(string value)
+    {
+        _skillName.text = value;
+        return this;
+    }
 
-    public float ManaConsumed { set => _manaConsumed.text = value.ToString(); }
+    public SkillInfoPopup SetSkillImage(Sprite value)
+    {
+        _skillImage.sprite = value;
+        return this;
+    }
 
-    public Action OnUsed;
+    public SkillInfoPopup SetSkillDescribe(string value)
+    {
+        _describe.text = value;
+        return this;
+    }
+
+    public SkillInfoPopup SetManaConsumed(float value)
+    {
+        _manaConsumed.text = value.ToString();
+        return this;
+    }
+
+    public SkillInfoPopup SetOnUsed(Action value)
+    {
+        _onUsed = value;
+        return this;
+    }
+
+    public void Show()
+    {
+        GameManager.Instance?.SetPausing(true);
+        _background?.SetActive(true);
+        _content.To = Vector3.zero;
+        _showing = true;
+    }
+
+    public void Hide()
+    {
+        GameManager.Instance?.SetPausing(false);
+        _background?.SetActive(false);
+        _content.To = _contentStartPosition;
+        _showing = false;
+    }
 
     public void OnUseButtonClick()
     {
-        OnUsed?.Invoke();
+        _onUsed?.Invoke();
 
         AudioManager.Instance?.PlayButton();
-        HidePopup();
+        Hide();
     }
 
-    public void OnCloseButtonClick() => HidePopup();
+    public void OnCloseButtonClick() => Hide();
+
 }
