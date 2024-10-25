@@ -53,7 +53,7 @@ public class BattleUnitManager : Singleton<BattleUnitManager>
         }
     }
 
-    private GameMode _GetGameMode() => ChoosingLevelUnitManager.Instance != null ? GameMode.Casual : GameMode.Battle;
+    private GameMode _GetGameMode() => UnitManager.Instance != null ? GameMode.Casual : GameMode.Battle;
 
     private IEnumerator _SetupBattleMode()
     {

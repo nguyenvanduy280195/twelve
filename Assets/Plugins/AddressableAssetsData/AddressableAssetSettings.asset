@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 228919f2a11c113468a2431913f290f2
   m_currentHash:
     serializedVersion: 2
-    Hash: 01a54903ce8859fb61a1ed75919476ad
+    Hash: 8c123be29803e2f31f77efdff86491a7
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -89,6 +89,10 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - SceneMaze
+    - SceneInBattle
+    - SceneCreatingCharacter
+    - SceneMainMenu
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 979753b8e139e784f8ec801a97c71f02, type: 2}

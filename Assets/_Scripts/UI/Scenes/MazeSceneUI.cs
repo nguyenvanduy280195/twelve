@@ -21,12 +21,12 @@ public class MazeSceneUI : MySceneBase
 
     private IEnumerator _SetupPlayer()
     {
-        yield return new WaitUntil(() => ChoosingLevelUnitManager.Instance != null);
-        yield return new WaitUntil(() => ChoosingLevelUnitManager.Instance.GetPlayer() != null);
+        yield return new WaitUntil(() => UnitManager.Instance != null);
+        yield return new WaitUntil(() => UnitManager.Instance.GetPlayer() != null);
 
-        var playerStat = ChoosingLevelUnitManager.Instance.PlayerData;
+        var playerStat = UnitManager.Instance.PlayerData;
         var position = MatchingBattleManager.Instance?.PlayerPosition ?? playerStat.Position.ToVector3();
-        ChoosingLevelUnitManager.Instance.GetPlayer().transform.position = position;
+        UnitManager.Instance.GetPlayer().transform.position = position;
     }
 
 }

@@ -50,7 +50,7 @@ public class SkillTreeElement : MonoBehaviour
 
     private void _UpdateDamage()
     {
-        var playerData = ChoosingLevelUnitManager.Instance.PlayerData;
+        var playerData = UnitManager.Instance.PlayerData;
         var damage = SkillDamageCalculator.Instance?.GetDamage(_skillData.Name, playerData.Attack, _skillData.Level) ?? -2f;
         _damage.text = damage.ToString();
     }
@@ -69,7 +69,7 @@ public class SkillTreeElement : MonoBehaviour
 
     public void OnLevelUpButtonClicked()
     {
-        var playerData = ChoosingLevelUnitManager.Instance.PlayerData;
+        var playerData = UnitManager.Instance.PlayerData;
         if (playerData.Gold >= _goldToLevelup)
         {
             playerData.Gold -= _goldToLevelup;

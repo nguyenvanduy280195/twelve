@@ -4,7 +4,7 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 {
     [SerializeField] private ScriptableEnemyStat DefaultEnemyStat;
 
-    public PlayerData PlayerStat => ChoosingLevelUnitManager.Instance.PlayerData;
+    public PlayerData PlayerStat => UnitManager.Instance.PlayerData;
     public EnemyStat EnemyStat { get; private set; }
 
     public Vector3 PlayerPosition { get; private set; }
@@ -45,15 +45,15 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
 
     private void _SavePlayerPosition()
     {
-        // PlayerStat.Position = new MyPosition(ChoosingLevelUnitManager.Instance.Player.transform.position);
+        // PlayerStat.Position = new MyPosition(UnitManager.Instance.Player.transform.position);
         // SaveSystem.SavePlayerStat(PlayerStat);
-        if (ChoosingLevelUnitManager.Instance.GetPlayer() != null)
+        if (UnitManager.Instance.GetPlayer() != null)
         {
-            PlayerPosition = ChoosingLevelUnitManager.Instance.GetPlayer().transform.position;
+            PlayerPosition = UnitManager.Instance.GetPlayer().transform.position;
         }
     }
 
-    private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance?.AddDeadEnemy(_enemyID);
+    private void _HideDeadEnemy() => UnitManager.Instance?.AddDeadEnemy(_enemyID);
 
     private EnemyStat _GetEnemyStatFromEnemy(GameObject enemy)
     {

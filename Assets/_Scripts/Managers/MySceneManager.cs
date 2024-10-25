@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class MySceneManager : Singleton<MySceneManager>
@@ -13,39 +14,14 @@ public class MySceneManager : Singleton<MySceneManager>
         _sceneTransitionAnimator = GetComponent<Animator>();
     }
 
-    public void LoadCreatingCharacterScene() => StartCoroutine(_StartLoadingCreatingCharacterScene());
-    private IEnumerator _StartLoadingCreatingCharacterScene()
+    public void LoadCreatingCharacterScene() => StartCoroutine(_StartLoadingScene("SceneCreatingCharacter"));
+    public void LoadInBattleScene() => StartCoroutine(_StartLoadingScene("SceneInBattle"));
+    public void LoadMazeScene() => StartCoroutine(_StartLoadingScene("SceneMaze"));
+    public void LoadMainMenuScene() => StartCoroutine(_StartLoadingScene("SceneMainMenu"));
+    private IEnumerator _StartLoadingScene(string sceneLabel)
     {
         _sceneTransitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("CreatingCharacter");
-    }
-
-    public void LoadInBattleScene() => StartCoroutine(_StartLoadingInBattleScene());
-
-    private IEnumerator _StartLoadingInBattleScene()
-    {
-        _sceneTransitionAnimator.SetTrigger("end");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("InBattle");
-        GameManager.Instance?.SetPausing(false);
-    }
-
-    public void LoadMazeScene() => StartCoroutine(_StartLoadingMazeScene());
-
-    private IEnumerator _StartLoadingMazeScene()
-    {
-        _sceneTransitionAnimator.SetTrigger("end");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Maze");
-    }
-
-    public void LoadMainMenuScene() => StartCoroutine(_StartLoadingMainMenuScene());
-
-    private IEnumerator _StartLoadingMainMenuScene()
-    {
-        _sceneTransitionAnimator.SetTrigger("end");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("MainMenu");
+        Addressables.LoadSceneAsync(sceneLabel);
     }
 }

@@ -76,7 +76,7 @@ public class PlayerStatPopup : PopupTemplate
 
     private void Start()
     {
-        _playerStat = ChoosingLevelUnitManager.Instance?.PlayerData ?? BattleUnitManager.Instance?.PlayerAsBattlePlayerUnit.PlayerStat;
+        _playerStat = UnitManager.Instance?.PlayerData ?? BattleUnitManager.Instance?.PlayerAsBattlePlayerUnit.PlayerStat;
 
         _InitializeContents();
 

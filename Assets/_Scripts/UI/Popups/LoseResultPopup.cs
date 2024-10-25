@@ -36,7 +36,7 @@ public class LoseResultPopup : PopupTemplate
 
     private void OnDestroy()
     {
-        var playerStat = ChoosingLevelUnitManager.Instance?.PlayerData;
+        var playerStat = UnitManager.Instance?.PlayerData;
         if (playerStat != null)
         {
             playerStat.Gold += _nGolds;

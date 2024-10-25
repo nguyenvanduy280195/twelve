@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO please implement GoldToLevelUpCalculator
 public class GoldToLevelUpCalculator : PersistentSingleton<GoldToLevelUpCalculator>
 {
     [SerializeField] private int _weightSkill1;
@@ -13,15 +12,16 @@ public class GoldToLevelUpCalculator : PersistentSingleton<GoldToLevelUpCalculat
     public int GetNextLevel(SkillName type, int level)
     {
         var gold = -1;
-        switch (type)
+        var iSkill = (int)type % 3;
+        switch (iSkill)
         {
-            case SkillName.Meditate:
+            case 0:
                 gold = _weightSkill1 * level;
                 break;
-            case SkillName.Fireball:
+            case 1:
                 gold = _weightSkill2 * level;
                 break;
-            case SkillName.Meteor:
+            case 2:
                 gold = _weightSkill3 * level;
                 break;
         }

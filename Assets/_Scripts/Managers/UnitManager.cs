@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitManager>
+public class UnitManager : PersistentSingleton<UnitManager>
 {
     [SerializeField] private List<int> _listDeadEnemyID;
 
@@ -38,7 +38,7 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
         if (_player == null && !_loadingPlayer)
         {
             _loadingPlayer = true;
-            
+
             PrefabManager.Instance.SpawnUnit(PlayerData.Class, _playerContainer, it =>
             {
                 _player = it;

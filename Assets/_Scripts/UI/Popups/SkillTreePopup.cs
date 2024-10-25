@@ -19,17 +19,17 @@ public class SkillTreePopup : PopupTemplate
 
     private void _LoadSkills()
     {
-        var choosingLevelUnitManager = ChoosingLevelUnitManager.Instance;
-        if (choosingLevelUnitManager == null)
+        var unitManager = UnitManager.Instance;
+        if (unitManager == null)
         {
-            Debug.LogWarning("[SkillTreePopup] - ChoosingLevelUnitManager is null");
+            Debug.LogWarning("[SkillTreePopup] - UnitManager is null");
             return;
         }
 
-        var playerData = choosingLevelUnitManager.PlayerData;
+        var playerData = unitManager.PlayerData;
         if (playerData == null)
         {
-            Debug.LogWarning("[SkillTreePopup] - choosingLevelUnitManager.PlayerData is null");
+            Debug.LogWarning("[SkillTreePopup] - UnitManager.PlayerData is null");
             return;
         }
 
