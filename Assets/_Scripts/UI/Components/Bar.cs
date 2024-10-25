@@ -19,11 +19,7 @@ public class Bar : MonoBehaviour
     [NonSerialized]
     public float Value;
 
-    public float MaxValue
-    {
-        get => _slider.maxValue;
-        set => _slider.maxValue = value;
-    }
+    public float MaxValue { get => _slider.maxValue; set => _slider.maxValue = value; }
 
     private void Update()
     {

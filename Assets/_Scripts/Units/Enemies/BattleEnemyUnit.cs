@@ -73,6 +73,7 @@ public class BattleEnemyUnit : BattleUnitBase
         {
             _stat = (EnemyStat)value;
             _InitializeUIUnit();
+            Initialized = true;
         }
     }
 }

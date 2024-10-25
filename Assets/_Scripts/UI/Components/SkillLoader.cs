@@ -20,7 +20,7 @@ public class SkillLoader : MonoBehaviour
     private IEnumerator _Start()
     {
         yield return new WaitUntil(() => BattleUnitManager.Instance != null);
-        yield return new WaitUntil(() => BattleUnitManager.Instance.PlayerAsBattleUnitBase != null);
+        yield return new WaitUntil(() => BattleUnitManager.Instance.Player != null);
 
         var playerUnit = BattleUnitManager.Instance.PlayerAsBattleUnitBase;
         switch (playerUnit.Stat.Class)

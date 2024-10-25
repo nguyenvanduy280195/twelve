@@ -21,6 +21,7 @@ public class ObservingPlayer : MonoBehaviour
 
     private IEnumerator _ObservePlayer()
     {
+        yield return new WaitUntil(() => ChoosingLevelUnitManager.Instance.GetPlayer() != null);
         while (true)
         {
             yield return new WaitForSeconds(_timeBreak);
@@ -56,7 +57,7 @@ public class ObservingPlayer : MonoBehaviour
 
         return null;
     }
-    private Transform _PlayerTransform => ChoosingLevelUnitManager.Instance.Player.transform;
+    private Transform _PlayerTransform => ChoosingLevelUnitManager.Instance.GetPlayer().transform;
     private bool _IsPlayerXInCameraSpace(Vector3 cameraPosition) => cameraPosition.x - _spaceX <= _PlayerTransform.position.x && _PlayerTransform.position.x < cameraPosition.x + _spaceX;
     private bool _IsPlayerYInCameraSpace(Vector3 cameraPosition) => cameraPosition.y - _spaceY <= _PlayerTransform.position.y && _PlayerTransform.position.y < cameraPosition.y + _spaceY;
 }

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  m_GroupName: Skeleton
+  m_Data:
+    m_SerializedData: []
+  m_GUID: fc54eb47f633cb04aba74cc829d182e2
+  m_SerializeEntries:
+  - m_GUID: cd65576b50310b1409f479ccc37d8226
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Without Armor.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a851f5e7715e1440bc37778ea9f6fb8
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Chain Hood Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbd6177d74e4a354e902e646f2b77e3b
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Chain Hood Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1adf2bc5dff46d64da9962cf00f8ee0f
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Chain Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a2503176234f974b9f9ee4bf259f837
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Chain Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67a9b581471534d44bac65588a769ee5
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Leather Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea59ba303e044564aabbbb8ccbedfe74
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Leather Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67b63da40ea1d4745a9d32f2649d1981
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Plate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 329ef8c0df3c19740ab01f647dc43a3b
+    m_Address: Assets/Prefabs/Units/Skeletons/Skeleton Robe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8377d093e88a5e40b90d41a419ff785
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Leather Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c52c70973375eea478c5c97c07a85c39
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Without Armor.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa902b38578896641b460c77fe6dbf0e
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Chain Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4efa48ad55f1dba44ae89631eb3a100d
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Chain Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e6f3d27b08806746a311d73158a6fbe
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Chain Hood
+      Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09877717e61dd134981199c0cc2341dc
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Chain Hood
+      Ranged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf388c4320f145d49a57a6e96701cc28
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Leather Melee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32f6f17eb14b03c448a9e07d3dcaeacc
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Plate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85afce723d43cb0408279c6616ba686e
+    m_Address: Assets/Prefabs/Units/Skeletons/InBattle/Battle Skeleton Robe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1de7ff4046be33946b8edd5ec988ccba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b0fd188e2ff9a8e41b4f28c54668bca9, type: 2}
+    - {fileID: 11400000, guid: 78fe5cba1a951d94da4bbd12d5f1d5d5, type: 2}

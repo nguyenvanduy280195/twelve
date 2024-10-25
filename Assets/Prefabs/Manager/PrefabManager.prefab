@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &33840942096240398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3536975830228278162}
+  - component: {fileID: 7065809973765637452}
+  m_Layer: 0
+  m_Name: PrefabManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3536975830228278162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33840942096240398}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7065809973765637452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33840942096240398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21fb4b69f29b5b247a4fee7bfaf7e1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleUnitPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 8394038651822192452, guid: 216d254306426fc4bacbb14182a40b67, type: 3}
+    - Key: 1
+      Value: {fileID: 28291932671114574, guid: 30fe8cbc7409239448ec39a3d41a1957, type: 3}
+    - Key: 2
+      Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
+    - Key: 3
+      Value: {fileID: 5180493612770761980, guid: fa902b38578896641b460c77fe6dbf0e, type: 3}
+    - Key: 4
+      Value: {fileID: 5180493612770761980, guid: 4efa48ad55f1dba44ae89631eb3a100d, type: 3}
+    - Key: 5
+      Value: {fileID: 5180493612770761980, guid: 8e6f3d27b08806746a311d73158a6fbe, type: 3}
+    - Key: 6
+      Value: {fileID: 5180493612770761980, guid: 09877717e61dd134981199c0cc2341dc, type: 3}
+    - Key: 7
+      Value: {fileID: 5180493612770761980, guid: bf388c4320f145d49a57a6e96701cc28, type: 3}
+    - Key: 8
+      Value: {fileID: 5180493612770761980, guid: c8377d093e88a5e40b90d41a419ff785, type: 3}
+    - Key: 9
+      Value: {fileID: 5180493612770761980, guid: 32f6f17eb14b03c448a9e07d3dcaeacc, type: 3}
+    - Key: 10
+      Value: {fileID: 5180493612770761980, guid: 85afce723d43cb0408279c6616ba686e, type: 3}
+  _battleUnitPrefabs1:
+    _serializedList:
+    - Key: 0
+      Value:
+        m_AssetGUID: 216d254306426fc4bacbb14182a40b67
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 1
+      Value:
+        m_AssetGUID: 30fe8cbc7409239448ec39a3d41a1957
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 2
+      Value:
+        m_AssetGUID: c52c70973375eea478c5c97c07a85c39
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 3
+      Value:
+        m_AssetGUID: fa902b38578896641b460c77fe6dbf0e
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 4
+      Value:
+        m_AssetGUID: 4efa48ad55f1dba44ae89631eb3a100d
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 5
+      Value:
+        m_AssetGUID: 8e6f3d27b08806746a311d73158a6fbe
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 6
+      Value:
+        m_AssetGUID: 09877717e61dd134981199c0cc2341dc
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 7
+      Value:
+        m_AssetGUID: bf388c4320f145d49a57a6e96701cc28
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 8
+      Value:
+        m_AssetGUID: c8377d093e88a5e40b90d41a419ff785
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 9
+      Value:
+        m_AssetGUID: 32f6f17eb14b03c448a9e07d3dcaeacc
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 10
+      Value:
+        m_AssetGUID: 85afce723d43cb0408279c6616ba686e
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+  _defaultUnitPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 734537960716935345, guid: a79fd90d2187f694e9450d1c37b29020, type: 3}
+    - Key: 1
+      Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
+    - Key: 2
+      Value: {fileID: 8394038651822192452, guid: 216d254306426fc4bacbb14182a40b67, type: 3}
+    - Key: 3
+      Value: {fileID: 5180493612770761980, guid: c52c70973375eea478c5c97c07a85c39, type: 3}
+  _defaultUnitPrefabs1:
+    _serializedList:
+    - Key: 0
+      Value:
+        m_AssetGUID: 216d254306426fc4bacbb14182a40b67
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 2
+      Value:
+        m_AssetGUID: 216d254306426fc4bacbb14182a40b67
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 3
+      Value:
+        m_AssetGUID: c8377d093e88a5e40b90d41a419ff785
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+  _unitPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 8394038651822192452, guid: 6c0b7699cc22dc145a2e705010835d5c, type: 3}
+    - Key: 1
+      Value: {fileID: 28291932671114574, guid: fae054e33ce66ea46b5f71e41982e2c7, type: 3}
+    - Key: 2
+      Value: {fileID: 5180493612770761980, guid: cd65576b50310b1409f479ccc37d8226, type: 3}
+  _unitPrefabs1:
+    _serializedList:
+    - Key: 0
+      Value:
+        m_AssetGUID: 6c0b7699cc22dc145a2e705010835d5c
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 1
+      Value:
+        m_AssetGUID: fae054e33ce66ea46b5f71e41982e2c7
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - Key: 2
+      Value:
+        m_AssetGUID: cd65576b50310b1409f479ccc37d8226
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0

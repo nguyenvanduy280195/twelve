@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Human
+  m_EditorClassIdentifier: 
+  m_GroupName: Human
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bf4820837680ef541bceaae555120fef
+  m_SerializeEntries:
+  - m_GUID: 6c0b7699cc22dc145a2e705010835d5c
+    m_Address: Assets/Prefabs/Units/Humans/Soldier.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fae054e33ce66ea46b5f71e41982e2c7
+    m_Address: Assets/Prefabs/Units/Humans/FireMage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 216d254306426fc4bacbb14182a40b67
+    m_Address: Assets/Prefabs/Units/Humans/InBattle/Battle Soldier.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30fe8cbc7409239448ec39a3d41a1957
+    m_Address: Assets/Prefabs/Units/Humans/InBattle/Battle FireMage.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a79fd90d2187f694e9450d1c37b29020
+    m_Address: Assets/Prefabs/Units/Humans/InBattle/Battle Human.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1de7ff4046be33946b8edd5ec988ccba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 769893fe3990b474db871810ed72277d, type: 2}
+    - {fileID: 11400000, guid: 6d9f3138793553644970fa00d51fbcb1, type: 2}

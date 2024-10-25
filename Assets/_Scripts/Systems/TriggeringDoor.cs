@@ -15,9 +15,12 @@ public class TriggeringDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == ChoosingLevelUnitManager.Instance.Player)
+        if (ChoosingLevelUnitManager.Instance.GetPlayer() != null)
         {
-            Camera.main.GetComponent<MovingCamera>().Target = _newCameraPosition;
+            if (collision.gameObject == ChoosingLevelUnitManager.Instance.GetPlayer())
+            {
+                Camera.main.GetComponent<MovingCamera>().Target = _newCameraPosition;
+            }
         }
     }
 }

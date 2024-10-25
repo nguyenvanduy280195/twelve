@@ -47,7 +47,10 @@ public class MatchingBattleManager : PersistentSingleton<MatchingBattleManager>
     {
         // PlayerStat.Position = new MyPosition(ChoosingLevelUnitManager.Instance.Player.transform.position);
         // SaveSystem.SavePlayerStat(PlayerStat);
-        PlayerPosition = ChoosingLevelUnitManager.Instance.Player.transform.position;
+        if (ChoosingLevelUnitManager.Instance.GetPlayer() != null)
+        {
+            PlayerPosition = ChoosingLevelUnitManager.Instance.GetPlayer().transform.position;
+        }
     }
 
     private void _HideDeadEnemy() => ChoosingLevelUnitManager.Instance?.AddDeadEnemy(_enemyID);

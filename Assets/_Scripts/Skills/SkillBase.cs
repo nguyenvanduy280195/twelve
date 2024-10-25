@@ -29,7 +29,7 @@ public abstract class SkillBase : MonoBehaviour
         }
     }
 
-    public float ManaConsumed => SkillManaConsumptionCalculator.Instance.GetManaConsumption(_SkillData.Name, _SkillData.Level);
+    public float ManaConsumed => SkillManaConsumptionCalculator.Instance?.GetManaConsumption(_SkillData.Name, _SkillData.Level) ?? 0;
 
     public void Execute(BattleUnitBase target, Action onExecuted, Action onDone)
     {

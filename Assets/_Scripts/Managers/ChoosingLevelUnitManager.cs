@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,22 +31,22 @@ public class ChoosingLevelUnitManager : PersistentSingleton<ChoosingLevelUnitMan
         }
     }
 
-    public GameObject Player
+    private bool _loadingPlayer = false;
+
+    public GameObject GetPlayer()
     {
-        get
+        if (_player == null && !_loadingPlayer)
         {
-            if (_player == null)
+            _loadingPlayer = true;
+            
+            PrefabManager.Instance.SpawnUnit(PlayerData.Class, _playerContainer, it =>
             {
-                _player = UnitFactory.CreateUnit(PlayerData.Class, _playerContainer);
-            }
-
-            if (_player == null)
-            {
-                _player = Instantiate(PrefabManager.Instance.GetDefaultUnitPrefab(UnitDefaultType.Human), _playerContainer);
-            }
-
-            return _player;
+                _player = it;
+                _loadingPlayer = false;
+            });
         }
+
+        return _player;
     }
 
     public List<GameObject> Enemies { get; private set; }

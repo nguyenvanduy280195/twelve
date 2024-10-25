@@ -65,9 +65,10 @@ public abstract class BattleUnitBase : MonoBehaviour
     }
     public int nEffectTurns;
     public float DamageBuff { set; private get; } = 1f;
+    public bool Initialized { get; protected set; } = false;
     protected virtual float HP { get => UIUnit.HP.Value; set => UIUnit.HP.Value = value; }
     protected virtual float Mana { get => UIUnit.Mana.Value; set => UIUnit.Mana.Value = value; }
-    protected virtual float Stamina { get => UIUnit.Stamina.Value; set => UIUnit.Stamina.Value = value; }
+    public virtual float Stamina { get => UIUnit.Stamina.Value; set => UIUnit.Stamina.Value = value; }
     #endregion
 
     #region ============= Methods for Inheriting =============
@@ -130,15 +131,12 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
     }
 
-    public void Attack(BattleUnitBase target, float bonusFactor)
-    {
-        _attacker.SetDamage(Stat.Attack * bonusFactor)
-                .SetTargetUnit(target)
-                .SetMoveSpeed(_moveSpeed)
-                .SetBulletSpeed(_bulletSpeed)
-                .SetAttackPosition(UnitAttackPosition)
-                .Attack();
-    }
+    public void Attack(BattleUnitBase target, float bonusFactor) => _attacker.SetDamage(Stat.Attack * bonusFactor)
+                                                                            .SetTargetUnit(target)
+                                                                            .SetMoveSpeed(_moveSpeed)
+                                                                            .SetBulletSpeed(_bulletSpeed)
+                                                                            .SetAttackPosition(UnitAttackPosition)
+                                                                            .Attack();
 
     public void TakeHit(float damage)
     {
@@ -166,6 +164,7 @@ public abstract class BattleUnitBase : MonoBehaviour
         }
         else
         {
+            Debug.Log($"[BattleUnitBase] {gameObject.tag} is Dead");
             State = UnitState.Dead;
         }
     }
@@ -196,8 +195,6 @@ public abstract class BattleUnitBase : MonoBehaviour
     {
         _InitializeUIUnit();
 
-        Stamina = Stat.StaminaMax;
-
         _attacker = GetComponent<IAttacker>();
 
         _unitPosition = transform.position;
@@ -219,10 +216,6 @@ public abstract class BattleUnitBase : MonoBehaviour
     {
         while (true)
         {
-            if (State != UnitState.Idle)
-            {
-                //Debug.Log($"[{gameObject.tag}] BattleUnitBase.UnitState = {State}");
-            }
             yield return _SetState(State);
         }
     }
@@ -233,8 +226,6 @@ public abstract class BattleUnitBase : MonoBehaviour
 
     private IEnumerator _SetState(UnitState state)
     {
-        //yield return new WaitUntil(() => state != UnitState.Idle);
-
         switch (state)
         {
             case UnitState.Idle:

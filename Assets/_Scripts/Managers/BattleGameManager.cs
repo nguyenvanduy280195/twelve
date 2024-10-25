@@ -200,7 +200,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
         {
             yield return new WaitUntil(() => !GameManager.Instance?.IsPausing() ?? _resuming);
 
-            Debug.Log($"_gameState = {_gameState}");
+            Debug.Log($"[BattleGameManager] _gameState = {_gameState}");
 
             yield return _SetState(_gameState);
 
@@ -287,6 +287,7 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private IEnumerator _CreateConsumingStaminaWorker()
     {
+        yield return new WaitUntil(() => _currentUnit?.Initialized ?? false);
         while (true)
         {
             _currentUnit?.ConsumeStamina();
@@ -768,6 +769,8 @@ public class BattleGameManager : Singleton<BattleGameManager>
 
     private IEnumerator _HandleStarting()
     {
+        yield return new WaitUntil(() => BattleUnitManager.Instance.Player != null && BattleUnitManager.Instance.Enemy != null);
+
         _matchedItems = new List<GameObject>();
 
         MyData = GetComponent<BattleData>();
@@ -784,7 +787,6 @@ public class BattleGameManager : Singleton<BattleGameManager>
         InitializeItems(MyData.inputFilename);
 
         _ChooseUnitInFirstTurn();
-        yield return null;
     }
 
     #endregion

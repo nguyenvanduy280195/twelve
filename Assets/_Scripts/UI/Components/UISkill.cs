@@ -32,31 +32,34 @@ public class UISkill : MonoBehaviour
         var playerStat = player.PlayerStat;
         var skillData = playerStat.SkillData[_iSkill];
 
-        SkillInfoPopup.Instance?
-                    .SetSkillName(skillData.Name.ToString())
-                    .SetSkillImage(Resources.Load<Sprite>(skillData.IconPath))
-                    .SetSkillDescribe(skillData.Describe)
-                    .SetManaConsumed(SkillManaConsumptionCalculator.Instance.GetManaConsumption(skillData.Name, skillData.Level))
-                    .SetOnUsed(() =>
-                    {
-                        if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
-                        {
-                            var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
-                            BattleGameManager.Instance.WaitingForSkill = true;
-                            Action onSkillSucceeded = () => _button.interactable = false;
-                            Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
-                            Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
-                            Action onSkillDone = () => _button.interactable = true;
+        var popup = SkillInfoPopup.Instance;
+        if (popup is not null)
+        {
+            popup.SetSkillName(skillData.Name.ToString());
+            popup.SetSkillImage(Resources.Load<Sprite>(skillData.IconPath));
+            popup.SetSkillDescribe(skillData.Describe);
+            popup.SetManaConsumed(SkillManaConsumptionCalculator.Instance?.GetManaConsumption(skillData.Name, skillData.Level) ?? 0);
+            popup.SetOnUsed(() =>
+            {
+                if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
+                {
+                    var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
+                    BattleGameManager.Instance.WaitingForSkill = true;
+                    Action onSkillSucceeded = () => _button.interactable = false;
+                    Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
+                    Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
+                    Action onSkillDone = () => _button.interactable = true;
 
-                            player.ExecuteSkill(_iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
-                        }
-                        else
-                        {
-                            AlertSnackbar.Instance?
-                                        .SetText("This is not player's turn")
-                                        .Show();
-                        }
-                    })
-                    .Show();
+                    player.ExecuteSkill(_iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
+                }
+                else
+                {
+                    AlertSnackbar.Instance?
+                                .SetText("This is not player's turn")
+                                .Show();
+                }
+            });
+            popup.Show();
+        }
     }
 }

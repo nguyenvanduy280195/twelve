@@ -5,6 +5,38 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Builder pattern is too difficult to debug
+// For details:
+// In case the program occurs an exception, it only alerts generally
+// For example:
+// ----------------------------------------
+// SkillInfoPopup.Instance? 
+// .SetSkillName(skillData.Name.ToString())
+// .SetSkillImage(Resources.Load<Sprite>(skillData.IconPath))
+// .SetSkillDescribe(skillData.Describe)
+// .SetManaConsumed(SkillManaConsumptionCalculator.Instance.GetManaConsumption(skillData.Name, skillData.Level))
+// .SetOnUsed(() =>
+// {
+//     if (BattleGameManager.Instance?.IsPlayerTurn ?? false)
+//     {
+//         var enemy = BattleUnitManager.Instance.EnemyAsBattleUnitBase;
+//         BattleGameManager.Instance.WaitingForSkill = true;
+//         Action onSkillSucceeded = () => _button.interactable = false;
+//         Action onSkillFailed = () => BattleGameManager.Instance.WaitingForSkill = false;
+//         Action onSkillExecuted = () => BattleGameManager.Instance.WaitingForSkill = false;
+//         Action onSkillDone = () => _button.interactable = true;
+//         player.ExecuteSkill(_iSkill, enemy, onSkillSucceeded, onSkillFailed, onSkillExecuted, onSkillDone);
+//     }
+//     else
+//     {
+//         AlertSnackbar.Instance?
+//                     .SetText("This is not player's turn")
+//                     .Show();
+//     }
+// })
+// .Show();
+// ----------------------------------------------------
+// if SkillManaConsumptionCalculator.Instance is null, it just alerts at the first dot
 public class SkillInfoPopup : Singleton<SkillInfoPopup>
 {
     [SerializeField] private TextMeshProUGUI _skillName;
@@ -24,34 +56,29 @@ public class SkillInfoPopup : Singleton<SkillInfoPopup>
         _contentStartPosition = _content.transform.localPosition;
     }
 
-    public SkillInfoPopup SetSkillName(string value)
+    public void SetSkillName(string value)
     {
         _skillName.text = value;
-        return this;
     }
 
-    public SkillInfoPopup SetSkillImage(Sprite value)
+    public void SetSkillImage(Sprite value)
     {
         _skillImage.sprite = value;
-        return this;
     }
 
-    public SkillInfoPopup SetSkillDescribe(string value)
+    public void SetSkillDescribe(string value)
     {
         _describe.text = value;
-        return this;
     }
 
-    public SkillInfoPopup SetManaConsumed(float value)
+    public void SetManaConsumed(float value)
     {
         _manaConsumed.text = value.ToString();
-        return this;
     }
 
-    public SkillInfoPopup SetOnUsed(Action value)
+    public void SetOnUsed(Action value)
     {
         _onUsed = value;
-        return this;
     }
 
     public void Show()

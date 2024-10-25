@@ -77,7 +77,7 @@ public class BattlePlayerUnit : BattleUnitBase
 
         UIUnit.HP.Value = PlayerStat.HP;
         UIUnit.Mana.Value = PlayerStat.Mana;
-        UIUnit.Stamina.Value = PlayerStat.Stamina;
+        UIUnit.Stamina.Value = PlayerStat.StaminaMax;
     }
     
     public override UnitData Stat
@@ -87,6 +87,7 @@ public class BattlePlayerUnit : BattleUnitBase
         {
             _stat = (PlayerData)value;
             _InitializeUIUnit();
+            Initialized = true;
         }
     }
     protected override float HP
@@ -107,7 +108,7 @@ public class BattlePlayerUnit : BattleUnitBase
         }
     }
 
-    protected override float Stamina
+    public override float Stamina
     {
         set
         {

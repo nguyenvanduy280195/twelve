@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class MazeSceneUI : MySceneBase
@@ -14,21 +15,18 @@ public class MazeSceneUI : MySceneBase
 
     private void Start()
     {
-        _SetupPlayer();
+        StartCoroutine(_SetupPlayer());
         OnStarted?.Invoke();
     }
 
-    private void _SetupPlayer()
+    private IEnumerator _SetupPlayer()
     {
-        var choosingLevelUnitManager = ChoosingLevelUnitManager.Instance;
-        if (choosingLevelUnitManager != null)
-        {
-            var player = choosingLevelUnitManager.Player;
-            var playerStat = choosingLevelUnitManager.PlayerData;
-            var position = MatchingBattleManager.Instance?.PlayerPosition ?? playerStat.Position.ToVector3();
-            player.transform.position = position;
-        }
+        yield return new WaitUntil(() => ChoosingLevelUnitManager.Instance != null);
+        yield return new WaitUntil(() => ChoosingLevelUnitManager.Instance.GetPlayer() != null);
 
+        var playerStat = ChoosingLevelUnitManager.Instance.PlayerData;
+        var position = MatchingBattleManager.Instance?.PlayerPosition ?? playerStat.Position.ToVector3();
+        ChoosingLevelUnitManager.Instance.GetPlayer().transform.position = position;
     }
 
 }
